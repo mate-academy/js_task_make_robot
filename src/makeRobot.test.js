@@ -5,7 +5,7 @@ const makeRobot = require('./makeRobot');
 
 describe('sum', () => {
   it('You should return created robot in your function', function() {
-    const robot = makeRobot('Joy', 5, 31);
+    const robot = makeRobot('Joy', 5, 1);
 
     expect(robot).toBeInstanceOf(Object);
   });
