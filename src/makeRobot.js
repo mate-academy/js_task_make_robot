@@ -59,33 +59,33 @@ function makeRobot(name, wheels, version) {
     goBack(value = 1) {
       if (value >= 0) {
         this.coords.y -= value;
-
-        return this;
       }
+
+      return this;
     },
 
     goForward(value = 1) {
       if (value >= 0) {
         this.coords.y += value;
-
-        return this;
       }
+
+      return this;
     },
 
     goLeft(value = 1) {
       if (value >= 0) {
         this.coords.x -= value;
-
-        return this;
       }
+
+      return this;
     },
 
     goRight(value = 1) {
       if (value >= 0) {
         this.coords.x += value;
-
-        return this;
       }
+
+      return this;
     },
 
     evacuate() {
