@@ -92,7 +92,7 @@ function makeRobot(name, wheels, version) {
       this.coords.x = 1400;
       this.coords.y = 500;
 
-      return this.coords;
+      return this;
     },
   };
 
