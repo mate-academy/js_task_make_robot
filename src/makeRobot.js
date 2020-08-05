@@ -58,27 +58,35 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(step = 1) {
-      this.coords.y += step;
+      if (step > 0) {
+        this.coords.y += step;
 
-      return this;
+        return this;
+      }
     },
 
     goBack(step = 1) {
-      this.coords.y -= step;
+      if (step > 0) {
+        this.coords.y -= step;
 
-      return this;
+        return this;
+      }
     },
 
     goRight(step = 1) {
-      this.coords.x += step;
+      if (step > 0) {
+        this.coords.x += step;
 
-      return this;
+        return this;
+      }
     },
 
     goLeft(step = 1) {
-      this.coords.x -= step;
+      if (step > 0) {
+        this.coords.x -= step;
 
-      return this;
+        return this;
+      }
     },
 
     evacuate() {
