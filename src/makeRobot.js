@@ -46,25 +46,25 @@ function makeRobot(name, wheels, version) {
     y: 0,
 
     goRight(x = 1) {
-      this.x = this.x + x;
+      this.x += x;
 
       return this;
     },
 
     goLeft(x = 1) {
-      this.x = this.x - x;
+      this.x -= x;
 
       return this;
     },
 
     goBack(y = 1) {
-      this.y = this.y - y;
+      this.y -= y;
 
       return this;
     },
 
     goForward(y = 1) {
-      this.y = this.y + y;
+      this.y += y;
 
       return this;
     },
