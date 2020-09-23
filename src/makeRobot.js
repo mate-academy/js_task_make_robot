@@ -38,7 +38,92 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
-}
+  const robot = {
+    'name': name,
+    'chip version': version,
+    'wheels': wheels,
+    'x': 0,
+    'y': 0,
+
+    goForward(step) {
+      if (step > 0) {
+        this.y = this.y + step;
+
+        return this;
+      } else if (step === undefined) {
+        this.y++;
+
+        return this;
+      } else {
+        return this;
+      };
+    },
+
+    goBack(step) {
+      if (step > 0) {
+        this.y = this.y - step;
+
+        return this;
+      } else if (step === undefined) {
+        this.y--;
+
+        return this;
+      } else {
+        return this;
+      }
+    },
+
+    goRight(step) {
+      if (step > 0) {
+        this.x = this.x + step;
+
+        return this;
+      } else if (step === undefined) {
+        this.x++;
+
+        return this;
+      } else {
+        return this;
+      }
+    },
+
+    goLeft(step) {
+      if (step > 0) {
+        this.x = this.x - step;
+
+        return this;
+      } else if (step === undefined) {
+        this.x--;
+
+        return this;
+      } else {
+        return this;
+      }
+    },
+
+    get location() {
+      return `${this.name}: x=${this.x}, y=${this.y}`;
+    },
+
+    get info() {
+    // eslint-disable-next-line max-len
+      return `name: ${this.name}, chip version: ${this['chip version']}, wheels: ${this.wheels}`;
+    },
+
+    get coords() {
+      return {
+        x: this.x,
+        y: this.y,
+      };
+    },
+
+    evacuate() {
+      this.x = 1400;
+      this.y = 500;
+    },
+  };
+
+  return robot;
+};
 
 module.exports = makeRobot;
