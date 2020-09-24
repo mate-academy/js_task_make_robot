@@ -1,6 +1,6 @@
 'use strict';
 
-/**
+/*
  * Mate Robot Factory impressed by your success, they are ready to accept
  * you into the Tech team, you will learn to program robots together
  * with the team! Are you in business As a test task, you will need to
@@ -38,7 +38,55 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name: name,
+    wheels: wheels,
+    version: version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      return 'name: ' + (this.name) + ', chip version: ' + (this.version)
+      + ', wheels: ' + (this.wheels);
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    goBack(value = 1) {
+      this.coords.y -= value;
+
+      return this;
+    },
+
+    goForward(value = 1) {
+      this.coords.y += value;
+
+      return this;
+    },
+
+    goLeft(value = 1) {
+      this.coords.x -= value;
+
+      return this;
+    },
+
+    goRight(value = 1) {
+      this.coords.x += value;
+
+      return this;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
