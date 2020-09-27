@@ -47,7 +47,7 @@ function makeRobot(name, wheels, version) {
       x: 0,
       y: 0,
     },
-
+    // max-len changed to 90
     get info() {
       return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
     },
