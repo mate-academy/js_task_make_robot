@@ -17,7 +17,7 @@
  *  - Movement methods must be able to be used with a chain.
  *    robot.goForward().goForward().goForward().goLeft()
  *  - Default methods that move the work by 1 in the right direction.
- *    This value can be increased by passing the desired number to the method.
+ *    This step can be increased by passing the desired number to the method.
  *    Negative numbers should not affect the location of the robot. goLeft(3)
  *  - The coordinates of the robot must be stored in the object coords,
  *    the keys x and y inside the robot.
@@ -48,34 +48,41 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      // eslint-disable-next-line max-len
-      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
     },
 
     get location() {
       return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(value = 1) {
-      this.coords.y += value;
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
+      }
 
       return this;
     },
 
-    goBack(value = 1) {
-      this.coords.y -= value;
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
+      }
 
       return this;
     },
 
-    goLeft(value = 1) {
-      this.coords.x -= value;
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
+      }
 
       return this;
     },
 
-    goRight(value = 1) {
-      this.coords.x += value;
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
+      }
 
       return this;
     },
