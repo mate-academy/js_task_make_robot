@@ -41,23 +41,26 @@
 function makeRobot(name, wheels, version) {
   const robot = {
     name,
-    wheels,
     version,
+    wheels,
     coords: {
       x: 0,
       y: 0,
     },
+
     get info() {
       // eslint-disable-next-line max-len
-      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
     },
 
     get location() {
-      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+      const { x, y } = this.coords;
+
+      return `${name}: x=${x}, y=${y}`;
     },
 
     goForward(step = 1) {
-      if (typeof step === 'number' && step > 0) {
+      if (step > 0) {
         this.coords.y += step;
       }
 
@@ -65,7 +68,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goBack(step = 1) {
-      if (typeof step === 'number' && step > 0) {
+      if (step > 0) {
         this.coords.y -= step;
       }
 
@@ -73,7 +76,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goRight(step = 1) {
-      if (typeof step === 'number' && step > 0) {
+      if (step > 0) {
         this.coords.x += step;
       }
 
@@ -81,7 +84,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goLeft(step = 1) {
-      if (typeof step === 'number' && step > 0) {
+      if (step > 0) {
         this.coords.x -= step;
       }
 
