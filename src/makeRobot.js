@@ -55,42 +55,38 @@ function makeRobot(name, wheels, version) {
     goLeft(number) {
       if (isNaN(number)) {
         this.coords.x--;
-
-        return robot;
+      } else {
+        this.coords.x -= number;
       }
-      this.coords.x -= number;
 
-      return robot;
+      return this;
     },
     goRight(number) {
       if (isNaN(number)) {
         this.coords.x++;
-
-        return robot;
+      } else {
+        this.coords.x += number;
       }
-      this.coords.x += number;
 
-      return robot;
+      return this;
     },
     goBack(number) {
       if (isNaN(number)) {
         this.coords.y--;
-
-        return robot;
+      } else {
+        this.coords.y -= number;
       }
-      this.coords.y -= number;
 
-      return robot;
+      return this;
     },
     goForward(number) {
       if (isNaN(number)) {
         this.coords.y++;
-
-        return robot;
+      } else {
+        this.coords.y += number;
       }
-      this.coords.y += number;
 
-      return robot;
+      return this;
     },
 
     get info() {
@@ -110,5 +106,4 @@ function makeRobot(name, wheels, version) {
 
   return robot;
 }
-
 module.exports = makeRobot;
