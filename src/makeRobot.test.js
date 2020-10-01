@@ -70,6 +70,17 @@ describe('sum', () => {
     expect(actual).toBe(expected);
   });
 
+  it('Negative numbers should not affect the location.', function() {
+    const robot = makeRobot('Joy', 5, 31);
+
+    robot.goBack(-1).goForward(-1).goLeft(-1).goRight(-1);
+
+    const actual = robot.location;
+    const expected = 'Joy: x=0, y=0';
+
+    expect(actual).toBe(expected);
+  });
+
   it('Robot\'s coordinates must be '
     + 'saved in the robot in coords property with x and y keys', function() {
     const robot = makeRobot('Joy', 5, 31);
