@@ -73,7 +73,7 @@ describe('sum', () => {
   it('Negative numbers should not affect the location.', function() {
     const robot = makeRobot('Joy', 5, 31);
 
-    robot.goBack(-1).goForward(-1).goLeft(-1).goRight(-1);
+    robot.goBack(-2).goForward(-1).goLeft(-3).goRight(-2);
 
     const actual = robot.location;
     const expected = 'Joy: x=0, y=0';
