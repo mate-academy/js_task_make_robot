@@ -48,13 +48,134 @@ describe('sum', () => {
     expect(robot.goForward()).toBe(robot);
   });
 
-  it('When the robot moves, his coordinates must change.', function() {
+  it('When the robot moves back, his coordinates must change.', function() {
     const robot = makeRobot('Joy', 5, 31);
 
-    robot.goBack().goForward().goForward().goLeft().goLeft().goRight();
+    robot.goBack();
 
     const actual = robot.location;
-    const expected = 'Joy: x=-1, y=1';
+    const expected = 'Joy: x=0, y=-1';
+
+    expect(actual).toBe(expected);
+  });
+
+  it('When the robot moves forward, his coordinates must change.', function() {
+    const robot = makeRobot('Joy', 5, 31);
+
+    robot.goForward();
+
+    const actual = robot.location;
+    const expected = 'Joy: x=0, y=1';
+
+    expect(actual).toBe(expected);
+  });
+
+  it('When the robot moves left, his coordinates must change.', function() {
+    const robot = makeRobot('Joy', 5, 31);
+
+    robot.goLeft();
+
+    const actual = robot.location;
+    const expected = 'Joy: x=-1, y=0';
+
+    expect(actual).toBe(expected);
+  });
+
+  it('When the robot moves right, his coordinates must change.', function() {
+    const robot = makeRobot('Joy', 5, 31);
+
+    robot.goRight();
+
+    const actual = robot.location;
+    const expected = 'Joy: x=1, y=0';
+
+    expect(actual).toBe(expected);
+  });
+
+  it('Robot\'s moves forward could be increased.', function() {
+    const robot = makeRobot('Joy', 5, 31);
+
+    robot.goForward(2);
+
+    const actual = robot.location;
+    const expected = 'Joy: x=0, y=2';
+
+    expect(actual).toBe(expected);
+  });
+
+  it('Robot\'s moves back could be increased.', function() {
+    const robot = makeRobot('Joy', 5, 31);
+
+    robot.goBack(2);
+
+    const actual = robot.location;
+    const expected = 'Joy: x=0, y=-2';
+
+    expect(actual).toBe(expected);
+  });
+
+  it('Robot\'s moves left could be increased.', function() {
+    const robot = makeRobot('Joy', 5, 31);
+
+    robot.goLeft(2);
+
+    const actual = robot.location;
+    const expected = 'Joy: x=-2, y=0';
+
+    expect(actual).toBe(expected);
+  });
+
+  it('Robot\'s moves right could be increased.', function() {
+    const robot = makeRobot('Joy', 5, 31);
+
+    robot.goRight(2);
+
+    const actual = robot.location;
+    const expected = 'Joy: x=2, y=0';
+
+    expect(actual).toBe(expected);
+  });
+
+  it('Negative number to go back should not affect the location.', function() {
+    const robot = makeRobot('Joy', 5, 31);
+
+    robot.goBack(-1);
+
+    const actual = robot.location;
+    const expected = 'Joy: x=0, y=0';
+
+    expect(actual).toBe(expected);
+  });
+
+  it('Negative number to go forw. should not affect the location.', function() {
+    const robot = makeRobot('Joy', 5, 31);
+
+    robot.goForward(-1);
+
+    const actual = robot.location;
+    const expected = 'Joy: x=0, y=0';
+
+    expect(actual).toBe(expected);
+  });
+
+  it('Negative number to go left should not affect the location.', function() {
+    const robot = makeRobot('Joy', 5, 31);
+
+    robot.goLeft(-1);
+
+    const actual = robot.location;
+    const expected = 'Joy: x=0, y=0';
+
+    expect(actual).toBe(expected);
+  });
+
+  it('Negative number to go right should not affect the location.', function() {
+    const robot = makeRobot('Joy', 5, 31);
+
+    robot.goRight(-1);
+
+    const actual = robot.location;
+    const expected = 'Joy: x=0, y=0';
 
     expect(actual).toBe(expected);
   });
@@ -62,10 +183,10 @@ describe('sum', () => {
   it('Robot\'s moves must be able to pass step value', function() {
     const robot = makeRobot('Joy', 5, 31);
 
-    robot.goBack(3).goForward(7).goForward(2).goLeft(3).goLeft(7).goRight();
+    robot.goBack(1).goForward(17).goForward(-1).goLeft(3).goLeft(7).goRight();
 
     const actual = robot.location;
-    const expected = 'Joy: x=-9, y=6';
+    const expected = 'Joy: x=-9, y=16';
 
     expect(actual).toBe(expected);
   });
