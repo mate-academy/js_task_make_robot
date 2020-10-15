@@ -46,11 +46,8 @@ function makeRobot(name, wheels, version) {
       x: 0,
       y: 0,
     },
-    nameString: `name: ${name}`,
-    versionString: `chip version: ${version}`,
-    wheelsString: `wheels: ${wheels}`,
     get info() {
-      return `${this.nameString}, ${this.versionString}, ${this.wheelsString}`;
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
     },
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
