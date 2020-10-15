@@ -50,7 +50,7 @@ function makeRobot(name, wheels, version) {
       return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
     },
     get location() {
-      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
     goRight(steps = 1) {
       if (steps < 0) {
