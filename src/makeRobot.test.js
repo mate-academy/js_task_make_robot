@@ -44,7 +44,7 @@ describe('sum', () => {
 
     expect(robot.goRight()).toBe(robot);
     expect(robot.goLeft()).toBe(robot);
-    expect(robot.goBack()).toBe(robot);
+    expect(robot.goLeft()).toBe(robot);
     expect(robot.goForward()).toBe(robot);
   });
 
