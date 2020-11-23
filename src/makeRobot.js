@@ -44,53 +44,47 @@ function makeRobot(name, wheels, version) {
     wheels: wheels,
     version: version,
     get info() {
-      return 'name: ' + this.name + ', chip version: ' + this.version
-      + ', wheels: ' + this.wheels;
+      return `name: ${this.name}, ` + `chip version: ${this.version}, `
+      + `wheels: ${this.wheels}`;
     },
-    x: 0,
-    y: 0,
+    coords: {
+      x: 0,
+      y: 0,
+    },
     get location() {
-      return `${this.name}: x=${this.x}, y=${this.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
     goRight(x = 1) {
       if (x > 0) {
-        this.x = this.x + x;
+        this.coords.x += x;
       }
 
       return this;
     },
     goLeft(x = 1) {
       if (x > 0) {
-        this.x = this.x - x;
+        this.coords.x -= x;
       }
 
       return this;
     },
     goBack(y = 1) {
       if (y > 0) {
-        this.y = this.y - y;
+        this.coords.y -= y;
       }
 
       return this;
     },
     goForward(y = 1) {
       if (y > 0) {
-        this.y = this.y + y;
+        this.coords.y += y;
       }
 
       return this;
     },
-    get coords() {
-      return {
-        x: this.x,
-        y: this.y,
-      };
-    },
     evacuate() {
-      this.x = 1400;
-      this.y = 500;
-
-      return this.coords;
+      this.coords.x = 1400;
+      this.coords.y = 500;
     },
   };
 
