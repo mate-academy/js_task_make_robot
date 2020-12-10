@@ -55,7 +55,7 @@ function makeRobot(name, wheels, version) {
       if (value < 0) {
         return robot;
       }
-      this.y = this.y + value;
+      this.y += value;
 
       return robot;
     },
@@ -64,7 +64,7 @@ function makeRobot(name, wheels, version) {
       if (value < 0) {
         return robot;
       }
-      this.y = this.y - value;
+      this.y -= value;
 
       return robot;
     },
@@ -73,7 +73,7 @@ function makeRobot(name, wheels, version) {
       if (value < 0) {
         return robot;
       }
-      this.x = this.x + value;
+      this.x += value;
 
       return robot;
     },
@@ -82,7 +82,7 @@ function makeRobot(name, wheels, version) {
       if (value < 0) {
         return robot;
       }
-      this.x = this.x - value;
+      this.x -= value;
 
       return robot;
     },
