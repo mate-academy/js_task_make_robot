@@ -31,14 +31,88 @@
  * @property {number} version
  * @property {function} info
  *
- * @param {string} name
- * @param {number} wheels
- * @param {number} version
+ * @param {string} name name of the robot.
+ * @param {number} wheels number of wheels the robot has.
+ * @param {number} version version of the robot.
  *
- * @return {object}
+ * @return {object} the robot object.
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  return {
+    name: name,
+    wheels: wheels,
+    version: version,
+
+    get info() {
+      return `name: ${this.name}, chip version: ${this.version},`
+      + ` wheels: ${this.wheels}`;
+    },
+
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    /**
+     * Move the robot forwards.
+     * @param {number} distance distance to move the robot.
+     */
+    goForward(distance = 1) {
+      if (distance > 0) {
+        this.coords.y += distance;
+      }
+
+      return this;
+    },
+
+    /**
+     * Move the robot backwards.
+     * @param {number} distance distance to move the robot.
+     */
+    goBack(distance = 1) {
+      if (distance > 0) {
+        this.coords.y -= distance;
+      }
+
+      return this;
+    },
+
+    /**
+     * Move the robot to the right.
+     * @param {number} distance distance to move the robot.
+     */
+    goRight(distance = 1) {
+      if (distance > 0) {
+        this.coords.x += distance;
+      }
+
+      return this;
+    },
+
+    /**
+     * Move the robot to the left.
+     * @param {number} distance distance to move the robot.
+     */
+    goLeft(distance = 1) {
+      if (distance > 0) {
+        this.coords.x -= distance;
+      }
+
+      return this;
+    },
+
+    /**
+     * Evacuates the robot to the service centre, located at x: 1400 and y: 500.
+     */
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+  };
 }
 
 module.exports = makeRobot;
