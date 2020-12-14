@@ -39,9 +39,9 @@
  */
 function makeRobot(name, wheels, version) {
   return {
-    name: name,
-    wheels: wheels,
-    version: version,
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
@@ -58,43 +58,35 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(f = 1) {
-      if (f >= 0) {
+      if (f > 0) {
         this.coords.y += f;
+      }
 
-        return this;
-      } else {
-        return this;
-      };
+      return this;
     },
 
     goBack(b = 1) {
-      if (b >= 0) {
+      if (b > 0) {
         this.coords.y -= b;
+      }
 
-        return this;
-      } else {
-        return this;
-      };
+      return this;
     },
 
     goRight(r = 1) {
       if (r >= 0) {
         this.coords.x += r;
+      }
 
-        return this;
-      } else {
-        return this;
-      };
+      return this;
     },
 
     goLeft(l = 1) {
       if (l >= 0) {
         this.coords.x -= l;
+      }
 
-        return this;
-      } else {
-        return this;
-      };
+      return this;
     },
 
     evacuate() {
