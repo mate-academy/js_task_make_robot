@@ -42,6 +42,10 @@ function makeRobot(name, wheels, version) {
     name: name,
     wheels: wheels,
     version: version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
 
     get info() {
       const alias = this.name;
@@ -49,11 +53,6 @@ function makeRobot(name, wheels, version) {
       const roboWheels = this.wheels;
 
       return `name: ${alias}, chip version: ${model}, wheels: ${roboWheels}`;
-    },
-
-    coords: {
-      x: 0,
-      y: 0,
     },
 
     goForward(n = 1) {
