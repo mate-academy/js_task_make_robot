@@ -42,8 +42,10 @@ function makeRobot(name, wheels, version) {
     name: name,
     wheels: wheels,
     version: version,
-    x: 0,
-    y: 0,
+    coords: {
+      x: 0,
+      y: 0,
+    },
 
     get info() {
       return `name: ${this.name}, chip version: ${this.version}, `
@@ -51,55 +53,44 @@ function makeRobot(name, wheels, version) {
     },
 
     get location() {
-      return `${this.name}: x=${this.x}, y=${this.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goForward(y = 1) {
-      if (y < 0) {
-        return this;
+      if (y > 0) {
+        this.coords.y += y;
       }
-      this.y += y;
 
       return this;
     },
 
     goBack(y = 1) {
-      if (y < 0) {
-        return this;
+      if (y > 0) {
+        this.coords.y -= y;
       }
-      this.y -= y;
 
       return this;
     },
 
     goRight(x = 1) {
-      if (x < 0) {
-        return this;
+      if (x > 0) {
+        this.coords.x += x;
       }
-      this.x += x;
 
       return this;
     },
 
     goLeft(x = 1) {
-      if (x < 0) {
-        return this;
+      if (x > 0) {
+        this.coords.x -= x;
       }
-      this.x -= x;
 
       return this;
     },
 
-    get coords() {
-      return {
-        x: this.x,
-        y: this.y,
-      };
-    },
-
     evacuate() {
-      this.x = 1400;
-      this.y = 500;
+      this.coords.x = 1400;
+      this.coords.y = 500;
     },
   };
 
@@ -110,7 +101,7 @@ function makeRobot(name, wheels, version) {
 // const Willy = makeRobot('Willy', 12, 2);
 // console.log(Willy);
 
-// Willy.goRight(20).goForward(10);
+// Willy.goRight(20).goForward(10).coords();
 
 // console.log(Willy);
 
