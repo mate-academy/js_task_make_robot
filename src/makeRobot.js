@@ -39,9 +39,9 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-    name,
-    wheels,
-    version,
+    name: name,
+    wheels: name,
+    version: version,
     coords: {
       x: 0,
       y: 0,
