@@ -60,11 +60,9 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(step = 1) {
-      if (step < 0) {
-        return this;
+      if (step > 0) {
+        this.coords.y += step;
       }
-
-      this.coords.y += step;
 
       return this;
     },
