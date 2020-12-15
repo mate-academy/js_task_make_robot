@@ -1,11 +1,6 @@
 'use strict';
 
 /**
- * Mate Robot Factory impressed by your success, they are ready to accept
- * you into the Tech team, you will learn to program robots together
- * with the team! Are you in business As a test task, you will need to
- * program our equipment that makes robots.
- *
  * Create a makeRobot function that takes the string name and the number
  * wheels, version and returns the robot object.
  * The robot coming off the assembly line must be able to:
@@ -25,7 +20,6 @@
  *    which will call rescuers and transfer it to the service center
  *    at the coordinates x: 1400, y: 500.
  *
- * @typedef {object} Robot
  * @property {string} name
  * @property {number} wheels
  * @property {number} version
@@ -34,11 +28,66 @@
  * @param {string} name
  * @param {number} wheels
  * @param {number} version
- *
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name,
+    wheels,
+    version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      return `name: ${this.name},`
+      + ` chip version: ${this.version}, wheels: ${this.wheels}`;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    goForward(coordinate = 1) {
+      if (coordinate > 0) {
+        this.coords.y += coordinate;
+      }
+
+      return this;
+    },
+
+    goRight(coordinate = 1) {
+      if (coordinate > 0) {
+        this.coords.x += coordinate;
+      }
+
+      return this;
+    },
+
+    goBack(coordinate = 1) {
+      if (coordinate > 0) {
+        this.coords.y -= coordinate;
+      }
+
+      return this;
+    },
+
+    goLeft(coordinate = 1) {
+      if (coordinate > 0) {
+        this.coords.x -= coordinate;
+      }
+
+      return this;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
