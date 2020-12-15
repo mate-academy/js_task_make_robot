@@ -38,72 +38,63 @@
  * @return {object}
  */
 
-function Robot(name, wheels, version) {
-  this.name = name;
-  this.wheels = wheels;
-  this.version = version;
-
-  this.coords = {
-    x: 0,
-    y: 0,
-  };
-  this.location = `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
-
-  // eslint-disable-next-line max-len
-  this.info = `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
-
-  this.goForward = function(step = 1) {
-    if (step > 0) {
-      this.coords.y += step;
-    }
-
-    this.location = this.getLocation();
-
-    return this;
-  };
-
-  this.goBack = function(step = 1) {
-    if (step > 0) {
-      this.coords.y -= step;
-    }
-
-    this.location = this.getLocation();
-
-    return this;
-  };
-
-  this.goLeft = function(step = 1) {
-    if (step > 0) {
-      this.coords.x -= step;
-    }
-
-    this.location = this.getLocation();
-
-    return this;
-  };
-
-  this.goRight = function(step = 1) {
-    if (step > 0) {
-      this.coords.x += step;
-    }
-
-    this.location = this.getLocation();
-
-    return this;
-  };
-
-  this.evacuate = function() {
-    this.coords.x = 1400;
-    this.coords.y = 500;
-  };
-
-  this.getLocation = function() {
-    return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
-  };
-}
-
 function makeRobot(name, wheels, version) {
-  return new Robot(name, wheels, version);
+  return {
+    name: name,
+    wheels: wheels,
+    version: version,
+
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      // eslint-disable-next-line no-sequences,max-len
+      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+    },
+
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
+      }
+
+      return this;
+    },
+
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
+      }
+
+      return this;
+    },
+
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
+      }
+
+      return this;
+    },
+
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
+      }
+
+      return this;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+  };
 }
 
 module.exports = makeRobot;
