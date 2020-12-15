@@ -97,19 +97,4 @@ function makeRobot(name, wheels, version) {
   return robot;
 };
 
-// makeRobot('Joy');
-// const Willy = makeRobot('Willy', 12, 2);
-// console.log(Willy);
-
-// Willy.goRight(20).goForward(10).coords();
-
-// console.log(Willy);
-
-// for (const key in Willy) {
-//   if (key === 'x') {
-//     console.log(
-//       `${key}: ${Willy[key]}`
-//       );
-//   }
-// }
 module.exports = makeRobot;
