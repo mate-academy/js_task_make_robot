@@ -38,12 +38,10 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
-
-  const robot = {
-    name: name,
-    wheels: wheels,
-    vers: version,
+  return {
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
@@ -53,7 +51,8 @@ function makeRobot(name, wheels, version) {
     },
     get info() {
       return (
-        `name: ${this.name}, chip version: ${this.vers}, wheels: ${this.wheels}`
+        // eslint-disable-next-line max-len
+        `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`
       );
     },
     goForward(numb = 1) {
@@ -91,8 +90,6 @@ function makeRobot(name, wheels, version) {
       return this;
     },
   };
-
-  return robot;
 }
 
 module.exports = makeRobot;
