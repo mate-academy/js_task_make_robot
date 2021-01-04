@@ -38,7 +38,104 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name: name,
+    wheels: wheels,
+    version: version,
+
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    x: 0,
+    y: 0,
+
+    get info() {
+      return (`name: ${name}, chip version: ${version}, wheels: ${wheels}`);
+    },
+
+    get location() {
+      return (`${name}: x=${this.x}, y=${this.y}`);
+    },
+
+    goForward(b) {
+      if (Math.sign(b) === -1) {
+        return this;
+      }
+
+      if (b !== undefined) {
+        this.y += b;
+      } else {
+        this.y += 1;
+      }
+
+      this.coords['y'] = this.y;
+
+      return this;
+    },
+
+    goLeft(b) {
+      if (Math.sign(b) === -1) {
+        return this;
+      }
+
+      if (b !== undefined) {
+        this.x -= b;
+      } else {
+        this.x -= 1;
+      }
+
+      this.coords['x'] = this.x;
+
+      return this;
+    },
+
+    goRight(b) {
+      if (Math.sign(b) === -1) {
+        return this;
+      }
+
+      if (b !== undefined) {
+        this.x += b;
+      } else {
+        this.x += 1;
+      }
+
+      this.coords['x'] = this.x;
+
+      return this;
+    },
+
+    goBack(b) {
+      if (Math.sign(b) === -1) {
+        return this;
+      }
+
+      if (b !== undefined) {
+        this.y -= b;
+      } else {
+        this.y -= 1;
+      }
+
+      this.coords['y'] = this.y;
+
+      return this;
+    },
+
+    evacuate() {
+      this.x = 1400;
+      this.y = 500;
+
+      this.coords['x'] = this.x;
+      this.coords['y'] = this.y;
+
+      return this;
+    },
+
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
