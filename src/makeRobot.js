@@ -20,10 +20,10 @@
  *    This value can be increased by passing the desired number to the method.
  *    Negative numbers should not affect the location of the robot. goLeft(3)
  *  - The coordinates of the robot must be stored in the object coords,
- *    the keys x and y inside the robot.
+ *    the keys x and y inside the robot.+++
  *  - The robot must be able to request the evacuation of robot.evacuate(),
  *    which will call rescuers and transfer it to the service center
- *    at the coordinates x: 1400, y: 500.
+ *    at the coordinates x: 1400, y: 500.+++
  *
  * @typedef {object} Robot
  * @property {string} name
@@ -38,7 +38,99 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name,
+    version,
+    wheels,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      return `name: ${this.name}, `
+      + `chip version: ${version}, `
+      + `wheels: ${wheels}`;
+    },
+    goLeft(steps) {
+      switch (true) {
+        case steps === undefined || steps === 1:
+          this.coords.x--;
+
+          return this;
+
+        case steps >= 0:
+          this.coords.x = this.coords.x - steps;
+
+          return this;
+
+        case steps < 0:
+
+          return this;
+      };
+    },
+    goRight(steps) {
+      switch (true) {
+        case steps === undefined:
+          this.coords.x++;
+
+          return this;
+
+        case steps >= 0:
+          this.coords.x = this.coords.x + steps;
+
+          return this;
+
+        case steps < 0:
+          return this;
+      }
+    },
+    goForward(steps) {
+      switch (true) {
+        case steps === undefined:
+          this.coords.y++;
+
+          return this;
+
+        case steps >= 0:
+          this.coords.y = this.coords.y + steps;
+
+          return this;
+
+        case steps < 0:
+          return this;
+      }
+
+      return this;
+    },
+    goBack(steps) {
+      switch (true) {
+        case steps === undefined:
+          this.coords.y--;
+
+          return this;
+
+        case steps >= 0:
+          this.coords.y = this.coords.y - steps;
+
+          return this;
+
+        case steps < 0:
+
+          return this;
+      };
+    },
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
