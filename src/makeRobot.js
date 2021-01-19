@@ -60,60 +60,33 @@ function makeRobot(name, wheels, version) {
       this.coords.x = 1400;
       this.coords.y = 500;
     },
-    goBack(step) {
-      if (step > 1) {
-        this.step--;
+    goBack(step = 1) {
+      if (step > 0) {
         this.coords.y -= step;
-
-        return this;
-      } else if (step < 1) {
-        return this;
-      } else {
-        this.coords.y -= 1;
-
-        return this;
       }
+
+      return this;
     },
-    goForward(step) {
-      if (step > 1) {
+    goForward(step = 1) {
+      if (step > 0) {
         this.coords.y += step;
-
-        return this;
-      } else if (step < 1) {
-        return this;
-      } else {
-        this.coords.y += 1;
-
-        return this;
       }
+
+      return this;
     },
-    goLeft(step) {
-      if (step > 1) {
-        this.step--;
+    goLeft(step = 1) {
+      if (step > 0) {
         this.coords.x -= step;
-
-        return this;
-      } else if (step < 1) {
-        return this;
-      } else {
-        this.coords.x -= 1;
-
-        return this;
       }
+
+      return this;
     },
-    goRight(step) {
-      if (step > 1) {
-        this.step++;
+    goRight(step = 1) {
+      if (step > 0) {
         this.coords.x += step;
-
-        return this;
-      } else if (step < 1) {
-        return this;
-      } else {
-        this.coords.x += 1;
-
-        return this;
       }
+
+      return this;
     },
   };
 
