@@ -42,7 +42,6 @@ function makeRobot(name, wheels, version) {
     name: name,
     wheels: wheels,
     version: version,
-    // eslint-disable-next-line max-len
     get info() {
       // eslint-disable-next-line max-len
       return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
