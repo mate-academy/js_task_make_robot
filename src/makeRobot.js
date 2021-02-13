@@ -38,14 +38,14 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  let x = 0;
-  let y = 0;
-
   const robot = {
     name,
     wheels,
     version,
-
+    coords: {
+      x: 0,
+      y: 0,
+    },
     get info() {
       const infoName = `name: ${this.name}`;
       const infoVersion = `chip version: ${this.version}`;
@@ -53,38 +53,40 @@ function makeRobot(name, wheels, version) {
 
       return `${infoName}, ${infoVersion}, ${infoWheels}`;
     },
-    get coords() {
-      return {
-        x: x,
-        y: y,
-      };
-    },
     get location() {
-      return `${this.name}: x=${x}, y=${y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
-    goRight: function(step) {
-      x = step === undefined ? x + 1 : (step > 0 ? x + step : x);
+    goRight: function(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
+      }
 
       return this;
     },
-    goLeft: function(step) {
-      x = step === undefined ? x - 1 : (step > 0 ? x - step : x);
+    goLeft: function(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
+      }
 
       return this;
     },
-    goForward: function(step) {
-      y = step === undefined ? y + 1 : (step > 0 ? y + step : y);
+    goForward: function(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
+      }
 
       return this;
     },
-    goBack: function(step) {
-      y = step === undefined ? y - 1 : (step > 0 ? y - step : y);
+    goBack: function(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
+      }
 
       return this;
     },
     evacuate() {
-      x = 1400;
-      y = 500;
+      this.coords.x = 1400;
+      this.coords.y = 500;
     },
   };
 
