@@ -38,7 +38,7 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  const Robot = {
+  const robot = {
     name,
     version,
     wheels,
@@ -93,7 +93,7 @@ function makeRobot(name, wheels, version) {
     },
   };
 
-  return Robot;
+  return robot;
 }
 
 module.exports = makeRobot;
