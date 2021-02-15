@@ -48,19 +48,15 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
     get info() {
-      const info = `name: ${this.name}, \
+      return `name: ${this.name}, \
 chip version: ${this.version}, \
 wheels: ${this.wheels}`;
-
-      return info;
     },
 
     get location() {
-      const location = `${this.name}: \
+      return `${this.name}: \
 x=${this.coords.x}, \
 y=${this.coords.y}`;
-
-      return location.toString();
     },
 
     goRight(step = 1) {
