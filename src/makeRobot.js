@@ -37,8 +37,84 @@
  *
  * @return {object}
  */
+
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name: name,
+    wheels: wheels,
+    version: version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    get info() {
+      return `name: ${this.name},`
+        + ` chip version: ${this.version},`
+        + ` wheels: ${this.wheels}`;
+    },
+
+    goForward: function() {
+      if (typeof arguments[0] === 'undefined') {
+        this.coords.y = this.coords.y + 1;
+      } else {
+        if (arguments[0] > -1 && typeof arguments[0] === 'number') {
+          this.coords.y = this.coords.y + arguments[0];
+        }
+      }
+
+      return this;
+    },
+
+    goRight: function() {
+      if (typeof arguments[0] === 'undefined') {
+        this.coords.x = this.coords.x + 1;
+      } else {
+        if (arguments[0] > -1 && typeof arguments[0] === 'number') {
+          this.coords.x = this.coords.x + arguments[0];
+        }
+      }
+
+      return this;
+    },
+
+    goBack: function() {
+      if (typeof arguments[0] === 'undefined') {
+        this.coords.y = this.coords.y - 1;
+      } else {
+        if (arguments[0] > -1 && typeof arguments[0] === 'number') {
+          this.coords.y = this.coords.y - arguments[0];
+        }
+      }
+
+      return this;
+    },
+
+    goLeft: function() {
+      if (typeof arguments[0] === 'undefined') {
+        this.coords.x = this.coords.x - 1;
+      } else {
+        if (arguments[0] > -1 && typeof arguments[0] === 'number') {
+          this.coords.x = this.coords.x - arguments[0];
+        }
+      }
+
+      return this;
+    },
+
+    evacuate: function() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+
+      return this;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
