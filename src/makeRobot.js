@@ -60,9 +60,7 @@ ${this.version}, wheels: ${this.wheels}`;
     goForward(value) {
       if (value === undefined) {
         this.coords.y++;
-      } else if (value <= 0) {
-        this.coords.y = this.coords.y;
-      } else {
+      } else if (value > 0) {
         this.coords.y = this.coords.y + value;
       }
 
@@ -72,9 +70,7 @@ ${this.version}, wheels: ${this.wheels}`;
     goBack(value) {
       if (value === undefined) {
         this.coords.y--;
-      } else if (value <= 0) {
-        this.coords.y = this.coords.y;
-      } else {
+      } else if (value > 0) {
         this.coords.y = this.coords.y - value;
       }
 
@@ -84,9 +80,7 @@ ${this.version}, wheels: ${this.wheels}`;
     goRight(value) {
       if (value === undefined) {
         this.coords.x++;
-      } else if (value <= 0) {
-        this.coords.x = this.coords.x;
-      } else {
+      } else if (value > 0) {
         this.coords.x = this.coords.x + value;
       }
 
@@ -96,9 +90,7 @@ ${this.version}, wheels: ${this.wheels}`;
     goLeft(value) {
       if (value === undefined) {
         this.coords.x--;
-      } else if (value <= 0) {
-        this.coords.x = this.coords.x;
-      } else {
+      } else if (value > 0) {
         this.coords.x = this.coords.x - value;
       }
 
