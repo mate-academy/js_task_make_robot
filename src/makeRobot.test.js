@@ -1,5 +1,4 @@
 'use strict';
-/* global require, describe, it, expect */
 
 const makeRobot = require('./makeRobot');
 
