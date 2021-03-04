@@ -51,7 +51,7 @@ function makeRobot(name, wheels, version) {
       if (value === undefined) {
         this.coords.y--;
       } else if (value < 0) {
-        this.coords.y = this.coords.y;
+
       } else {
         this.coords.y = this.coords.y - value;
       }
@@ -63,7 +63,7 @@ function makeRobot(name, wheels, version) {
       if (value === undefined) {
         this.coords.y++;
       } else if (value < 0) {
-        this.coords.y = this.coords.y;
+
       } else {
         this.coords.y = this.coords.y + value;
       }
@@ -75,7 +75,7 @@ function makeRobot(name, wheels, version) {
       if (value === undefined) {
         this.coords.x--;
       } else if (value < 0) {
-        this.coords.x = this.coords.x;
+
       } else {
         this.coords.x = this.coords.x - value;
       }
@@ -87,7 +87,7 @@ function makeRobot(name, wheels, version) {
       if (value === undefined) {
         this.coords.x++;
       } else if (value < 0) {
-        this.coords.x = this.coords.x;
+
       } else {
         this.coords.x = this.coords.x + value;
       }
