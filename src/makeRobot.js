@@ -39,11 +39,14 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-    'name': name,
-    'wheels': wheels,
-    'version': version,
-    'x': 0,
-    'y': 0,
+    name,
+    wheels,
+    version,
+
+    coords: {
+      x: 0,
+      y: 0,
+    },
 
     get info() {
       return `name: ${this.name},`
@@ -52,23 +55,14 @@ function makeRobot(name, wheels, version) {
     },
 
     get location() {
-      return `${this.name}: x=${this.x}, y=${this.y}`;
-    },
-
-    get coords() {
-      const coords = {
-        'x': this.x,
-        'y': this.y,
-      };
-
-      return coords;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goForward(value = 1) {
       if (value < 0) {
         return this;
       }
-      this.y += value;
+      this.coords.y += value;
 
       return this;
     },
@@ -77,7 +71,7 @@ function makeRobot(name, wheels, version) {
       if (value < 0) {
         return this;
       }
-      this.y -= value;
+      this.coords.y -= value;
 
       return this;
     },
@@ -86,7 +80,7 @@ function makeRobot(name, wheels, version) {
       if (value < 0) {
         return this;
       }
-      this.x += value;
+      this.coords.x += value;
 
       return this;
     },
@@ -95,14 +89,14 @@ function makeRobot(name, wheels, version) {
       if (value < 0) {
         return this;
       }
-      this.x -= value;
+      this.coords.x -= value;
 
       return this;
     },
 
     evacuate() {
-      this.x = 1400;
-      this.y = 500;
+      this.coords.x = 1400;
+      this.coords.y = 500;
     },
   };
 
