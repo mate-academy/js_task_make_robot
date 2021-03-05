@@ -47,48 +47,32 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
 
-    goBack(value) {
-      if (value === undefined) {
-        this.coords.y--;
-      } else if (value < 0) {
-
-      } else {
+    goBack(value = 1) {
+      if (value > 0) {
         this.coords.y = this.coords.y - value;
       }
 
       return this;
     },
 
-    goForward(value) {
-      if (value === undefined) {
-        this.coords.y++;
-      } else if (value < 0) {
-
-      } else {
+    goForward(value = 1) {
+      if (value > 0) {
         this.coords.y = this.coords.y + value;
       }
 
       return this;
     },
 
-    goLeft(value) {
-      if (value === undefined) {
-        this.coords.x--;
-      } else if (value < 0) {
-
-      } else {
+    goLeft(value = 1) {
+      if (value > 0) {
         this.coords.x = this.coords.x - value;
       }
 
       return this;
     },
 
-    goRight(value) {
-      if (value === undefined) {
-        this.coords.x++;
-      } else if (value < 0) {
-
-      } else {
+    goRight(value = 1) {
+      if (value > 0) {
         this.coords.x = this.coords.x + value;
       }
 
