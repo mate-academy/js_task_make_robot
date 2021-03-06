@@ -43,7 +43,8 @@ function makeRobot(name, wheels, version) {
     chipVersion: version,
     wheels: wheels,
     coords: {
-      x: 0, y: 0,
+      x: 0,
+      y: 0,
     },
 
     get info() {
