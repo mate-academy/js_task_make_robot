@@ -41,9 +41,9 @@ function makeRobot(name, wheels, version) {
   const evacuateX = 1400;
   const evacuateY = 500;
   const robot = {
-    name: name,
-    wheels: wheels,
-    version: version,
+    name,
+    wheels,
+    version,
     x: 0,
     y: 0,
 
