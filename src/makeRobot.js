@@ -104,8 +104,11 @@ const robot = {
   },
 
   evacuate: function() {
-    this.coords.x = 1400;
-    this.coords.y = 500;
+    const defaultXCoordinate = 1400;
+    const defaultYCoordinate = 500;
+
+    this.coords.x = defaultXCoordinate;
+    this.coords.y = defaultYCoordinate;
   },
 };
 
