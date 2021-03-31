@@ -103,7 +103,7 @@ const robot = {
     return this;
   },
 
-  evacuate: function() {
+  evacuate() {
     const defaultXCoordinate = 1400;
     const defaultYCoordinate = 500;
 
