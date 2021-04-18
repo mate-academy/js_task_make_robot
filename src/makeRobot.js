@@ -9,11 +9,11 @@
  * Create a makeRobot function that takes the string name and the number
  * wheels, version and returns the robot object.
  * The robot coming off the assembly line must be able to:
- *  - Provide information about yourself through getter info.
+ *  [+] Provide information about yourself through getter info.
  *    robot.info === 'name:%name%, chip version: %version%, wheels: %wheels%'
- *  - Provide the coordinates of your location via getter location.
+ *  [+] Provide the coordinates of your location via getter location.
  *    robot.location === '%name%: x=14, y=21'
- *  - Have methods to move goForward, goBack, goRight, goLeft.
+ *  [+] Have methods to move goForward, goBack, goRight, goLeft.
  *  - Movement methods must be able to be used with a chain.
  *    robot.goForward().goForward().goForward().goLeft()
  *  - Default methods that move the work by 1 in the right direction.
@@ -39,6 +39,59 @@
  */
 function makeRobot(name, wheels, version) {
   // write code here
+  const robot = {
+    name: name,
+    wheels: wheels,
+    version: version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    goForward(i = 1) {
+      if (i > 0) {
+        this.coords.y += i;
+      }
+
+      return this;
+    },
+    goBack(i = 1) {
+      if (i > 0) {
+        this.coords.y -= i;
+      }
+
+      return this;
+    },
+    goRight(i = 1) {
+      if (i > 0) {
+        this.coords.x += i;
+      }
+
+      return this;
+    },
+    goLeft(i = 1) {
+      if (i > 0) {
+        this.coords.x -= i;
+      }
+
+      return this;
+    },
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+
+    get info() {
+      return 'name: ' + this.name + ', ' + 'chip version: '
+      + this.version + ', ' + 'wheels: ' + this.wheels;
+    },
+
+    get location() {
+      return this.name + ': x=' + this.coords.x + ', y=' + this.coords.y;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
