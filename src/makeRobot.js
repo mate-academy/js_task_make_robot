@@ -38,7 +38,92 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name: name,
+    info: `name: ${name}, chip version: ${version}, wheels: ${wheels}`,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+    location: `${name}: x=0, y=0`,
+    goForward: (move) => {
+      if (move && move > 0) {
+        robot['coords']['y'] += move;
+
+        robot.location
+          = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
+      }
+
+      if (!move) {
+        robot['coords']['y']++;
+
+        robot.location
+          = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
+      }
+
+      return robot;
+    },
+    goBack: (move) => {
+      if (move && move > 0) {
+        robot['coords']['y'] -= move;
+
+        robot.location
+        = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
+      }
+
+      if (!move) {
+        robot.coords.y--;
+
+        robot.location
+        = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
+      }
+
+      return robot;
+    },
+    goRight: (move) => {
+      if (move && move > 0) {
+        robot['coords']['x'] += move;
+
+        robot.location
+        = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
+      }
+
+      if (!move) {
+        robot['coords']['x']++;
+
+        robot.location
+        = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
+      }
+
+      return robot;
+    },
+    goLeft: (move) => {
+      if (move && move > 0) {
+        robot['coords']['x'] -= move;
+
+        robot.location
+        = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
+      }
+
+      if (!move) {
+        robot['coords']['x']--;
+
+        robot.location
+        = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
+      }
+
+      return robot;
+    },
+    evacuate: () => {
+      robot['coords']['x'] = 1400;
+      robot['coords']['y'] = 500;
+
+      robot.location
+      = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
