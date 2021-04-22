@@ -38,74 +38,76 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  const obj = {
-    name: name,
-    wheels: wheels,
-    version: version,
+  const evacuateCoords = {
+    x: 1400,
+    y: 500,
+  };
+
+  const createdRobot = {
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
     },
 
     get info() {
-      const vers = this.version;
-      const wheel = this.wheels;
-      const robot = this.name;
+      const nameInfo = `name: ${this.name}`;
+      const versionInfo = `chip version: ${this.version}`;
+      const wheelsInfo = `wheels: ${this.wheels}`;
 
-      return `name: ${robot}, chip version: ${vers}, wheels: ${wheel}`;
+      return `${nameInfo}, ${versionInfo}, ${wheelsInfo}`;
     },
 
     get location() {
-      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+      const nameInfo = this.name;
+      const xInfo = `x=${this.coords.x}`;
+      const yInfo = `y=${this.coords.y}`;
+
+      return `${nameInfo}: ${xInfo}, ${yInfo}`;
     },
 
-    goForward(n = 1) {
-      if (n < 0) {
-        return this;
+    // movement methods
+    goForward(value = 1) {
+      if (value > 0) {
+        this.coords.y += value;
       }
-
-      this.coords.y += n;
 
       return this;
     },
 
-    goBack(n = 1) {
-      if (n < 0) {
-        return this;
+    goBack(value = 1) {
+      if (value > 0) {
+        this.coords.y -= value;
       }
-
-      this.coords.y -= n;
 
       return this;
     },
 
-    goRight(n = 1) {
-      if (n < 0) {
-        return this;
+    goRight(value = 1) {
+      if (value > 0) {
+        this.coords.x += value;
       }
-
-      this.coords.x += n;
 
       return this;
     },
 
-    goLeft(n = 1) {
-      if (n < 0) {
-        return this;
+    goLeft(value = 1) {
+      if (value > 0) {
+        this.coords.x -= value;
       }
-
-      this.coords.x -= n;
 
       return this;
     },
 
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = evacuateCoords.x;
+      this.coords.y = evacuateCoords.y;
     },
   };
 
-  return obj;
+  return createdRobot;
 }
 
 module.exports = makeRobot;
