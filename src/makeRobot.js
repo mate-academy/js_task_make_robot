@@ -38,7 +38,120 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = Object.create({
+    name,
+    wheels,
+    version,
+
+    get info() {
+      const n = this.name;
+      const v = this.version;
+      const w = this.wheels;
+
+      return `name: ${n}, chip version: ${v}, wheels: ${w}`;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    moves: [],
+
+    get coords() {
+      let x = 0;
+      let y = 0;
+
+      if (this.moves.length > 0) {
+        this.moves.forEach(move => {
+          switch (move.action) {
+            case 'f':
+              y += move.payload;
+              break;
+            case 'b':
+              y -= move.payload;
+              break;
+            case 'r':
+              x += move.payload;
+              break;
+            case 'l':
+              x -= move.payload;
+              break;
+            case 'e':
+              x = move.payload.x;
+              y = move.payload.y;
+              break;
+          };
+        });
+
+        return {
+          x,
+          y,
+        };
+      } else {
+        return {
+          x,
+          y,
+        };
+      }
+    },
+
+    goForward(num = 1) {
+      if (num > 0) {
+        this.moves.push({
+          action: 'f',
+          payload: num,
+        });
+      };
+
+      return robot;
+    },
+
+    goBack(num = 1) {
+      if (num > 0) {
+        this.moves.push({
+          action: 'b',
+          payload: num,
+        });
+      };
+
+      return robot;
+    },
+
+    goRight(num = 1) {
+      if (num > 0) {
+        this.moves.push({
+          action: 'r',
+          payload: num,
+        });
+      };
+
+      return robot;
+    },
+
+    goLeft(num = 1) {
+      if (num > 0) {
+        this.moves.push({
+          action: 'l',
+          payload: num,
+        });
+      };
+
+      return robot;
+    },
+
+    evacuate() {
+      this.moves.push({
+        action: 'e',
+        payload: {
+          x: 1400,
+          y: 500,
+        },
+      });
+    },
+
+  });
+
+  return robot;
 }
 
 module.exports = makeRobot;
