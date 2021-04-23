@@ -105,11 +105,4 @@ function makeRobot(name, wheels, version) {
   return robotObj;
 }
 
-/*
-const robot = makeRobot('Joy', 5, 31);
-console.log(robot.info);
-/*
-const expected = 'name: Joy, chip version: 31, wheels: 5';
-*/
-
 module.exports = makeRobot;
