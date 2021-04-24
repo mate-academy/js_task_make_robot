@@ -40,86 +40,49 @@
 function makeRobot(name, wheels, version) {
   const robot = {
     name: name,
-    info: `name: ${name}, chip version: ${version}, wheels: ${wheels}`,
+    wheels: wheels,
+    version: version,
+    get info() {
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+    },
     coords: {
       x: 0,
       y: 0,
     },
-    location: `${name}: x=0, y=0`,
-    goForward: (move) => {
-      if (move && move > 0) {
-        robot['coords']['y'] += move;
-
-        robot.location
-          = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
-      }
-
-      if (!move) {
-        robot['coords']['y']++;
-
-        robot.location
-          = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
-      }
-
-      return robot;
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
-    goBack: (move) => {
-      if (move && move > 0) {
-        robot['coords']['y'] -= move;
-
-        robot.location
-        = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
+    goForward(move = 1) {
+      if (move > 0) {
+        this.coords.y += move;
       }
 
-      if (!move) {
-        robot.coords.y--;
-
-        robot.location
-        = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
-      }
-
-      return robot;
+      return this;
     },
-    goRight: (move) => {
-      if (move && move > 0) {
-        robot['coords']['x'] += move;
-
-        robot.location
-        = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
+    goBack(move = 1) {
+      if (move > 0) {
+        this.coords.y -= move;
       }
 
-      if (!move) {
-        robot['coords']['x']++;
-
-        robot.location
-        = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
-      }
-
-      return robot;
+      return this;
     },
-    goLeft: (move) => {
-      if (move && move > 0) {
-        robot['coords']['x'] -= move;
-
-        robot.location
-        = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
+    goRight(move = 1) {
+      if (move > 0) {
+        this.coords.x += move;
       }
 
-      if (!move) {
-        robot['coords']['x']--;
-
-        robot.location
-        = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
-      }
-
-      return robot;
+      return this;
     },
-    evacuate: () => {
-      robot['coords']['x'] = 1400;
-      robot['coords']['y'] = 500;
+    goLeft(move = 1) {
+      if (move > 0) {
+        this.coords.x -= move;
+      }
 
-      robot.location
-      = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
+      return this;
+    },
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
     },
   };
 
