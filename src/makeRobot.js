@@ -40,20 +40,17 @@
 function makeRobot(name, wheels, version) {
   // write code here
   const robotInfo = {
-    name: name,
-    wheels: wheels,
-    version: version,
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
     },
 
     get info() {
-      // That bcs max line in Lint == 80
-      const firstPart = `name: ${this.name}, chip version: `;
-      const secondPart = `${this.version}, wheels: ${this.wheels}`;
-
-      return firstPart + secondPart;
+      return `name: ${this.name}, chip version: `
+      + `${this.version}, wheels: ${this.wheels}`;
     },
 
     get location() {
