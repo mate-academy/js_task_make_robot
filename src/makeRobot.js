@@ -38,7 +38,7 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  return {
+  const robot = {
     name,
     wheels,
     version,
@@ -46,6 +46,7 @@ function makeRobot(name, wheels, version) {
       x: 0,
       y: 0,
     },
+
     get info() {
       // eslint-disable-next-line max-len
       return `name: ${this.name}, chip version: ${this.version}, wheels: ${wheels}`;
@@ -86,6 +87,8 @@ function makeRobot(name, wheels, version) {
       this.coords.y = 500;
     },
   };
+
+  return robot;
 }
 
 module.exports = makeRobot;
