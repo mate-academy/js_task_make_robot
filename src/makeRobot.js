@@ -42,21 +42,26 @@ function makeRobot(name, wheels, version) {
     name,
     wheels,
     version,
-    x: 0,
-    y: 0,
+    coords: {
+      x: 0,
+      y: 0,
+    },
 
     get info() {
+      // eslint-disable-next-line no-use-before-define
+      // return `name: ${this.name},
+      // chip version: ${this.version}, wheels: ${this.wheels}`;
       return 'name: ' + this.name + ', chip version: '
         + this.version + ', wheels: ' + this.wheels;
     },
 
     get location() {
-      return `${this.name}: x=${this.x}, y=${this.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goForward(distance = 1) {
       if (distance > 0) {
-        this.y += distance;
+        this.coords.y += distance;
       }
 
       return this;
@@ -64,7 +69,7 @@ function makeRobot(name, wheels, version) {
 
     goBack(distance = 1) {
       if (distance > 0) {
-        this.y -= distance;
+        this.coords.y -= distance;
       }
 
       return this;
@@ -72,7 +77,7 @@ function makeRobot(name, wheels, version) {
 
     goRight(distance = 1) {
       if (distance > 0) {
-        this.x += distance;
+        this.coords.x += distance;
       }
 
       return this;
@@ -80,26 +85,16 @@ function makeRobot(name, wheels, version) {
 
     goLeft(distance = 1) {
       if (distance > 0) {
-        this.x -= distance;
+        this.coords.x -= distance;
       }
 
       return this;
     },
 
     evacuate() {
-      this.x = 1400;
-      this.y = 500;
+      this.coords.x = 1400;
+      this.coords.y = 500;
     },
-
-    get coords() {
-      const coordsOj = {
-        'x': this.x,
-        'y': this.y,
-      };
-
-      return coordsOj;
-    },
-
   };
 
   return robotObj;
