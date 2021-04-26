@@ -42,21 +42,16 @@ function makeRobot(name, wheels, version) {
     name,
     wheels,
     version,
-
-    'coords': {
+    coords: {
       'x': 0,
       'y': 0,
     },
 
     get info() {
-      return 'name: ' + this.name
-        + ', chip version: ' + this.version
-        + ', wheels: ' + this.wheels;
+      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`; // eslint-disable-line
     },
     get location() {
-      return this.name
-        + ': x=' + this.coords.x
-        + ', y=' + this.coords.y;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goRight(step = 1) {
