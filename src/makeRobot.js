@@ -39,7 +39,6 @@
  */
 function makeRobot(name, wheels, version) {
   // write code here
-
   const robot = {
     name,
     wheels,
