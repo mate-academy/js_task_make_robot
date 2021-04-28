@@ -39,34 +39,30 @@
  */
 function makeRobot(name, wheels, version) {
   const robotObject = {
-    name: name,
-    wheels: wheels,
-    version: version,
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
     },
 
     get info() {
-      const _info = (`name: ${
+      return (`name: ${
         this.name
       }, chip version: ${
         this.version
       }, wheels: ${
         this.wheels
       }`);
-
-      return _info;
     },
 
     get location() {
-      const _info = `${
+      return `${
         this.name
       }: x=${
         this.coords.x
       }, y=${this.coords.y}`;
-
-      return _info;
     },
 
     evacuate() {
@@ -76,13 +72,11 @@ function makeRobot(name, wheels, version) {
 
     goForward(value) {
       if (value === undefined) {
-        this.coords.y = this.coords.y + 1;
+        this.coords.y++;
       }
 
       if (value > 0) {
         this.coords.y = this.coords.y + value;
-      } else {
-        this.coords.y += 0;
       }
 
       return this;
@@ -90,13 +84,11 @@ function makeRobot(name, wheels, version) {
 
     goBack(value) {
       if (value === undefined) {
-        this.coords.y = this.coords.y - 1;
+        this.coords.y--;
       }
 
       if (value > 0) {
         this.coords.y = this.coords.y - value;
-      } else {
-        this.coords.y += 0;
       }
 
       return this;
@@ -104,13 +96,11 @@ function makeRobot(name, wheels, version) {
 
     goRight(value) {
       if (value === undefined) {
-        this.coords.x = this.coords.x + 1;
+        this.coords.x++;
       }
 
       if (value > 0) {
         this.coords.x = this.coords.x + value;
-      } else {
-        this.coords.x += 0;
       }
 
       return this;
@@ -118,13 +108,11 @@ function makeRobot(name, wheels, version) {
 
     goLeft(value) {
       if (value === undefined) {
-        this.coords.x = this.coords.x - 1;
+        this.coords.x--;
       }
 
       if (value > 0) {
         this.coords.x = this.coords.x - value;
-      } else {
-        this.coords.x += 0;
       }
 
       return this;
