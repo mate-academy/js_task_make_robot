@@ -39,78 +39,52 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-    'name': name,
-    'wheels': wheels,
-    'version': version,
-    'coords': {
-      'x': 0,
-      'y': 0,
+    name: name,
+    wheels: wheels,
+    version: version,
+    coords: {
+      x: 0,
+      y: 0,
     },
-  };
+    get info() {
+      // eslint-disable-next-line max-len
+      return `name: ${this.name}, chip version: ${this.version}, wheels: ${wheels}`;
+    },
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
+      }
 
-  robot.info
-  = `name: ${robot.name}, chip version: ${
-      robot.version}, wheels: ${robot.wheels}`;
+      return this;
+    },
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
+      }
 
-  robot.location = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
+      return this;
+    },
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
+      }
 
-  robot.goBack = (n = 1) => {
-    if (n > 0) {
-      robot.coords.y -= n;
+      return this;
+    },
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
+      }
 
-      robot.location
-      = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
-
-      return robot;
-    } else {
-      return robot;
-    }
-  };
-
-  robot.goForward = (n = 1) => {
-    if (n > 0) {
-      robot.coords.y += n;
-
-      robot.location
-      = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
-
-      return robot;
-    } else {
-      return robot;
-    }
-  };
-
-  robot.goLeft = (n = 1) => {
-    if (n > 0) {
-      robot.coords.x -= n;
-
-      robot.location
-      = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
-
-      return robot;
-    } else {
-      return robot;
-    }
-  };
-
-  robot.goRight = (n = 1) => {
-    if (n > 0) {
-      robot.coords.x += n;
-
-      robot.location
-      = `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
-
-      return robot;
-    } else {
-      return robot;
-    }
-  };
-
-  robot.evacuate = () => {
-    robot.coords.x = 1400;
-    robot.coords.y = 500;
-
-    return robot;
+      return this;
+    },
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
   };
 
   return robot;
