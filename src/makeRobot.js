@@ -38,10 +38,14 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  const robot = Object.create({
+  const robot = {
     name,
     wheels,
     version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
 
     get info() {
       const n = this.name;
@@ -55,101 +59,43 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    moves: [],
-
-    get coords() {
-      let x = 0;
-      let y = 0;
-
-      if (this.moves.length > 0) {
-        this.moves.forEach(move => {
-          switch (move.action) {
-            case 'f':
-              y += move.payload;
-              break;
-            case 'b':
-              y -= move.payload;
-              break;
-            case 'r':
-              x += move.payload;
-              break;
-            case 'l':
-              x -= move.payload;
-              break;
-            case 'e':
-              x = move.payload.x;
-              y = move.payload.y;
-              break;
-          };
-        });
-
-        return {
-          x,
-          y,
-        };
-      } else {
-        return {
-          x,
-          y,
-        };
-      }
-    },
-
-    goForward(num = 1) {
-      if (num > 0) {
-        this.moves.push({
-          action: 'f',
-          payload: num,
-        });
+    goForward(steps = 1) {
+      if (steps > 0) {
+        this.coords.y += steps;
       };
 
-      return robot;
+      return this;
     },
 
-    goBack(num = 1) {
-      if (num > 0) {
-        this.moves.push({
-          action: 'b',
-          payload: num,
-        });
+    goBack(steps = 1) {
+      if (steps > 0) {
+        this.coords.y -= steps;
       };
 
-      return robot;
+      return this;
     },
 
-    goRight(num = 1) {
-      if (num > 0) {
-        this.moves.push({
-          action: 'r',
-          payload: num,
-        });
+    goRight(steps = 1) {
+      if (steps > 0) {
+        this.coords.x += steps;
       };
 
-      return robot;
+      return this;
     },
 
-    goLeft(num = 1) {
-      if (num > 0) {
-        this.moves.push({
-          action: 'l',
-          payload: num,
-        });
+    goLeft(steps = 1) {
+      if (steps > 0) {
+        this.coords.x -= steps;
       };
 
-      return robot;
+      return this;
     },
 
     evacuate() {
-      this.moves.push({
-        action: 'e',
-        payload: {
-          x: 1400,
-          y: 500,
-        },
-      });
+      this.coords.x = 1400;
+      this.coords.y = 500;
     },
-
-  });
+  };
 
   return robot;
 }
