@@ -39,31 +39,20 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-    name: null,
-    wheels: null,
-    version: null,
+    name,
+    wheels,
+    version,
     x: 0,
     y: 0,
 
-    addName(item) {
-      this.name = item;
-    },
-
-    addWheels(item) {
-      this.wheels = item;
-    },
-
-    addVersion(item) {
-      this.version = item;
-    },
-
     get info() {
-      const n = this.name;
-      const v = this.version;
-      const w = this.wheels;
-
-      // Компилятор ругается, что строка ниже слишком длинная видите ли
-      return `name: ${n}, chip version: ${v}, wheels: ${w}`;
+      return (`name: ${
+        this.name
+      }, chip version: ${
+        this.version
+      }, wheels: ${
+        this.wheels
+      }`);
     },
 
     get location() {
@@ -115,9 +104,9 @@ function makeRobot(name, wheels, version) {
     },
   };
 
-  robot.addName(name);
-  robot.addVersion(version);
-  robot.addWheels(wheels);
+  robot.name = name;
+  robot.version = version;
+  robot.wheels = wheels;
 
   return robot;
 }
