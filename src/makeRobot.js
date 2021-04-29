@@ -38,7 +38,88 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name: null,
+    wheels: null,
+    version: null,
+    x: 0,
+    y: 0,
+
+    addName(item) {
+      this.name = item;
+    },
+
+    addWheels(item) {
+      this.wheels = item;
+    },
+
+    addVersion(item) {
+      this.version = item;
+    },
+
+    get info() {
+      const n = this.name;
+      const v = this.version;
+      const w = this.wheels;
+
+      // Компилятор ругается, что строка ниже слишком длинная видите ли
+      return `name: ${n}, chip version: ${v}, wheels: ${w}`;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.x}, y=${this.y}`;
+    },
+
+    goRight(value = 1) {
+      if (value > 0) {
+        this.x += value;
+      }
+
+      return this;
+    },
+
+    goLeft(value = 1) {
+      if (value > 0) {
+        this.x -= value;
+      }
+
+      return this;
+    },
+
+    goBack(value = 1) {
+      if (value > 0) {
+        this.y -= value;
+      }
+
+      return this;
+    },
+
+    goForward(value = 1) {
+      if (value > 0) {
+        this.y += value;
+      }
+
+      return this;
+    },
+
+    get coords() {
+      return {
+        x: this.x,
+        y: this.y,
+      };
+    },
+
+    evacuate() {
+      this.x = 1400;
+      this.y = 500;
+    },
+  };
+
+  robot.addName(name);
+  robot.addVersion(version);
+  robot.addWheels(wheels);
+
+  return robot;
 }
 
 module.exports = makeRobot;
