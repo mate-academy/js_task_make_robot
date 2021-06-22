@@ -105,8 +105,4 @@ function makeRobot(name, wheels, version) {
   return robot;
 }
 
-// console.log(joy);
-
-// console.log(joy.info());
-
 module.exports = makeRobot;
