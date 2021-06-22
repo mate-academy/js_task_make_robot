@@ -12,7 +12,7 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  const moveRobot = {
+  const coords = {
     x: 0,
     y: 0,
   };
@@ -21,57 +21,51 @@ function makeRobot(name, wheels, version) {
     name,
     wheels,
     version,
-    moveRobot,
+    coords,
 
     info: `name: ${name}, chip version: ${version}, wheels: ${wheels}`,
 
-    location: `${name}: x=${moveRobot.x}, y=${moveRobot.y}`,
+    get location() {
+      return `${name}: x=${coords.x}, y=${coords.y}`;
+    },
 
     goRight(step = 1) {
-      if (step < 1) {
-        this.location = this.location;
-      } else {
-        this.location = `${name}: x=${moveRobot.x += step}, y=${moveRobot.y}`;
+      if (step > 0) {
+        this.coords.x += step;
       }
 
       return robot;
     },
 
     goLeft(step = 1) {
-      if (step < 1) {
-        this.location = this.location;
-      } else {
-        this.location = `${name}: x=${moveRobot.x -= step}, y=${moveRobot.y}`;
+      if (step > 0) {
+        this.coords.x -= step;
       }
 
       return robot;
     },
 
     goBack(step = 1) {
-      if (step < 1) {
-        this.location = this.location;
-      } else {
-        this.location = `${name}: x=${moveRobot.x}, y=${moveRobot.y -= step}`;
+      if (step > 0) {
+        this.coords.y -= step;
       }
 
       return robot;
     },
 
     goForward(step = 1) {
-      if (step < 1) {
-        this.location = this.location;
-      } else {
-        this.location = `${name}: x=${moveRobot.x}, y=${moveRobot.y += step}`;
+      if (step > 0) {
+        this.coords.y += step;
       }
 
       return robot;
     },
 
     evacuate() {
-      moveRobot.x = 1400;
-      moveRobot.y = 500;
+      this.coords.x = 1400;
+      this.coords.y = 500;
 
-      return moveRobot;
+      return coords;
     },
   };
 
