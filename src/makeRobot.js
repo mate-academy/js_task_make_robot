@@ -17,7 +17,7 @@
  *  - Movement methods must be able to be used with a chain.
  *    robot.goForward().goForward().goForward().goLeft()
  *  - Default methods that move the work by 1 in the right direction.
- *    This value can be increased by passing the desired number to the method.
+ *    This step can be increased by passing the desired number to the method.
  *    Negative numbers should not affect the location of the robot. goLeft(3)
  *  - The coordinates of the robot must be stored in the object coords,
  *    the keys x and y inside the robot.
@@ -53,52 +53,44 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward: function(value = 1) {
-      if (value <= 0) {
-        return this;
+    goForward: function(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
       }
-
-      this.coords.y += value;
 
       return this;
     },
 
-    goBack: function(value = 1) {
-      if (value <= 0) {
-        return this;
+    goBack: function(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
       }
-
-      this.coords.y -= value;
 
       return this;
     },
 
-    goRight: function(value = 1) {
-      if (value <= 0) {
-        return this;
+    goRight: function(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
       }
-
-      this.coords.x += value;
 
       return this;
     },
 
-    goLeft: function(value = 1) {
-      if (value <= 0) {
-        return this;
+    goLeft: function(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
       }
-
-      this.coords.x -= value;
 
       return this;
     },
 
     evacuate: function() {
-      const evacuateX = 1400;
-      const evacuateY = 500;
+      const evacuateCoordX = 1400;
+      const evacuateCoordY = 500;
 
-      this.coords.x = evacuateX;
-      this.coords.y = evacuateY;
+      this.coords.x = evacuateCoordX;
+      this.coords.y = evacuateCoordY;
     },
   };
 
