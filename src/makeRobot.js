@@ -89,15 +89,18 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      const xForEvacuate = 1400;
+      const yForEvacuate = 500;
+
+      this.coords.x = xForEvacuate;
+      this.coords.y = yForEvacuate;
 
       return this.coords;
     },
 
   };
 
-  return robot;
+  return this;
 }
 
 module.exports = makeRobot;
