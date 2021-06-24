@@ -6,7 +6,7 @@
  * with the team! Are you in business As a test task, you will need to
  * program our equipment that makes robots.
  *
- * Create a makeRobot function that takes the string name and the number
+ * Create a makeRobot function that takes the string name and the distanceber
  * wheels, version and returns the robot object.
  * The robot coming off the assembly line must be able to:
  *  - Provide information about yourself through getter info.
@@ -17,8 +17,10 @@
  *  - Movement methods must be able to be used with a chain.
  *    robot.goForward().goForward().goForward().goLeft()
  *  - Default methods that move the work by 1 in the right direction.
- *    This value can be increased by passing the desired number to the method.
- *    Negative numbers should not affect the location of the robot. goLeft(3)
+ *    This value can be increased by passing the desired distanceber
+ *  to the method.
+ *    Negative distancebers should not affect the location of the robot.
+ *  goLeft(3)
  *  - The coordinates of the robot must be stored in the object coords,
  *    the keys x and y inside the robot.
  *  - The robot must be able to request the evacuation of robot.evacuate(),
@@ -27,18 +29,90 @@
  *
  * @typedef {object} Robot
  * @property {string} name
- * @property {number} wheels
- * @property {number} version
+ * @property {distanceber} wheels
+ * @property {distanceber} version
  * @property {function} info
  *
  * @param {string} name
- * @param {number} wheels
- * @param {number} version
+ * @param {distanceber} wheels
+ * @param {distanceber} version
  *
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name,
+    wheels,
+    version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      return `name: ${this.name}, chip version: ${
+        this.version}, wheels: ${this.wheels}`;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    goForward(distance) {
+      if (distance === undefined) {
+        this.coords.y++;
+      }
+
+      if (distance > 0) {
+        this.coords.y += distance;
+      }
+
+      return this;
+    },
+
+    goBack(distance) {
+      if (distance === undefined) {
+        this.coords.y--;
+      }
+
+      if (distance > 0) {
+        this.coords.y -= distance;
+      }
+
+      return this;
+    },
+
+    goRight(distance) {
+      if (distance === undefined) {
+        this.coords.x++;
+      }
+
+      if (distance > 0) {
+        this.coords.x += distance;
+      }
+
+      return this;
+    },
+
+    goLeft(distance) {
+      if (distance === undefined) {
+        this.coords.x--;
+      }
+
+      if (distance > 0) {
+        this.coords.x -= distance;
+      }
+
+      return this;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
