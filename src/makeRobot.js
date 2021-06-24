@@ -19,7 +19,7 @@
  *  - Default methods that move the work by 1 in the right direction.
  *    This value can be increased by passing the desired number to the method.
  *    Negative numbers should not affect the location of the robot. goLeft(3)
- *  - The coordinates of the robot must be stored in the object coords,
+ *  - The coordinates of the robot must be stored in the object coordinates,
  *    the keys x and y inside the robot.
  *  - The robot must be able to request the evacuation of robot.evacuate(),
  *    which will call rescuers and transfer it to the service center
@@ -43,7 +43,7 @@ function makeRobot(name, wheels, version) {
     wheels: wheels,
     version: version,
 
-    coords: {
+    coordinates: {
       x: 0,
       y: 0,
     },
@@ -55,40 +55,40 @@ function makeRobot(name, wheels, version) {
     },
 
     get location() {
-      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${name}: x=${this.coordinates.x}, y=${this.coordinates.y}`;
     },
 
     goForward(moveForward = 1) {
       if (moveForward > 0) {
-        this.coords.y += moveForward;
+        this.coordinates.y += moveForward;
       }
 
       return this;
     },
     goBack(moveBack = 1) {
       if (moveBack > 0) {
-        this.coords.y -= moveBack;
+        this.coordinates.y -= moveBack;
       }
 
       return this;
     },
     goRight(moveRight = 1) {
       if (moveRight > 0) {
-        this.coords.x += moveRight;
+        this.coordinates.x += moveRight;
       }
 
       return this;
     },
     goLeft(moveLeft = 1) {
       if (moveLeft > 0) {
-        this.coords.x -= moveLeft;
+        this.coordinates.x -= moveLeft;
       }
 
       return this;
     },
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coordinates.x = 1400;
+      this.coordinates.y = 500;
     },
   };
 
