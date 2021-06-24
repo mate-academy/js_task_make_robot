@@ -29,13 +29,13 @@
  *
  * @typedef {object} Robot
  * @property {string} name
- * @property {distanceber} wheels
- * @property {distanceber} version
+ * @property {number} wheels
+ * @property {number} version
  * @property {function} info
  *
  * @param {string} name
- * @param {distanceber} wheels
- * @param {distanceber} version
+ * @param {number} wheels
+ * @param {number} version
  *
  * @return {object}
  */
@@ -58,11 +58,7 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(distance) {
-      if (distance === undefined) {
-        this.coords.y++;
-      }
-
+    goForward(distance = 1) {
       if (distance > 0) {
         this.coords.y += distance;
       }
@@ -70,11 +66,7 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goBack(distance) {
-      if (distance === undefined) {
-        this.coords.y--;
-      }
-
+    goBack(distance = 1) {
       if (distance > 0) {
         this.coords.y -= distance;
       }
@@ -82,11 +74,7 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goRight(distance) {
-      if (distance === undefined) {
-        this.coords.x++;
-      }
-
+    goRight(distance = 1) {
       if (distance > 0) {
         this.coords.x += distance;
       }
@@ -94,11 +82,7 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goLeft(distance) {
-      if (distance === undefined) {
-        this.coords.x--;
-      }
-
+    goLeft(distance = 1) {
       if (distance > 0) {
         this.coords.x -= distance;
       }
@@ -107,8 +91,11 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      const evacuatCoordinatX = 1400;
+      const evacuatCoordinatY = 500;
+
+      this.coords.x = evacuatCoordinatX;
+      this.coords.y = evacuatCoordinatY;
     },
   };
 
