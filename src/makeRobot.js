@@ -45,34 +45,30 @@ function makeRobot(name, wheels, version) {
     wheels: wheels,
     version: version,
     goBack: function goBack(value = 1) {
-      if (value < 0) {
-        return this;
+      if (value > 0) {
+        y -= value;
       };
-      y -= value;
 
       return this;
     },
     goForward: function goForward(value = 1) {
-      if (value < 0) {
-        return this;
+      if (value > 0) {
+        y += value;
       };
-      y += value;
 
       return this;
     },
     goLeft: function goLeft(value = 1) {
-      if (value < 0) {
-        return this;
+      if (value > 0) {
+        x -= value;
       };
-      x -= value;
 
       return this;
     },
     goRight: function goRight(value = 1) {
-      if (value < 0) {
-        return this;
+      if (value > 0) {
+        x += value;
       };
-      x += value;
 
       return this;
     },
