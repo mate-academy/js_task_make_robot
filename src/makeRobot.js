@@ -39,74 +39,56 @@
  */
 function makeRobot(name, wheels, version) {
   // write code here
-  const Robot = {
-    robotName: name,
-    numberOfWheels: wheels,
-    robotVersion: version,
+  const robot = {
+    name,
+    wheels,
+    version,
 
     coords: {
       x: 0,
       y: 0,
     },
 
-    walkStep: 1,
-
     get info() {
       return 'name: '
-      + `${this.robotName}`
+      + `${this.name}`
       + ', chip version: '
-      + `${this.robotVersion}`
+      + `${this.version}`
       + ', wheels: '
-      + `${this.numberOfWheels}`;
+      + `${this.wheels}`;
     },
 
     get location() {
-      return `${this.robotName}: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(value) {
-      if (typeof value === 'number') {
-        if (value > 0) {
-          this.coords.y += value;
-        }
-      } else {
-        this.coords.y += this.walkStep;
+    goForward(value = 1) {
+      if (typeof value === 'number' && value > 0) {
+        this.coords.y += value;
       }
 
       return this;
     },
 
-    goBack(value) {
-      if (typeof value === 'number') {
-        if (value > 0) {
-          this.coords.y -= value;
-        }
-      } else {
-        this.coords.y -= this.walkStep;
+    goBack(value = 1) {
+      if (typeof value === 'number' && value > 0) {
+        this.coords.y -= value;
       }
 
       return this;
     },
 
-    goRight(value) {
-      if (typeof value === 'number') {
-        if (value > 0) {
-          this.coords.x += value;
-        }
-      } else {
-        this.coords.x += this.walkStep;
+    goRight(value = 1) {
+      if (typeof value === 'number' && value > 0) {
+        this.coords.x += value;
       }
 
       return this;
     },
 
-    goLeft(value) {
-      if (typeof value === 'number') {
-        if (value > 0) {
-          this.coords.x -= value;
-        }
-      } else {
-        this.coords.x -= this.walkStep;
+    goLeft(value = 1) {
+      if (typeof value === 'number' && value > 0) {
+        this.coords.x -= value;
       }
 
       return this;
@@ -118,7 +100,7 @@ function makeRobot(name, wheels, version) {
     },
   };
 
-  return Robot;
+  return robot;
 }
 
 module.exports = makeRobot;
