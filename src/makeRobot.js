@@ -43,55 +43,59 @@ function makeRobot(name, wheels, version) {
     wheels,
     version,
 
-    coordinates: {
+    coords: {
       x: 0,
       y: 0,
     },
 
-    get description() {
-      return `name: ${this.name}, `
-      + `chip version: ${this.version}, wheels: ${this.wheels}`;
+    get info() {
+      return `name: ${this.name
+      }, chip version: ${this.version
+      }, wheels: ${this.wheels
+      }`;
     },
 
     get location() {
-      return `${this.name}: x=${this.coordinates.x}, y=${this.coordinates.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(value = 1) {
-      if (typeof value === 'number' && value > 0) {
-        this.coordinates.y += value;
+    goForward(move = 1) {
+      if (move > 0) {
+        this.coords.y += move;
       }
 
-      return this;
+      return robot;
     },
 
-    goBack(value = 1) {
-      if (typeof value === 'number' && value > 0) {
-        this.coordinates.y -= value;
+    goBack(move = 1) {
+      if (move > 0) {
+        this.coords.y -= move;
       }
 
-      return this;
+      return robot;
     },
 
-    goRight(value = 1) {
-      if (typeof value === 'number' && value > 0) {
-        this.coordinates.x += value;
+    goRight(move = 1) {
+      if (move > 0) {
+        this.coords.x += move;
       }
 
-      return this;
+      return robot;
     },
 
-    goLeft(value = 1) {
-      if (typeof value === 'number' && value > 0) {
-        this.coordinates.x -= value;
+    goLeft(move = 1) {
+      if (move > 0) {
+        this.coords.x -= move;
       }
 
-      return this;
+      return robot;
     },
 
     evacuate() {
-      this.coordinates.x = 1400;
-      this.coordinates.y = 500;
+      this.coords.x = 1400;
+      this.coords.y = 500;
+
+      return robot;
     },
   };
 
