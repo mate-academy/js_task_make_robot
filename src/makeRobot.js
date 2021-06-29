@@ -39,9 +39,9 @@
  */
 function makeRobot(name, wheels, version) {
   return {
-    name: name,
-    wheels: 5,
-    version: 31,
+    name,
+    wheels,
+    version,
     get info() {
       return `name: ${this.name}, chip version: `
         + `${this.version}, wheels: ${this.wheels}`;
