@@ -48,8 +48,9 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
     get info() {
-      // eslint-disable-next-line max-len
-      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+      return (`name: ${this.name}, `
+      + `chip version: ${this.version}, `
+      + `wheels: ${this.wheels}`);
     },
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
@@ -57,11 +58,9 @@ function makeRobot(name, wheels, version) {
     goForward(value = 1) {
       if (value >= 0) {
         this.coords.y += value;
-
-        return this;
-      } else {
-        return this;
       }
+
+      return this;
     },
     goBack(value = 1) {
       if (value >= 0) {
@@ -93,9 +92,6 @@ function makeRobot(name, wheels, version) {
     evacuate() {
       this.coords.x = 1400;
       this.coords.y = 500;
-
-      // eslint-disable-next-line no-sequences
-      return this.coords.x, this.coords.y;
     },
   };
 
