@@ -38,7 +38,93 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  return {
+    name: name,
+    wheels: wheels,
+    version: version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      return 'name: '
+        + this.name
+        + ','
+        + ' chip version: '
+        + this.version
+        + ','
+        + ' wheels: '
+        + this.wheels;
+    },
+
+    get location() {
+      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    move(step, side) {
+      if (step && step < 0) {
+        return;
+      };
+
+      let move = 0;
+
+      switch (side) {
+        case 'goForward':
+          move = !step ? 1 : step;
+          this.coords.y = this.coords.y + move;
+          break;
+
+        case 'goBack':
+          move = !step ? -1 : -Math.abs(step);
+          this.coords.y = this.coords.y + move;
+          break;
+
+        case 'goRight':
+          move = !step ? 1 : step;
+          this.coords.x = this.coords.x + move;
+          break;
+
+        case 'goLeft':
+          move = !step ? -1 : -Math.abs(step);
+          this.coords.x = this.coords.x + move;
+          break;
+      };
+    },
+
+    goForward(step) {
+      const side = 'goForward';
+
+      this.move(step, side);
+
+      return this;
+    },
+    goBack(step) {
+      const side = 'goBack';
+
+      this.move(step, side);
+
+      return this;
+    },
+    goRight(step) {
+      const side = 'goRight';
+
+      this.move(step, side);
+
+      return this;
+    },
+    goLeft(step) {
+      const side = 'goLeft';
+
+      this.move(step, side);
+
+      return this;
+    },
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+  };
 }
 
 module.exports = makeRobot;
