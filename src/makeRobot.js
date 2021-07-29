@@ -19,7 +19,7 @@
  *  - Default methods that move the work by 1 in the right direction.
  *    This value can be increased by passing the desired number to the method.
  *    Negative numbers should not affect the location of the robot. goLeft(3)
- *  - The coordinates of the robot must be stored in the object coords,
+ *  - The coordinates of the robot must be stored in the object coordinates,
  *    the keys x and y inside the robot.
  *  - The robot must be able to request the evacuation of robot.evacuate(),
  *    which will call rescuers and transfer it to the service center
@@ -39,6 +39,63 @@
  */
 function makeRobot(name, wheels, version) {
   // write code here
+
+  const newRobot = {
+    name,
+    wheels,
+    version,
+    coordinates: {
+      x: 0,
+      y: 0,
+    },
+    get info() {
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+    },
+    get location() {
+      return `${this.name}: x=${this.coordinates.x}, y=${this.coordinates.y}`;
+    },
+    evacuate() {
+      this.coordinates.x = 1400;
+      this.coordinates.y = 500;
+    },
+    goForward(i = 1) {
+      if (i > 0) {
+        this.coordinates.y += i;
+      }
+
+      return this;
+    },
+
+    goBack(i) {
+      if (i > 0) {
+        this.coordinates.y -= i;
+      } else if (i === undefined) {
+        this.coordinates.y -= 1;
+      }
+
+      return this;
+    },
+    goRight(i) {
+      if (i > 0) {
+        this.coordinates.x += i;
+      } else if (i === undefined) {
+        this.coordinates.x += 1;
+      }
+
+      return this;
+    },
+    goLeft(i) {
+      if (i > 0) {
+        this.coordinates.x -= i;
+      } else if (i === undefined) {
+        this.coordinates.x -= 1;
+      }
+
+      return this;
+    },
+  };
+
+  return newRobot;
 }
 
 module.exports = makeRobot;
