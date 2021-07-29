@@ -38,7 +38,91 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
-}
+  const v = 'chip version';
+  const w = 'wheels';
+
+  return {
+    name: name,
+    ver: version,
+    wheels: wheels,
+    x: 0,
+    y: 0,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      return `name: ${this.name}, ${v}: ${this.ver}, ${w}: ${this.wheels}`;
+    },
+    get location() {
+      return `${this.name}: x=${this.x}, y=${this.y}`;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+
+      return `${this.x} ${this.y}`;
+    },
+
+    goRight() {
+      if (arguments[0] < 0) {
+        return this;
+      };
+
+      if (arguments[0] > 0) {
+        this.x = this.x + arguments[0];
+
+        return this;
+      }
+      this.x++;
+
+      return this;
+    },
+    goLeft() {
+      if (arguments[0] < 0) {
+        return this;
+      }
+
+      if (arguments[0] > 0) {
+        this.x = this.x - arguments[0];
+
+        return this;
+      }
+      this.x--;
+
+      return this;
+    },
+    goBack() {
+      if (arguments[0] < 0) {
+        return this;
+      }
+
+      if (arguments[0] > 0) {
+        this.y = this.y - arguments[0];
+
+        return this;
+      }
+      this.y--;
+
+      return this;
+    },
+    goForward() {
+      if (arguments[0] < 0) {
+        return this;
+      }
+
+      if (arguments[0] > 0) {
+        this.y = this.y + arguments[0];
+
+        return this;
+      }
+      this.y++;
+
+      return this;
+    },
+  };
+};
 
 module.exports = makeRobot;
