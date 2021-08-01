@@ -48,78 +48,46 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      return 'name: '
-        + this.name
-        + ','
-        + ' chip version: '
-        + this.version
-        + ','
-        + ' wheels: '
-        + this.wheels;
+      return `name: ${this.name}, chip version: ${this.version}, `
+        + `wheels: ${this.wheels}`;
     },
 
     get location() {
       return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    move(step, side) {
-      if (step && step < 0) {
-        return;
-      };
-
-      let move = 0;
-
-      switch (side) {
-        case 'goForward':
-          move = !step ? 1 : step;
-          this.coords.y = this.coords.y + move;
-          break;
-
-        case 'goBack':
-          move = !step ? -1 : -Math.abs(step);
-          this.coords.y = this.coords.y + move;
-          break;
-
-        case 'goRight':
-          move = !step ? 1 : step;
-          this.coords.x = this.coords.x + move;
-          break;
-
-        case 'goLeft':
-          move = !step ? -1 : -Math.abs(step);
-          this.coords.x = this.coords.x + move;
-          break;
-      };
-    },
-
-    goForward(step) {
-      const side = 'goForward';
-
-      this.move(step, side);
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
+      }
 
       return this;
     },
-    goBack(step) {
-      const side = 'goBack';
 
-      this.move(step, side);
-
-      return this;
-    },
-    goRight(step) {
-      const side = 'goRight';
-
-      this.move(step, side);
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
+      }
 
       return this;
     },
-    goLeft(step) {
-      const side = 'goLeft';
 
-      this.move(step, side);
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
+      }
 
       return this;
     },
+
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
+      }
+
+      return this;
+    },
+
     evacuate() {
       this.coords.x = 1400;
       this.coords.y = 500;
