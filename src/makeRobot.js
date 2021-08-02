@@ -45,8 +45,6 @@ function makeRobot(name, wheels, version) {
     name: name,
     ver: version,
     wheels: wheels,
-    x: 0,
-    y: 0,
     coords: {
       x: 0,
       y: 0,
@@ -56,69 +54,44 @@ function makeRobot(name, wheels, version) {
       return `name: ${this.name}, ${v}: ${this.ver}, ${w}: ${this.wheels}`;
     },
     get location() {
-      return `${this.name}: x=${this.x}, y=${this.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     evacuate() {
       this.coords.x = 1400;
       this.coords.y = 500;
 
-      return `${this.x} ${this.y}`;
+      return `${this.coords.x} ${this.coords.y}`;
     },
 
-    goRight() {
-      if (arguments[0] < 0) {
-        return this;
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
       };
 
-      if (arguments[0] > 0) {
-        this.x = this.x + arguments[0];
+      return this;
+    },
 
-        return this;
-      }
-      this.x++;
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
+      };
 
       return this;
     },
-    goLeft() {
-      if (arguments[0] < 0) {
-        return this;
-      }
 
-      if (arguments[0] > 0) {
-        this.x = this.x - arguments[0];
-
-        return this;
-      }
-      this.x--;
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
+      };
 
       return this;
     },
-    goBack() {
-      if (arguments[0] < 0) {
-        return this;
-      }
 
-      if (arguments[0] > 0) {
-        this.y = this.y - arguments[0];
-
-        return this;
-      }
-      this.y--;
-
-      return this;
-    },
-    goForward() {
-      if (arguments[0] < 0) {
-        return this;
-      }
-
-      if (arguments[0] > 0) {
-        this.y = this.y + arguments[0];
-
-        return this;
-      }
-      this.y++;
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
+      };
 
       return this;
     },
