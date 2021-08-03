@@ -40,9 +40,9 @@
 function makeRobot(name, wheels, version) {
   // write code here
   const robot = {
-    name: null,
-    wheels: null,
-    version: null,
+    name: name,
+    wheels: wheels,
+    version: version,
     coords: {
       x: 0,
       y: 0,
@@ -105,10 +105,6 @@ function makeRobot(name, wheels, version) {
       this.coords.y = 500;
     },
   };
-
-  robot.name = name;
-  robot.wheels = wheels;
-  robot.version = version;
 
   return robot;
 }
