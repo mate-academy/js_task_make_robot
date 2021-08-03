@@ -58,7 +58,7 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    negativeMoveFix(n = 1) {
+    normalizeMove(n = 1) {
       if (n < 0) {
         return 0;
       }
@@ -67,25 +67,25 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(n) {
-      this.coords.y += this.negativeMoveFix(n);
+      this.coords.y += this.normalizeMove(n);
 
       return this;
     },
 
     goBack(n) {
-      this.coords.y -= this.negativeMoveFix(n);
+      this.coords.y -= this.normalizeMove(n);
 
       return this;
     },
 
     goLeft(n) {
-      this.coords.x -= this.negativeMoveFix(n);
+      this.coords.x -= this.normalizeMove(n);
 
       return this;
     },
 
     goRight(n) {
-      this.coords.x += this.negativeMoveFix(n);
+      this.coords.x += this.normalizeMove(n);
 
       return this;
     },
