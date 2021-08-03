@@ -39,9 +39,9 @@
  */
 function makeRobot(name, wheels, version) {
   return {
-    name: name,
-    wheels: wheels,
-    version: version,
+    name,
+    wheels,
+    version,
 
     coords: {
       x: 0,
