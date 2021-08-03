@@ -39,21 +39,21 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-    name: `${name}`,
-    wheels: `${wheels}`,
-    version: `${version}`,
+    name: name,
+    wheels: wheels,
+    version: version,
 
     get info() {
       return `name: ${this.name}, chip version: ${version}, wheels: ${wheels}`;
     },
 
-    coordinates: {
+    coords: {
       x: 0,
       y: 0,
     },
 
     get location() {
-      return `${this.name}: x=${this.coordinates.x}, y=${this.coordinates.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goBack: goBack,
@@ -64,7 +64,7 @@ function makeRobot(name, wheels, version) {
 
     goRight: goRight,
 
-    evacuate: evacuateForm,
+    evacuate: evacuate,
   };
 
   return robot;
@@ -72,7 +72,7 @@ function makeRobot(name, wheels, version) {
 
 function goBack(step = 1) {
   if (step > 0) {
-    this.coordinates.y -= step;
+    this.coords.y -= step;
   };
 
   return this;
@@ -80,7 +80,7 @@ function goBack(step = 1) {
 
 function goForward(step = 1) {
   if (step > 0) {
-    this.coordinates.y += step;
+    this.coords.y += step;
   };
 
   return this;
@@ -88,7 +88,7 @@ function goForward(step = 1) {
 
 function goLeft(step = 1) {
   if (step > 0) {
-    this.coordinates.x -= step;
+    this.coords.x -= step;
   };
 
   return this;
@@ -96,15 +96,15 @@ function goLeft(step = 1) {
 
 function goRight(step = 1) {
   if (step > 0) {
-    this.coordinates.x += step;
+    this.coords.x += step;
   };
 
   return this;
 };
 
-function evacuateForm() {
-  this.coordinates.x = 1400;
-  this.coordinates.y = 500;
+function evacuate() {
+  this.coords.x = 1400;
+  this.coords.y = 500;
 }
 
 module.exports = makeRobot;
