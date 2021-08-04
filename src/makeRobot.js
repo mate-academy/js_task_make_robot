@@ -38,7 +38,6 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  // eslint-disable-next-line no-unused-vars
   const robot = {
     name: `${name}`,
     wheels: `${wheels}`,
@@ -49,8 +48,9 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      // eslint-disable-next-line max-len
-      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+      return `name: ${this.name},`
+      + ` chip version: ${this.version},`
+      + ` wheels: ${this.wheels}`;
     },
 
     get location() {
