@@ -7,10 +7,10 @@
  * program our equipment that makes robots.
  *
  * Create a makeRobot function that takes the string name and the number
- * wheels, version and returns the robot object.
+ *wheels, version and returns the robot object.
  * The robot coming off the assembly line must be able to:
  *  - Provide information about yourself through getter info.
- *    robot.info === 'name:%name%, chip version: %version%, wheels: %wheels%'
+ *    robot.info === 'name:%name%, chip version: %version%,wheels: %wheels%'
  *  - Provide the coordinates of your location via getter location.
  *    robot.location === '%name%: x=14, y=21'
  *  - Have methods to move goForward, goBack, goRight, goLeft.
@@ -27,34 +27,34 @@
  *
  * @typedef {object} Robot
  * @property {string} name
- * @property {number} wheels
+ * @property {number}wheels
  * @property {number} version
  * @property {function} info
  *
  * @param {string} name
- * @param {number} wheels
+ * @param {number}wheels
  * @param {number} version
  *
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-    _name: name,
-    _wheels: wheels,
-    _version: version,
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
     },
 
     get info() {
-      return `name: ${this._name},`
-      + ` chip version: ${this._version},`
-      + ` wheels: ${this._wheels}`;
+      return `name: ${this.name},`
+      + ` chip version: ${this.version},`
+      + ` wheels: ${this.wheels}`;
     },
 
     get location() {
-      return `${this._name}: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goForward(value = 1) {
