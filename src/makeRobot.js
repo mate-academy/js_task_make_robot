@@ -89,8 +89,10 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      robot.coords.x = 1400;
-      robot.coords.y = 500;
+      robot.coords = {
+        x: 1400,
+        y: 500,
+      };
     },
   };
 
