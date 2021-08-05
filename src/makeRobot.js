@@ -43,7 +43,7 @@ function makeRobot(name, wheels, version) {
     y: 500,
   };
 
-  const robot = {
+  return {
     name,
     wheels,
     version,
@@ -54,16 +54,17 @@ function makeRobot(name, wheels, version) {
 
     get info() {
       return `name: ${this.name}, `
-       + `chip version: ${this.version}, wheels: ${this.wheels}`;
+       + `chip version: ${this.version},`
+       + ` wheels: ${this.wheels}`;
     },
 
     get location() {
-      return `${name}: x=${robot.coords.x}, y=${robot.coords.y}`;
+      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goForward(step = 1) {
       if (step > 0) {
-        robot.coords.y += step;
+        this.coords.y += step;
       }
 
       return this;
@@ -71,7 +72,7 @@ function makeRobot(name, wheels, version) {
 
     goBack(step = 1) {
       if (step > 0) {
-        robot.coords.y -= step;
+        this.coords.y -= step;
       }
 
       return this;
@@ -79,7 +80,7 @@ function makeRobot(name, wheels, version) {
 
     goRight(step = 1) {
       if (step > 0) {
-        robot.coords.x += step;
+        this.coords.x += step;
       }
 
       return this;
@@ -87,19 +88,17 @@ function makeRobot(name, wheels, version) {
 
     goLeft(step = 1) {
       if (step > 0) {
-        robot.coords.x -= step;
+        this.coords.x -= step;
       }
 
       return this;
     },
 
     evacuate() {
-      robot.coords.x = rescueCenter.x;
-      robot.coords.y = rescueCenter.y;
+      this.coords.x = rescueCenter.x;
+      this.coords.y = rescueCenter.y;
     },
   };
-
-  return robot;
 }
 
 module.exports = makeRobot;
