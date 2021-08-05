@@ -44,7 +44,8 @@ function makeRobot(name, wheels, version) {
       y: 500,
     },
   };
-  const robot = {
+
+  return {
     name,
     wheels,
     version,
@@ -100,8 +101,6 @@ function makeRobot(name, wheels, version) {
       this.coords.y = rescueCenter.coords.y;
     },
   };
-
-  return robot;
 }
 
 module.exports = makeRobot;
