@@ -54,17 +54,9 @@ function makeRobot(name, wheels, version) {
       }, wheels: ${this.wheels}`;
     },
 
-    set info(value) {
-      this.name = name;
-      this.wheels = wheels;
-      this.version = version;
-    },
-
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
-
-    // robot.goForward(1).goForward().goForward().goLeft()
 
     goForward(value = 1) {
       if (value < 0) {
