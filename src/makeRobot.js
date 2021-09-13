@@ -39,79 +39,55 @@
  */
 function makeRobot(name, wheels, version) {
   const template = {
-    x: 0,
-    y: 0,
-    name: name,
-    wheels: wheels,
-    version: version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+    name,
+    wheels,
+    version,
     get info() {
-      const infoStr = `name: ${this.name}, `
-        + `chip version: ${this.version}, `
-        + `wheels: ${this.wheels}`;
-
-      return infoStr;
+      return `name: ${this.name}, chip version: ${this.version}, `
+      + `wheels: ${this.wheels}`;
     },
     get location() {
-      return `${this.name}: x=${this.x}, y=${this.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
-    get coords() {
-      return {
-        x: this.x, y: this.y,
-      };
+    goForward(steps = 1) {
+      if (steps > 0) {
+        this.coords.y += steps;
+      }
+
+      return this;
     },
-    goForward: goForward,
-    goBack: goBack,
-    goRight: goRight,
-    goLeft: goLeft,
-    evacuate: evacuate,
+    goBack(steps = 1) {
+      if (steps > 0) {
+        this.coords.y -= steps;
+      }
+
+      return this;
+    },
+    goRight(steps = 1) {
+      if (steps > 0) {
+        this.coords.x += steps;
+      }
+
+      return this;
+    },
+    goLeft(steps = 1) {
+      if (steps > 0) {
+        this.coords.x -= steps;
+      }
+
+      return this;
+    },
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
   };
 
   return (template);
-}
-
-function goForward(steps = 1) {
-  if (steps < 0) {
-    return this;
-  }
-
-  this.y += steps;
-
-  return this;
-}
-
-function goBack(steps = 1) {
-  if (steps < 0) {
-    return this;
-  }
-
-  this.y -= steps;
-
-  return this;
-}
-
-function goRight(steps = 1) {
-  if (steps < 0) {
-    return this;
-  }
-
-  this.x += steps;
-
-  return this;
-}
-
-function goLeft(steps = 1) {
-  if (steps < 0) {
-    return this;
-  }
-
-  this.x -= steps;
-
-  return this;
-}
-
-function evacuate() {
-  this.x = 1400;
-  this.y = 500;
 }
 
 module.exports = makeRobot;
