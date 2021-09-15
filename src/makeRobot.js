@@ -59,46 +59,30 @@ wheels: ${this.wheels}`;
         y: this.y,
       };
     },
-    goForward(y) {
+    goForward(y = 1) {
       if (y > 0) {
-        this.y = this.y + y;
-      }
-
-      if (y === undefined) {
-        this.y = this.y + 1;
+        this.y += y;
       }
 
       return this;
     },
-    goBack(y) {
+    goBack(y = 1) {
       if (y > 0) {
-        this.y = this.y - y;
-      }
-
-      if (y === undefined) {
-        this.y = this.y - 1;
+        this.y -= y;
       }
 
       return this;
     },
-    goRight(x) {
+    goRight(x = 1) {
       if (x > 0) {
-        this.x = this.x + x;
-      }
-
-      if (x === undefined) {
-        this.x = this.x + 1;
+        this.x += x;
       }
 
       return this;
     },
-    goLeft(x) {
+    goLeft(x = 1) {
       if (x > 0) {
-        this.x = this.x - x;
-      }
-
-      if (x === undefined) {
-        this.x = this.x - 1;
+        this.x -= x;
       }
 
       return this;
