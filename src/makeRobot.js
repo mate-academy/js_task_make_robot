@@ -49,11 +49,9 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      // по другому линтер не пропускает
-      const resultStr
-  = `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
-
-      return resultStr;
+      return `name: ${this.name}, `
+      + `chip version: ${this.version}, `
+      + `wheels: ${this.wheels}`;
     },
 
     get location() {
