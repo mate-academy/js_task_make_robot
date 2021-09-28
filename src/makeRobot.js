@@ -38,7 +38,64 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name,
+    wheels,
+    version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      return `name: ${this.name},`
+      + ` chip version: ${this.version},`
+      + ` wheels: ${this.wheels}`;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    goForward(movement = 1) {
+      if (movement > 0) {
+        this.coords.y += movement;
+      }
+
+      return this;
+    },
+
+    goBack(movement = 1) {
+      if (movement > 0) {
+        this.coords.y -= movement;
+      }
+
+      return this;
+    },
+
+    goRight(movement = 1) {
+      if (movement > 0) {
+        this.coords.x += movement;
+      }
+
+      return this;
+    },
+
+    goLeft(movement = 1) {
+      if (movement > 0) {
+        this.coords.x -= movement;
+      }
+
+      return this;
+    },
+
+    evacuate() {
+      this.coords.y = 500;
+      this.coords.x = 1400;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
