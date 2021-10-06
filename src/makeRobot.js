@@ -46,11 +46,15 @@ function makeRobot(name, wheels, version) {
     y: 0,
 
     get info() {
-      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+      const nameString = `name: ${this.name}, `;
+      const versionString = `chip version: ${this.version}, `;
+      const wheelesString = `wheels: ${this.wheels}`;
+
+      return nameString + versionString + wheelesString;
     },
 
     get location() {
-      return `${name}: x=${this.x}, y=${this.y}`;
+      return `${this.name}: x=${this.x}, y=${this.y}`;
     },
 
     get coords() {
@@ -67,7 +71,7 @@ function makeRobot(name, wheels, version) {
         rightOn = 0;
       }
 
-      this.x += right;
+      this.x += rightOn;
 
       return this;
     },
