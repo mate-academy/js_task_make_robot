@@ -42,8 +42,10 @@ function makeRobot(robotName, robotWheels, robotVersion) {
     name: robotName,
     wheels: robotWheels,
     version: robotVersion,
-    x: 0,
-    y: 0,
+    coords: {
+      x: 0,
+      y: 0,
+    },
 
     get info() {
       return 'name: '
@@ -55,67 +57,44 @@ function makeRobot(robotName, robotWheels, robotVersion) {
     },
 
     get location() {
-      return 'Joy: ' + 'x=' + this.x + ', y=' + this.y;
+      return this.name + ': x=' + this.coords.x + ', y=' + this.coords.y;
     },
 
-    get coords() {
-      return {
-        x: this.x,
-        y: this.y,
-      };
-    },
-
-    goRight(step = null) {
+    goRight(step = 1) {
       if (step && step > 0) {
-        this.x += step;
-      } else if (!step) {
-        this.x += 1;
-      } else {
-        return this;
+        this.coords.x += step;
       }
 
       return this;
     },
 
-    goLeft(step = null) {
+    goLeft(step = 1) {
       if (step && step > 0) {
-        this.x -= step;
-      } else if (!step) {
-        this.x -= 1;
-      } else {
-        return this;
+        this.coords.x -= step;
       }
 
       return this;
     },
 
-    goBack(step = null) {
+    goBack(step = 1) {
       if (step && step > 0) {
-        this.y -= step;
-      } else if (!step) {
-        this.y -= 1;
-      } else {
-        return this;
+        this.coords.y -= step;
       }
 
       return this;
     },
 
-    goForward(step = null) {
+    goForward(step = 1) {
       if (step && step > 0) {
-        this.y += step;
-      } else if (!step) {
-        this.y += 1;
-      } else {
-        return this;
+        this.coords.y += step;
       }
 
       return this;
     },
 
     evacuate() {
-      this.x = 1400;
-      this.y = 500;
+      this.coords.x = 1400;
+      this.coords.y = 500;
     },
   };
 
