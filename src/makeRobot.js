@@ -40,7 +40,7 @@
 function makeRobot(name, wheels, version) {
   const robot = {
     name: name,
-    chipVersion: version,
+    version: version,
     wheels: wheels,
     coords: {
       x: 0,
@@ -50,7 +50,7 @@ function makeRobot(name, wheels, version) {
     get info() {
       const nameProperty = `name: ${this.name}`;
       const wheelsProperty = `wheels: ${this.wheels}`;
-      const versionProperty = `chip version: ${this.chipVersion}`;
+      const versionProperty = `chip version: ${this.version}`;
 
       return `${nameProperty}, ${versionProperty}, ${wheelsProperty}`;
     },
