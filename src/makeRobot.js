@@ -65,6 +65,7 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
+
     goBack(argY = 1) {
       if (argY >= 0) {
         this.coords.y -= argY;
@@ -88,8 +89,8 @@ function makeRobot(name, wheels, version) {
       return this;
     },
     evacuate(argX = 1400, argY = 500) {
-      this.coords.x += argX;
-      this.coords.y += argY;
+      this.coords.x = 1400;
+      this.coords.y = 500;
 
       return this;
     },
