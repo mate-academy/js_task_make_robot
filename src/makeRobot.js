@@ -88,7 +88,7 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
-    evacuate(dirX = 1400, dirY = 500) {
+    evacuate() {
       this.coords.x = 1400;
       this.coords.y = 500;
 
