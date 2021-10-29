@@ -47,5 +47,5 @@ GOOD EXAMPLE:
 robot.coords.x += 5;
 ```
 
-3. [BASIC RULE] - Don't disable linter unless you have to.
+4. [BASIC RULE] - Don't disable linter unless you have to.
 
