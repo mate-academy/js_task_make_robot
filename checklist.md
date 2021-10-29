@@ -1,6 +1,6 @@
 1. [CODE KNOWLEDGE] - If in object `variableName === keyName` you can use short syntax:.
 
-BAD EXAMPLEL: 
+BAD EXAMPLE: 
 ```
 {
   name: name,
@@ -18,7 +18,7 @@ GOOD EXAMPLE:
 }
 ```
 
-2. [CODE KNOWLEDGE] - if you creating a method in object, you don't need to use function keyword, use shortcut instead.
+2. [CODE KNOWLEDGE] - if you creating a method in the object, you don't need to use function keyword, use shortcut instead.
 
 
 BAD EXAMPLE: 
