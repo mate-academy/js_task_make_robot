@@ -35,7 +35,7 @@ GOOD EXAMPLE:
 },
 ```
 
-2. [CODE STYLE] - you can join arithmetic operators with assignment operators.
+3. [CODE STYLE] - you can join arithmetic operators with assignment operators.
 
 BAD EXAMPLE: 
 ```
