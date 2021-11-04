@@ -41,7 +41,7 @@ function makeRobot(name, wheels, version) {
   const robot = {
     x: 0,
     y: 0,
-    
+
     get info() {
       return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
     },
@@ -61,44 +61,32 @@ function makeRobot(name, wheels, version) {
       this.y = 500;
     },
 
-    goForward(value) {
-      if (value < 0) {
-      } else if (isNaN(value)) {
-        this.y = this.y + 1;
-      } else {
+    goForward(value = 1) {
+      if (value > 0) {
         this.y += value;
       }
 
       return this;
     },
 
-    goBack(value) {
-      if (value < 0) {
-      } else if (isNaN(value)) {
-        this.y = this.y - 1;
-      } else {
+    goBack(value = 1) {
+      if (value > 0) {
         this.y += -value;
       }
 
       return this;
     },
 
-    goRight(value) {
-      if (value < 0) {
-      } else if (isNaN(value)) {
-        this.x = this.x + 1;
-      } else {
+    goRight(value = 1) {
+      if (value > 0) {
         this.x += value;
       }
 
       return this;
     },
 
-    goLeft(value) {
-      if (value < 0) {
-      } else if (isNaN(value)) {
-        this.x = this.x - 1;
-      } else {
+    goLeft(value = 1) {
+      if (value > 0) {
         this.x += -value;
       }
 
