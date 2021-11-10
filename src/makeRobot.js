@@ -51,7 +51,7 @@ function makeRobot(name, wheels, version) {
         this.y += count;
       }
 
-      return robot;
+      return this;
     },
 
     goBack(count = 1) {
@@ -59,7 +59,7 @@ function makeRobot(name, wheels, version) {
         this.y -= count;
       }
 
-      return robot;
+      return this;
     },
 
     goRight(count = 1) {
@@ -67,7 +67,7 @@ function makeRobot(name, wheels, version) {
         this.x += count;
       }
 
-      return robot;
+      return this;
     },
 
     goLeft(count = 1) {
@@ -75,7 +75,7 @@ function makeRobot(name, wheels, version) {
         this.x -= count;
       }
 
-      return robot;
+      return this;
     },
 
     evacuate() {
