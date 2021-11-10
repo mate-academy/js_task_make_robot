@@ -90,6 +90,4 @@ function makeRobot(name, wheels, version) {
   return robot;
 }
 
-makeRobot('Joy', 5, 31);
-
 module.exports = makeRobot;
