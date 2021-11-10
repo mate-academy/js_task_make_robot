@@ -43,12 +43,14 @@ function makeRobot(name, wheels, version) {
     wheels: wheels,
     version: version,
 
-    x: 0,
-    y: 0,
+    coords: {
+      x: 0,
+      y: 0,
+    },
 
     goForward(count = 1) {
       if (count > 0) {
-        this.y += count;
+        this.coords.y += count;
       }
 
       return this;
@@ -56,7 +58,7 @@ function makeRobot(name, wheels, version) {
 
     goBack(count = 1) {
       if (count > 0) {
-        this.y -= count;
+        this.coords.y -= count;
       }
 
       return this;
@@ -64,7 +66,7 @@ function makeRobot(name, wheels, version) {
 
     goRight(count = 1) {
       if (count > 0) {
-        this.x += count;
+        this.coords.x += count;
       }
 
       return this;
@@ -72,35 +74,24 @@ function makeRobot(name, wheels, version) {
 
     goLeft(count = 1) {
       if (count > 0) {
-        this.x -= count;
+        this.coords.x -= count;
       }
 
       return this;
     },
 
     evacuate() {
-      this.y = 500;
-      this.x = 1400;
-
-      return {
-        x: this.x,
-        y: this.y,
-      };
+      this.coords.y = 500;
+      this.coords.x = 1400;
     },
 
     get info() {
-      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+      // eslint-disable-next-line max-len
+      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
     },
 
     get location() {
-      return `${this.name}: x=${this.x}, y=${this.y}`;
-    },
-
-    get coords() {
-      return {
-        x: this.x,
-        y: this.y,
-      };
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
   };
 
