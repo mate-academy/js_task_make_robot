@@ -63,37 +63,33 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(move = 1) {
-      if (move < 0) {
-        return this;
+      if (move > 0) {
+        this.coords.y += move;
       }
-      this.coords.y += move;
 
       return this;
     },
 
     goLeft(move = 1) {
-      if (move < 0) {
-        return this;
+      if (move > 0) {
+        this.coords.x -= move;
       }
-      this.coords.x -= move;
 
       return this;
     },
 
     goRight(move = 1) {
-      if (move < 0) {
-        return this;
+      if (move > 0) {
+        this.coords.x += move;
       }
-      this.coords.x += move;
 
       return this;
     },
 
     goBack(move = 1) {
-      if (move < 0) {
-        return this;
+      if (move > 0) {
+        this.coords.y -= move;
       }
-      this.coords.y -= move;
 
       return this;
     },
@@ -106,7 +102,5 @@ function makeRobot(name, wheels, version) {
 
   return robot;
 }
-
-// makeRobot('Joy', 5, 31);
 
 module.exports = makeRobot;
