@@ -60,10 +60,6 @@ function makeRobot(name, wheels, version) {
         + `y=${this.coords.y}`;
     },
 
-    isPositive(value) {
-      return (value < 0);
-    },
-
     goForward(distance = 1) {
       if (distance > 0) {
         this.coords.y += distance;
