@@ -39,14 +39,17 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-    nm: `name: ${name}`,
-
-    whls: `wheels: ${wheels}`,
-
-    vrsn: `chip version: ${version}`,
+    name: name,
+    wheels: wheels,
+    version: version,
 
     get info() {
-      return `${this.nm}, ${this.vrsn}, ${this.whls}`;
+      const nameInfo = `name: ${name}`;
+      const wheelsInfo = `wheels: ${wheels}`;
+      const chipVersionInfo = `chip version: ${version}`;
+      // чтобы строка не превышала 80 сиволов
+
+      return `${nameInfo}, ${wheelsInfo}, ${chipVersionInfo}`;
     },
 
     get location() {
