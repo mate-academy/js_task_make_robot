@@ -49,7 +49,7 @@ function makeRobot(name, wheels, version) {
       const chipVersionInfo = `chip version: ${version}`;
       // чтобы строка не превышала 80 сиволов
 
-      return `${nameInfo}, ${wheelsInfo}, ${chipVersionInfo}`;
+      return `${nameInfo}, ${chipVersionInfo}, ${wheelsInfo}`;
     },
 
     get location() {
