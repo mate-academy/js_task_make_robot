@@ -44,14 +44,14 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
 
-    name: name,
-    wheels: wheels,
-    version: version,
-    goForward: goForward,
-    goBack: goBack,
-    goRight: goRight,
-    goLeft: goLeft,
-    evacuate: evacuate,
+    name,
+    wheels,
+    version,
+    goForward,
+    goBack,
+    goRight,
+    goLeft,
+    evacuate,
 
     get info() {
       const part = `name: ${this.name}, chip version: ${this.version}`;
