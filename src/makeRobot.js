@@ -17,7 +17,7 @@
  *  - Movement methods must be able to be used with a chain.
  *    robot.goForward().goForward().goForward().goLeft()
  *  - Default methods that move the work by 1 in the right direction.
- *    This value can be increased by passing the desired number to the method.
+ *    robot value can be increased by passing the desired number to the method.
  *    Negative numbers should not affect the location of the robot. goLeft(3)
  *  - The coordinates of the robot must be stored in the object coords,
  *    the keys x and y inside the robot.
@@ -38,7 +38,64 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name,
+    wheels,
+    version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      return `name: ${robot.name}, `
+      + `chip version: ${robot.version}, `
+      + `wheels: ${robot.wheels}`;
+    },
+
+    get location() {
+      return `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
+    },
+
+    goForward(value = 1) {
+      if (value >= 0) {
+        robot.coords.y += value;
+      }
+
+      return robot;
+    },
+
+    goBack(value = 1) {
+      if (value >= 0) {
+        robot.coords.y -= value;
+      }
+
+      return robot;
+    },
+
+    goRight(value = 1) {
+      if (value >= 0) {
+        robot.coords.x += value;
+      }
+
+      return robot;
+    },
+
+    goLeft(value = 1) {
+      if (value >= 0) {
+        robot.coords.x -= value;
+      }
+
+      return robot;
+    },
+
+    evacuate() {
+      robot.coords.x = 1400;
+      robot.coords.y = 500;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
