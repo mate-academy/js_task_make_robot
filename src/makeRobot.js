@@ -38,14 +38,19 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
   const robot = {
-    get info() {
-      const nameStr = `name: ${this.name}, `;
-      const versionStr = `chip version: ${this.version}, `;
-      const wheelsStr = `wheels: ${this.wheels}`;
+    name,
+    wheels,
+    version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
 
-      return nameStr + versionStr + wheelsStr;
+    get info() {
+      return `name: ${this.name}, `
+      + `chip version: ${this.version}, `
+      + `wheels: ${this.wheels}`;
     },
 
     get location() {
@@ -89,13 +94,6 @@ function makeRobot(name, wheels, version) {
       this.coords.y = 500;
     },
   };
-
-  robot['name'] = name;
-  robot['wheels'] = wheels;
-  robot['version'] = version;
-  robot['coords'] = {};
-  robot.coords['x'] = 0;
-  robot.coords['y'] = 0;
 
   return robot;
 }
