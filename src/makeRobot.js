@@ -104,8 +104,4 @@ function makeRobot(name, wheels, version) {
   };
 }
 
-const robot = makeRobot('Joy', 5, 32);
-
-robot.goForward(-1).goRight(50);
-
 module.exports = makeRobot;
