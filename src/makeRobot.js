@@ -49,7 +49,7 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      return `name: ${this.name}, chip version: ${this['version']}, wheels: ${this['wheels']}`;
+      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheel}`;
     },
 
     get location() {
@@ -57,13 +57,13 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(value = 1) {
-      if (value < 0) {
-        return this;
+      if (value > 0) {
+        this.coords.y += value;
       }
-      this.coords.y += value;
 
       return this;
     },
+
     goBack(value = 1) {
       if (value < 0) {
         return this;
@@ -72,6 +72,7 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
+
     goRight(value = 1) {
       if (value < 0) {
         return this;
@@ -80,6 +81,7 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
+
     goLeft(value = 1) {
       if (value < 0) {
         return this;
