@@ -49,21 +49,20 @@ function makeRobot(name, wheels, version, x = 0, y = 0) {
     name,
     wheels,
     version,
-    coords: {
-      x,
-      y,
-    },
+    coords:
+      {
+        x,
+        y,
+      },
 
     get info() {
-      return `name: ` + this.name + ', '
-      + 'chip version: ' + this.version + ', '
-      + 'wheels: ' + this.wheels;
+      return `name: ${this.name}, `
+      + `chip version: ${this.version}, `
+      + `wheels: ${this.wheels}`;
     },
 
     get location() {
-      return this.name
-      + `: x=` + this.coords.x
-      + `, y=` + this.coords.y;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goForward(step = ordinaryStep) {
