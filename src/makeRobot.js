@@ -61,10 +61,9 @@ wheels: ${this.wheels}`;
     },
 
     goBack(value = 1) {
-      if (value < 0) {
-        return this;
+      if (value > 0) {
+        this.coords.y -= value;
       }
-      this.coords.y -= value;
 
       return this;
     },
