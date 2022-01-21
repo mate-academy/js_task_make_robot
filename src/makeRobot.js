@@ -37,48 +37,6 @@
  *
  * @return {object}
  */
-// #region controls
-
-function evacuate() {
-  this.coords.x = 1400;
-  this.coords.y = 500;
-
-  return this;
-};
-
-function goForward(step = 1) {
-  if (step > 0) {
-    this.coords.y += step;
-  }
-
-  return this;
-};
-
-function goBack(step = 1) {
-  if (step > 0) {
-    this.coords.y -= step;
-  }
-
-  return this;
-};
-
-function goLeft(step = 1) {
-  if (step > 0) {
-    this.coords.x -= step;
-  }
-
-  return this;
-};
-
-function goRight(step = 1) {
-  if (step > 0) {
-    this.coords.x += step;
-  }
-
-  return this;
-};
-
-// #endregion
 
 function makeRobot(name, wheels, version) {
   const robot = {
@@ -96,11 +54,40 @@ function makeRobot(name, wheels, version) {
     get location() {
       return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
-    evacuate,
-    goForward,
-    goBack,
-    goLeft,
-    goRight,
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+
+      return this;
+    },
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
+      }
+
+      return this;
+    },
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
+      }
+
+      return this;
+    },
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
+      }
+
+      return this;
+    },
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
+      }
+
+      return this;
+    },
   };
 
   return robot;
