@@ -57,33 +57,33 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(n = 1) {
-      if (n > 0 && Number.isInteger(n)) {
-        this.coords.y += n;
+    goForward(robotStepsAmount = 1) {
+      if (robotStepsAmount > 0 && Number.isInteger(robotStepsAmount)) {
+        this.coords.y += robotStepsAmount;
       }
 
       return this;
     },
 
-    goBack(n = 1) {
-      if (n > 0 && Number.isInteger(n)) {
-        this.coords.y += -n;
+    goBack(robotStepsAmount = 1) {
+      if (robotStepsAmount > 0 && Number.isInteger(robotStepsAmount)) {
+        this.coords.y -= robotStepsAmount;
       }
 
       return this;
     },
 
-    goRight(n = 1) {
-      if (n > 0 && Number.isInteger(n)) {
-        this.coords.x += n;
+    goRight(robotStepsAmount = 1) {
+      if (robotStepsAmount > 0 && Number.isInteger(robotStepsAmount)) {
+        this.coords.x += robotStepsAmount;
       }
 
       return this;
     },
 
-    goLeft(n = 1) {
-      if (n > 0 && Number.isInteger(n)) {
-        this.coords.x += -n;
+    goLeft(robotStepsAmount = 1) {
+      if (robotStepsAmount > 0 && Number.isInteger(robotStepsAmount)) {
+        this.coords.x -= robotStepsAmount;
       }
 
       return this;
