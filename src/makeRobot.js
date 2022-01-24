@@ -35,7 +35,7 @@
  * @param {number} wheels
  * @param {number} version
  *
- * @return {object}
+ * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
   // write code here
