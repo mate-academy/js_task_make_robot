@@ -39,16 +39,16 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-    name: name,
-    'chip version': version,
-    wheels: wheels,
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
     },
 
     get info() {
-      return `name: ${this.name}, chip version: ${this['chip version']}`
+      return `name: ${this.name}, chip version: ${this.version}`
       + `, wheels: ${this.wheels}`;
     },
 
