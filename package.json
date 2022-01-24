@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "js-task-make-robot",
   "version": "1.0.0",
@@ -26,3 +27,33 @@
     "projectType": "javascript"
   }
 }
+=======
+{
+  "name": "js-task-make-robot",
+  "version": "1.0.0",
+  "description": "js task makeRobot",
+  "main": "src/makeRobot.js",
+  "scripts": {
+    "init": "mate-scripts init",
+    "start": "mate-scripts start",
+    "lint": "mate-scripts lint",
+    "test:only": "mate-scripts test",
+    "update": "mate-scripts update",
+    "postinstall": "npm run update",
+    "test": "npm run lint && npm run test:only"
+  },
+  "author": "Mate academy",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@mate-academy/eslint-config": "*",
+    "@mate-academy/scripts": "^0.9.14",
+    "eslint": "^5.16.0",
+    "eslint-plugin-jest": "^22.4.1",
+    "eslint-plugin-node": "^8.0.1",
+    "jest": "^24.7.0"
+  },
+  "mateAcademy": {
+    "projectType": "javascript"
+  }
+}
+>>>>>>> 2c4684c4498a71c4aadd6609455685b66029eef5
