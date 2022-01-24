@@ -39,51 +39,50 @@
  */
 function makeRobot(name, wheels, version) {
   // write code here
-  const Robot = {
+  const robot = {
     name,
     wheels,
     version,
-
-    get info() {
-      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
-    },
-
     coords: {
       x: 0,
       y: 0,
+    },
+
+    get info() {
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
     },
 
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(robotStepsAmount = 1) {
-      if (robotStepsAmount > 0 && Number.isInteger(robotStepsAmount)) {
-        this.coords.y += robotStepsAmount;
+    goForward(step = 1) {
+      if (step > 0 && Number.isInteger(step)) {
+        this.coords.y += step;
       }
 
       return this;
     },
 
-    goBack(robotStepsAmount = 1) {
-      if (robotStepsAmount > 0 && Number.isInteger(robotStepsAmount)) {
-        this.coords.y -= robotStepsAmount;
+    goBack(step = 1) {
+      if (step > 0 && Number.isInteger(step)) {
+        this.coords.y -= step;
       }
 
       return this;
     },
 
-    goRight(robotStepsAmount = 1) {
-      if (robotStepsAmount > 0 && Number.isInteger(robotStepsAmount)) {
-        this.coords.x += robotStepsAmount;
+    goRight(step = 1) {
+      if (step > 0 && Number.isInteger(step)) {
+        this.coords.x += step;
       }
 
       return this;
     },
 
-    goLeft(robotStepsAmount = 1) {
-      if (robotStepsAmount > 0 && Number.isInteger(robotStepsAmount)) {
-        this.coords.x -= robotStepsAmount;
+    goLeft(step = 1) {
+      if (step > 0 && Number.isInteger(step)) {
+        this.coords.x -= step;
       }
 
       return this;
@@ -95,7 +94,7 @@ function makeRobot(name, wheels, version) {
     },
   };
 
-  return Robot;
+  return robot;
 }
 
 module.exports = makeRobot;
