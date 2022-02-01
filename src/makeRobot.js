@@ -73,9 +73,23 @@ function makeRobot(name, wheels, version) {
       x: 0,
       y: 0,
     },
-    _setLocation,
-    _goRobot,
-    evacuate,
+    _setLocation: function() {
+      this.location = `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+    _goRobot: function(x, y) {
+      this.coords.x += x;
+      this.coords.y += y;
+      this._setLocation();
+
+      return this;
+    },
+    evacuate: function() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+      this._setLocation();
+
+      return this.coords;
+    },
     goForward: function(n = 1) {
       return this._goRobot(0, n < 0 ? 0 : n);
     },
@@ -89,26 +103,6 @@ function makeRobot(name, wheels, version) {
       return this._goRobot(n < 0 ? 0 : n, 0);
     },
   };
-
-  function _setLocation() {
-    this.location = `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
-  }
-
-  function _goRobot(x, y) {
-    this.coords.x += x;
-    this.coords.y += y;
-    this._setLocation();
-
-    return this;
-  }
-
-  function evacuate() {
-    this.coords.x = 1400;
-    this.coords.y = 500;
-    this._setLocation();
-
-    return this.coords;
-  }
 }
 
 module.exports = makeRobot;
