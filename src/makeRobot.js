@@ -87,8 +87,6 @@ function makeRobot(name, wheels, version) {
       this.coords.x = 1400;
       this.coords.y = 500;
       this._setLocation();
-
-      return this.coords;
     },
     goForward: function(n = 1) {
       return this._goRobot(0, n < 0 ? 0 : n);
