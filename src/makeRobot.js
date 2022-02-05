@@ -25,6 +25,8 @@
  *    which will call rescuers and transfer it to the service center
  *    at the coordinates x: 1400, y: 500.
  *
+ *
+ *
  * @typedef {object} Robot
  * @property {string} name
  * @property {number} wheels
@@ -38,7 +40,67 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  return {
+    name: name,
+    wheels: wheels,
+    version: version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+    },
+
+    get location() {
+      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+
+      return this;
+    },
+
+    goForward(number = 1) {
+      if (number < 0) {
+        return this;
+      }
+      this.coords.y = this.coords.y + number;
+
+      return this;
+    },
+
+    goBack(number = 1) {
+      if (number < 0) {
+        return this;
+      }
+      this.coords.y = this.coords.y - number;
+
+      return this;
+    },
+
+    goRight(number = 1) {
+      if (number < 0) {
+        return this;
+      }
+      this.coords.x = this.coords.x + number;
+
+      return this;
+    },
+
+    goLeft(number = 1) {
+      if (number < 0) {
+        return this;
+      }
+      this.coords.x = this.coords.x - number;
+
+      return this;
+    },
+
+  };
 }
 
 module.exports = makeRobot;
