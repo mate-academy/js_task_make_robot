@@ -29,8 +29,14 @@
  * @property {string} name
  * @property {number} wheels
  * @property {number} version
+ * @property {object} coords
  * @property {function} info
- *
+ * @property {function} location
+ * @property {function} right
+ * @property {function} left
+ * @property {function} back
+ * @property {function} forward
+ * @property {function} evacuate
  * @param {string} name
  * @param {number} wheels
  * @param {number} version
@@ -38,7 +44,87 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  return {
+    name: name,
+    chipVersion: version,
+    wheels: wheels,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    goRight: goRight,
+    goLeft: goLeft,
+    goBack: goBack,
+    goForward: goForward,
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+
+    get info() {
+      return 'name: ' + this.name + ', chip version: ' + this.chipVersion
+        + ', wheels: ' + this.wheels;
+    },
+
+    get location() {
+      return this.name + ': x=' + this.coords.x + ', y=' + this.coords.y;
+    },
+
+    set right(value) {
+      this.coords.x += value;
+    },
+
+    set left(value) {
+      this.coords.x -= value;
+    },
+
+    set back(value) {
+      this.coords.y -= value;
+    },
+
+    set forward(value) {
+      this.coords.y += value;
+    },
+
+    set serviceDelivery(value) {
+      this.coords.x = value[0];
+      this.coords.y = value[1];
+    },
+  };
+}
+
+function goRight(step = 1) {
+  if (step > 0) {
+    this.right = step;
+  }
+
+  return this;
+}
+
+function goLeft(step = 1) {
+  if (step > 0) {
+    this.left = step;
+  }
+
+  return this;
+}
+
+function goBack(step = 1) {
+  if (step > 0) {
+    this.back = step;
+  }
+
+  return this;
+}
+
+function goForward(step = 1) {
+  if (step > 0) {
+    this.forward = step;
+  }
+
+  return this;
 }
 
 module.exports = makeRobot;
