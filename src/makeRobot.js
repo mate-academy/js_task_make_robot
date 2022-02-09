@@ -30,7 +30,7 @@ function makeRobot(name, wheels, version) {
         this.chipVersion}, wheels: ${this.wheels}`;
     },
     get location() {
-      return `Joy: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
     goForward(value = 1) {
       if (isValid(value)) {
