@@ -32,10 +32,10 @@
  * @property {object} coords
  * @property {function} info
  * @property {function} location
- * @property {function} right
- * @property {function} left
- * @property {function} back
- * @property {function} forward
+ * @property {function} goRight
+ * @property {function} goLeft
+ * @property {function} goBack
+ * @property {function} goForward
  * @property {function} evacuate
  * @param {string} name
  * @param {number} wheels
@@ -86,11 +86,6 @@ function makeRobot(name, wheels, version) {
 
     set forward(value) {
       this.coords.y += value;
-    },
-
-    set serviceDelivery(value) {
-      this.coords.x = value[0];
-      this.coords.y = value[1];
     },
   };
 }
