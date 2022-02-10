@@ -65,24 +65,28 @@ function makeRobot(name, wheels, version) {
       if (value >= 0) {
         robot.coords.y -= value;
       }
+      return this;
     },
 
     goForward(value = 1) {
       if (value >= 0) {
         robot.coords.y += value;
       }
+      return this;
     },
 
     goLeft(value = 1) {
       if (value >= 0) {
         robot.coords.x -= value;
       }
+      return this;
     },
 
     goRight(value = 1) {
       if (value >= 0) {
         robot.coords.x += value;
       }
+      return this;
     },
   };
 
