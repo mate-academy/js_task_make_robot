@@ -39,12 +39,12 @@ GOOD EXAMPLE:
 
 BAD EXAMPLE: 
 ```
-robot.coords.x = robot.coords.x + 5;
+robot.coordinates.x = robot.coordinates.x + 5;
 ```
 
 GOOD EXAMPLE:
 ```
-robot.coords.x += 5;
+robot.coordinates.x += 5;
 ```
 
 4. [BASIC RULE] - Don't disable linter unless you have to.

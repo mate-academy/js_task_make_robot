@@ -19,7 +19,7 @@
  *  - Default methods that move the work by 1 in the right direction.
  *    This value can be increased by passing the desired number to the method.
  *    Negative numbers should not affect the location of the robot. goLeft(3)
- *  - The coordinates of the robot must be stored in the object coords,
+ *  - The coordinates of the robot must be stored in the object coordinates,
  *    the keys x and y inside the robot.
  *  - The robot must be able to request the evacuation of robot.evacuate(),
  *    which will call rescuers and transfer it to the service center
@@ -38,7 +38,60 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  return {
+    name,
+    wheels,
+    version,
+    coordinates: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      return (
+        `name: ${this.name}, chip version: ${
+          this.version}, wheels: ${this.wheels}`);
+    },
+    get location() {
+      return (`${this.name}: x=${this.coordinates.x}, y=${this.coordinates.y}`);
+    },
+    goForward(value = 1) {
+      if (validation(value)) {
+        this.coordinates.y += value;
+      }
+
+      return this;
+    },
+    goBack(value = 1) {
+      if (validation(value)) {
+        this.coordinates.y -= value;
+      }
+
+      return this;
+    },
+    goRight(value = 1) {
+      if (validation(value)) {
+        this.coordinates.x += value;
+      }
+
+      return this;
+    },
+    goLeft(value = 1) {
+      if (validation(value)) {
+        this.coordinates.x -= value;
+      }
+
+      return this;
+    },
+    evacuate() {
+      this.coordinates.x = 1400;
+      this.coordinates.y = 500;
+    },
+  };
+}
+
+function validation(value) {
+  return value >= 0;
 }
 
 module.exports = makeRobot;
