@@ -3,7 +3,7 @@
 /**
  * Mate Robot Factory impressed by your success, they are ready to accept
  * you into the Tech team, you will learn to program robots together
- * with the team! Are you in business As a test task, you will need to
+ * with the team! Are you in business? As a test task, you will need to
  * program our equipment that makes robots.
  *
  * Create a makeRobot function that takes the string name and the number
@@ -38,7 +38,59 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name,
+    wheels,
+    version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+    get info() {
+      return `name: ${robot.name}, `
+      + `chip version: ${robot.version}, `
+      + `wheels: ${robot.wheels}`;
+    },
+
+    get location() {
+      return `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
+    },
+
+    evacuate() {
+      robot.coords.x = 1400;
+      robot.coords.y = 500;
+    },
+
+    goBack(value = 1) {
+      if (value >= 0) {
+        robot.coords.y -= value;
+      }
+      return this;
+    },
+
+    goForward(value = 1) {
+      if (value >= 0) {
+        robot.coords.y += value;
+      }
+      return this;
+    },
+
+    goLeft(value = 1) {
+      if (value >= 0) {
+        robot.coords.x -= value;
+      }
+      return this;
+    },
+
+    goRight(value = 1) {
+      if (value >= 0) {
+        robot.coords.x += value;
+      }
+      return this;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
