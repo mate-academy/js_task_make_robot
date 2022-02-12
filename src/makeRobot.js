@@ -61,8 +61,8 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    set location({ x, y }) {
-      return [ x, y ];
+    set location(value) {
+      return value;
     },
 
     goForward(distance = 1) {
