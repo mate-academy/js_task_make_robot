@@ -38,6 +38,10 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
+  function stepValid(value) {
+    return value > 0;
+  };
+
   return {
     name,
     wheels,
@@ -59,37 +63,33 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(step = 1) {
-      if (step < 0) {
-        return this;
+      if (stepValid(step)) {
+        this.coords.y += step;
       }
-      this.coords.y += step;
 
       return this;
     },
 
     goBack(step = 1) {
-      if (step < 0) {
-        return this;
+      if (stepValid(step)) {
+        this.coords.y -= step;
       }
-      this.coords.y -= step;
 
       return this;
     },
 
     goRight(step = 1) {
-      if (step < 0) {
-        return this;
+      if (stepValid(step)) {
+        this.coords.x += step;
       }
-      this.coords.x += step;
 
       return this;
     },
 
     goLeft(step = 1) {
-      if (step < 0) {
-        return this;
+      if (stepValid(step)) {
+        this.coords.x -= step;
       }
-      this.coords.x -= step;
 
       return this;
     },
