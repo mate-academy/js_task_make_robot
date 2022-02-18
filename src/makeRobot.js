@@ -38,7 +38,129 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name,
+    wheels,
+    version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      // eslint-disable-next-line max-len
+      const message = `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+
+      return message;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    goForward: function(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
+      }
+
+      return this;
+    },
+
+    goBack: function(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
+      }
+
+      return this;
+    },
+
+    goRight: function(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
+      }
+
+      return this;
+    },
+
+    goLeft: function(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
+      }
+
+      return this;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+
+      return `${this.x}, ${this.y}`;
+    },
+  };
+
+  return robot;
 }
+
+// const robot1 = {
+//   name: 'John',
+//   wheels: 5,
+//   version: 31,
+//   x: 0,
+//   y: 0,
+
+//   get info() {
+//     return `name: ${this.name}, chip version: ${this.version},
+//      wheels: ${this.wheels}`;
+//   },
+
+//   get location() {
+//     return `${this.name}: x=${this.x}, y=${this.y}`;
+//   },
+
+//   set goForward(y = 1) {
+//     if (y < 0) {
+//       return;
+//     }
+//     this.y += y;
+
+//     return this.y;
+//   },
+
+//   set goBack(y = 1) {
+//     if (y < 0) {
+//       return;
+//     }
+//     this.y -= y;
+
+//     return this.y;
+//   },
+
+//   set goRight(x = 1) {
+//     if (x < 0) {
+//       return;
+//     }
+//     this.x += x;
+
+//     return this.x;
+//   },
+
+//   set goLeft(x = 1) {
+//     if (x < 0) {
+//       return;
+//     }
+//     this.x -= x;
+
+//     return this.x;
+//   },
+
+//   get evacuate() {
+//     this.x = 1400;
+//     this.y = 500;
+//   },
+// };
+
+// robot1.goForward = 5;
+
+// console.log(robot1.goForward);
 
 module.exports = makeRobot;
