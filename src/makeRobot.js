@@ -49,7 +49,7 @@ function makeRobot(name, wheels, version) {
 
     get info() {
       const roboName = `name: ${this.name}`;
-      const roboVersion = `chip version: ${version}`;
+      const roboVersion = `chip version: ${this.version}`;
       const roboVheels = `wheels: ${this.wheels}`;
 
       return `${roboName}, ${roboVersion}, ${roboVheels}`;
