@@ -39,12 +39,14 @@
  */
 function makeRobot(name, wheels, version) {
   // write code here
-  const Robot = {
+  const robot = {
     robotName: name,
     robotWheels: wheels,
     robotVersion: version,
-    x: 0,
-    y: 0,
+    coords: {
+      x: 0,
+      y: 0,
+    },
 
     get info() {
       return `name: ${this.robotName}, chip version: ${this.robotVersion},`
@@ -52,79 +54,48 @@ function makeRobot(name, wheels, version) {
     },
 
     get location() {
-      return `${this.robotName}: x=${this.x}, y=${this.y}`;
+      return `${this.robotName}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    get coords() {
-      return {
-        x: this.x,
-        y: this.y,
-      };
-    },
-
-    goForward(value) {
-      if (value <= 0) {
-        return this;
-      }
-
-      if (value === undefined) {
-        this.y += 1;
-      } else {
-        this.y += value;
+    goForward(value = 1) {
+      if (value > 0) {
+        this.coords.y += value;
       }
 
       return this;
     },
 
-    goBack(value) {
-      if (value <= 0) {
-        return this;
-      }
-
-      if (value === undefined) {
-        this.y -= 1;
-      } else {
-        this.y -= value;
+    goBack(value = 1) {
+      if (value > 0) {
+        this.coords.y -= value;
       }
 
       return this;
     },
 
-    goLeft(value) {
-      if (value <= 0) {
-        return this;
-      }
-
-      if (value === undefined) {
-        this.x -= 1;
-      } else {
-        this.x -= value;
+    goLeft(value = 1) {
+      if (value > 0) {
+        this.coords.x -= value;
       }
 
       return this;
     },
 
-    goRight(value) {
-      if (value <= 0) {
-        return this;
-      }
-
-      if (value === undefined) {
-        this.x += 1;
-      } else {
-        this.x += value;
+    goRight(value = 1) {
+      if (value > 0) {
+        this.coords.x += value;
       }
 
       return this;
     },
 
     evacuate() {
-      this.x = 1400;
-      this.y = 500;
+      this.coords.x = 1400;
+      this.coords.y = 500;
     },
   };
 
-  return Robot;
+  return robot;
 }
 
 module.exports = makeRobot;
