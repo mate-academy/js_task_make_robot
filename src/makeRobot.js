@@ -40,9 +40,9 @@
 function makeRobot(name, wheels, version) {
   // write code here
   const robot = {
-    name: name,
-    wheels: wheels,
-    chipVersion: version,
+    name,
+    wheels,
+    version,
     x: 0,
     y: 0,
 
@@ -53,7 +53,7 @@ function makeRobot(name, wheels, version) {
 
     get info() {
       const firstData = `name: ${this.name}`;
-      const secondData = `chip version: ${this.chipVersion}`;
+      const secondData = `chip version: ${this.version}`;
       const thirtData = `wheels: ${this.wheels}`;
 
       return `${firstData}, ${secondData}, ${thirtData}`;
