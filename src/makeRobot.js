@@ -38,7 +38,80 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name,
+    version,
+    wheels,
+    coords: {
+      'x': 0,
+      'y': 0,
+    },
+
+    get info() {
+      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords['x']}, y=${this.coords['y']}`;
+    },
+
+    goForward(value) {
+      if (isFinite(value) && value > 0) {
+        this.coords['y'] = this.coords['y'] + value;
+      } else if (value < 0) {
+
+      } else {
+        this.coords['y'] = this.coords['y'] + 1;
+      }
+
+      return this;
+    },
+
+    goBack(value) {
+      if (isFinite(value) && value > 0) {
+        this.coords['y'] = this.coords['y'] - value;
+      } else if (value < 0) {
+
+      } else {
+        this.coords['y'] = this.coords['y'] - 1;
+      }
+
+      return this;
+    },
+
+    goRight(value) {
+      if (isFinite(value) && value > 0) {
+        this.coords['x'] = this.coords['x'] + value;
+      } else if (value < 0) {
+
+      } else {
+        this.coords['x'] = this.coords['x'] + 1;
+      }
+
+      return this;
+    },
+
+    goLeft(value) {
+      if (isFinite(value) && value > 0) {
+        this.coords['x'] = this.coords['x'] - value;
+      } else if (value < 0) {
+
+      } else {
+        this.coords['x'] = this.coords['x'] - 1;
+      }
+
+      return this;
+    },
+
+    evacuate() {
+      this.coords = {
+        'x': 1400,
+        'y': 500,
+      };
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
