@@ -43,11 +43,9 @@ function makeRobot(name, wheels, version) {
     y: 0,
 
     goForward(number = 1) {
-      if (number < 0) {
-        return this;
+      if (number > 0) {
+        this.y += number;
       }
-
-      this.y += number;
 
       return this;
     },
@@ -63,11 +61,9 @@ function makeRobot(name, wheels, version) {
     },
 
     goRight(number = 1) {
-      if (number < 0) {
-        return this;
+      if (number > 0) {
+        this.x += number;
       }
-
-      this.x += number;
 
       return this;
     },
