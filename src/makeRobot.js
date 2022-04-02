@@ -38,50 +38,42 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  function goBack(param) {
-    if (param > 0) {
-      robot.coords.y += -1 * param;
+  function goBack(param = 1) {
+    if (param < 0) {
+      return this;
     }
 
-    if (param === undefined) {
-      robot.coords.y--;
-    }
+    robot.coords.y -= param;
 
     return this;
   };
 
-  function goForward(param) {
-    if (param > 0) {
-      robot.coords.y += 1 * param;
+  function goForward(param = 1) {
+    if (param < 0) {
+      return this;
     }
 
-    if (param === undefined) {
-      robot.coords.y++;
-    }
+    robot.coords.y += param;
 
     return this;
   };
 
-  function goLeft(param) {
-    if (param > 0) {
-      robot.coords.x += -1 * param;
+  function goLeft(param = 1) {
+    if (param < 0) {
+      return this;
     }
 
-    if (param === undefined) {
-      robot.coords.x--;
-    }
+    robot.coords.x -= param;
 
     return this;
   };
 
-  function goRight(param) {
-    if (param > 0) {
-      robot.coords.x += 1 * param;
+  function goRight(param = 1) {
+    if (param < 0) {
+      return this;
     }
 
-    if (param === undefined) {
-      robot.coords.x++;
-    }
+    robot.coords.x += param;
 
     return this;
   };
