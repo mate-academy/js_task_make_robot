@@ -38,46 +38,6 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  function goBack(param = 1) {
-    if (param < 0) {
-      return this;
-    }
-
-    robot.coords.y -= param;
-
-    return this;
-  };
-
-  function goForward(param = 1) {
-    if (param < 0) {
-      return this;
-    }
-
-    robot.coords.y += param;
-
-    return this;
-  };
-
-  function goLeft(param = 1) {
-    if (param < 0) {
-      return this;
-    }
-
-    robot.coords.x -= param;
-
-    return this;
-  };
-
-  function goRight(param = 1) {
-    if (param < 0) {
-      return this;
-    }
-
-    robot.coords.x += param;
-
-    return this;
-  };
-
   const robot = {
     coords: {
       x: 0,
@@ -91,16 +51,39 @@ function makeRobot(name, wheels, version) {
     get location() {
       return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
+    goBack(param = 1) {
+      if (param > 0) {
+        robot.coords.y -= param;
+      }
 
-    goBack,
+      return this;
+    },
 
-    goForward,
+    goForward(param = 1) {
+      if (param > 0) {
+        robot.coords.y += param;
+      }
 
-    goLeft,
+      return this;
+    },
 
-    goRight,
+    goLeft(param = 1) {
+      if (param > 0) {
+        robot.coords.x -= param;
+      }
 
-    evacuate: function() {
+      return this;
+    },
+
+    goRight(param = 1) {
+      if (param > 0) {
+        robot.coords.x += param;
+      }
+
+      return this;
+    },
+
+    evacuate() {
       robot.coords.x = 1400;
       robot.coords.y = 500;
     },
