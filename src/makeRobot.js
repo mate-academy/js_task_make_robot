@@ -38,7 +38,6 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-
   const robot = {
     name: name,
     wheels: wheels,
@@ -52,6 +51,7 @@ function makeRobot(name, wheels, version) {
       return `name: ${this.name}, `
            + `chip version: ${this.version}, wheels: ${this.wheels}`;
     },
+
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
@@ -60,24 +60,31 @@ function makeRobot(name, wheels, version) {
       if (value >= 1) {
         this.coords.y += value;
       }
+
       return this;
     },
+
     goBack(value = 1) {
       if (value >= 1) {
         this.coords.y -= value;
       }
+
       return this;
     },
+
     goRight(value = 1) {
       if (value >= 1) {
         this.coords.x += value;
       }
+
       return this;
     },
+
     goLeft(value = 1) {
       if (value >= 1) {
         this.coords.x -= value;
       }
+
       return this;
     },
 
