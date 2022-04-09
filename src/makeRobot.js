@@ -10,7 +10,7 @@
  * wheels, version and returns the robot object.
  * The robot coming off the assembly line must be able to:
  *  - Provide information about yourself through getter info.
- *    robot.info === 'name:%name%, chip version: %version%, wheels: %wheels%'
+ *    robot.info === 'name:%name%, version: %version%, wheels: %wheels%'
  *  - Provide the coordinates of your location via getter location.
  *    robot.location === '%name%: x=14, y=21'
  *  - Have methods to move goForward, goBack, goRight, goLeft.
@@ -37,8 +37,87 @@
  *
  * @return {Robot}
  */
+const robot = {
+  coords: {
+    x: 0,
+    y: 0,
+  },
+  setDefaultValues() {
+    this.coords = {
+      x: 0,
+      y: 0,
+    };
+  },
+  get info() {
+    return `name: ${this['names']}, chip version: ${
+      this['version']}, wheels: ${this['wheels']}`;
+  },
+  get location() {
+    return `${this['names']}: x=${this.coords.x}, y=${this.coords.y}`;
+  },
+  evacuate: function() {
+    this.coords.x = 1400;
+    this.coords.y = 500;
+
+    return `x: ${this.coords.x}, y: ${this.coords.y}`;
+  },
+  goForward: function(value) {
+    let element = value;
+
+    if (value === undefined) {
+      element = 1;
+    } else if (value < 0) {
+      return robot;
+    }
+    this.coords.y = this.coords.y + element;
+
+    return robot;
+  },
+  goBack: function(value) {
+    let element = value;
+
+    if (value === undefined) {
+      element = 1;
+    } else if (value < 0) {
+      return robot;
+    }
+    this.coords.y = this.coords.y - element;
+
+    return robot;
+  },
+  goRight: function(value) {
+    let element = value;
+
+    if (value === undefined) {
+      element = 1;
+    } else if (value < 0) {
+      return robot;
+    }
+    this.coords.x = this.coords.x + element;
+
+    return robot;
+  },
+  goLeft: function(value) {
+    let element = value;
+
+    if (value === undefined) {
+      element = 1;
+    } else if (value < 0) {
+      return robot;
+    }
+    this.coords.x = this.coords.x - element;
+
+    return robot;
+  },
+};
+
 function makeRobot(name, wheels, version) {
-  // write code here
-}
+  robot.setDefaultValues();
+  robot['names'] = name;
+  robot['wheels'] = wheels;
+  robot['version'] = version;
+
+  return robot;
+};
 
 module.exports = makeRobot;
