@@ -10,7 +10,7 @@
  * wheels, version and returns the robot object.
  * The robot coming off the assembly line must be able to:
  *  - Provide information about yourself through getter info.
- *    robot.info === 'name:%name%, chip version: %version%, wheels: %wheels%'
+ *    robot.info === 'name:%name%, version: %version%, wheels: %wheels%'
  *  - Provide the coordinates of your location via getter location.
  *    robot.location === '%name%: x=14, y=21'
  *  - Have methods to move goForward, goBack, goRight, goLeft.
@@ -37,8 +37,67 @@
  *
  * @return {Robot}
  */
+const robot = {
+  coords: {
+    x: 0,
+    y: 0,
+  },
+  setDefaultValues() {
+    this.coords = {
+      x: 0,
+      y: 0,
+    };
+  },
+  get info() {
+    return `name: ${this['names']}, chip version: ${
+      this['version']}, wheels: ${this['wheels']}`;
+  },
+  get location() {
+    return `${this['names']}: x=${this.coords.x}, y=${this.coords.y}`;
+  },
+  evacuate: function() {
+    this.coords.x = 1400;
+    this.coords.y = 500;
+
+    return `x: ${this.coords.x}, y: ${this.coords.y}`;
+  },
+  goForward: function(value = 1) {
+    if (value > 0) {
+      this.coords.y += value;
+    }
+
+    return robot;
+  },
+  goBack: function(value = 1) {
+    if (value > 0) {
+      this.coords.y -= value;
+    }
+
+    return robot;
+  },
+  goRight: function(value = 1) {
+    if (value > 0) {
+      this.coords.x += value;
+    }
+
+    return robot;
+  },
+  goLeft: function(value = 1) {
+    if (value > 0) {
+      this.coords.x -= value;
+    }
+
+    return robot;
+  },
+};
+
 function makeRobot(name, wheels, version) {
-  // write code here
-}
+  robot.setDefaultValues();
+  robot['names'] = name;
+  robot['wheels'] = wheels;
+  robot['version'] = version;
+
+  return robot;
+};
 
 module.exports = makeRobot;
