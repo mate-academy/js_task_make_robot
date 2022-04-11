@@ -61,51 +61,31 @@ const robot = {
 
     return `x: ${this.coords.x}, y: ${this.coords.y}`;
   },
-  goForward: function(value) {
-    let element = value;
-
-    if (value === undefined) {
-      element = 1;
-    } else if (value < 0) {
-      return robot;
+  goForward: function(value = 1) {
+    if (value > 0) {
+      this.coords.y += value;
     }
-    this.coords.y = this.coords.y + element;
 
     return robot;
   },
-  goBack: function(value) {
-    let element = value;
-
-    if (value === undefined) {
-      element = 1;
-    } else if (value < 0) {
-      return robot;
+  goBack: function(value = 1) {
+    if (value > 0) {
+      this.coords.y -= value;
     }
-    this.coords.y = this.coords.y - element;
 
     return robot;
   },
-  goRight: function(value) {
-    let element = value;
-
-    if (value === undefined) {
-      element = 1;
-    } else if (value < 0) {
-      return robot;
+  goRight: function(value = 1) {
+    if (value > 0) {
+      this.coords.x += value;
     }
-    this.coords.x = this.coords.x + element;
 
     return robot;
   },
-  goLeft: function(value) {
-    let element = value;
-
-    if (value === undefined) {
-      element = 1;
-    } else if (value < 0) {
-      return robot;
+  goLeft: function(value = 1) {
+    if (value > 0) {
+      this.coords.x -= value;
     }
-    this.coords.x = this.coords.x - element;
 
     return robot;
   },
