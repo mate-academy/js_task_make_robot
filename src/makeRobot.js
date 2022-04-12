@@ -36,9 +36,73 @@
  * @param {number} version
  *
  * @return {Robot}
+
+ * На вході в makeRobot (name = Robot.name, wheels = Robot.wheels,
+  version = Robot.version)
+  Треба зробити об'єкт robot
  */
 function makeRobot(name, wheels, version) {
   // write code here
+  const robot = {
+    name: name,
+    wheels: wheels,
+    version: version,
+
+    get info() {
+      return `name: ${this.name}, chip version: ${this.version}, `
+      + `wheels: ${this.wheels}`;
+    },
+
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    goForward(move = 1) {
+      if (move > 0) {
+        this.coords.y += move;
+      }
+
+      return robot;
+    },
+
+    goBack(move = 1) {
+      if (move > 0) {
+        this.coords.y -= move;
+      }
+
+      return robot;
+    },
+
+    goRight(move = 1) {
+      if (move > 0) {
+        this.coords.x += move;
+      }
+
+      return robot;
+    },
+
+    goLeft(move = 1) {
+      if (move > 0) {
+        this.coords.x -= move;
+      }
+
+      return robot;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+
+      return this.location;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
