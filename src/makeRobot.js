@@ -39,7 +39,7 @@
  */
 function makeRobot(name, wheels, version) {
   // write code here
-  const robot = {
+  return {
     name: name,
     wheels: wheels,
     version: version,
@@ -93,8 +93,6 @@ function makeRobot(name, wheels, version) {
       this.coords.y = 500;
     },
   };
-
-  return robot;
 }
 
 module.exports = makeRobot;
