@@ -29,7 +29,7 @@ describe('sum', () => {
   });
 
   it('Robot must have the ability to move '
-  + '(goBack, goForward, goLeft, goRight)', function() {
+    + '(goBack, goForward, goLeft, goRight)', function() {
     const robot = makeRobot('Joy', 5, 31);
 
     expect(robot.goRight).toBeInstanceOf(Function);
