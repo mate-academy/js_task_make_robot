@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 'use strict';
 
 /**
@@ -39,6 +40,50 @@
  */
 function makeRobot(name, wheels, version) {
   // write code here
+  const robot = {
+    get info() {
+      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+    },
+    x: 0,
+    y: 0,
+    get location() {
+      return `${this.name}: x=${this.x}, y=${this.y}`;
+    },
+    goBack(value = 1) {
+      if (value > 0) {
+        for (let i = 0; i < value; i++) {
+          this.y--;
+        }
+      }
+    },
+    goForward(value = 1) {
+      if (value > 0) {
+        for (let i = 0; i < value; i++) {
+          this.y++;
+        }
+      }
+    },
+    goRight(value = 1) {
+      if (value > 0) {
+        for (let i = 0; i < value; i++) {
+          this.x++;
+        }
+      }
+    },
+    goLeft(value = 1) {
+      if (value > 0) {
+        for (let i = 0; i < value; i++) {
+          this.x--;
+        }
+      }
+    },
+  };
+
+  robot.name = name;
+  robot.wheels = wheels;
+  robot.version = version;
+
+  return robot;
 }
 
 module.exports = makeRobot;
