@@ -74,7 +74,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goRight(move = 1) {
-      if (move >= 0) {
+      if (move <= 0) {
         this.coords.x += move;
       }
 
