@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * Mate Robot Factory impressed by your success, they are ready to accept
  * you into the Tech team, you will learn to program robots together
@@ -37,8 +36,56 @@
  *
  * @return {Robot}
  */
+
 function makeRobot(name, wheels, version) {
   // write code here
+  let robot = {
+    robotName: name,
+    robotWheels: wheels,
+    robotVersion: version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+    get location() {
+      return `${this.robotName}: x=${this.coords.x}, y=${this.coords.y}`
+    },
+    get info() {
+      return `name: ${this.robotName}, 
+      chip version: ${this.robotVersion}, 
+      wheels: ${this.robotWheels}`
+    },
+    goForward(steps = 1) {
+      if (steps > 0) {
+        robot.coords.y += steps;
+      }
+      return this
+    },
+
+    goBack(steps = 1) {
+      if (steps > 0) {
+        robot.coords.y -= steps;
+      }
+      return this;
+    },
+    goRight(steps = 1) {
+      if (steps > 0) {
+        robot.coords.x += steps;
+      }
+      return this;
+    },
+    goLeft (steps = 1) {
+      if (steps > 0) {
+        robot.coords.x -= steps;
+      }
+      return this;
+    },
+    evacuate () {
+      this.coords.x = 1400;
+      this.coords.y = 500
+    },
+  }
+  return robot;    
 }
 
 module.exports = makeRobot;
