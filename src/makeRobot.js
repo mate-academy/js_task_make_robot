@@ -44,17 +44,16 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
 
-    name: name,
-    wheels: wheels,
-    version: version,
+    n: name,
+    w: wheels,
+    v: version,
 
     get info() {
-      return `name: ${this.name}, chip version: ${this.version}, 
-      wheels: ${this.wheels}`;
+      return `name: ${this.n}, chip version: ${this.v}, wheels: ${this.w}`;
     },
 
     get location() {
-      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${this.n}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goForward(y = 1) {
