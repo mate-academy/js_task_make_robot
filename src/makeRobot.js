@@ -42,14 +42,15 @@ function makeRobot(name, wheels, version) {
     name,
     wheels,
     version,
-
-    get info() {
-      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
-    },
-
     coords: {
       x: 0,
       y: 0,
+    },
+
+    get info() {
+      return ('name: ' + robot.name
+      + ', chip version: ' + robot.version
+      + ', wheels: ' + robot.wheels);
     },
 
     get location() {
