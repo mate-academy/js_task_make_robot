@@ -1,12 +1,12 @@
 'use strict';
 
 /**
- * Mate Robot Factory impressed by your success, they are ready to accept
+ * Mate robot Factory impressed by your success, they are ready to accept
  * you into the Tech team, you will learn to program robots together
  * with the team! Are you in business As a test task, you will need to
  * program our equipment that makes robots.
  *
- * Create a makeRobot function that takes the string name and the number
+ * Create a makerobot function that takes the string name and the number
  * wheels, version and returns the robot object.
  * The robot coming off the assembly line must be able to:
  *  - Provide information about yourself through getter info.
@@ -25,7 +25,7 @@
  *    which will call rescuers and transfer it to the service center
  *    at the coordinates x: 1400, y: 500.
  *
- * @typedef {object} Robot
+ * @typedef {object} robot
  * @property {string} name
  * @property {number} wheels
  * @property {number} version
@@ -35,10 +35,59 @@
  * @param {number} wheels
  * @param {number} version
  *
- * @return {Robot}
+ * @return {robot}
  */
-function makeRobot(name, wheels, version) {
+function makerobot(name, wheels, version) {
   // write code here
+  const robot = {
+    coords: {
+      x: 0,
+      y: 0,
+    },
+    evacuate: function() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+    goBack: function(geo = 1) {
+      if (geo > 0) {
+        this.coords.y -= geo;
+      }
+
+      return this;
+    },
+    goForward: function(geo = 1) {
+      if (geo > 0) {
+        this.coords.y += geo;
+      }
+
+      return this;
+    },
+    goLeft(geo = 1) {
+      if (geo > 0) {
+        this.coords.x -= geo;
+      }
+
+      return this;
+    },
+    goRight(geo = 1) {
+      if (geo > 0) {
+        this.coords.x += geo;
+      }
+
+      return this;
+    },
+    get info() {
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+    },
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+    'name': name,
+    'wheels': wheels,
+    'version': version,
+  };
+
+  return robot;
 }
 
-module.exports = makeRobot;
+module.exports = makerobot;
