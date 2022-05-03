@@ -39,22 +39,24 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-    'name': name,
-    'wheels': wheels,
-    'version': version,
+    name: name,
+    wheels: wheels,
+    version: version,
+
     get info() {
       return `name: ${this.name}, chip version: ${this.version},`
       + ` wheels: ${this.wheels}`;
     },
+
     coords: {
       x: 0,
       y: 0,
     },
+
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
-    set location(loctn) {
-    },
+
     goForward(parametr = 1) {
       if (parametr < 0) {
         return this;
@@ -62,15 +64,9 @@ function makeRobot(name, wheels, version) {
 
       this.coords.y += parametr;
 
-      const strng = this.location;
-      const yIndex = strng.lastIndexOf(', y=') + 2;
-      const firstPhrase = strng.slice(0, yIndex + 1);
-      const resalt = +strng.slice(yIndex + 2) + parametr;
-
-      this.location = firstPhrase + `${resalt}`;
-
       return this;
     },
+
     goBack(parametr = 1) {
       if (parametr < 0) {
         return this;
@@ -78,15 +74,9 @@ function makeRobot(name, wheels, version) {
 
       this.coords.y -= parametr;
 
-      const strng = this.location;
-      const yIndex = strng.lastIndexOf(', y=') + 2;
-      const firstPhrase = strng.slice(0, yIndex + 1);
-      const resalt = +strng.slice(yIndex + 2) - parametr;
-
-      this.location = firstPhrase + `${resalt}`;
-
       return this;
     },
+
     goRight(parametr = 1) {
       if (parametr < 0) {
         return this;
@@ -94,17 +84,9 @@ function makeRobot(name, wheels, version) {
 
       this.coords.x += parametr;
 
-      const strng = this.location;
-      const xIndex = strng.lastIndexOf(' x=') + 1;
-      const yIndex = strng.lastIndexOf(', y=') + 2;
-      const firstPhrase = strng.slice(0, xIndex + 1);
-      const lastPhrase = strng.slice(yIndex - 2);
-      const resalt = +strng.slice(xIndex + 2, yIndex - 3) + parametr;
-
-      this.location = firstPhrase + `${resalt}` + lastPhrase;
-
       return this;
     },
+
     goLeft(parametr = 1) {
       if (parametr < 0) {
         return this;
@@ -112,17 +94,9 @@ function makeRobot(name, wheels, version) {
 
       this.coords.x -= parametr;
 
-      const strng = this.location;
-      const xIndex = strng.lastIndexOf(' x=') + 1;
-      const yIndex = strng.lastIndexOf(', y=') + 2;
-      const firstPhrase = strng.slice(0, xIndex + 1);
-      const lastPhrase = strng.slice(yIndex - 2);
-      const resalt = +strng.slice(xIndex + 2, yIndex - 3) + parametr;
-
-      this.location = firstPhrase + `${resalt}` + lastPhrase;
-
       return this;
     },
+
     evacuate() {
       this.coords.x = 1400;
       this.coords.y = 500;
