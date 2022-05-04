@@ -83,7 +83,7 @@ function makeRobot(name, wheels, version) {
 
     goLeft(x = 1) {
       if (x > 0) {
-        this.coords.x = this;
+        this.coords.x -= x;
       }
 
       return this;
