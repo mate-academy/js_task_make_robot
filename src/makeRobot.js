@@ -42,39 +42,54 @@ function makeRobot(name, wheels, version) {
     name: name,
     wheels: wheels,
     version: version,
-    x: 0,
-    y: 0,
+    coords: {
+      x: 0,
+      y: 0,
+    },
 
     get info() {
       return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
     },
 
     get location() {
-      return `${this.name}: x=${this.x}, y=${this.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goForward(k1 = 1) {
       if (k1 >= 0) {
-        this.y += k1;
+        this.coords.y += k1;
       }
+
+      return this;
     },
 
     goBack(k2 = 1) {
       if (k2 >= 0) {
-        this.y -= k2;
+        this.coords.y -= k2;
       }
+
+      return this;
     },
 
     goRight(k3 = 1) {
       if (k3 >= 0) {
-        this.x += k3;
+        this.coords.x += k3;
       }
+
+      return this;
     },
 
-    goLeft(k4 = 0) {
+    goLeft(k4 = 1) {
       if (k4 >= 0) {
-        this.x -= k4;
+        this.coords.x -= k4;
       }
+
+      return this;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
     },
   };
 
