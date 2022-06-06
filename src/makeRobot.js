@@ -37,8 +37,58 @@
  *
  * @return {Robot}
  */
+
+class Robot {
+  constructor(name, wheels, version) {
+    this.name = name;
+    this.wheels = wheels;
+    this.version = version;
+    this.x = 0;
+    this.y = 0;
+  }
+
+  get coords() {
+    return {
+      x: this.x, y: this.y,
+    };
+  }
+  get info() {
+    // eslint-disable-next-line max-len
+    return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+  }
+  get location() {
+    return `${this.name}: x=${this.x}, y=${this.y}`;
+  }
+  goBack(value = 1) {
+    this.y -= value;
+
+    return this;
+  }
+  goForward(value = 1) {
+    this.y += value;
+
+    return this;
+  }
+  goLeft(value = 1) {
+    this.x -= value;
+
+    return this;
+  }
+  goRight(value = 1) {
+    this.x += value;
+
+    return this;
+  }
+  evacuate() {
+    this.x = 1400;
+    this.y = 500;
+
+    return this;
+  }
+}
+
 function makeRobot(name, wheels, version) {
-  // write code here
+  return new Robot(name, wheels, version);
 }
 
 module.exports = makeRobot;
