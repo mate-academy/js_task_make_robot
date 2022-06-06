@@ -60,21 +60,33 @@ class Robot {
     return `${this.name}: x=${this.x}, y=${this.y}`;
   }
   goBack(value = 1) {
+    if (value < 0) {
+      return this;
+    }
     this.y -= value;
 
     return this;
   }
   goForward(value = 1) {
+    if (value < 0) {
+      return this;
+    }
     this.y += value;
 
     return this;
   }
   goLeft(value = 1) {
+    if (value < 0) {
+      return this;
+    }
     this.x -= value;
 
     return this;
   }
   goRight(value = 1) {
+    if (value < 0) {
+      return this;
+    }
     this.x += value;
 
     return this;
