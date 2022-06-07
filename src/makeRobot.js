@@ -39,6 +39,12 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
+    name,
+    wheels,
+    version,
+    coords: {
+      x: 0, y: 0,
+    },
     goForward: (value = 1) => {
       if (value >= 0) {
         robot.coords.y = robot.coords.y + value;
@@ -67,13 +73,6 @@ function makeRobot(name, wheels, version) {
 
       return robot;
     },
-    coords: {
-      x: 0, y: 0,
-    },
-    name,
-    wheels,
-    version,
-
     get info() {
       return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`; // eslint-disable-line
     },
