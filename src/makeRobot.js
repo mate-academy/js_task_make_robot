@@ -43,57 +43,57 @@ class Robot {
     this.name = name;
     this.wheels = wheels;
     this.version = version;
-    this.x = 0;
-    this.y = 0;
-  }
 
-  get coords() {
-    return {
-      x: this.x, y: this.y,
+    this.coords = {
+      x: 0,
+      y: 0,
     };
   }
+
   get info() {
-    // eslint-disable-next-line max-len
-    return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+    return `name: ${this.name},`
+      + ` chip version: ${this.version}, wheels: ${this.wheels}`;
   }
+
   get location() {
-    return `${this.name}: x=${this.x}, y=${this.y}`;
+    return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
   }
+
   goBack(value = 1) {
-    if (value < 0) {
-      return this;
+    if (value > 0) {
+      this.coords.y -= value;
     }
-    this.y -= value;
 
     return this;
   }
+
   goForward(value = 1) {
-    if (value < 0) {
-      return this;
+    if (value > 0) {
+      this.coords.y += value;
     }
-    this.y += value;
 
     return this;
   }
+
   goLeft(value = 1) {
-    if (value < 0) {
-      return this;
+    if (value > 0) {
+      this.coords.x -= value;
     }
-    this.x -= value;
 
     return this;
   }
+
   goRight(value = 1) {
-    if (value < 0) {
-      return this;
+    if (value > 0) {
+      this.coords.x += value;
     }
-    this.x += value;
 
     return this;
   }
+
   evacuate() {
-    this.x = 1400;
-    this.y = 500;
+    this.coords.x = 1400;
+    this.coords.y = 500;
 
     return this;
   }
