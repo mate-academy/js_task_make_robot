@@ -5,7 +5,6 @@
  * you into the Tech team, you will learn to program robots together
  * with the team! Are you in business As a test task, you will need to
  * program our equipment that makes robots.
- *
  * Create a makeRobot function that takes the string name and the number
  * wheels, version and returns the robot object.
  * The robot coming off the assembly line must be able to:
@@ -38,7 +37,66 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const Robot = {
+    name,
+    wheels,
+    version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      const { name: model, version: edition, wheels: movingPart } = this;
+
+      return `name: ${model}, chip version: ${edition}, wheels: ${movingPart}`;
+    },
+
+    get location() {
+      const { name: model, coords: coordinates } = this;
+
+      return `${model}: x=${coordinates.x}, y=${coordinates.y}`;
+    },
+
+    goForward(y = 1) {
+      if (y > 0) {
+        this.coords.y += y;
+      }
+
+      return this;
+    },
+
+    goBack(y = 1) {
+      if (y > 0) {
+        this.coords.y -= y;
+      }
+
+      return this;
+    },
+
+    goRight(x = 1) {
+      if (x > 0) {
+        this.coords.x += x;
+      }
+
+      return this;
+    },
+
+    goLeft(x = 1) {
+      if (x > 0) {
+        this.coords.x -= x;
+      }
+
+      return this;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+  };
+
+  return Robot;
 }
 
 module.exports = makeRobot;
