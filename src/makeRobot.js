@@ -39,81 +39,61 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-    x: 0,
-    y: 0,
+    name,
+    version,
+    wheels,
+    coords: {
+      x: 0,
+      y: 0,
+    },
 
     get info() {
-      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
-    },
-
-    goForward(direction) {
-      if (direction === undefined) {
-        this.y += 1;
-      }
-
-      if (direction >= 0) {
-        this.y += direction;
-      }
-
-      return robot;
-    },
-
-    goBack(direction) {
-      if (direction === undefined) {
-        this.y -= 1;
-      }
-
-      if (direction >= 0) {
-        this.y -= direction;
-      }
-
-      return robot;
-    },
-
-    goLeft(direction) {
-      if (direction === undefined) {
-        this.x -= 1;
-      }
-
-      if (direction >= 0) {
-        this.x -= direction;
-      }
-
-      return robot;
-    },
-
-    goRight(direction) {
-      if (direction === undefined) {
-        this.x += 1;
-      }
-
-      if (direction >= 0) {
-        this.x += direction;
-      }
-
-      return robot;
+      return (
+        `name: ${this.name}, chip version: ${this.version}, `
+        + `wheels: ${this.wheels}`
+      );
     },
 
     get location() {
-      return `${name}: x=${this.x}, y=${this.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    goForward(value = 1) {
+      if (value > 0) {
+        this.coords.y += value;
+      }
+
+      return this;
+    },
+
+    goBack(value = 1) {
+      if (value > 0) {
+        this.coords.y -= value;
+      }
+
+      return this;
+    },
+
+    goRight(value = 1) {
+      if (value > 0) {
+        this.coords.x += value;
+      }
+
+      return this;
+    },
+
+    goLeft(value = 1) {
+      if (value > 0) {
+        this.coords.x -= value;
+      }
+
+      return this;
     },
 
     evacuate() {
-      this.x = 1400;
-      this.y = 500;
-
-      return robot;
+      this.coords.x = 1400;
+      this.coords.y = 500;
     },
-
-    get coords() {
-      const coords = {
-        x: this.x,
-        y: this.y,
-      };
-
-      return coords;
-    },
-
   };
 
   return robot;
