@@ -44,8 +44,7 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      return `name: ${name}, chip version: ${version}, `
-      + `wheels: ${wheels}`;
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
     },
 
     get location() {
