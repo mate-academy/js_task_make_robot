@@ -40,9 +40,9 @@
 
 function makeRobot(name, wheels, version) {
   const wally = {
-    name: 'Joy',
-    wheels: 5,
-    version: 31,
+    name: name,
+    wheels: wheels,
+    version: version,
     coords: {
       x: 0,
       y: 0,
