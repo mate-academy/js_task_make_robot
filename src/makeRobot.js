@@ -55,7 +55,7 @@ function makeRobot(name, wheels, version) {
     get location() {
       const { x, y } = this.coords;
 
-      return `${this.name}: x=${[x]}, y=${[y]}`;
+      return `${this.name}: x=${x}, y=${y}`;
     },
 
     goForward(value = 1) {
