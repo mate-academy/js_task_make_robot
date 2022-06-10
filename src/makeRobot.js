@@ -12,9 +12,9 @@
  *  - Provide information about yourself through getter info.
  *    robot.info === 'name:%name%, chip version: %version%, wheels: %wheels%'
  *  - Provide the coordinates of your location via getter location.
- *    robot.location === '%name%: x=14, y=21' ?????????????????????????
+ *    robot.location === '%name%: x=14, y=21'
  *  - Have methods to move goForward, goBack, goRight, goLeft.
- *  - Movement methods must be able to be used with a chain.////??????????????
+ *  - Movement methods must be able to be used with a chain.
  *    robot.goForward().goForward().goForward().goLeft()
  *  - Default methods that move the work by 1 in the right direction.
  *    This value can be increased by passing the desired number to the method.
