@@ -75,7 +75,7 @@ function makeRobot(name, wheels, version) {
         this.y += direction;
       }
 
-      return robot;
+      return this;
     },
 
     goBack(direction = 1) {
@@ -83,7 +83,7 @@ function makeRobot(name, wheels, version) {
         this.y -= direction;
       }
 
-      return robot;
+      return this;
     },
 
     goRight(direction = 1) {
@@ -91,7 +91,7 @@ function makeRobot(name, wheels, version) {
         this.x += direction;
       }
 
-      return robot;
+      return this;
     },
 
     goLeft(direction = 1) {
@@ -99,7 +99,7 @@ function makeRobot(name, wheels, version) {
         this.x -= direction;
       }
 
-      return robot;
+      return this;
     },
   };
 
