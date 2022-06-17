@@ -25,6 +25,7 @@
  *    which will call rescuers and transfer it to the service center
  *    at the coordinates x: 1400, y: 500.
  *
+ *
  * @typedef {object} Robot
  * @property {string} name
  * @property {number} wheels
@@ -37,8 +38,76 @@
  *
  * @return {Robot}
  */
+
 function makeRobot(name, wheels, version) {
   // write code here
+  const Robot = {
+    name: name,
+    wheels: wheels,
+    version: version,
+
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      const n = this.name;
+      const v = this.version;
+      const w = this.wheels;
+
+      return `name: ${n}, chip version: ${v}, wheels: ${w}`;
+    },
+
+    goForward(step = 1) {
+      if (typeof step !== 'number' || step < 0) {
+        return this;
+      }
+      this.coords.y = this.coords.y + step;
+
+      return this;
+    },
+
+    goBack(step = 1) {
+      if (typeof step !== 'number' || step < 0) {
+        return this;
+      }
+      this.coords.y = this.coords.y - step;
+
+      return this;
+    },
+
+    goRight(step = 1) {
+      if (typeof step !== 'number' || step < 0) {
+        return this;
+      }
+      this.coords.x = this.coords.x + step;
+
+      return this;
+    },
+
+    goLeft(step = 1) {
+      if (typeof step !== 'number' || step < 0) {
+        return this;
+      }
+      this.coords.x = this.coords.x - step;
+
+      return this;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+
+      return this;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+  };
+
+  return Robot;
 }
 
 module.exports = makeRobot;
