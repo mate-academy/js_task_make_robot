@@ -39,7 +39,6 @@
  */
 
 function makeRobot(name, wheels, version) {
-  // write code here
   const object = {
     name: name,
     wheels: wheels,
@@ -96,7 +95,5 @@ function makeRobot(name, wheels, version) {
 
   return object;
 }
-
-// console.log(makeRobot("Alex","3", 3).info )
 
 module.exports = makeRobot;
