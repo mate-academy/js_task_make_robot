@@ -51,7 +51,7 @@ function makeRobot(name, wheels, version) {
       return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(step) {
+    goForward(step = 1) {
       if (step && step > 0) {
         this.coords.y += step;
       }
