@@ -203,10 +203,11 @@ describe('sum', () => {
   });
 
   it('Robot\'s coordinates must be '
-    + 'saved in the robot in coords property with x and y keys', function() {
+    + 'saved in the robot in coordinates property with x and y keys',
+  function() {
     const robot = makeRobot('Joy', 5, 31);
 
-    const actual = robot.coords;
+    const actual = robot.coordinates;
     const expected = {
       x: 0, y: 0,
     };
@@ -219,7 +220,7 @@ describe('sum', () => {
 
     robot.evacuate();
 
-    const actual = robot.coords;
+    const actual = robot.coordinates;
     const expected = {
       x: 1400, y: 500,
     };
