@@ -58,22 +58,30 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(value = 1) {
-      this.coords.y += getPositiveNumber(value);
+      if (value > 0) {
+        this.coords.y += value;
+      }
 
       return this;
     },
     goBack(value = 1) {
-      this.coords.y -= getPositiveNumber(value);
+      if (value > 0) {
+        this.coords.y -= value;
+      }
 
       return this;
     },
     goRight(value = 1) {
-      this.coords.x += getPositiveNumber(value);
+      if (value > 0) {
+        this.coords.x += value;
+      }
 
       return this;
     },
     goLeft(value = 1) {
-      this.coords.x -= getPositiveNumber(value);
+      if (value > 0) {
+        this.coords.x -= value;
+      }
 
       return this;
     },
@@ -85,10 +93,6 @@ function makeRobot(name, wheels, version) {
   };
 
   return robot;
-}
-
-function getPositiveNumber(number) {
-  return number < 0 ? 0 : number;
 }
 
 module.exports = makeRobot;
