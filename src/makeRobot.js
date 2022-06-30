@@ -53,69 +53,45 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      const n = this.name;
-      const v = this.version;
-      const w = this.wheels;
+      const nameI = this.name;
+      const versionI = this.version;
+      const wheelsI = this.wheels;
 
-      return `name: ${n}, chip version: ${v}, wheels: ${w}`;
+      return `name: ${nameI}, chip version: ${versionI}, wheels: ${wheelsI}`;
     },
 
     get location() {
       return `${this.name}: x=${this.x}, y=${this.y}`;
     },
 
-    goForward(arg) {
-      let step = 1;
-
-      if (arg >= 0) {
-        step = arg;
-      } else if (arg < 0) {
-        step = 0;
+    goForward(step = 1) {
+      if (step > 0) {
+        this.y += step;
       }
-
-      this.y += step;
 
       return this;
     },
 
-    goBack(arg) {
-      let step = 1;
-
-      if (arg >= 0) {
-        step = arg;
-      } else if (arg < 0) {
-        step = 0;
+    goBack(step = 1) {
+      if (step > 0) {
+        this.y -= step;
       }
-
-      this.y -= step;
 
       return this;
     },
 
-    goRight(arg) {
-      let step = 1;
-
-      if (arg >= 0) {
-        step = arg;
-      } else if (arg < 0) {
-        step = 0;
+    goRight(step = 1) {
+      if (step > 0) {
+        this.x += step;
       }
-
-      this.x += step;
 
       return this;
     },
 
-    goLeft(arg) {
-      let step = 1;
-
-      if (arg >= 0) {
-        step = arg;
-      } else if (arg < 0) {
-        step = 0;
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.x -= step;
       }
-
-      this.x -= step;
 
       return this;
     },
