@@ -14,8 +14,8 @@
  *  - Provide the coordinates of your location via getter location.
  *    robot.location === '%name%: x=14, y=21'
  *  - Have methods to move goForward, goBack, goRight, goLeft.
- *  - Movement methods must be able to be used with a chain.
- *    robot.goForward().goForward().goForward().goLeft()
+  *  - Movement methods must be able to be used with a chain.
+  *    robot.goForward().goForward().goForward().goLeft()
  *  - Default methods that move the work by 1 in the right direction.
  *    This value can be increased by passing the desired number to the method.
  *    Negative numbers should not affect the location of the robot. goLeft(3)
@@ -38,7 +38,58 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
-}
+  const robot = {
+    name: name,
+    wheels: wheels,
+    version: version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+    get info() {
+      const nam = `name: ${this.name}`;
+      // не получилось у меня сделать конкатенацию двух строк, не работает.
+      // пришлось добавить одну переменную
 
+      return `${nam}, chip version: ${this.version}, wheels: ${this.wheels}`;
+    },
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+    evacuate: () => {
+      robot.coords.x = 1400;
+      robot.coords.y = 500;
+    },
+    goForward: (step = 1) => {
+      if (step >= 0) {
+        robot.coords.y += step;
+      }
+
+      return robot;
+    },
+    goBack: (step = 1) => {
+      if (step >= 0) {
+        robot.coords.y -= step;
+      }
+
+      return robot;
+    },
+    goLeft: (step = 1) => {
+      if (step >= 0) {
+        robot.coords.x -= step;
+      }
+
+      return robot;
+    },
+    goRight: (step = 1) => {
+      if (step >= 0) {
+        robot.coords.x += step;
+      }
+
+      return robot;
+    },
+  };
+
+  return robot;
+}
 module.exports = makeRobot;
