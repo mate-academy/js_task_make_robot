@@ -47,11 +47,9 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
     get info() {
-      const nam = `name: ${this.name}`;
-      // не получилось у меня сделать конкатенацию двух строк, не работает.
-      // пришлось добавить одну переменную
-
-      return `${nam}, chip version: ${this.version}, wheels: ${this.wheels}`;
+      return `name: ${this.name}`
+      + `, chip version: ${this.version}`
+      + `, wheels: ${this.wheels}`;
     },
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
@@ -67,7 +65,7 @@ function makeRobot(name, wheels, version) {
 
       return robot;
     },
-    goBack: (step = 1) => {
+    goBack(step = 1) {
       if (step >= 0) {
         robot.coords.y -= step;
       }
