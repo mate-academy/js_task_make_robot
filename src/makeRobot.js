@@ -38,62 +38,58 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  return {
-    name: name,
-    wheels: wheels,
-    version: version,
-    get info() {
-      // eslint-disable-next-line max-len
-      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
-    },
+  const initialCoords = {
     x: 0,
     y: 0,
+  };
+
+  const serviceCenter = {
+    x: 1400,
+    y: 500,
+  };
+
+  return {
+    name,
+    wheels,
+    version,
+    coords: initialCoords,
+    get info() {
+      return `name: ${this.name}, chip version: ${
+        this.version}, wheels: ${this.wheels}`;
+    },
     get location() {
-      return `${this.name}: x=${this.x}, y=${this.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
-    goForward: function(value) {
-      if (value === undefined) {
-        this.y++;
-      } else if (value > 0) {
-        this.y += value;
+    goForward: function(value = 1) {
+      if (value > 0) {
+        this.coords.y += value;
       }
 
       return this;
     },
-    goBack: function(value) {
-      if (value === undefined) {
-        this.y--;
-      } else if (value > 0) {
-        this.y -= value;
+    goBack: function(value = 1) {
+      if (value > 0) {
+        this.coords.y -= value;
       }
 
       return this;
     },
-    goRight: function(value) {
-      if (value === undefined) {
-        this.x++;
-      } else if (value > 0) {
-        this.x += value;
+    goRight: function(value = 1) {
+      if (value > 0) {
+        this.coords.x += value;
       }
 
       return this;
     },
-    goLeft: function(value) {
-      if (value === undefined) {
-        this.x--;
-      } else if (value > 0) {
-        this.x -= value;
+    goLeft: function(value = 1) {
+      if (value > 0) {
+        this.coords.x -= value;
       }
 
       return this;
-    },
-    coords: {
-      x: 0,
-      y: 0,
     },
     evacuate: function() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords = serviceCenter;
     },
   };
 }
