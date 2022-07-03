@@ -39,6 +39,106 @@
  */
 function makeRobot(name, wheels, version) {
   // write code here
+  const robot = {
+    name: name,
+    wheels: wheels,
+    version: version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    goForward(newValue) {
+      if (newValue > 0) {
+        const newCoords = this.coords.y + newValue;
+
+        this.coords.y = newCoords;
+
+        return this;
+      } else if (newValue === undefined) {
+        const newCoords = this.coords.y + 1;
+
+        this.coords.y = newCoords;
+
+        return this;
+      } else {
+        return this;
+      }
+    },
+
+    goBack(newValue) {
+      if (newValue > 0) {
+        const newCoords = this.coords.y - newValue;
+
+        this.coords.y = newCoords;
+
+        return this;
+      } else if (newValue === undefined) {
+        const newCoords = this.coords.y - 1;
+
+        this.coords.y = newCoords;
+
+        return this;
+      } else {
+        return this;
+      }
+    },
+
+    goRight(newValue) {
+      if (newValue > 0) {
+        const newCoords = this.coords.x + newValue;
+
+        this.coords.x = newCoords;
+
+        return this;
+      } else if (newValue === undefined) {
+        const newCoords = this.coords.x + 1;
+
+        this.coords.x = newCoords;
+
+        return this;
+      } else {
+        return this;
+      }
+    },
+
+    goLeft(newValue) {
+      if (newValue > 0) {
+        const newCoords = this.coords.x - newValue;
+
+        this.coords.x = newCoords;
+
+        return this;
+      } else if (newValue === undefined) {
+        const newCoords = this.coords.x - 1;
+
+        this.coords.x = newCoords;
+
+        return this;
+      } else {
+        return this;
+      }
+    },
+
+    evacuate() {
+      this.coords = {
+        x: 1400,
+        y: 500,
+      };
+
+      return this.coords;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
