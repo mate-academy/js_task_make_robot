@@ -40,9 +40,9 @@
 function makeRobot(name, wheels, version) {
   // write code here
   const robot = {
-    name: name,
-    wheels: wheels,
-    version: version,
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
@@ -56,76 +56,36 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(newValue) {
-      if (newValue > 0) {
-        const newCoords = this.coords.y + newValue;
-
-        this.coords.y = newCoords;
-
-        return this;
-      } else if (newValue === undefined) {
-        const newCoords = this.coords.y + 1;
-
-        this.coords.y = newCoords;
-
-        return this;
-      } else {
-        return this;
+    goForward(step = 1) {
+      if (step >= 1) {
+        this.coords.y += step;
       }
+
+      return this;
     },
 
-    goBack(newValue) {
-      if (newValue > 0) {
-        const newCoords = this.coords.y - newValue;
-
-        this.coords.y = newCoords;
-
-        return this;
-      } else if (newValue === undefined) {
-        const newCoords = this.coords.y - 1;
-
-        this.coords.y = newCoords;
-
-        return this;
-      } else {
-        return this;
+    goBack(step = 1) {
+      if (step >= 1) {
+        this.coords.y -= step;
       }
+
+      return this;
     },
 
-    goRight(newValue) {
-      if (newValue > 0) {
-        const newCoords = this.coords.x + newValue;
-
-        this.coords.x = newCoords;
-
-        return this;
-      } else if (newValue === undefined) {
-        const newCoords = this.coords.x + 1;
-
-        this.coords.x = newCoords;
-
-        return this;
-      } else {
-        return this;
+    goRight(step = 1) {
+      if (step >= 1) {
+        this.coords.x += step;
       }
+
+      return this;
     },
 
-    goLeft(newValue) {
-      if (newValue > 0) {
-        const newCoords = this.coords.x - newValue;
-
-        this.coords.x = newCoords;
-
-        return this;
-      } else if (newValue === undefined) {
-        const newCoords = this.coords.x - 1;
-
-        this.coords.x = newCoords;
-
-        return this;
-      } else {
-        return this;
+    goLeft(step = 1) {
+      if (step >= 1) {
+        this.coords.x -= step;
       }
+
+      return this;
     },
 
     evacuate() {
