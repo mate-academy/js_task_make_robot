@@ -51,7 +51,7 @@ function makeRobot(name, wheels, version) {
     name,
     wheels,
     version,
-    coords: initialCoords,
+    coords: { ...initialCoords },
 
     get info() {
       return `name: ${this.name}, chip version: ${
@@ -91,7 +91,7 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      this.coords = serviceCenter;
+      this.coords = { ...serviceCenter };
     },
   };
 }
