@@ -59,7 +59,7 @@ function makeRobot(name, wheels, version) {
     },
 
     get location() {
-      return `Joy: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goRight(step = 1) {
