@@ -95,7 +95,7 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      this.coords = this.serviceCenter;
+      this.coords = { ...this.serviceCenter };
     },
   };
 
