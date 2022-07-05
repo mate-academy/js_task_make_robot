@@ -39,6 +39,8 @@
  */
 function makeRobot(name, wheels, version) {
   // write code here
+  const xposition = 1400;
+  const yposition = 500;
   const robot = {
     name,
     wheels,
@@ -54,8 +56,8 @@ function makeRobot(name, wheels, version) {
       return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = xposition;
+      this.coords.y = yposition;
     },
     goForward(step = 1) {
       if (step >= 1) {
