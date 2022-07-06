@@ -38,15 +38,22 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
+  const initCoords = {
+    x: 0,
+    y: 0,
+  };
+
+  const serviceCenterCoords = {
+    x: 1400,
+    y: 500,
+  };
+
   const robot = {
     name,
     wheels,
     version,
 
-    coords: {
-      x: 0,
-      y: 0,
-    },
+    coords: initCoords,
 
     get info() {
       return `name: ${this.name}, chip version: ${
@@ -91,8 +98,7 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords = { ...serviceCenterCoords };
     },
   };
 
