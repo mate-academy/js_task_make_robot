@@ -183,7 +183,7 @@ describe('sum', () => {
   it('Robot\'s moves must be able to pass step value', function() {
     const robot = makeRobot('Joy', 5, 31);
 
-    robot.goBack(1).goForward(17).goForward(-1).goLeft(3).goLeft(7).goRight();
+    (robot.goBack(1)).goForward(17).goForward(-1).goLeft(3).goLeft(7).goRight();
 
     const actual = robot.location;
     const expected = 'Joy: x=-9, y=16';
