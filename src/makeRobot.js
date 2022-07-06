@@ -38,6 +38,8 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
+  const serviceCoordinateX = 1400;
+  const serviceCoordinateY = 500;
   const robot = {
     name,
     wheels,
@@ -58,7 +60,7 @@ function makeRobot(name, wheels, version) {
 
     goForward(yParam) {
       if (!yParam) {
-        (this.coords.y += 1);
+        this.coords.y += 1;
 
         return this;
       }
@@ -74,7 +76,7 @@ function makeRobot(name, wheels, version) {
 
     goBack(yParam) {
       if (!yParam) {
-        (this.coords.y -= 1);
+        this.coords.y -= 1;
 
         return this;
       }
@@ -90,7 +92,7 @@ function makeRobot(name, wheels, version) {
 
     goRight(xParm) {
       if (!xParm) {
-        (this.coords.x += 1);
+        this.coords.x += 1;
 
         return this;
       }
@@ -106,7 +108,7 @@ function makeRobot(name, wheels, version) {
 
     goLeft(xParm) {
       if (!xParm) {
-        (this.coords.x -= 1);
+        this.coords.x -= 1;
 
         return this;
       }
@@ -121,8 +123,8 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = serviceCoordinateX;
+      this.coords.y = serviceCoordinateY;
     },
   };
 
