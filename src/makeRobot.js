@@ -63,7 +63,7 @@ function makeRobot(name, wheels, version) {
         return this;
       }
 
-      this.location = `Joy: x=0, y=${-y}`;
+      this.location = `${this.name}: x=0, y=${-y}`;
 
       return this;
     },
@@ -72,7 +72,7 @@ function makeRobot(name, wheels, version) {
       if (y < 0) {
         return this;
       }
-      this.location = `Joy: x=0, y=${y}`;
+      this.location = `${this.name}: x=0, y=${y}`;
 
       return this;
     },
@@ -81,7 +81,7 @@ function makeRobot(name, wheels, version) {
       if (x < 0) {
         return this;
       }
-      this.location = `Joy: x=${x}, y=0`;
+      this.location = `${this.name}: x=${x}, y=0`;
 
       return this;
     },
@@ -90,7 +90,7 @@ function makeRobot(name, wheels, version) {
       if (x < 0) {
         return this;
       }
-      this.location = `Joy: x=${-x}, y=0`;
+      this.location = `${this.name}: x=${-x}, y=0`;
 
       return this;
     },
@@ -115,7 +115,7 @@ function makeRobot(name, wheels, version) {
       const x = 1400 - this.coords.x;
       const y = 500 - this.coords.y;
 
-      this.location = `Joy: x=${x}, y=${y}`;
+      this.location = `${this.name}: x=${x}, y=${y}`;
     },
   };
 
