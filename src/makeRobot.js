@@ -43,15 +43,21 @@ function makeRobot(name, wheels, version) {
     wheels,
     version,
 
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    evacuateCoords: {
+      x: 1400,
+      y: 500,
+    },
+
     get info() {
       return `name: ${this.name}, chip version: ${
         this.version}, wheels: ${this.wheels}`;
     },
 
-    coords: {
-      x: 0,
-      y: 0,
-    },
 
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
@@ -90,8 +96,8 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      this.coords.y = 500;
-      this.coords.x = 1400;
+      this.coords.y = this.evacuateCoords.y;
+      this.coords.x = this.evacuateCoords.x;
     },
   };
 
