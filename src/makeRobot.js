@@ -42,10 +42,16 @@ function makeRobot(name, wheels, version) {
     name,
     wheels,
     version,
-    x: 0,
-    y: 0,
-    serviceX: 1400,
-    serviceY: 500,
+
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    serviceCenter: {
+      x: 1400,
+      y: 500,
+    },
 
     get info() {
       return 'name: ' + this.name
@@ -55,47 +61,40 @@ function makeRobot(name, wheels, version) {
 
     goForward(step = 1) {
       if (step > 0) {
-        this.y += step;
+        this.coords.y += step;
       }
 
       return this;
     },
     goBack(step = 1) {
       if (step > 0) {
-        this.y -= step;
+        this.coords.y -= step;
       }
 
       return this;
     },
     goRight(step = 1) {
       if (step > 0) {
-        this.x += step;
+        this.coords.x += step;
       }
 
       return this;
     },
     goLeft(step = 1) {
       if (step > 0) {
-        this.x -= step;
+        this.coords.x -= step;
       }
 
       return this;
     },
 
-    get location() {
-      return this.name + ': x=' + this.x + ', y=' + this.y;
-    },
-
-    get coords() {
-      return {
-        x: this.x,
-        y: this.y,
-      };
-    },
-
     evacuate() {
-      this.x = this.serviceX;
-      this.y = this.serviceY;
+      this.coords.x += this.serviceCenter.x - this.coords.x;
+      this.coords.y += this.serviceCenter.y - this.coords.y;
+    },
+
+    get location() {
+      return this.name + ': x=' + this.coords.x + ', y=' + this.coords.y;
     },
   };
 
