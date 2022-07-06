@@ -42,6 +42,10 @@ function makeRobot(name, wheels, version) {
     name,
     wheels,
     version,
+    x: 0,
+    y: 0,
+    serviceX: 1400,
+    serviceY: 500,
 
     get info() {
       return 'name: ' + this.name
@@ -49,43 +53,31 @@ function makeRobot(name, wheels, version) {
       + ', wheels: ' + this.wheels;
     },
 
-    x: 0,
-    y: 0,
-    v: 0,
-
-    goForward(n = 1) {
-      if (n < 0) {
-        return this;
+    goForward(step = 1) {
+      if (step > 0) {
+        this.y += step;
       }
-
-      this.y += n;
 
       return this;
     },
-    goBack(n = 1) {
-      if (n < 0) {
-        return this;
+    goBack(step = 1) {
+      if (step > 0) {
+        this.y -= step;
       }
-
-      this.y -= n;
 
       return this;
     },
-    goRight(n = 1) {
-      if (n < 0) {
-        return this;
+    goRight(step = 1) {
+      if (step > 0) {
+        this.x += step;
       }
-
-      this.x += n;
 
       return this;
     },
-    goLeft(n = 1) {
-      if (n < 0) {
-        return this;
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.x -= step;
       }
-
-      this.x -= n;
 
       return this;
     },
@@ -102,8 +94,8 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      this.x = 1400;
-      this.y = 500;
+      this.x = this.serviceX;
+      this.y = this.serviceY;
     },
   };
 
