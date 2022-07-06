@@ -42,10 +42,10 @@ function makeRobot(name, wheels, version) {
   const robot = {
     name,
     wheels,
-    'chip version': version,
+    version,
     get info() {
       return `name: ${this.name},`
-      + ` chip version: ${this['chip version']},`
+      + ` chip version: ${this.version},`
       + ` wheels: ${this.wheels}`;
     },
 
@@ -58,64 +58,41 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goBack(y = 1) {
-      if (y < 0) {
-        return this;
+    goBack(moove = 1) {
+      if (moove > 0) {
+        this.coords.y -= moove;
       }
-
-      this.location = `${this.name}: x=0, y=${-y}`;
 
       return this;
     },
 
-    goForward(y = 1) {
-      if (y < 0) {
-        return this;
+    goForward(moove = 1) {
+      if (moove > 0) {
+        this.coords.y += moove;
       }
-      this.location = `${this.name}: x=0, y=${y}`;
 
       return this;
     },
 
-    goRight(x = 1) {
-      if (x < 0) {
-        return this;
+    goRight(moove = 1) {
+      if (moove > 0) {
+        this.coords.x += moove;
       }
-      this.location = `${this.name}: x=${x}, y=0`;
 
       return this;
     },
 
-    goLeft(x = 1) {
-      if (x < 0) {
-        return this;
+    goLeft(moove = 1) {
+      if (moove > 0) {
+        this.coords.x -= moove;
       }
-      this.location = `${this.name}: x=${-x}, y=0`;
 
       return this;
-    },
-    set location(value) {
-      if (typeof value !== 'string') {
-        return;
-      }
-
-      const startX = value.lastIndexOf('x');
-      const endX = value.lastIndexOf(',');
-      const coordX = value.slice(startX + 2, endX);
-
-      this.coords.x += Number(coordX);
-
-      const startY = value.lastIndexOf('=');
-      const coordY = value.slice(startY + 1);
-
-      this.coords.y += Number(coordY);
     },
 
     evacuate() {
-      const x = 1400 - this.coords.x;
-      const y = 500 - this.coords.y;
-
-      this.location = `${this.name}: x=${x}, y=${y}`;
+      this.coords.x = 1400;
+      this.coords.y = 500;
     },
   };
 
