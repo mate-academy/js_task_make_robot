@@ -35,7 +35,7 @@ describe('sum', () => {
     expect(robot.goRight).toBeInstanceOf(Function);
     expect(robot.goLeft).toBeInstanceOf(Function);
     expect(robot.goBack).toBeInstanceOf(Function);
-    expect(robot.goForward).toBeInstanceOf(Function);
+    expect(robot.goBack).toBeInstanceOf(Function);
   });
 
   it('Robot must have the ability to move several times '
