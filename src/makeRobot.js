@@ -38,6 +38,9 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
+  const evacuationX = 1400;
+  const evacuationY = 500;
+
   const robot = {
     name,
     version,
@@ -56,7 +59,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(step = 1) {
-      if (step >= 0) {
+      if (step > 0) {
         this.coords.y += step;
       }
 
@@ -64,7 +67,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goBack(step = 1) {
-      if (step >= 0) {
+      if (step > 0) {
         this.coords.y -= step;
       }
 
@@ -72,7 +75,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goRight(step = 1) {
-      if (step >= 0) {
+      if (step > 0) {
         this.coords.x += step;
       }
 
@@ -80,7 +83,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goLeft(step = 1) {
-      if (step >= 0) {
+      if (step > 0) {
         this.coords.x -= step;
       }
 
@@ -89,8 +92,8 @@ function makeRobot(name, wheels, version) {
 
     evacuate() {
       this.coords = {
-        x: 1400,
-        y: 500,
+        x: evacuationX,
+        y: evacuationY,
       };
     },
   };
