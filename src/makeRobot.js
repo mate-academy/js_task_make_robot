@@ -38,8 +38,6 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  const serviceCoordinateX = 1400;
-  const serviceCoordinateY = 500;
   const robot = {
     name,
     wheels,
@@ -47,6 +45,11 @@ function makeRobot(name, wheels, version) {
     coords: {
       x: 0,
       y: 0,
+    },
+
+    serviceCoordinate: {
+      x: 1400,
+      y: 500,
     },
 
     get info() {
@@ -58,73 +61,41 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(yParam) {
-      if (!yParam) {
-        this.coords.y += 1;
-
-        return this;
+    goForward(yParam = 1) {
+      if (yParam > 0) {
+        this.coords.y += yParam;
       }
-
-      if (yParam < 0) {
-        return this;
-      }
-
-      this.coords.y += yParam;
 
       return this;
     },
 
-    goBack(yParam) {
-      if (!yParam) {
-        this.coords.y -= 1;
-
-        return this;
+    goBack(yParam = 1) {
+      if (yParam > 0) {
+        this.coords.y -= yParam;
       }
-
-      if (yParam < 0) {
-        return this;
-      }
-
-      this.coords.y -= yParam;
 
       return this;
     },
 
-    goRight(xParm) {
-      if (!xParm) {
-        this.coords.x += 1;
-
-        return this;
+    goRight(xParm = 1) {
+      if (xParm > 0) {
+        this.coords.x += xParm;
       }
-
-      if (xParm < 0) {
-        return this;
-      }
-
-      this.coords.x += xParm;
 
       return this;
     },
 
-    goLeft(xParm) {
-      if (!xParm) {
-        this.coords.x -= 1;
-
-        return this;
+    goLeft(xParm = 1) {
+      if (xParm > 0) {
+        this.coords.x -= xParm;
       }
-
-      if (xParm < 0) {
-        return this;
-      }
-
-      this.coords.x -= xParm;
 
       return this;
     },
 
     evacuate() {
-      this.coords.x = serviceCoordinateX;
-      this.coords.y = serviceCoordinateY;
+      this.coords.x = this.serviceCoordinate.x;
+      this.coords.y = this.serviceCoordinate.y;
     },
   };
 
