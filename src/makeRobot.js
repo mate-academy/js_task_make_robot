@@ -6,7 +6,7 @@
  * with the team! Are you in business As a test task, you will need to
  * program our equipment that makes robots.
  *
- * Create a makeRobot function that takes the string name and the number
+ * Create a makeRobot function that takes the string, name, and the number
  * wheels, version and returns the robot object.
  * The robot coming off the assembly line must be able to:
  *  - Provide information about yourself through getter info.
@@ -38,7 +38,56 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    get info() {
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+    },
+    get location() {
+      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+    coords: {
+      x: 0,
+      y: 0,
+    },
+    goForward(value = 1) {
+      if (value > 0) {
+        this.yValue += value;
+        this.coords.y += value;
+      };
+
+      return this;
+    },
+    goBack(value = 1) {
+      if (value > 0) {
+        this.yValue -= value;
+        this.coords.y -= value;
+      };
+
+      return this;
+    },
+    goRight(value = 1) {
+      if (value > 0) {
+        this.xValue += value;
+        this.coords.x += value;
+      };
+
+      return this;
+    },
+    goLeft(value = 1) {
+      if (value > 0) {
+        this.xValue -= value;
+        this.coords.x -= value;
+      }
+
+      return this;
+    },
+    evacuate() {
+      robot.coords.x = 1400;
+      robot.coords.y = 500;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
