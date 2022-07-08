@@ -43,6 +43,11 @@ function makeRobot(name, wheels, version) {
     wheels: wheels,
     version: version,
 
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
     get info() {
       const str = 'name: ';
 
@@ -84,11 +89,6 @@ function makeRobot(name, wheels, version) {
       }
 
       return robot;
-    },
-
-    coords: {
-      x: 0,
-      y: 0,
     },
 
     evacuate() {
