@@ -38,7 +38,89 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    /* getter of robot.info string */
+    get info() {
+      const a = `name: ${this.name},`;
+      const b = `chip version: ${this['chip version']},`;
+      const c = `wheels: ${this.wheels}`;
+
+      return `${a} ${b} ${c}`;
+    },
+
+    set info(value) {
+      this.info = value.split(' ');
+    },
+
+    goForward(a) {
+      if (a < 1) {
+        this.coords.y += 0;
+      } else if (a === undefined) {
+        this.coords.y++;
+      } else {
+        this.coords.y += a;
+      };
+
+      return this;
+    },
+
+    goBack(a) {
+      if (a < 1) {
+        this.coords.y += 0;
+      } else if (a === undefined) {
+        this.coords.y--;
+      } else {
+        this.coords.y -= a;
+      };
+
+      return this;
+    },
+
+    goRight(a) {
+      if (a < 1) {
+        this.coords.x += 0;
+      } else if (a === undefined) {
+        this.coords.x++;
+      } else {
+        this.coords.x += a;
+      };
+
+      return this;
+    },
+
+    goLeft(a) {
+      if (a < 1) {
+        this.coords.x += 0;
+      } else if (a === undefined) {
+        this.coords.x--;
+      } else {
+        this.coords.x -= a;
+      };
+
+      return this;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+  };
+
+  /* Adding variables to the object Robot  */
+  robot.name = name;
+  robot['chip version'] = version;
+  robot.wheels = wheels;
+
+  robot.coords = {
+    x: 0,
+    y: 0,
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
