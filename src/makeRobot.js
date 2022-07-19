@@ -48,10 +48,6 @@ function makeRobot(name, wheels, version) {
       return `${a} ${b} ${c}`;
     },
 
-    set info(value) {
-      this.info = value.split(' ');
-    },
-
     goForward(a) {
       if (a < 1) {
         this.coords.y += 0;
