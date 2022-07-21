@@ -40,21 +40,21 @@
 function makeRobot(name, wheels, version) {
   // write code here
   const newRobot = {
-    Name: name,
-    Wheels: wheels,
-    chipVerion: version,
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
     },
 
     get info() {
-      return `name: ${this.Name}, chip version: ${this.chipVerion}, wheels: ${
-        this.Wheels}`;
+      return `name: ${this.name}, chip version: ${this.version}, wheels: `
+      + `${this.wheels}`;
     },
 
     get location() {
-      return `${this.Name}: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goForward(direct = 1) {
