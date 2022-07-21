@@ -39,10 +39,18 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-    /* getter of robot.info string */
+    name,
+    version,
+    wheels,
+
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
     get info() {
       const a = `name: ${this.name},`;
-      const b = `chip version: ${this['chip version']},`;
+      const b = `chip version: ${this.version},`;
       const c = `wheels: ${this.wheels}`;
 
       return `${a} ${b} ${c}`;
@@ -104,16 +112,6 @@ function makeRobot(name, wheels, version) {
       this.coords.x = 1400;
       this.coords.y = 500;
     },
-  };
-
-  /* Adding variables to the object Robot  */
-  robot.name = name;
-  robot['chip version'] = version;
-  robot.wheels = wheels;
-
-  robot.coords = {
-    x: 0,
-    y: 0,
   };
 
   return robot;
