@@ -48,58 +48,34 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
 
-    get info() {
-      const a = `name: ${this.name},`;
-      const b = `chip version: ${this.version},`;
-      const c = `wheels: ${this.wheels}`;
-
-      return `${a} ${b} ${c}`;
-    },
-
-    goForward(a) {
-      if (a < 1) {
-        this.coords.y += 0;
-      } else if (a === undefined) {
-        this.coords.y++;
-      } else {
-        this.coords.y += a;
-      };
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
+      }
 
       return this;
     },
 
-    goBack(a) {
-      if (a < 1) {
-        this.coords.y += 0;
-      } else if (a === undefined) {
-        this.coords.y--;
-      } else {
-        this.coords.y -= a;
-      };
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
+      }
 
       return this;
     },
 
-    goRight(a) {
-      if (a < 1) {
-        this.coords.x += 0;
-      } else if (a === undefined) {
-        this.coords.x++;
-      } else {
-        this.coords.x += a;
-      };
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
+      }
 
       return this;
     },
 
-    goLeft(a) {
-      if (a < 1) {
-        this.coords.x += 0;
-      } else if (a === undefined) {
-        this.coords.x--;
-      } else {
-        this.coords.x -= a;
-      };
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
+      }
 
       return this;
     },
@@ -113,6 +89,16 @@ function makeRobot(name, wheels, version) {
       this.coords.y = 500;
     },
   };
+
+  Object.defineProperty(robot, 'info', {
+    get: function() {
+      const a = `name: ${robot.name},`;
+      const b = `chip version: ${robot.version},`;
+      const c = `wheels: ${robot.wheels}`;
+
+      return `${a} ${b} ${c}`;
+    },
+  });
 
   return robot;
 }
