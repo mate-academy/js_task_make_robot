@@ -38,7 +38,78 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
-}
+  function movementRobom(direction, steps) {
+    if (steps < 0) {
+      return;
+    }
+
+    switch (direction) {
+      case 'goForward':
+        robot.coords.y += steps;
+        break;
+      case 'goBack':
+        robot.coords.y -= steps;
+        break;
+      case 'goRight':
+        robot.coords.x += steps;
+        break;
+      case 'goLeft':
+        robot.coords.x -= steps;
+        break;
+      default:
+        break;
+    };
+  };
+
+  const robot = {
+    name: name,
+    wheels: wheels,
+    version: version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      return `name: ${this.name},`
+        + ` chip version: ${this.version},`
+        + ` wheels: ${this.wheels}`;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    evacuate: function() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+
+      return this;
+    },
+
+    goForward(steps = 1) {
+      movementRobom('goForward', steps);
+
+      return this;
+    },
+    goBack(steps = 1) {
+      movementRobom('goBack', steps);
+
+      return this;
+    },
+    goRight(steps = 1) {
+      movementRobom('goRight', steps);
+
+      return this;
+    },
+    goLeft(steps = 1) {
+      movementRobom('goLeft', steps);
+
+      return this;
+    },
+  };
+
+  return robot;
+};
 
 module.exports = makeRobot;
