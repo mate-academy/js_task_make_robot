@@ -43,62 +43,9 @@ function makeRobot(name, wheels, version) {
     rn: name,
     cv: version,
     wv: wheels,
-    x: 0,
-    y: 0,
-
-    goForward: function(value) {
-      if (!value) {
-        this.y += 1;
-      } else if (value > 0) {
-        this.y += value;
-      } else {
-        this.y = this.y;
-      }
-
-      return this;
-    },
-
-    goBack: function(value) {
-      if (!value) {
-        this.y -= 1;
-      } else if (value > 0) {
-        this.y -= value;
-      } else {
-        this.y = this.y;
-      }
-
-      return this;
-    },
-
-    goLeft: function(value) {
-      if (!value) {
-        this.x -= 1;
-      } else if (value > 0) {
-        this.x -= value;
-      } else {
-        this.y = this.y;
-      }
-
-      return this;
-    },
-
-    goRight: function(value) {
-      if (!value) {
-        this.x += 1;
-      } else if (value > 0) {
-        this.x += value;
-      } else {
-        this.x = this.x;
-      }
-
-      return this;
-    },
-
-    evacuate() {
-      this.x = 1400;
-      this.y = 500;
-
-      return `x: ${this.x}, y: ${this.y}`;
+    coords: {
+      x: 0,
+      y: 0,
     },
 
     get info() {
@@ -106,16 +53,46 @@ function makeRobot(name, wheels, version) {
     },
 
     get location() {
-      return `${this.rn}: x=${this.x}, y=${this.y}`;
+      return `${this.rn}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    get coords() {
-      const coordinates = {
-        x: this.x,
-        y: this.y,
-      };
+    goForward(value = 1) {
+      if (value > 0) {
+        this.coords.y += value;
+      }
 
-      return coordinates;
+      return this;
+    },
+
+    goBack(value = 1) {
+      if (value > 0) {
+        this.coords.y -= value;
+      }
+
+      return this;
+    },
+
+    goLeft(value = 1) {
+      if (value > 0) {
+        this.coords.x -= value;
+      }
+
+      return this;
+    },
+
+    goRight(value = 1) {
+      if (value > 0) {
+        this.coords.x += value;
+      }
+
+      return this;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+
+      return `x: ${this.coords.x}, y: ${this.coords.y}`;
     },
   };
 
