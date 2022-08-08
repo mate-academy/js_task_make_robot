@@ -39,9 +39,9 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-    name: name,
-    wheels: wheels,
-    version: version,
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
@@ -53,16 +53,15 @@ function makeRobot(name, wheels, version) {
     },
 
     get location() {
-      // eslint-disable-next-line
       return (`${this.name}: x=${this.coords.x}, y=${this.coords.y}`);
     },
 
-    evacuate: function() {
+    evacuate() {
       this.coords.x = 1400;
       this.coords.y = 500;
     },
 
-    goForward: function(coordinates = 1) {
+    goForward(coordinates = 1) {
       if (coordinates > 0) {
         this.coords.y += coordinates;
       }
@@ -70,7 +69,7 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goBack: function(coordinates = 1) {
+    goBack(coordinates = 1) {
       if (coordinates > 0) {
         this.coords.y -= coordinates;
       }
@@ -78,7 +77,7 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goLeft: function(coordinates = 1) {
+    goLeft(coordinates = 1) {
       if (coordinates > 0) {
         this.coords.x -= coordinates;
       }
@@ -86,7 +85,7 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goRight: function(coordinates = 1) {
+    goRight(coordinates = 1) {
       if (coordinates > 0) {
         this.coords.x += coordinates;
       }
