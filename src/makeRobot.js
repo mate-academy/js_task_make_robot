@@ -39,37 +39,13 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-    name: 'no__name',
-    wheels: 0,
-    version: 0,
+    name,
+    wheels,
+    version,
 
     coords: {
       x: 0,
       y: 0,
-    },
-
-    set robotName(nameValue) {
-      if (typeof nameValue !== 'string') {
-        return;
-      }
-
-      this.name = nameValue;
-    },
-
-    set robotWheels(wheelsValue) {
-      if (typeof wheelsValue !== 'number') {
-        return;
-      }
-
-      this.wheels = wheelsValue;
-    },
-
-    set robotVersion(versionValue) {
-      if (typeof versionValue !== 'number') {
-        return;
-      }
-
-      this.version = versionValue;
     },
 
     get info() {
@@ -126,10 +102,6 @@ function makeRobot(name, wheels, version) {
       this.coords.y = 500;
     },
   };
-
-  robot.robotName = name;
-  robot.robotWheels = wheels;
-  robot.robotVersion = version;
 
   return robot;
 }
