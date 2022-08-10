@@ -38,7 +38,6 @@
  * @return {Robot}
  */
 
-// robot.info === 'name:%name%, chip version: %version%, wheels: %wheels%'
 function makeRobot(name, wheels, version) {
   const robot = {
     name,
