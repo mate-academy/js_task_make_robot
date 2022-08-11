@@ -11,7 +11,7 @@
  * The robot coming off the assembly line must be able to:
  *  - Provide information about yourself through getter info.
  *    robot.info === 'name:%name%, chip version: %version%, wheels: %wheels%'
- *  - Provide the coordinates of your location via getter location.
+ *  - Provide the coords of your location via getter location.
  *    robot.location === '%name%: x=14, y=21'
  *  - Have methods to move goForward, goBack, goRight, goLeft.
  *  - Movement methods must be able to be used with a chain.
@@ -19,11 +19,11 @@
  *  - Default methods that move the work by 1 in the right direction.
  *    This value can be increased by passing the desired number to the method.
  *    Negative numbers should not affect the location of the robot. goLeft(3)
- *  - The coordinates of the robot must be stored in the object coords,
+ *  - The coords of the robot must be stored in the object coords,
  *    the keys x and y inside the robot.
  *  - The robot must be able to request the evacuation of robot.evacuate(),
  *    which will call rescuers and transfer it to the service center
- *    at the coordinates x: 1400, y: 500.
+ *    at the coords x: 1400, y: 500.
  *
  * @typedef {object} Robot
  * @property {string} name
@@ -42,7 +42,7 @@ function makeRobot(name, wheels, version) {
     name,
     wheels,
     version,
-    coordinates: {
+    coords: {
       x: 0,
       y: 0,
     },
@@ -53,12 +53,12 @@ function makeRobot(name, wheels, version) {
     },
 
     get location() {
-      return `${this.name}: x=${this.coordinates.x}, y=${this.coordinates.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goRight(step = 1) {
       if (step > 0) {
-        this.coordinates.x += step;
+        this.coords.x += step;
       }
 
       return this;
@@ -66,7 +66,7 @@ function makeRobot(name, wheels, version) {
 
     goLeft(step = 1) {
       if (step > 0) {
-        this.coordinates.x -= step;
+        this.coords.x -= step;
       }
 
       return this;
@@ -74,7 +74,7 @@ function makeRobot(name, wheels, version) {
 
     goForward(step = 1) {
       if (step > 0) {
-        this.coordinates.y += step;
+        this.coords.y += step;
       }
 
       return this;
@@ -82,15 +82,15 @@ function makeRobot(name, wheels, version) {
 
     goBack(step = 1) {
       if (step > 0) {
-        this.coordinates.y -= step;
+        this.coords.y -= step;
       }
 
       return this;
     },
 
     evacuate() {
-      this.coordinates.x = 1400;
-      this.coordinates.y = 500;
+      this.coords.x = 1400;
+      this.coords.y = 500;
 
       return this;
     },
