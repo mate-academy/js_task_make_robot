@@ -48,6 +48,7 @@ function makeRobot(name, wheels, version) {
       return ('name: ' + this.name + ', chip version: '
         + this.version + ', wheels: ' + this.wheels);
     },
+
     'coords': {
       'x': 0,
       'y': 0,
