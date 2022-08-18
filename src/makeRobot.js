@@ -38,7 +38,79 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  return {
+    name,
+    wheels,
+    version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      return 'name: ' + this.name + ', '
+      + 'chip version: ' + this.version + ', '
+      + 'wheels: ' + this.wheels;
+    },
+
+    get location() {
+      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    goForward(n = 1) {
+      if (n < 0) {
+        return this;
+      }
+      this.coords.y += n;
+
+      return this;
+    },
+
+    goLeft(n = 1) {
+      if (n < 0) {
+        return this;
+      }
+      this.coords.x -= n;
+
+      return this;
+    },
+
+    goRight(n = 1) {
+      if (n < 0) {
+        return this;
+      }
+      this.coords.x += n;
+
+      return this;
+    },
+
+    goBack(n = 1) {
+      if (n < 0) {
+        return this;
+      }
+      this.coords.y -= n;
+
+      return this;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+
+      return this;
+    },
+  };
 }
+
+const robot = makeRobot('Joy', 5, 31);
+
+// eslint-disable-next-line no-console, max-len
+console.log(robot.goBack(1).goForward(17).goForward(-1));
+
+// eslint-disable-next-line no-console
+console.log(robot.location);
+
+// const actual = robot.info;
+// const expected = 'name: Joy, chip version: 31, wheels: 5';
 
 module.exports = makeRobot;
