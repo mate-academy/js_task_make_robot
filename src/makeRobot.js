@@ -1,3 +1,7 @@
+/* eslint-disable quotes */
+/* eslint-disable max-len */
+/* eslint-disable space-before-function-paren */
+/* eslint-disable no-param-reassign */
 'use strict';
 
 /**
@@ -38,7 +42,75 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name,
+    wheels,
+    version,
+    get info() {
+      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+    },
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+  };
+
+  robot.goForward = function (step) {
+    if (step < 0) {
+      return this;
+    }
+
+    step = step || 1;
+    this.coords.y += step;
+
+    return this;
+  };
+
+  robot.goBack = function (step) {
+    if (step < 0) {
+      return this;
+    }
+
+    step = step || 1;
+    this.coords.y -= step;
+
+    return this;
+  };
+
+  robot.goRight = function (step) {
+    if (step < 0) {
+      return this;
+    }
+
+    step = step || 1;
+    this.coords.x += step;
+
+    return this;
+  };
+
+  robot.goLeft = function (step) {
+    if (step < 0) {
+      return this;
+    }
+
+    step = step || 1;
+    this.coords.x -= step;
+
+    return this;
+  };
+
+  robot.evacuate = function () {
+    this.coords.x = 1400;
+    this.coords.y = 500;
+
+    return this;
+  };
+
+  robot.coords = {
+    x: 0,
+    y: 0,
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
