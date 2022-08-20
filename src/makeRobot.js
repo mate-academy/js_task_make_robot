@@ -102,15 +102,4 @@ function makeRobot(name, wheels, version) {
   };
 }
 
-const robot = makeRobot('Joy', 5, 31);
-
-// eslint-disable-next-line no-console, max-len
-console.log(robot.goBack(1).goForward(17).goForward(-1));
-
-// eslint-disable-next-line no-console
-console.log(robot.location);
-
-// const actual = robot.info;
-// const expected = 'name: Joy, chip version: 31, wheels: 5';
-
 module.exports = makeRobot;
