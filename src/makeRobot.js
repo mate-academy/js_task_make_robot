@@ -40,54 +40,37 @@
 
 function makeRobot(name, wheels, version) {
   const robot = {
-    name: name,
-    wheels: wheels,
-    version: version,
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
     },
-    goForward(value) {
-      if (value) {
-        if (value > 0) {
-          this.coords.y = this.coords.y + value;
-        }
-      } else {
-        this.coords.y++;
+    goForward(value = 1) {
+      if (value > 0) {
+        this.coords.y += value;
       }
 
       return this;
     },
-    goBack(value) {
-      if (value) {
-        if (value > 0) {
-          this.coords.y = this.coords.y - value;
-        }
-      } else {
-        this.coords.y--;
+    goBack(value = 1) {
+      if (value > 0) {
+        this.coords.y -= value;
       }
 
       return this;
     },
-    goRight(value) {
-      if (value) {
-        if (value > 0) {
-          this.coords.x = this.coords.x + value;
-        }
-        // this.x = this.x + 3;
-      } else {
-        this.coords.x++;
+    goRight(value = 1) {  
+      if (value > 0) {
+        this.coords.x += value;
       }
 
       return this;
     },
-    goLeft(value) {
-      if (value) {
-        if (value > 0) {
-          this.coords.x = this.coords.x - value;
-        }
-      } else {
-        this.coords.x--;
+    goLeft(value = 1) {
+      if (value > 0) {
+        this.coords.x -= value;
       }
 
       return this;
