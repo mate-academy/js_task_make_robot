@@ -40,9 +40,9 @@
 function makeRobot(name, wheels, version) {
   // write code here
   const robot = {
-    n: name,
-    v: version,
-    wh: wheels,
+    name: name,
+    version: version,
+    wheels: wheels,
     x: 0,
     y: 0,
 
@@ -52,16 +52,14 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      return `name: ${this.n}, chip version: ${this.v}, wheels: ${this.wh}`;
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
     },
 
     get location() {
-      return `${this.n}: x=${this.x}, y=${this.y}`;
+      return `${this.name}: x=${this.x}, y=${this.y}`;
     },
 
     evacuate() {
-      this.x = 1400;
-      this.y = 500;
       this.coords.x = 1400;
       this.coords.y = 500;
     },
