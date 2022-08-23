@@ -38,7 +38,29 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
-}
+  const a = name;
+  const b = wheels;
+  const c = version;
+
+  const robot = {
+    name: `${name}`,
+    wheels: `${wheels}`,
+    version: `${version}`,
+
+    get info() {
+      return `name: ${a}, chip version: ${c}, wheels: ${b}`;
+    },
+
+    get location() {
+      const x = 0;
+      const y = 0;
+
+      return `${this.name}: x=${x}, y=${y}`;
+    },
+
+  };
+
+  return robot;
+};
 
 module.exports = makeRobot;
