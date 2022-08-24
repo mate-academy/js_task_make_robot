@@ -38,9 +38,9 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  const nm = 'name: ';
-  const chVr = 'chip version: ';
-  const whls = 'wheels: ';
+  const nameText = 'name: ';
+  const chipVersion = 'chip version: ';
+  const wheelsNumber = 'wheels: ';
 
   const robot = {
     name: name,
@@ -55,7 +55,8 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      return `${nm}${this.name}, ${chVr}${this.version}, ${whls}${this.wheels}`;
+      return `${nameText}${this.name}, `
+      + `${chipVersion}${this.version}, ${wheelsNumber}${this.wheels}`;
     },
 
     get location() {
