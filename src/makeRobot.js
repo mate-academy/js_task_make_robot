@@ -42,57 +42,59 @@ function makeRobot(name, wheels, version) {
     name: `${name}`,
     wheels: `${wheels}`,
     version: `${version}`,
-    x: 0,
-    y: 0,
+    coords: {
+      x: 0,
+      y: 0,
+    },
 
     get info() {
       return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
     },
 
     get location() {
-      return `${this.name}: x=${this.x}, y=${this.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(value) {
+    goForward(value = 1) {
       if (Math.sign(value) !== -1) {
-        this.y = this.y + value;
-      } else {
-        this.y = this.y + 0;
+        this.coords.y += value;
       }
+
+      return robot;
     },
 
-    goBack(value) {
+    goBack(value = 1) {
       if (Math.sign(value) !== -1) {
-        this.y = this.y - value;
-      } else {
-        this.y = this.y + 0;
+        this.coords.y -= value;
       }
+
+      return robot;
     },
 
-    goRight(value) {
+    goRight(value = 1) {
       if (Math.sign(value) !== -1) {
-        this.x = this.x + value;
-      } else {
-        this.x = this.x + 0;
+        this.coords.x += value;
       }
+
+      return robot;
     },
 
-    goLeft(value) {
+    goLeft(value = 1) {
       if (Math.sign(value) !== -1) {
-        this.x = this.x - value;
-      } else {
-        this.x = this.x + 0;
+        this.coords.x -= value;
       }
+
+      return robot;
     },
 
     evacuate() {
-      this.x = 1400;
-      this.y = 500;
+      this.coords.x = 1400;
+      this.coords.y = 500;
     },
 
   };
 
   return robot;
-}
+};
 
 module.exports = makeRobot;
