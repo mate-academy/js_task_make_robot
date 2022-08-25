@@ -37,8 +37,86 @@
  *
  * @return {Robot}
  */
+
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name: name,
+    wheels: wheels,
+    version: version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    goForward: goForward,
+    goBack: goBack,
+    goRight: goRight,
+    goLeft: goLeft,
+
+    evacuate() {
+      robot.coords.x = 1400;
+      robot.coords.y = 500;
+    },
+
+  };
+
+  function goForward(value) {
+    if (value === undefined) {
+      robot.coords.y++;
+    } else if (value > 0) {
+      robot.coords.y += value;
+    } else if (value < 0) {
+      // robot.coords.y = robot.coords.y;
+    }
+
+    return robot;
+  };
+
+  function goBack(value) {
+    if (value === undefined) {
+      robot.coords.y--;
+    } else if (value > 0) {
+      robot.coords.y -= value;
+    } else if (value < 0) {
+      // robot.coords.y = robot.coords.y;
+    }
+
+    return robot;
+  };
+
+  function goRight(value) {
+    if (value === undefined) {
+      robot.coords.x++;
+    } else if (value < 0) {
+      robot.coords.x = 0;
+    } else {
+      robot.coords.x += value;
+    }
+
+    return robot;
+  }
+
+  function goLeft(value) {
+    if (value === undefined) {
+      robot.coords.x--;
+    } else if (value < 0) {
+      robot.coords.x = 0;
+    } else {
+      robot.coords.x -= value;
+    }
+
+    return robot;
+  }
+
+  return robot;
 }
 
 module.exports = makeRobot;
