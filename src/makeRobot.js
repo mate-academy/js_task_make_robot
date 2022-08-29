@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * Mate Robot Factory impressed by your success, they are ready to accept
@@ -38,7 +38,98 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name,
+    wheels,
+    version,
+    x: 0,
+    y: 0,
+
+    get coords() {
+      return {
+        x: this.x,
+        y: this.y,
+      };
+    },
+
+    // name:%name%, chip version: %version%, wheels: %wheels%
+    get info() {
+      const { nm = name, vs = version, wh = wheels } = this;
+
+      return `name: ${nm}, chip version: ${vs}, wheels: ${wh}`;
+    },
+
+    // robot.location === '%name%: x=14, y=21'
+    get location() {
+      return `${this.name}: x=${this.x}, y=${this.y}`;
+    },
+
+    evacuate: function () {
+      this.x = 1400;
+      this.y = 500;
+
+      return this.coords;
+    },
+
+    getSteps: function (steps) {
+      if (!steps) {
+        return 1;
+      }
+
+      if (steps > 0) {
+        return steps;
+      }
+
+      return 0;
+    },
+
+    goForward: function (s) {
+      let steps = this.getSteps(s);
+
+      while (steps > 0) {
+        this.y++;
+        steps--;
+      }
+
+      return this;
+    },
+
+    goBack: function (s) {
+      let steps = this.getSteps(s);
+
+      while (steps > 0) {
+        this.y--;
+
+        steps--;
+      }
+
+      return this;
+    },
+
+    goRight: function (s) {
+      let steps = this.getSteps(s);
+
+      while (steps > 0) {
+        this.x++;
+        steps--;
+      }
+
+      return this;
+    },
+
+    goLeft: function (s) {
+      let steps = this.getSteps(s);
+
+      while (steps > 0) {
+        this.x--;
+        steps--;
+      }
+
+      return this;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
