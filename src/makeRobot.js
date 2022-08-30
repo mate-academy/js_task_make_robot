@@ -71,20 +71,8 @@ function makeRobot(name, wheels, version) {
       return this.coords;
     },
 
-    getSteps: function (steps) {
-      if (!steps) {
-        return 1;
-      }
-
-      if (steps > 0) {
-        return steps;
-      }
-
-      return 0;
-    },
-
-    goForward: function (s) {
-      let steps = this.getSteps(s);
+    goForward(s) {
+      let steps = s || 1;
 
       while (steps > 0) {
         this.y++;
@@ -94,8 +82,8 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goBack: function (s) {
-      let steps = this.getSteps(s);
+    goBack(s) {
+      let steps = s || 1;
 
       while (steps > 0) {
         this.y--;
@@ -106,8 +94,8 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goRight: function (s) {
-      let steps = this.getSteps(s);
+    goRight(s) {
+      let steps = s || 1;
 
       while (steps > 0) {
         this.x++;
@@ -117,8 +105,8 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goLeft: function (s) {
-      let steps = this.getSteps(s);
+    goLeft(s) {
+      let steps = s || 1;
 
       while (steps > 0) {
         this.x--;
