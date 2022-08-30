@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Mate Robot Factory impressed by your success, they are ready to accept
@@ -64,7 +64,7 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.x}, y=${this.y}`;
     },
 
-    evacuate: function () {
+    evacuate() {
       this.x = 1400;
       this.y = 500;
 
