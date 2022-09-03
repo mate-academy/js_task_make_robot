@@ -52,14 +52,12 @@ function makeRobot(name, wheels, version) {
       };
     },
 
-    // name:%name%, chip version: %version%, wheels: %wheels%
     get info() {
       const { nm = name, vs = version, wh = wheels } = this;
 
       return `name: ${nm}, chip version: ${vs}, wheels: ${wh}`;
     },
 
-    // robot.location === '%name%: x=14, y=21'
     get location() {
       return `${this.name}: x=${this.x}, y=${this.y}`;
     },
@@ -71,46 +69,33 @@ function makeRobot(name, wheels, version) {
       return this.coords;
     },
 
-    goForward(s) {
-      let steps = s || 1;
-
-      while (steps > 0) {
-        this.y++;
-        steps--;
+    goForward(steps = 1) {
+      if (steps > 0) {
+        this.y += steps;
       }
 
       return this;
     },
 
-    goBack(s) {
-      let steps = s || 1;
-
-      while (steps > 0) {
-        this.y--;
-
-        steps--;
+    goBack(steps = 1) {
+      if (steps > 0) {
+        this.y -= steps;
       }
 
       return this;
     },
 
-    goRight(s) {
-      let steps = s || 1;
-
-      while (steps > 0) {
-        this.x++;
-        steps--;
+    goRight(steps = 1) {
+      if (steps > 0) {
+        this.x += steps;
       }
 
       return this;
     },
 
-    goLeft(s) {
-      let steps = s || 1;
-
-      while (steps > 0) {
-        this.x--;
-        steps--;
+    goLeft(steps = 1) {
+      if (steps > 0) {
+        this.x -= steps;
       }
 
       return this;
