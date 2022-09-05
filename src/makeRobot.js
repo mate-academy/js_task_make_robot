@@ -63,9 +63,7 @@ function makeRobot(name, wheels, version) {
 
     goBack(value = 1) {
       if (value > 0) {
-        const negativeValue = value / (-1);
-
-        this.coords.y = negativeValue;
+        this.coords.y -= value;
       }
 
       return this;
@@ -81,9 +79,7 @@ function makeRobot(name, wheels, version) {
 
     goLeft(value = 1) {
       if (value > 0) {
-        const negativeValue = value / (-1);
-
-        this.coords.x += negativeValue;
+        this.coords.x -= value;
       }
 
       return this;
