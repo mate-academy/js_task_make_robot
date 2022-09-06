@@ -38,7 +38,68 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const move = (val = 1) => {
+    let step = 0;
+
+    if (isNaN(val) || val < 0) {
+      step = 0;
+    } else {
+      step = val;
+    }
+
+    return step;
+  };
+
+  const robot = {
+    name: name,
+    wheels: wheels,
+    version: version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+    get info() {
+      const valOne = `name: ${this.name}`;
+      const valTwo = `chip version: ${this.version}`;
+      const valThree = `wheels: ${this.wheels}`;
+
+      return `${valOne}, ${valTwo}, ${valThree}`;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    goForward(value) {
+      this.coords.y += move(value);
+
+      return this;
+    },
+    goBack(value = 1) {
+      this.coords.y -= move(value);
+
+      return this;
+    },
+    goRight(value = 1) {
+      this.coords.x += move(value);
+
+      return this;
+    },
+    goLeft(value = 1) {
+      this.coords.x -= move(value);
+
+      return this;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+
+      return this;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
