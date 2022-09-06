@@ -37,8 +37,82 @@
  *
  * @return {Robot}
  */
+
+//   - I used one external function
+//   |-- to check and calculate all the values
+//   |-- from each of go<SOMEWHERE>() methods
+//   |-- in one place and make the robot obj
+//   |-- more compact and readable:
+
+function moveRobot(action, axis, step) {
+  // | s var is used to not assign
+  // |-- the function parameter
+  let s = step;
+
+  if (!step) {
+    s = 1;
+  } else if (step < 0) {
+    return;
+  }
+
+  if (action === '+') {
+    this.coords[axis] += s;
+  } else if (action === '-') {
+    this.coords[axis] -= s;
+  }
+
+  return this.coords;
+}
+
+// - And here is the main makeRobot() function
+// |-- with all of the robot methods.
+
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name,
+    wheels,
+    version,
+    coords: {
+      'x': 0, 'y': 0,
+    },
+    get info() {
+      return `name: ${this.name}, `
+        + `chip version: ${this.version}, `
+        + `wheels: ${this.wheels}`;
+    },
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+    move: moveRobot,
+    evacuate() {
+      this.coords.y = 500;
+      this.coords.x = 1400;
+
+      return this;
+    },
+    goForward(n) {
+      this.move('+', 'y', n);
+
+      return this;
+    },
+    goBack(n) {
+      this.move('-', 'y', n);
+
+      return this;
+    },
+    goRight(n) {
+      this.move('+', 'x', n);
+
+      return this;
+    },
+    goLeft(n) {
+      this.move('-', 'x', n);
+
+      return this;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
