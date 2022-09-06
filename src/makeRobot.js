@@ -53,9 +53,13 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      const { nm = name, vs = version, wh = wheels } = this;
+      const information = ''.concat(
+        `name: ${this.name}, `,
+        `chip version: ${this.version}, `,
+        `wheels: ${this.wheels}`
+      );
 
-      return `name: ${nm}, chip version: ${vs}, wheels: ${wh}`;
+      return information;
     },
 
     get location() {
