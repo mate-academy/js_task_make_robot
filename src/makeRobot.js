@@ -46,7 +46,7 @@
 
 function moveRobot(action, axis, step) {
   // | s var is used to not assign
-  // |-- the function parameter
+  // |-- the function parameter.
   let s = step;
 
   if (!step) {
@@ -73,7 +73,8 @@ function makeRobot(name, wheels, version) {
     wheels,
     version,
     coords: {
-      'x': 0, 'y': 0,
+      'x': 0,
+      'y': 0,
     },
     get info() {
       return `name: ${this.name}, `
