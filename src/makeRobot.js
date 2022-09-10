@@ -44,21 +44,18 @@
 //   |-- in one place and make the robot obj
 //   |-- more compact and readable:
 
-function moveRobot(action, axis, step) {
-  // | s var is used to not assign
-  // |-- the function parameter.
-  let s = step;
+function moveRobot(action, axis, step = 1) {
+  // | end the the function running
+  // |-- if step is a negative value.
 
-  if (!step) {
-    s = 1;
-  } else if (step < 0) {
+  if (step < 0) {
     return;
   }
 
   if (action === '+') {
-    this.coords[axis] += s;
+    this.coords[axis] += step;
   } else if (action === '-') {
-    this.coords[axis] -= s;
+    this.coords[axis] -= step;
   }
 
   return this.coords;
@@ -91,23 +88,23 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
-    goForward(n) {
-      this.move('+', 'y', n);
+    goForward(step) {
+      this.move('+', 'y', step);
 
       return this;
     },
-    goBack(n) {
-      this.move('-', 'y', n);
+    goBack(step) {
+      this.move('-', 'y', step);
 
       return this;
     },
-    goRight(n) {
-      this.move('+', 'x', n);
+    goRight(step) {
+      this.move('+', 'x', step);
 
       return this;
     },
-    goLeft(n) {
-      this.move('-', 'x', n);
+    goLeft(step) {
+      this.move('-', 'x', step);
 
       return this;
     },
