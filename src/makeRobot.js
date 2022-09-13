@@ -6,7 +6,7 @@
  * with the team! Are you in business As a test task, you will need to
  * program our equipment that makes robots.
  *
- * Create a makeRobot function that takes the string name and the number
+ * Create a makeRobot  that takes the string name and the number
  * wheels, version and returns the robot object.
  * The robot coming off the assembly line must be able to:
  *  - Provide information about yourself through getter info.
@@ -29,7 +29,7 @@
  * @property {string} name
  * @property {number} wheels
  * @property {number} version
- * @property {function} info
+ * @property {} info
  *
  * @param {string} name
  * @param {number} wheels
@@ -54,35 +54,35 @@ function makeRobot(name, wheels, version) {
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
-    goForward: function(value = 1) {
+    goForward(value = 1) {
       if (value > 0) {
         this.coords.y += value;
       }
 
       return this;
     },
-    goBack: function(value = 1) {
+    goBack(value = 1) {
       if (value > 0) {
         this.coords.y -= value;
       }
 
       return this;
     },
-    goLeft: function(value = 1) {
+    goLeft(value = 1) {
       if (value > 0) {
         this.coords.x -= value;
       }
 
       return this;
     },
-    goRight: function(value = 1) {
+    goRight(value = 1) {
       if (value > 0) {
         this.coords.x += value;
       }
 
       return this;
     },
-    evacuate: function() {
+    evacuate() {
       this.coords.x = 1400;
       this.coords.y = 500;
 
