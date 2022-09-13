@@ -37,8 +37,77 @@
  *
  * @return {Robot}
  */
+function makeStep(direction, axis, step = 1) {
+  if (step <= 0) {
+    return;
+  }
+
+  if (direction === '+') {
+    this.coords[axis] += step;
+  }
+
+  if (direction === '-') {
+    this.coords[axis] -= step;
+  }
+
+  return this.coords;
+}
+
 function makeRobot(name, wheels, version) {
   // write code here
+  const robot = {
+    name,
+    wheels,
+    version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      return 'name:' + ' ' + this.name + ',' + ' ' + 'chip version:'
+      + ' ' + this.version + ',' + ' ' + 'wheels:' + ' ' + this.wheels;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    moveRobot: makeStep,
+
+    evacuate() {
+      this.coords.y = 500;
+      this.coords.x = 1400;
+
+      return this;
+    },
+
+    goForward(step) {
+      this.moveRobot('+', 'y', step);
+
+      return this;
+    },
+
+    goBack(step) {
+      this.moveRobot('-', 'y', step);
+
+      return this;
+    },
+
+    goRight(step) {
+      this.moveRobot('+', 'x', step);
+
+      return this;
+    },
+
+    goLeft(step) {
+      this.moveRobot('-', 'x', step);
+
+      return this;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
