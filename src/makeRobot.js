@@ -79,8 +79,8 @@ function makeRobot(name, wheels, version) {
       return this;
     },
     evacuate() {
-      this.goForward(500);
-      this.goRight(1400);
+      this.coords.y = 500;
+      this.coords.x = 1400;
     },
   };
 }
