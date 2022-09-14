@@ -58,7 +58,7 @@ function makeRobot(name, wheels, version) {
     },
 
     move(distance = 1) {
-      return (distance >= 0) ? distance : 0;
+      return (distance > 0) ? distance : 0;
     },
 
     goForward(distance) {
