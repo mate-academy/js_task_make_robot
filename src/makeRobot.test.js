@@ -48,7 +48,7 @@ describe('sum', () => {
     expect(robot.goForward()).toBe(robot);
   });
 
-  it('When the robot moves back, his coordinates must change.', function() {
+  it('When the robot moves back, his coords must change.', function() {
     const robot = makeRobot('Joy', 5, 31);
 
     robot.goBack();
@@ -59,7 +59,7 @@ describe('sum', () => {
     expect(actual).toBe(expected);
   });
 
-  it('When the robot moves forward, his coordinates must change.', function() {
+  it('When the robot moves forward, his coords must change.', function() {
     const robot = makeRobot('Joy', 5, 31);
 
     robot.goForward();
@@ -70,7 +70,7 @@ describe('sum', () => {
     expect(actual).toBe(expected);
   });
 
-  it('When the robot moves left, his coordinates must change.', function() {
+  it('When the robot moves left, his coords must change.', function() {
     const robot = makeRobot('Joy', 5, 31);
 
     robot.goLeft();
@@ -81,7 +81,7 @@ describe('sum', () => {
     expect(actual).toBe(expected);
   });
 
-  it('When the robot moves right, his coordinates must change.', function() {
+  it('When the robot moves right, his coords must change.', function() {
     const robot = makeRobot('Joy', 5, 31);
 
     robot.goRight();
