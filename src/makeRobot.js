@@ -60,9 +60,9 @@ function makeRobot(name, wheels, version) {
     ifNegative(value) {
       if (value <= 0) {
         return 0;
-      } else {
-        return value;
       }
+
+      return value;
     },
 
     goForward(step = 1) {
