@@ -100,6 +100,10 @@ function makeRobot(name, wheels, version) {
 
         case 'left':
           this.coords.x -= steps;
+          break;
+
+        default:
+          throw new Error('Wrong type!');
       }
     },
   };
