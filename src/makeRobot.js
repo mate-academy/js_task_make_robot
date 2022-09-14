@@ -38,7 +38,63 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  class Robot {
+    // This naming to avoid no-ghost linter rule
+    constructor(className, classWheels, classVersion) {
+      this.name = className;
+      this.wheels = classWheels;
+      this.version = classVersion;
+
+      this.coords = {
+        x: 0,
+        y: 0,
+      };
+    }
+    get info() {
+      // eslint-disable-next-line max-len
+      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+    }
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    }
+
+    goForward(y = 1) {
+      if (y > 0) {
+        this.coords.y += y;
+      }
+
+      return this;
+    }
+    goBack(y = 1) {
+      if (y > 0) {
+        this.coords.y -= y;
+      }
+
+      return this;
+    }
+    goLeft(x = 1) {
+      if (x > 0) {
+        this.coords.x -= x;
+      }
+
+      return this;
+    }
+    goRight(x = 1) {
+      if (x > 0) {
+        this.coords.x += x;
+      }
+
+      return this;
+    }
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+
+      return this;
+    }
+  }
+
+  return new Robot(name, wheels, version);
 }
 
 module.exports = makeRobot;
