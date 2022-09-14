@@ -39,10 +39,11 @@
  */
 function makeRobot(name, wheels, version) {
   class Robot {
-    constructor(_name, _wheels, _version) {
-      this.name = _name;
-      this.wheels = _wheels;
-      this.version = _version;
+    // This naming to avoid no-ghost linter rule
+    constructor(className, classWheels, classVersion) {
+      this.name = className;
+      this.wheels = classWheels;
+      this.version = classVersion;
 
       this.coords = {
         x: 0,
