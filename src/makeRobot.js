@@ -37,21 +37,6 @@
  *
  * @return {Robot}
  */
-function makeStep(direction, axis, step = 1) {
-  if (step <= 0) {
-    return;
-  }
-
-  if (direction === '+') {
-    this.coords[axis] += step;
-  }
-
-  if (direction === '-') {
-    this.coords[axis] -= step;
-  }
-
-  return this.coords;
-}
 
 function makeRobot(name, wheels, version) {
   // write code here
@@ -65,15 +50,13 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      return 'name:' + ' ' + this.name + ',' + ' ' + 'chip version:'
-      + ' ' + this.version + ',' + ' ' + 'wheels:' + ' ' + this.wheels;
+      return `name: ${this.name}, chip version: ${this.version}, `
+      + `wheels: ${this.wheels}`;
     },
 
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
-
-    moveRobot: makeStep,
 
     evacuate() {
       this.coords.y = 500;
@@ -82,26 +65,34 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goForward(step) {
-      this.moveRobot('+', 'y', step);
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
+      }
 
       return this;
     },
 
-    goBack(step) {
-      this.moveRobot('-', 'y', step);
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
+      }
 
       return this;
     },
 
-    goRight(step) {
-      this.moveRobot('+', 'x', step);
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
+      }
 
       return this;
     },
 
-    goLeft(step) {
-      this.moveRobot('-', 'x', step);
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
+      }
 
       return this;
     },
