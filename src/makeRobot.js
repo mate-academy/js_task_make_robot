@@ -49,47 +49,49 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+      return `name: ${this.name}, `
+        + `chip version: ${this.version}, `
+        + `wheels: ${this.wheels}`;
     },
+
     get location() {
-      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${this.name}: `
+        + `x=${this.coords.x}, `
+        + `y=${this.coords.y}`;
     },
-    goForward(n) {
-      if (n === undefined) {
-        this.coords.y++;
-      } else if (n >= 0) {
-        this.coords.y += n;
+
+    goForward(step = 1) {
+      if (step >= 0) {
+        this.coords.y += step;
       }
 
       return this;
     },
-    goBack(n) {
-      if (n === undefined) {
-        this.coords.y--;
-      } else if (n >= 0) {
-        this.coords.y -= n;
+
+    goBack(step = 1) {
+      if (step >= 0) {
+        this.coords.y -= step;
       }
 
       return this;
     },
-    goRight(n) {
-      if (n === undefined) {
-        this.coords.x++;
-      } else if (n >= 0) {
-        this.coords.x += n;
+
+    goRight(step = 1) {
+      if (step >= 0) {
+        this.coords.x += step;
       }
 
       return this;
     },
-    goLeft(n) {
-      if (n === undefined) {
-        this.coords.x--;
-      } else if (n >= 0) {
-        this.coords.x -= n;
+
+    goLeft(step = 1) {
+      if (step >= 0) {
+        this.coords.x -= step;
       }
 
       return this;
     },
+
     evacuate() {
       this.coords.x = 1400;
       this.coords.y = 500;
