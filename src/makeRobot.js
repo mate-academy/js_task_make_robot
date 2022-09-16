@@ -42,6 +42,10 @@ function makeRobot(name, wheels, version) {
     name,
     wheels,
     version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
 
     get info() {
       return `name: ${this.name}, `
@@ -53,17 +57,8 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    coords: {
-      x: 0,
-      y: 0,
-    },
-
     checkStepsQuantity(steps = 1) {
-      if (steps >= 1) {
-        return steps;
-      } else {
-        return 0;
-      }
+      return (steps >= 1) ? steps : 0;
     },
 
     goForward(steps) {
