@@ -37,6 +37,16 @@
  *
  * @return {Robot}
  */
+function moveError() {
+  try {
+    throw new Error('Moves must be integer positive numbers! '
+      + 'No moves were made!');
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.error(`${e.name}: ${e.message}`);
+  }
+}
+
 function makeRobot(name, wheels, version) {
   const robot = {
     name,
@@ -60,7 +70,9 @@ function makeRobot(name, wheels, version) {
     },
     goForward(moves = 1) {
       if (typeof moves !== 'number' || moves <= 0) {
-        return Error;
+        moveError();
+
+        return this;
       }
 
       this.coords.y += moves;
@@ -69,7 +81,9 @@ function makeRobot(name, wheels, version) {
     },
     goBack(moves = 1) {
       if (typeof moves !== 'number' || moves <= 0) {
-        return Error;
+        moveError();
+
+        return this;
       }
 
       this.coords.y -= moves;
@@ -78,7 +92,9 @@ function makeRobot(name, wheels, version) {
     },
     goRight(moves = 1) {
       if (typeof moves !== 'number' || moves <= 0) {
-        return Error;
+        moveError();
+
+        return this;
       }
 
       this.coords.x += moves;
@@ -87,7 +103,9 @@ function makeRobot(name, wheels, version) {
     },
     goLeft(moves = 1) {
       if (typeof moves !== 'number' || moves <= 0) {
-        return Error;
+        moveError();
+
+        return this;
       }
 
       this.coords.x -= moves;
