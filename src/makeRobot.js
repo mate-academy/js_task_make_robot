@@ -37,8 +37,88 @@
  *
  * @return {Robot}
  */
+function moveError() {
+  try {
+    throw new Error('Moves must be integer positive numbers! '
+      + 'No moves were made!');
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.error(`${e.name}: ${e.message}`);
+  }
+}
+
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name,
+    wheels,
+    version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+    get info() {
+      return (`name: ${this.name}, `
+        + `chip version: ${this.version}, `
+        + `wheels: ${this.wheels}`);
+    },
+    get location() {
+      return (
+        `${this.name}: `
+        + `x=${this.coords.x}, `
+        + `y=${this.coords.y}`
+      );
+    },
+    goForward(moves = 1) {
+      if (typeof moves !== 'number' || moves <= 0) {
+        moveError();
+
+        return this;
+      }
+
+      this.coords.y += moves;
+
+      return this;
+    },
+    goBack(moves = 1) {
+      if (typeof moves !== 'number' || moves <= 0) {
+        moveError();
+
+        return this;
+      }
+
+      this.coords.y -= moves;
+
+      return this;
+    },
+    goRight(moves = 1) {
+      if (typeof moves !== 'number' || moves <= 0) {
+        moveError();
+
+        return this;
+      }
+
+      this.coords.x += moves;
+
+      return this;
+    },
+    goLeft(moves = 1) {
+      if (typeof moves !== 'number' || moves <= 0) {
+        moveError();
+
+        return this;
+      }
+
+      this.coords.x -= moves;
+
+      return this;
+    },
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
