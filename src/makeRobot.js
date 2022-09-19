@@ -67,9 +67,9 @@ function makeRobot(name, wheels, version) {
     check(step) {
       if (step > 0) {
         return step;
-      } else {
-        return 0;
       }
+
+      return 0;
     },
 
     goForward(step = 1) {
