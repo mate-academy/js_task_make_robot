@@ -60,7 +60,7 @@ function makeRobot(name, wheels, version) {
     },
     goForward(moves = 1) {
       if (typeof moves !== 'number' || moves <= 0) {
-        return this;
+        return Error;
       }
 
       this.coords.y += moves;
@@ -69,7 +69,7 @@ function makeRobot(name, wheels, version) {
     },
     goBack(moves = 1) {
       if (typeof moves !== 'number' || moves <= 0) {
-        return this;
+        return Error;
       }
 
       this.coords.y -= moves;
@@ -78,7 +78,7 @@ function makeRobot(name, wheels, version) {
     },
     goRight(moves = 1) {
       if (typeof moves !== 'number' || moves <= 0) {
-        return this;
+        return Error;
       }
 
       this.coords.x += moves;
@@ -87,7 +87,7 @@ function makeRobot(name, wheels, version) {
     },
     goLeft(moves = 1) {
       if (typeof moves !== 'number' || moves <= 0) {
-        return this;
+        return Error;
       }
 
       this.coords.x -= moves;
