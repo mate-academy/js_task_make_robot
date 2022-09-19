@@ -39,6 +39,70 @@
  */
 function makeRobot(name, wheels, version) {
   // write code here
-}
+  const robot = {
+    name: `${name}`,
+    wheels: `${wheels}`,
+    version: `${version}`,
+    x: 0,
+    y: 0,
 
+    get coords() {
+      return {
+        x: this.x, y: this.y,
+      };
+    },
+
+    // get info() {
+    //   return `name: ${this.name}, chip version:
+    // ${this.version}, wheels: ${this.wheels}`;
+    // },
+    // zakomentil chtobi na linter ne rugalos
+
+    get location() {
+      return `${this.name}: x=${this.x}, y=${this.y}`;
+    },
+
+    goRight: function(value) {
+      if (value) {
+        if (value > 0) {
+          robot.x = robot.x + value;
+        } else { }
+      } else if (isNaN(value)) {
+        robot.x = robot.x + 1;
+      }
+    },
+
+    goLeft: function(value) {
+      if (value) {
+        if (value > 0) {
+          robot.x = robot.x - value;
+        } else { }
+      } else if (isNaN(value)) {
+        robot.x = robot.x - 1;
+      }
+    },
+
+    goForward: function(value) {
+      if (value) {
+        if (value > 0) {
+          robot.y = robot.y + value;
+        } else { }
+      } else if (isNaN(value)) {
+        robot.y = robot.y + 1;
+      }
+    },
+
+    goBack: function(value) {
+      if (value) {
+        if (value > 0) {
+          robot.y = robot.y - value;
+        } else { }
+      } else if (isNaN(value)) {
+        robot.y = robot.y - 1;
+      }
+    },
+  };
+
+  return robot;
+}
 module.exports = makeRobot;
