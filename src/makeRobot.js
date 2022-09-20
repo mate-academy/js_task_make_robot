@@ -52,57 +52,90 @@ function makeRobot(name, wheels, version) {
       };
     },
 
-    // get info() {
-    //   return `name: ${this.name}, chip version:
-    // ${this.version}, wheels: ${this.wheels}`;
-    // },
-    // zakomentil chtobi na linter ne rugalos
+    get info() {
+      return `name: ${this.name}, `
+        + `chip version: ${this.version}, `
+        + `wheels: ${this.wheels}`;
+    },
 
     get location() {
-      return `${this.name}: x=${this.x}, y=${this.y}`;
+      return `${name}: x=${this.x}, y=${this.y}`;
     },
 
-    goRight: function(value) {
+    evacuate() {
+      this.x = 1400;
+      this.y = 500;
+
+      return this;
+    },
+
+    goRight(value) {
       if (value) {
         if (value > 0) {
-          robot.x = robot.x + value;
-        } else { }
+          this.x = this.x + value;
+
+          return this;
+        } else {
+          return this;
+        }
       } else if (isNaN(value)) {
-        robot.x = robot.x + 1;
+        robot.x++;
+
+        return this;
       }
     },
 
-    goLeft: function(value) {
+    goLeft(value) {
       if (value) {
         if (value > 0) {
-          robot.x = robot.x - value;
-        } else { }
+          this.x = this.x - value;
+
+          return this;
+        } else {
+          return this;
+        }
       } else if (isNaN(value)) {
-        robot.x = robot.x - 1;
+        robot.x--;
+
+        return this;
       }
     },
 
-    goForward: function(value) {
+    goForward(value) {
       if (value) {
         if (value > 0) {
-          robot.y = robot.y + value;
-        } else { }
+          this.y = this.y + value;
+
+          return this;
+        } else {
+          return this;
+        }
       } else if (isNaN(value)) {
-        robot.y = robot.y + 1;
+        robot.y++;
+
+        return this;
       }
     },
 
-    goBack: function(value) {
+    goBack(value) {
       if (value) {
         if (value > 0) {
-          robot.y = robot.y - value;
-        } else { }
+          this.y = this.y - value;
+
+          return this;
+        } else {
+          return this;
+        }
       } else if (isNaN(value)) {
-        robot.y = robot.y - 1;
+        robot.y--;
+
+        return this;
       }
     },
+
   };
 
   return robot;
 }
+
 module.exports = makeRobot;
