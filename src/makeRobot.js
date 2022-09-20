@@ -47,11 +47,10 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
 
-    /* eslint-disable */
     get info() {
-      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+      return `name: ${this.name}, `
+      + `chip version: ${this.version}, wheels: ${this.wheels}`;
     },
-    /* eslint-enable */
 
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
