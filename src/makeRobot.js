@@ -45,14 +45,20 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
+  const evacuationX = 1400;
+  const evacuationY = 500;
+  const coords = {
+    x: 0,
+    y: 0,
+  };
+
   const robot = {
     name,
     wheels,
     version,
-    coords: {
-      x: 0,
-      y: 0,
-    },
+    coords,
+    x: 0,
+    y: 0,
 
     get info() {
       return `name: ${this.name}, `
@@ -97,9 +103,6 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      const evacuationX = 1400;
-      const evacuationY = 500;
-
       this.coords.x = evacuationX;
       this.coords.y = evacuationY;
 
