@@ -69,68 +69,36 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goRight(value) {
-      if (value) {
-        if (value > 0) {
-          this.x = this.x + value;
-
-          return this;
-        } else {
-          return this;
-        }
-      } else if (isNaN(value)) {
-        robot.x++;
-
-        return this;
+    goRight(value = 1) {
+      if (value > 0) {
+        this.x = this.x + value;
       }
+
+      return this;
     },
 
-    goLeft(value) {
-      if (value) {
-        if (value > 0) {
-          this.x = this.x - value;
-
-          return this;
-        } else {
-          return this;
-        }
-      } else if (isNaN(value)) {
-        robot.x--;
-
-        return this;
+    goLeft(value = 1) {
+      if (value > 0) {
+        this.x = this.x - value;
       }
+
+      return this;
     },
 
-    goForward(value) {
-      if (value) {
-        if (value > 0) {
-          this.y = this.y + value;
-
-          return this;
-        } else {
-          return this;
-        }
-      } else if (isNaN(value)) {
-        robot.y++;
-
-        return this;
+    goForward(value = 1) {
+      if (value > 0) {
+        this.y = this.y + value;
       }
+
+      return this;
     },
 
-    goBack(value) {
-      if (value) {
-        if (value > 0) {
-          this.y = this.y - value;
-
-          return this;
-        } else {
-          return this;
-        }
-      } else if (isNaN(value)) {
-        robot.y--;
-
-        return this;
+    goBack(value = 1) {
+      if (value > 0) {
+        this.y = this.y - value;
       }
+
+      return this;
     },
 
   };
