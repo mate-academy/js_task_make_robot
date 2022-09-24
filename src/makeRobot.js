@@ -55,37 +55,33 @@ function makeRobot(name, wheels, version) {
     },
 
     goRight: function(step = 1) {
-      if (step < 0) {
-        return this;
+      if (step >= 0) {
+        this.x += step;
       }
-      this.x += step;
 
       return this;
     },
 
     goLeft: function(step = 1) {
-      if (step < 0) {
-        return this;
+      if (step >= 0) {
+        this.x -= step;
       }
-      this.x -= step;
 
       return this;
     },
 
     goForward: function(step = 1) {
-      if (step < 0) {
-        return this;
+      if (step >= 0) {
+        this.y += step;
       }
-      this.y += step;
 
       return this;
     },
 
     goBack: function(step = 1) {
-      if (step < 0) {
-        return this;
+      if (step >= 0) {
+        this.y -= step;
       }
-      this.y -= step;
 
       return this;
     },
