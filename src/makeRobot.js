@@ -57,8 +57,6 @@ function makeRobot(name, wheels, version) {
     wheels,
     version,
     coords,
-    x: 0,
-    y: 0,
 
     get info() {
       return `name: ${this.name}, `
