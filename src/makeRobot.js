@@ -37,8 +37,79 @@
  *
  * @return {Robot}
  */
+
 function makeRobot(name, wheels, version) {
-  // write code here
+//  Create a makeRobot function that takes the string name and the number
+//  wheels, version and returns the robot object.
+
+  const robot = {
+    name,
+    wheels,
+    version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    //  Provide information about yourself through getter info.
+    //  robot.info === 'name:%name%, chip version: %version%, wheels: %wheels%'
+
+    get info() {
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+    },
+
+    //  Provide the coordinates of your location via getter location.
+    //  robot.location === '%name%: x=14, y=21'
+
+    get location() {
+      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    //  Have methods to move goForward, goBack, goRight, goLeft.
+
+    goForward(n = 1) {
+      if (n > 0) {
+        this.coords.y += n;
+      }
+
+      return this;
+    },
+
+    goBack(n = 1) {
+      if (n > 0) {
+        this.coords.y -= n;
+      }
+
+      return this;
+    },
+
+    goRight(n = 1) {
+      if (n > 0) {
+        this.coords.x += n;
+      }
+
+      return this;
+    },
+
+    goLeft(n = 1) {
+      if (n > 0) {
+        this.coords.x -= n;
+      }
+
+      return this;
+    },
+
+    //  The robot must be able to request the evacuation of robot.evacuate(),
+    //  which will call rescuers and transfer it to the service center
+    //  at the coordinates x: 1400, y: 500.
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
