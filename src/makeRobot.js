@@ -54,24 +54,28 @@ function makeRobot(name, wheels, version) {
       if (value > 0) {
         this.x += value;
       }
+
       return this;
     },
     goLeft(value = 1) {
       if (value > 0) {
         this.x -= value;
       }
+
       return this;
     },
     goBack(value = 1) {
       if (value > 0) {
         this.y -= value;
       }
+
       return this;
     },
     goForward(value = 1) {
       if (value > 0) {
         this.y += value;
       }
+
       return this;
     },
     get coords() {
