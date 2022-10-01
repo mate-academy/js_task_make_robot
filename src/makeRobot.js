@@ -93,6 +93,4 @@ function makeRobot(name, wheels, version) {
   };
 }
 
-// const robot = makeRobot('Joy', 5, 31);
-
 module.exports = makeRobot;
