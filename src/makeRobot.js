@@ -40,34 +40,34 @@
 function makeRobot(name, wheels, version) {
   const robot = {
     name,
-    'chip version': version,
+    version,
     wheels,
 
-    HeLocation: {
+    coordinates: {
       x: 0,
       y: 0,
     },
 
     get info() {
-      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
     },
 
     get location() {
-      return `${name}: x=${robot.HeLocation.x}, y=${robot.HeLocation.y}`;
+      return `${name}: x=${robot.coordinates.x}, y=${robot.coordinates.y}`;
     },
 
     get coords() {
-      return robot.HeLocation
+      return robot.coordinates;
     },
 
     evacuate() {
-      robot.HeLocation.x = 1400;
-      robot.HeLocation.y = 500;
+      robot.coordinates.x = 1400;
+      robot.coordinates.y = 500;
     },
 
     goRight(x = 1) {
       if (x >= 0) {
-        robot.HeLocation.x += x;
+        robot.coordinates.x += x;
       }
 
       return robot;
@@ -75,7 +75,7 @@ function makeRobot(name, wheels, version) {
 
     goLeft(x = 1) {
       if (x >= 0) {
-        robot.HeLocation.x -= x;
+        robot.coordinates.x -= x;
       }
 
       return robot;
@@ -83,7 +83,7 @@ function makeRobot(name, wheels, version) {
 
     goBack(y = 1) {
       if (y >= 0) {
-        robot.HeLocation.y -= y;
+        robot.coordinates.y -= y;
       }
 
       return robot;
@@ -91,7 +91,7 @@ function makeRobot(name, wheels, version) {
 
     goForward(y = 1) {
       if (y >= 0) {
-        robot.HeLocation.y += y;
+        robot.coordinates.y += y;
       }
 
       return robot;
