@@ -39,17 +39,18 @@
  */
 function makeRobot(name, wheels, version) {
   const newRobot = {
-    'name': name,
-    'wheels': wheels,
-    'version': version,
-    'x': 0,
-    'y': 0,
+    name: name,
+    wheels: wheels,
+    version: version,
+    x: 0,
+    y: 0,
     get info() {
       return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
     },
     get location() {
       return `${this.name}: x=${this.x}, y=${this.y}`;
     },
+
     goRight(value = 1) {
       if (value > 0) {
         this.x += value;
@@ -57,6 +58,7 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
+
     goLeft(value = 1) {
       if (value > 0) {
         this.x -= value;
@@ -64,6 +66,7 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
+
     goBack(value = 1) {
       if (value > 0) {
         this.y -= value;
@@ -71,6 +74,7 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
+
     goForward(value = 1) {
       if (value > 0) {
         this.y += value;
@@ -83,6 +87,7 @@ function makeRobot(name, wheels, version) {
         x: this.x, y: this.y,
       };
     },
+
     evacuate() {
       this.x = 1400;
       this.y = 500;
