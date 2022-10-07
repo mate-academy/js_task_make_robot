@@ -13,7 +13,8 @@ describe('sum', () => {
   it('Robot must be able to give info', function() {
     const robot = makeRobot('Joy', 5, 31);
 
-    const actual = robot.info;
+    const actual = robot
+      .info;
     const expected = 'name: Joy, chip version: 31, wheels: 5';
 
     expect(actual).toBe(expected);
