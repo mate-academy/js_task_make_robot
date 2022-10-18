@@ -39,9 +39,9 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-    name: `${name}`,
-    version: version,
-    wheels: wheels,
+    name,
+    version,
+    wheels,
     coords: {
       x: 0,
       y: 0,
@@ -56,7 +56,7 @@ function makeRobot(name, wheels, version) {
         this.coords.x += value;
       }
 
-      return robot;
+      return this;
     },
 
     goLeft(value = 1) {
@@ -64,7 +64,7 @@ function makeRobot(name, wheels, version) {
         this.coords.x -= value;
       }
 
-      return robot;
+      return this;
     },
 
     goForward(value = 1) {
@@ -72,7 +72,7 @@ function makeRobot(name, wheels, version) {
         this.coords.y += value;
       }
 
-      return robot;
+      return this;
     },
 
     goBack(value = 1) {
@@ -80,7 +80,7 @@ function makeRobot(name, wheels, version) {
         this.coords.y -= value;
       }
 
-      return robot;
+      return this;
     },
 
     get location() {
