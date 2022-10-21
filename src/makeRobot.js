@@ -39,42 +39,10 @@
  */
 function makeRobot(name, wheels, version) {
   // write code here
-  function goRight(n = 1) {
-    if (n > 0) {
-      this.setX = this.coords.x + n;
-    }
-
-    return this;
-  };
-
-  function goLeft(n = 1) {
-    if (n > 0) {
-      this.setX = this.coords.x - n;
-    }
-
-    return this;
-  }
-
-  function goTop(n = 1) {
-    if (n > 0) {
-      this.setY = this.coords.y + n;
-    }
-
-    return this;
-  }
-
-  function goBottom(n = 1) {
-    if (n > 0) {
-      this.setY = this.coords.y - n;
-    }
-
-    return this;
-  }
-
   const robot = {
-    name: name,
-    wheels: wheels,
-    version: version,
+    name,
+    version,
+    wheels,
     coords: {
       x: 0,
       y: 0,
@@ -83,7 +51,8 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
     get info() {
-      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+      return `name: ${this.name}, chip version: `
+      + `${this.version}, wheels: ${this.wheels}`;
     },
     set setX(n) {
       this.coords.x = n;
@@ -97,10 +66,34 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
-    goRight: goRight,
-    goBack: goBottom,
-    goLeft: goLeft,
-    goForward: goTop,
+    goRight(n = 1) {
+      if (n > 0) {
+        this.setX = this.coords.x + n;
+      }
+
+      return this;
+    },
+    goBack(n = 1) {
+      if (n > 0) {
+        this.setY = this.coords.y - n;
+      }
+
+      return this;
+    },
+    goForward(n = 1) {
+      if (n > 0) {
+        this.setY = this.coords.y + n;
+      }
+
+      return this;
+    },
+    goLeft(n = 1) {
+      if (n > 0) {
+        this.setX = this.coords.x - n;
+      }
+
+      return this;
+    },
   };
 
   return robot;
