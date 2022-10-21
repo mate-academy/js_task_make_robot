@@ -72,15 +72,11 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goBack(num) {
-      let newNum = num;
+    goBack(num = 1) {
+      const newNum = num;
 
       if (newNum <= 0) {
         return this;
-      }
-
-      if (!num) {
-        newNum = 1;
       }
 
       this.coordinates.y = this.coordinates.y - newNum;
@@ -88,31 +84,25 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goRight(num) {
-      let newNum = num;
+    goRight(num = 1) {
+      const newNum = num;
 
       if (newNum <= 0) {
         return this;
       }
 
-      if (!num) {
-        newNum = 1;
-      }
       this.coordinates.x = this.coordinates.x + newNum;
 
       return this;
     },
 
-    goLeft(num) {
-      let newNum = num;
+    goLeft(num = 1) {
+      const newNum = num;
 
       if (newNum <= 0) {
         return this;
       }
 
-      if (!num) {
-        newNum = 1;
-      }
       this.coordinates.x = this.coordinates.x - newNum;
 
       return this;
