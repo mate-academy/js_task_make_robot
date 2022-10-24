@@ -79,20 +79,12 @@ function makeRobot(name, wheels, version) {
         this.coords.y += steps;
       };
 
-      if (steps < 0) {
-        return robot;
-      };
-
       return robot;
     },
 
     goBack(steps = 1) {
       if (steps > 0) {
         this.coords.y -= steps;
-      };
-
-      if (steps < 0) {
-        return robot;
       };
 
       return robot;
@@ -103,20 +95,12 @@ function makeRobot(name, wheels, version) {
         this.coords.x += steps;
       };
 
-      if (steps < 0) {
-        return robot;
-      };
-
       return robot;
     },
 
     goLeft(steps = 1) {
       if (steps > 0) {
         this.coords.x -= steps;
-      };
-
-      if (steps < 0) {
-        return robot;
       };
 
       return robot;
