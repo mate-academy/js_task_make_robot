@@ -11,19 +11,19 @@
  * The robot coming off the assembly line must be able to:
  *  - Provide information about yourself through getter info.
  *    robot.info === 'name:%name%, chip version: %version%, wheels: %wheels%'
- *  - Provide the coordinates of your location via getter location.
+ *  - Provide the coords of your location via getter location.
  *    robot.location === '%name%: x=14, y=21'
  *  - Have methods to move goForward, goBack, goRight, goLeft.
  *  - Movement methods must be able to be used with a chain.
  *    robot.goForward().goForward().goForward().goLeft()
  *  - Default methods that move the work by 1 in the right direction.
- *    This value can be increased by passing the desired number to the method.
+ *    This move can be increased by passing the desired number to the method.
  *    Negative numbers should not affect the location of the robot. goLeft(3)
- *  - The coordinates of the robot must be stored in the object coords,
+ *  - The coords of the robot must be stored in the object coords,
  *    the keys x and y inside the robot.
  *  - The robot must be able to request the evacuation of robot.evacuate(),
  *    which will call rescuers and transfer it to the service center
- *    at the coordinates x: 1400, y: 500.
+ *    at the coords x: 1400, y: 500.
  *
  * @typedef {object} Robot
  * @property {string} name
@@ -38,7 +38,67 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name,
+    version,
+    wheels,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+    evacuation: {
+      x: 1400,
+      y: 500,
+    },
+
+    get info() {
+      return `name: ${this.name}, chip version: ${this.version}, `
+      + `wheels: ${this.wheels}`;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    goForward(move = 1) {
+      if (move > 0) {
+        this.coords.y += move;
+      }
+
+      return this;
+    },
+
+    goBack(move = 1) {
+      if (move > 0) {
+        this.coords.y -= move;
+      }
+
+      return this;
+    },
+
+    goRight(move = 1) {
+      if (move > 0) {
+        this.coords.x += move;
+      }
+
+      return this;
+    },
+
+    goLeft(move = 1) {
+      if (move > 0) {
+        this.coords.x -= move;
+      }
+
+      return this;
+    },
+
+    evacuate() {
+      this.coords.x = this.evacuation.x;
+      this.coords.y = this.evacuation.y;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
