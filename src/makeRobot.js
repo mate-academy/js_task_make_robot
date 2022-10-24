@@ -38,15 +38,10 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  const robotSchema = {
-    name: name,
-    wheels: wheels,
-    version: version,
-
-    robotLocation: {
-      x: 0,
-      y: 0,
-    },
+  const robot = {
+    name,
+    wheels,
+    version,
 
     coords: {
       x: 0,
@@ -59,75 +54,62 @@ function makeRobot(name, wheels, version) {
     },
 
     get location() {
-      return `${this.name}: x=${this.robotLocation.x}, `
-        + `y=${this.robotLocation.y}`;
+      return `${this.name}: x=${this.coords.x}, `
+        + `y=${this.coords.y}`;
     },
 
-    goBack: function(value = 1) {
-      if (typeof value !== 'number') {
-        return robotSchema;
+    goBack(value = 1) {
+      if (typeof value !== 'number' || value < 0) {
+        return robot;
       }
 
-      if (value < 0) {
-        return robotSchema;
-      }
+      this.coords.y -= value;
 
-      this.robotLocation.y -= value;
-
-      return robotSchema;
+      return robot;
     },
 
-    goForward: function(value = 1) {
-      if (typeof value !== 'number') {
-        return robotSchema;
+    goForward(value = 1) {
+      if (typeof value !== 'number' || value < 0) {
+        return robot;
       }
 
-      if (value < 0) {
-        return robotSchema;
-      }
+      this.coords.y += value;
 
-      this.robotLocation.y += value;
-
-      return robotSchema;
+      return robot;
     },
 
-    goLeft: function(value = 1) {
-      if (typeof value !== 'number') {
-        return robotSchema;
+    goLeft(value = 1) {
+      if (typeof value !== 'number' || value < 0) {
+        return robot;
       }
 
-      if (value < 0) {
-        return robotSchema;
-      }
+      this.coords.x -= value;
 
-      this.robotLocation.x -= value;
-
-      return robotSchema;
+      return robot;
     },
 
-    goRight: function(value = 1) {
-      if (typeof value !== 'number') {
-        return robotSchema;
+    goRight(value = 1) {
+      if (typeof value !== 'number' || value < 0) {
+        return robot;
       }
 
-      if (value < 0) {
-        return robotSchema;
-      }
+      this.coords.x += value;
 
-      this.robotLocation.x += value;
-
-      return robotSchema;
+      return robot;
     },
 
-    evacuate: function() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+    evacuate() {
+      const evacuateCordX = 1400;
+      const evacuateCordY = 500;
 
-      return robotSchema;
-    }
+      this.coords.x = evacuateCordX;
+      this.coords.y = evacuateCordY;
+
+      return robot;
+    },
   };
 
-  return robotSchema;
+  return robot;
 }
 
 module.exports = makeRobot;
