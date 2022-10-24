@@ -61,7 +61,7 @@ function makeRobot(name, wheels, version) {
         this.coords.y += number;
       }
 
-      return robot;
+      return this;
     },
 
     goBack(number = 1) {
@@ -69,7 +69,7 @@ function makeRobot(name, wheels, version) {
         this.coords.y -= number;
       }
 
-      return robot;
+      return this;
     },
 
     goRight(number = 1) {
@@ -77,7 +77,7 @@ function makeRobot(name, wheels, version) {
         this.coords.x += number;
       }
 
-      return robot;
+      return this;
     },
 
     goLeft(number = 1) {
@@ -85,7 +85,7 @@ function makeRobot(name, wheels, version) {
         this.coords.x -= number;
       }
 
-      return robot;
+      return this;
     },
 
     evacuate() {
