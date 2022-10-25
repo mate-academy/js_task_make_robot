@@ -50,7 +50,7 @@ function makeRobot(name, wheels, version) {
       x: 1400,
       y: 500,
     },
-    // 'name:%name%, chip version: %version%, wheels: %wheels%'
+
     get info() {
       return `name: ${this.name}, chip version: ${this.version}, `
         + `wheels: ${this.wheels}`;
