@@ -45,76 +45,61 @@ function makeRobot(name, wheels, version) {
     name,
     wheels,
     version,
-    get info() {
-      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
-    },
 
     coords: {
       x: 0,
       y: 0,
     },
 
+    get info() {
+      return `name: ${this.name}, `
+      + `chip version: ${this.version}, `
+      + `wheels: ${this.wheels}`;
+    },
+
     get location() {
-      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     evacuate() {
-      robot.coords.x = evacuateCoordsX;
-      robot.coords.y = evacuateCoordsY;
+      this.coords.x = evacuateCoordsX;
+      this.coords.y = evacuateCoordsY;
     },
 
-    goForward(step) {
-      if (!step) {
-        robot.coords.y++;
-      }
-
+    goForward(step = 1) {
       if (step >= 1) {
-        robot.coords.y += step;
+        this.coords.y += step;
       }
 
-      return robot;
+      return this;
     },
 
-    goBack(step) {
-      if (!step) {
-        robot.coords.y--;
-      }
-
+    goBack(step = 1) {
       if (step >= 1) {
-        robot.coords.y -= step;
+        this.coords.y -= step;
       }
 
-      return robot;
+      return this;
     },
 
-    goRight(step) {
-      if (!step) {
-        robot.coords.x++;
-      }
-
+    goRight(step = 1) {
       if (step >= 1) {
-        robot.coords.x += step;
+        this.coords.x += step;
       }
 
-      return robot;
+      return this;
     },
 
-    goLeft(step) {
-      if (!step) {
-        robot.coords.x--;
-      }
-
+    goLeft(step = 1) {
       if (step >= 1) {
-        robot.coords.x -= step;
+        this.coords.x -= step;
       }
 
-      return robot;
+      return this;
     },
   };
 
   return robot;
 }
-
-makeRobot('Joy', 5, 31);
 
 module.exports = makeRobot;
