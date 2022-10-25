@@ -38,6 +38,8 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
+  const evacuateX = 1400;
+  const evacuateY = 500;
   const robot = {
     name,
     version,
@@ -48,9 +50,8 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      return 'name: ' + this.name
-        + ', chip version: ' + this.version
-        + ', wheels: ' + this.wheels;
+      return `name: ${this.name}, chip version: ${this.version
+      }, wheels: ${this.wheels}`;
     },
 
     get location() {
@@ -90,8 +91,8 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = evacuateX;
+      this.coords.y = evacuateY;
     },
   };
 
