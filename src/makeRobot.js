@@ -46,11 +46,14 @@ function makeRobot(name, wheels, version) {
       x: 0,
       y: 0,
     },
-
-    // If I write return in info method using ` `, an error of linter occurs
+    serviceCenter: {
+      x: 1400,
+      y: 500,
+    },
+    // 'name:%name%, chip version: %version%, wheels: %wheels%'
     get info() {
-      return 'name: ' + this.name + ', chip version: '
-        + this.version + ', wheels: ' + this.wheels;
+      return `name: ${this.name}, chip version: ${this.version}, `
+        + `wheels: ${this.wheels}`;
     },
 
     get location() {
@@ -90,8 +93,8 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = this.serviceCenter.x;
+      this.coords.y = this.serviceCenter.y;
     },
   };
 
