@@ -39,6 +39,10 @@
  */
 function makeRobot(name, wheels, version) {
   // write code here
+
+  const evacuateCoordX = 1400;
+  const evacuateCoordY = 500;
+
   const robot = {
     name,
     wheels,
@@ -83,8 +87,8 @@ function makeRobot(name, wheels, version) {
       return this;
     },
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = evacuateCoordX;
+      this.coords.y = evacuateCoordY;
     },
   };
 
