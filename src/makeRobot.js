@@ -82,10 +82,8 @@ function makeRobot(name, wheels, version) {
     },
 
     goRight(step = 1) {
-      if (step < 0) {
-        return this;
-      } else {
-        this.coords.x = this.coords.x + step;
+      if (step > 0) {
+        this.coords.x += step;
       }
 
       return this;
