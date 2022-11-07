@@ -66,12 +66,10 @@ function makeRobot(name, wheels, version) {
     },
 
     goBack(step = 1) {
-      if (step < 0) {
-        return this;
-      } else {
+      if (step > 0) {
         this.coords.y = this.coords.y - step;
       }
-
+      
       return this;
     },
 
