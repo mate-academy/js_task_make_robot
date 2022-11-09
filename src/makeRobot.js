@@ -63,44 +63,52 @@
  * @return {object}
  */
 function makeRobot(name, wheels, version) {
-  return {
-    name,
-    wheels,
-    version,
-    info: `name: ${name}, chip version: ${version}, wheels: ${wheels}`,
-    location: name + ': x=0, y=0',
+  const robot = {
+    get info() {
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+    },
     coords: {
       x: 0,
       y: 0,
     },
-    _setLocation: function() {
-      this.location = `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    get location() {
+      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
-    _goRobot: function(x, y) {
-      this.coords.x += x;
-      this.coords.y += y;
-      this._setLocation();
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
+      }
 
       return this;
     },
-    evacuate: function() {
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
+      }
+
+      return this;
+    },
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
+      }
+
+      return this;
+    },
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
+      }
+
+      return this;
+    },
+    evacuate() {
       this.coords.x = 1400;
       this.coords.y = 500;
-      this._setLocation();
-    },
-    goForward: function(n = 1) {
-      return this._goRobot(0, n < 0 ? 0 : n);
-    },
-    goBack: function(n = 1) {
-      return this._goRobot(0, n < 0 ? 0 : -n);
-    },
-    goLeft: function(n = 1) {
-      return this._goRobot(n < 0 ? 0 : -n, 0);
-    },
-    goRight: function(n = 1) {
-      return this._goRobot(n < 0 ? 0 : n, 0);
     },
   };
+
+  return robot;
 }
 
 module.exports = makeRobot;
