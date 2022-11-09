@@ -49,7 +49,7 @@ function makeRobot(name, wheels, version) {
     get info() {
       return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
     },
-    goForward(num = 1) {
+    goForward(step = 1) {
       if (num > 0) {
         this.coords.y = this.coords.y + num;
       }
