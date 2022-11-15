@@ -38,7 +38,74 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  return {
+    name,
+    version,
+    wheels,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      const _name = this.name;
+      const _version = this.version;
+      const _wheels = this.wheels;
+      // I did this because it's
+      // impossible to write a string longer than 80 characters
+
+      return `name: ${_name}, chip version: ${_version}, wheels: ${_wheels}`;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    goForward(n = 1) {
+      if (n <= 0) {
+        return this;
+      }
+
+      this.coords.y += n;
+
+      return this;
+    },
+
+    goBack(n = 1) {
+      if (n <= 0) {
+        return this;
+      }
+
+      this.coords.y -= n;
+
+      return this;
+    },
+
+    goRight(n = 1) {
+      if (n <= 0) {
+        return this;
+      }
+
+      this.coords.x += n;
+
+      return this;
+    },
+
+    goLeft(n = 1) {
+      if (n <= 0) {
+        return this;
+      }
+
+      this.coords.x -= n;
+
+      return this;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+  };
 }
 
 module.exports = makeRobot;
