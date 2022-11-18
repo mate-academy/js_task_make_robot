@@ -38,20 +38,15 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // let x = 0;
-  // let y = 0;
-
   const robot = {
-
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
     },
-    goRight(value) {
-      if (!value) {
-        this.coords.x += 1;
-      }
-
+    goRight(value = 1) {
       if (value > 0) {
         this.coords.x += value;
       }
@@ -59,11 +54,7 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goLeft(value) {
-      if (!value) {
-        this.coords.x -= 1;
-      }
-
+    goLeft(value = 1) {
       if (value > 0) {
         this.coords.x -= value;
       }
@@ -71,11 +62,7 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goBack(value) {
-      if (!value) {
-        this.coords.y -= 1;
-      }
-
+    goBack(value = 1) {
       if (value > 0) {
         this.coords.y -= value;
       }
@@ -83,11 +70,7 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goForward(value) {
-      if (!value) {
-        this.coords.y += 1;
-      }
-
+    goForward(value = 1) {
       if (value > 0) {
         this.coords.y += value;
       }
@@ -101,11 +84,13 @@ function makeRobot(name, wheels, version) {
     },
 
     get location() {
-      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     get info() {
-      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+      return 'name: ' + this.name
+        + ', chip version: ' + this.version
+        + ', wheels: ' + this.wheels;
     },
   };
 
