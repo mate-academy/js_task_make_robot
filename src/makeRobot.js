@@ -48,13 +48,11 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      const _name = this.name;
-      const _version = this.version;
-      const _wheels = this.wheels;
-      // I did this because it's
-      // impossible to write a string longer than 80 characters
+      const _name = `name: ${this.name},`;
+      const _version = `chip version: ${this.version},`;
+      const _wheels = `wheels: ${this.wheels}`;
 
-      return `name: ${_name}, chip version: ${_version}, wheels: ${_wheels}`;
+      return `${_name} ${_version} ${_wheels}`;
     },
 
     get location() {
@@ -62,41 +60,33 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(n = 1) {
-      if (n <= 0) {
-        return this;
+      if (n > 0) {
+        this.coords.y += n;
       }
-
-      this.coords.y += n;
 
       return this;
     },
 
     goBack(n = 1) {
-      if (n <= 0) {
-        return this;
+      if (n > 0) {
+        this.coords.y -= n;
       }
-
-      this.coords.y -= n;
 
       return this;
     },
 
     goRight(n = 1) {
-      if (n <= 0) {
-        return this;
+      if (n > 0) {
+        this.coords.x += n;
       }
-
-      this.coords.x += n;
 
       return this;
     },
 
     goLeft(n = 1) {
-      if (n <= 0) {
-        return this;
+      if (n > 0) {
+        this.coords.x -= n;
       }
-
-      this.coords.x -= n;
 
       return this;
     },
