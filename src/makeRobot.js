@@ -82,9 +82,8 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
     evacuate() {
-      return `
-        ${(this.coords.x = 1400)} ${(this.coords.y = 500)}
-      `;
+      this.coords.x = 1400;
+      this.coords.y = 500;
     },
   };
 
