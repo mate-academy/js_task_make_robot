@@ -49,11 +49,8 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      let info = `name: ${this.name},`;
-
-      info += ` chip version: ${this.version}, wheels: ${this.wheels}`;
-
-      return info;
+      return `name: ${this.name},`
+      + ` chip version: ${this.version}, wheels: ${this.wheels}`;
     },
 
     get location() {
