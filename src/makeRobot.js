@@ -56,26 +56,26 @@ function makeRobot(name, wheels, version) {
       return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(steps) {
-      this.coords.y += getStepCount(steps);
+    goForward(steps = 1) {
+      this.coords.y += Math.max(0, steps);
 
       return this;
     },
 
-    goBack(steps) {
-      this.coords.y -= getStepCount(steps);
+    goBack(steps = 1) {
+      this.coords.y -= Math.max(0, steps);
 
       return this;
     },
 
-    goRight(steps) {
-      this.coords.x += getStepCount(steps);
+    goRight(steps = 1) {
+      this.coords.x += Math.max(0, steps);
 
       return this;
     },
 
-    goLeft(steps) {
-      this.coords.x -= getStepCount(steps);
+    goLeft(steps = 1) {
+      this.coords.x -= Math.max(0, steps);
 
       return this;
     },
@@ -85,10 +85,6 @@ function makeRobot(name, wheels, version) {
       this.coords.y = 500;
     },
   };
-
-  const getStepCount = (num) => num
-    ? Math.max(0, num)
-    : 1;
 
   return robot;
 }
