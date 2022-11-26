@@ -101,7 +101,3 @@ function makeRobot(name, wheels, version) {
 }
 
 module.exports = makeRobot;
-
-// const robot = makeRobot('Joy', 5, 31);
-
-// console.log(robot.info);
