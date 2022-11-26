@@ -6,7 +6,7 @@
  * with the team! Are you in business As a test task, you will need to
  * program our equipment that makes robots.
  *
- * Create a makeRobot function that takes the string name and the number
+ * Create a makeRobot function that takes the string name and the stepber
  * wheels, version and returns the robot object.
  * The robot coming off the assembly line must be able to:
  *  - Provide information about yourself through getter info.
@@ -17,8 +17,8 @@
  *  - Movement methods must be able to be used with a chain.
  *    robot.goForward().goForward().goForward().goLeft()
  *  - Default methods that move the work by 1 in the right direction.
- *    This value can be increased by passing the desired number to the method.
- *    Negative numbers should not affect the location of the robot. goLeft(3)
+ *    This value can be increased by passing the desired stepber to the method.
+ *    Negative stepbers should not affect the location of the robot. goLeft(3)
  *  - The coordinates of the robot must be stored in the object coords,
  *    the keys x and y inside the robot.
  *  - The robot must be able to request the evacuation of robot.evacuate(),
@@ -27,18 +27,80 @@
  *
  * @typedef {object} Robot
  * @property {string} name
- * @property {number} wheels
- * @property {number} version
+ * @property {stepber} wheels
+ * @property {stepber} version
  * @property {function} info
  *
  * @param {string} name
- * @param {number} wheels
- * @param {number} version
+ * @param {stepber} wheels
+ * @param {stepber} version
  *
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name,
+    version,
+    wheels,
+
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    servise: {
+      x: 1400,
+      y: 500
+    },
+
+    get info() {
+      return `name: ${this.name}, chip version: ${this.version}, wheels: ${
+        this.wheels
+      }`;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
+      }
+
+      return this;
+    },
+
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
+      }
+
+      return this;
+    },
+
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
+      }
+
+      return this;
+    },
+
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
+      }
+
+      return this;
+    },
+
+    evacuate() {
+      this.coords.x = this.servise.x;
+      this.coords.y = this.servise.y;
+    }
+  };
+  return robot;
 }
 
 module.exports = makeRobot;
