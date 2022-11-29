@@ -37,7 +37,7 @@
  *
  * @return {Robot}
  */
- function makeRobot(name, wheels, version) {
+function makeRobot(name, wheels, version) {
   const robot = {
     name,
     wheels,
@@ -48,7 +48,8 @@
     },
 
     get info() {
-      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+      return `name: ${this.name}, chip version: ${this.version}, `
+      + `wheels: ${this.wheels}`;
     },
 
     goForward(step = 1) {
