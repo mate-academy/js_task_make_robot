@@ -37,14 +37,14 @@
  *
  * @return {Robot}
  */
-function makeRobot(name, wheels, version, x = 0, y = 0) {
+function makeRobot(name, wheels, version) {
   const robot = {
     name,
     wheels,
     version,
     coords: {
-      x,
-      y,
+      x: 0,
+      y: 0,
     },
     get info() {
       return `name: ${this.name}, chip version: ${
