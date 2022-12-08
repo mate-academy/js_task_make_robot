@@ -63,11 +63,9 @@ function makeRobot(name, wheels, version) {
       return this.location;
     },
 
-    goBack(n) {
+    goBack(n = 1) {
       if (n >= 0) {
         this.coords.y -= n;
-      } else if (n === undefined) {
-        this.coords.y -= 1;
       }
 
       return this;
