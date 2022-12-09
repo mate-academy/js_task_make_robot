@@ -71,11 +71,9 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goForward(n) {
+    goForward(n = 1) {
       if (n >= 0) {
         this.coords.y += n;
-      } else if (n === undefined) {
-        this.coords.y += 1;
       }
 
       return this;
@@ -89,11 +87,9 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goRight(n) {
+    goRight(n = 1) {
       if (n >= 0) {
         this.coords.x += n;
-      } else if (n === undefined) {
-        this.coords.x += 1;
       }
 
       return this;
