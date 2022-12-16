@@ -52,49 +52,33 @@ function makeRobot(name, wheels, version) {
       return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(num) {
-      if (num === undefined) {
-        this.coords.y++;
-      } else {
-        if (num > 0) {
-          this.coords.y += num;
-        }
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
       }
 
       return this;
     },
 
-    goBack(num) {
-      if (num === undefined) {
-        this.coords.y--;
-      } else {
-        if (num > 0) {
-          this.coords.y -= num;
-        }
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
       }
 
       return this;
     },
 
-    goRight(num) {
-      if (num === undefined) {
-        this.coords.x++;
-      } else {
-        if (num > 0) {
-          this.coords.x += num;
-        }
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
       }
 
       return this;
     },
 
-    goLeft(num) {
-      if (num === undefined) {
-        this.coords.x--;
-      } else {
-        if (num > 0) {
-          this.coords.x -= num;
-        }
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
       }
 
       return this;
