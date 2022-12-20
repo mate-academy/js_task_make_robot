@@ -60,6 +60,7 @@ function makeRobot(name, wheels, version) {
       if (step < 0) {
         return this;
       }
+
       this.coords.x += step;
 
       return this;
@@ -69,6 +70,7 @@ function makeRobot(name, wheels, version) {
       if (step < 0) {
         return this;
       }
+
       this.coords.x -= step;
 
       return this;
@@ -78,6 +80,7 @@ function makeRobot(name, wheels, version) {
       if (step < 0) {
         return this;
       }
+
       this.coords.y += step;
 
       return this;
@@ -87,6 +90,7 @@ function makeRobot(name, wheels, version) {
       if (step < 0) {
         return this;
       }
+
       this.coords.y -= step;
 
       return this;
