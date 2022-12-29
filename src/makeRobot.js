@@ -40,7 +40,7 @@
 function makeRobot(name, wheels, version) {
   const robot = {
     name,
-    'chip version': version,
+    version,
     wheels,
     coords: {
       x: 0,
@@ -48,12 +48,11 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      // eslint-disable-next-line max-len
-      return `name: ${this.name}, chip version: ${this['chip version']}, wheels: ${this.wheels}`;
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
     },
 
     get location() {
-      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goRight(value) {
