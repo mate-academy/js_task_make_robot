@@ -94,7 +94,6 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
-
   };
 
   return robot;
