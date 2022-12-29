@@ -6,13 +6,15 @@
  * with the team! Are you in business As a test task, you will need to
  * program our equipment that makes robots.
  *
- * Create a makeRobot function that takes the string name and the number
- * wheels, version and returns the robot object.
+ * Create a makeRobot function that take the string name and the number
+ * wheels, version asnd returns the robot object.
  * The robot coming off the assembly line must be able to:
  *  - Provide information about yourself through getter info.
  *    robot.info === 'name:%name%, chip version: %version%, wheels: %wheels%'
  *  - Provide the coordinates of your location via getter location.
  *    robot.location === '%name%: x=14, y=21'
+ *
+ *
  *  - Have methods to move goForward, goBack, goRight, goLeft.
  *  - Movement methods must be able to be used with a chain.
  *    robot.goForward().goForward().goForward().goLeft()
@@ -24,7 +26,6 @@
  *  - The robot must be able to request the evacuation of robot.evacuate(),
  *    which will call rescuers and transfer it to the service center
  *    at the coordinates x: 1400, y: 500.
- *
  * @typedef {object} Robot
  * @property {string} name
  * @property {number} wheels
@@ -37,8 +38,64 @@
  *
  * @return {Robot}
  */
+
 function makeRobot(name, wheels, version) {
-  // write code here
+  const newRobot = {
+    name,
+    version,
+    wheels,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    goForward(y = 1) {
+      if (y > 0) {
+        this.coords.y += y;
+      }
+
+      return this;
+    },
+
+    goBack(y = 1) {
+      if (y > 0) {
+        this.coords.y -= y;
+      }
+
+      return this;
+    },
+
+    goLeft(x = 1) {
+      if (x > 0) {
+        this.coords.x -= x;
+      }
+
+      return this;
+    },
+
+    goRight(x = 1) {
+      if (x > 0) {
+        this.coords.x += x;
+      }
+
+      return this;
+    },
+
+    evacuate() {
+      this.coords.y = 500;
+      this.coords.x = 1400;
+    },
+  };
+
+  return newRobot;
 }
 
 module.exports = makeRobot;
