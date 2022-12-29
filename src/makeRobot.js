@@ -91,6 +91,5 @@ function makeRobot(name, wheels, version) {
 
   return robot;
 }
-// const myRobot = makeRobot('JOi', 2, 31);
-// console.log(myRobot.location(), myRobot.goForward(-2), myRobot.location())
+
 module.exports = makeRobot;
