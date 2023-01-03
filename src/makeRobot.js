@@ -37,26 +37,26 @@
  *
  * @return {Robot}
  */
-function makeRobot(n, w, v) {
+function makeRobot(name, wheels, version) {
   return {
-    name: n,
-    wheels: w,
-    version: v,
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
     },
 
     get info() {
-      const { name, version, wheels } = this;
+      const { n = name, v = version, w = wheels } = this;
 
-      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+      return `name: ${n}, chip version: ${v}, wheels: ${w}`;
     },
 
     get location() {
-      const { x, y } = this.coords;
+      const { n = name, x, y } = this.coords;
 
-      return `${this.name}: x=${x}, y=${y}`;
+      return `${n}: x=${x}, y=${y}`;
     },
 
     goForward(step = 1) {
@@ -94,6 +94,8 @@ function makeRobot(n, w, v) {
     evacuate() {
       this.coords.x = 1400;
       this.coords.y = 500;
+
+      return this;
     },
   };
 }
