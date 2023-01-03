@@ -55,62 +55,70 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
     goForward(move) {
-      switch (true) {
-        case move < 0:
-          this.coords.y += 0;
-          break;
-        case move === undefined:
-          this.coords.y++;
-          break;
-        default:
-          this.coords.y += move;
-          break;
+      if (move < 0) {
+        this.coords.y += 0;
+
+        return this;
       }
+
+      if (move === undefined) {
+        this.coords.y++;
+
+        return this;
+      }
+
+      this.coords.y += move;
 
       return this;
     },
     goBack(move) {
-      switch (true) {
-        case move < 0:
-          this.coords.y += 0;
-          break;
-        case move === undefined:
-          this.coords.y--;
-          break;
-        default:
-          this.coords.y -= move;
-          break;
+      if (move < 0) {
+        this.coords.y += 0;
+
+        return this;
       }
+
+      if (move === undefined) {
+        this.coords.y--;
+
+        return this;
+      }
+
+      this.coords.y -= move;
 
       return this;
     },
     goRight(move) {
-      switch (true) {
-        case move < 0:
-          this.coords.x += 0;
-          break;
-        case move === undefined:
-          this.coords.x++;
-          break;
-        default:
-          this.coords.x += move;
-          break;
+      if (move < 0) {
+        this.coords.x += 0;
+
+        return this;
       }
+
+      if (move === undefined) {
+        this.coords.x++;
+
+        return this;
+      }
+
+      this.coords.x += move;
 
       return this;
     },
     goLeft(move) {
-      switch (true) {
-        case move < 0:
-          this.coords.x += 0;
-          break;
-        case move === undefined:
-          this.coords.x--;
-          break;
-        default:
-          this.coords.x -= move;
-          break;
+      if (move < 0) {
+        this.coords.x += 0;
+
+        return this;
       }
+
+      if (move === undefined) {
+        this.coords.x--;
+
+        return this;
+      }
+
+      this.coords.x -= move;
 
       return this;
     },
