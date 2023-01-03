@@ -65,9 +65,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(value = 1) {
-      if (value < 0) {
-        return this;
-      } else {
+      if (value > 0) {
         this.coords.y += value;
       }
 
