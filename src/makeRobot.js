@@ -58,41 +58,33 @@ chip version: ${this.version}, wheels: ${this.wheels}`;
     },
 
     goForward(steps = 1) {
-      if (steps < 0) {
-        return this;
+      if (steps > 0) {
+        this.coords.y += steps;
       }
-
-      this.coords.y += steps;
 
       return this;
     },
 
     goBack(steps = 1) {
-      if (steps < 0) {
-        return this;
+      if (steps > 0) {
+        this.coords.y -= steps;
       }
-
-      this.coords.y -= steps;
 
       return this;
     },
 
     goRight(steps = 1) {
-      if (steps < 0) {
-        return this;
+      if (steps > 0) {
+        this.coords.x += steps;
       }
-
-      this.coords.x += steps;
 
       return this;
     },
 
     goLeft(steps = 1) {
-      if (steps < 0) {
-        return this;
+      if (steps > 0) {
+        this.coords.x -= steps;
       }
-
-      this.coords.x -= steps;
 
       return this;
     },
