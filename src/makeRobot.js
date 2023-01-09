@@ -59,60 +59,36 @@ function makeRobot(name, wheels, version) {
       this.coords.y = 500;
     },
 
-    goForward(value = 0) {
-      if (value < 0) {
-        return this; ;
-      } else if (value === 0) {
-        this.coords.y++;
-
-        return this;
-      } else {
-        this.coords.y = this.coords.y + value;
-
-        return this;
+    goForward(value = 1) {
+      if (value > 0) {
+        this.coords.y += value; ;
       }
+
+      return this;
     },
 
-    goBack(value = 0) {
-      if (value < 0) {
-        return this;
-      } else if (value === 0) {
-        this.coords.y--;
-
-        return this;
-      } else {
-        this.coords.y = this.coords.y - value;
-
-        return this;
+    goBack(value = 1) {
+      if (value > 0) {
+        this.coords.y -= value;
       }
+
+      return this;
     },
 
-    goRight(value = 0) {
-      if (value < 0) {
-        return this;
-      } else if (value === 0) {
-        this.coords.x++;
-
-        return this;
-      } else {
-        this.coords.x = this.coords.x + value;
-
-        return this;
+    goRight(value = 1) {
+      if (value > 0) {
+        this.coords.x += value;
       }
+
+      return this;
     },
 
-    goLeft(value = 0) {
-      if (value < 0) {
-        return this;
-      } else if (value === 0) {
-        this.coords.x--;
-
-        return this;
-      } else {
-        this.coords.x = this.coords.x - value;
-
-        return this;
+    goLeft(value = 1) {
+      if (value > 0) {
+        this.coords.x -= value;
       }
+
+      return this;
     },
   };
 
