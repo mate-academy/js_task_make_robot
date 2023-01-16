@@ -39,7 +39,8 @@
  */
 function makeRobot(name, wheels, version) {
   const coords = {
-    x: 0, y: 0,
+    x: 0,
+    y: 0,
   };
 
   return {
