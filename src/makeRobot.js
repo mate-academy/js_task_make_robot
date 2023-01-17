@@ -48,68 +48,51 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
     get info() {
-      return 'name: '
-      + this.name
-      + ', chip version: '
-      + this.version
-      + ', wheels: '
-      + this.wheels;
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
     },
     get location() {
-      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
-    goForward(times = 0) {
-      if (times < 0) {
+    goForward(steps = 1) {
+      if (steps < 0) {
         return this;
       }
 
-      if (times > 0) {
-        this.coords.y += 1 * times;
-      } else {
-        this.coords.y += 1 + times;
-      }
+      this.coords.y += 1 * steps;
 
       return this;
     },
-    goBack(times = 0) {
-      if (times < 0) {
+
+    goBack(steps = 1) {
+      if (steps < 0) {
         return this;
       }
 
-      if (times > 0) {
-        this.coords.y -= 1 * times;
-      } else {
-        this.coords.y -= 1 + times;
-      }
+      this.coords.y -= 1 * steps;
 
       return this;
     },
-    goRight(times = 0) {
-      if (times < 0) {
+
+    goRight(steps = 1) {
+      if (steps < 0) {
         return this;
       }
 
-      if (times > 0) {
-        this.coords.x += 1 * times;
-      } else {
-        this.coords.x += 1 + times;
-      }
+      this.coords.x += 1 * steps;
 
       return this;
     },
-    goLeft(times = 0) {
-      if (times < 0) {
+
+    goLeft(steps = 1) {
+      if (steps < 0) {
         return this;
       }
 
-      if (times > 0) {
-        this.coords.x -= 1 * times;
-      } else {
-        this.coords.x -= 1 + times;
-      }
+      this.coords.x -= 1 * steps;
 
       return this;
     },
+
     evacuate() {
       this.coords.x = 1400;
       this.coords.y = 500;
