@@ -46,67 +46,73 @@ function makeRobot(name, wheels, version) {
       x: 0,
       y: 0,
     },
+
     get info() {
       return (
         // eslint-disable-next-line max-len
         `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`
       );
     },
+
     get location() {
       return (`${this.name}: x=${this.coords.x}, y=${this.coords.y}`);
     },
-    goForward(step = 0) {
+    goForward(step = 1) {
       if (step < 0) {
         return this;
       }
 
-      if (step === 0) {
+      if (step === 1) {
         this.coords.y++;
       } else {
-        this.coords.y = this.coords.y + step;
+        this.coords.y += step;
       }
 
       return this;
     },
-    goBack(step = 0) {
+
+    goBack(step = 1) {
       if (step < 0) {
         return this;
       }
 
-      if (step === 0) {
+      if (step === 1) {
         this.coords.y--;
       } else {
-        this.coords.y = this.coords.y - step;
+        this.coords.y -= step;
       }
 
       return this;
     },
-    goRight(step = 0) {
+
+    goRight(step = 1) {
       if (step < 0) {
         return this;
       }
 
-      if (step === 0) {
+      if (step === 1) {
         this.coords.x++;
       } else {
-        this.coords.x = this.coords.x + step;
+        this.coords.x += step;
       }
 
       return this;
     },
-    goLeft(step = 0) {
-      if (step < 0) {
+
+    goLeft(step = 1) {
+      if (step < 1) {
         return this;
       }
 
-      if (step === 0) {
+      if (step === 1) {
         this.coords.x--;
       } else {
-        this.coords.x = this.coords.x - step;
+        this.coords.x -= step;
       }
 
       return this;
     },
+
     evacuate() {
       this.coords.x = 1400;
       this.coords.y = 500;
