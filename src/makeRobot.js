@@ -4,7 +4,7 @@
  * Mate Robot Factory impressed by your success, they are ready to accept
  * you into the Tech team, you will learn to program robots together
  * with the team! Are you in business As a test task, you will need to
- * program our equipment that makes robots.
+ * program our equi]pment that makes robots.
  *
  * Create a makeRobot function that takes the string name and the number
  * wheels, version and returns the robot object.
@@ -38,7 +38,57 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name: name,
+    wheels: wheels,
+    version: version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      return `name: ${this.name}, chip version: ${this.version}, `
+      + `wheels: ${this.wheels}`;
+    },
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+    goForward(item = 1) {
+      if (item > 0) {
+        this.coords.y += item;
+      }
+
+      return this;
+    },
+    goBack(item = 1) {
+      if (item > 0) {
+        this.coords.y -= item;
+      }
+
+      return this;
+    },
+    goRight(item = 1) {
+      if (item > 0) {
+        this.coords.x += item;
+      }
+
+      return this;
+    },
+    goLeft(item = 1) {
+      if (item > 0) {
+        this.coords.x -= item;
+      }
+
+      return this;
+    },
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
