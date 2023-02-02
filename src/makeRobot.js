@@ -45,44 +45,48 @@ function makeRobot(name, wheels, version) {
     version,
     x: 0,
     y: 0,
+
     get info() {
-      const {
-        name,
-        version,
-        wheels,
-      } = this;
-    
-      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+      return `name: ${this.name}, \
+chip version: ${this.version}, \
+wheels: ${this.wheels}`;
     },
+
     get location() {
       return `${this.name}: x=${this.x}, y=${this.y}`;
     },
+
     get coords() {
       return {
         x: this.x,
         y: this.y,
       };
     },
+
     goForward(y = 1) {
       this.y += y > 0 ? y : 0;
 
       return this;
     },
+
     goBack(y = 1) {
       this.y -= y > 0 ? y : 0;
 
       return this;
     },
+
     goRight(x = 1) {
       this.x += x > 0 ? x : 0;
 
       return this;
     },
+
     goLeft(x = 1) {
       this.x -= x > 0 ? x : 0;
 
       return this;
     },
+
     evacuate() {
       this.x = 1400;
       this.y = 500;
