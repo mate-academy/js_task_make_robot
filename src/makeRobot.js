@@ -10,7 +10,7 @@
  * wheels, version and returns the robot object.
  * The robot coming off the assembly line must be able to:
  *  - Provide information about yourself through getter info.
- *    robot.info === 'name:%name%, chip version: %version%, wheels: %wheels%'
+ *    robot.info === 'name:%name%, chipVersion: %version%, wheels: %wheels%'
  *  - Provide the coordinates of your location via getter location.
  *    robot.location === '%name%: x=14, y=21'
  *  - Have methods to move goForward, goBack, goRight, goLeft.
@@ -40,7 +40,7 @@
 function makeRobot(name, wheels, version) {
   const robot = {
     name: name,
-    'chip version': version,
+    chipVersion: version,
     wheels: wheels,
     coords: {
       x: 0,
@@ -48,8 +48,11 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      // eslint-disable-next-line max-len
-      return `name: ${this.name}, chip version: ${this['chip version']}, wheels: ${this.wheels}`;
+      return (
+        `name: ${this.name}, `
+        + `chipVersion: ${this.chipVersion}, `
+        + `wheels: ${this.wheels}`
+      );
     },
 
     get location() {
