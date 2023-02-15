@@ -1,6 +1,6 @@
 1. [CODE KNOWLEDGE] - If in object `variableName === keyName` you can use short syntax:.
 
-BAD EXAMPLE: 
+BAD EXAMPLE:
 ```
 {
   name: name,
@@ -21,7 +21,7 @@ GOOD EXAMPLE:
 2. [CODE KNOWLEDGE] - if you creating a method in the object, you don't need to use function keyword, use shortcut instead.
 
 
-BAD EXAMPLE: 
+BAD EXAMPLE:
 ```
  methodName: function() {
  // your code
@@ -37,14 +37,14 @@ GOOD EXAMPLE:
 
 3. [CODE STYLE] - you can join arithmetic operators with assignment operators.
 
-BAD EXAMPLE: 
+BAD EXAMPLE:
 ```
-robot.coords.x = robot.coords.x + 5;
+robot.coords.cords.x = robot.coords.cords.x + 5;
 ```
 
 GOOD EXAMPLE:
 ```
-robot.coords.x += 5;
+robot.coords.cords.x += 5;
 ```
 
 4. [BASIC RULE] - Don't disable linter unless you have to.
