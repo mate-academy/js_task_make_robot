@@ -39,6 +39,7 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
+
     coords: {
       x: 0,
       y: 0,
@@ -54,62 +55,34 @@ function makeRobot(name, wheels, version) {
       return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(value) {
-      let pseudoValue = value;
-
-      if (pseudoValue === undefined) {
-        pseudoValue = 1;
+    goForward(value = 1) {
+      if (value > 0) {
+        this.coords.y += value;
       }
-
-      if (pseudoValue < 0) {
-        pseudoValue = 0;
-      }
-      this.coords.y += pseudoValue;
 
       return this;
     },
 
-    goBack(value) {
-      let pseudoValue = value;
-
-      if (pseudoValue === undefined) {
-        pseudoValue = 1;
+    goBack(value = 1) {
+      if (value > 0) {
+        this.coords.y -= value;
       }
-
-      if (pseudoValue < 0) {
-        pseudoValue = 0;
-      }
-      this.coords.y -= pseudoValue;
 
       return this;
     },
 
-    goRight(value) {
-      let pseudoValue = value;
-
-      if (pseudoValue === undefined) {
-        pseudoValue = 1;
+    goRight(value = 1) {
+      if (value > 0) {
+        this.coords.x += value;
       }
-
-      if (pseudoValue < 0) {
-        pseudoValue = 0;
-      }
-      this.coords.x += pseudoValue;
 
       return this;
     },
 
-    goLeft(value) {
-      let pseudoValue = value;
-
-      if (pseudoValue === undefined) {
-        pseudoValue = 1;
+    goLeft(value = 1) {
+      if (value > 0) {
+        this.coords.x -= value;
       }
-
-      if (pseudoValue < 0) {
-        pseudoValue = 0;
-      }
-      this.coords.x -= pseudoValue;
 
       return this;
     },
