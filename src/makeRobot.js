@@ -38,7 +38,6 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
   const robot = {
     get info() {
       return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
