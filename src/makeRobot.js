@@ -40,9 +40,9 @@
 function makeRobot(name, wheels, version) {
   // write code here
   const robot = {
-    name: name,
+    name,
     chip: version,
-    wheels: wheels,
+    wheels,
     coords: {
       x: 0,
       y: 0,
