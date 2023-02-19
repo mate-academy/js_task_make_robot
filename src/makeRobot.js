@@ -48,9 +48,9 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      const { name: first, version: second, wheels: third } = this;
-
-      return `name: ${first}, chip version: ${second}, wheels: ${third}`;
+      return `name: ${this.name}, `
+      + `chip version: ${this.version}, `
+      + `wheels: ${this.wheels}`;
     },
 
     get location() {
