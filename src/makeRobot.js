@@ -39,10 +39,7 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-    x: 0,
-    y: 0, // user location
-
-    coords: { // robot location
+    coords: {
       x: 0,
       y: 0,
     },
