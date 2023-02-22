@@ -38,7 +38,80 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const Robot = {
+    name: name,
+    number: version,
+    wheels: wheels,
+
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      // eslint-disable-next-line max-len
+      return `name: ${this.name}, chip version: ${this.number}, wheels: ${this.wheels}`;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+
+    goBack(step) {
+      if (!step) {
+        this.coords.y -= 1;
+      } else if (step < 0) {
+        return this;
+      } else {
+        this.coords.y -= step;
+      }
+
+      return this;
+    },
+
+    goForward(step) {
+      if (!step) {
+        this.coords.y += 1;
+      } else if (step < 0) {
+        return this;
+      } else {
+        this.coords.y += step;
+      }
+
+      return this;
+    },
+
+    goRight(step) {
+      if (!step) {
+        this.coords.x += 1;
+      } else if (step < 0) {
+        return this;
+      } else {
+        this.coords.x += step;
+      }
+
+      return this;
+    },
+
+    goLeft(step) {
+      if (!step) {
+        this.coords.x -= 1;
+      } else if (step < 0) {
+        return this;
+      } else {
+        this.coords.x -= step;
+      }
+
+      return this;
+    },
+  };
+
+  return Robot;
 }
 
 module.exports = makeRobot;
