@@ -14,7 +14,7 @@ describe('sum', () => {
     const robot = makeRobot('Joy', 5, 31);
 
     const actual = robot.info;
-    const expected = 'name: Joy, chip version: 31, wheels: 5';
+    const expected = 'name: Joy, chipVersion: 31, wheels: 5';
 
     expect(actual).toBe(expected);
   });
