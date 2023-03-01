@@ -104,8 +104,6 @@ function makeRobot(name, wheels, version) {
     },
   };
 
-  // console.log(robot.evacuate());
-
   return robot;
 }
 makeRobot('Joy', 5, 31);
