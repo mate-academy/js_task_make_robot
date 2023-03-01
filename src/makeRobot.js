@@ -38,7 +38,86 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name: name,
+    version: version,
+    wheels: wheels,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+    evacuate,
+
+    goBack,
+    goForward,
+    goLeft,
+    goRight,
+
+    get location() {
+      return this.name + `: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    get info() {
+      return `name: ${this.name}, chip version: ${
+        this.version}, wheels: ${this.wheels}`;
+    },
+
+  };
+
+  function evacuate() {
+    robot.coords.x = 1400;
+    robot.coords.y = 500;
+  };
+
+  function goBack(value) {
+    if (value > 0) {
+      robot.coords.y -= value;
+    }
+
+    if (isNaN(value)) {
+      robot.coords.y--;
+    }
+
+    return this;
+  };
+
+  function goForward(value) {
+    if (value > 0) {
+      robot.coords.y += value;
+    }
+
+    if (isNaN(value)) {
+      robot.coords.y++;
+    }
+
+    return this;
+  };
+
+  function goLeft(value) {
+    if (value > 0) {
+      robot.coords.x -= value;
+    }
+
+    if (isNaN(value)) {
+      robot.coords.x--;
+    }
+
+    return this;
+  };
+
+  function goRight(value) {
+    if (value > 0) {
+      robot.coords.x += value;
+    }
+
+    if (isNaN(value)) {
+      robot.coords.x++;
+    }
+
+    return this;
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
