@@ -69,49 +69,33 @@ function makeRobot(name, wheels, version) {
     robot.coords.y = 500;
   };
 
-  function goBack(value) {
+  function goBack(value = 1) {
     if (value > 0) {
       robot.coords.y -= value;
     }
 
-    if (isNaN(value)) {
-      robot.coords.y--;
-    }
-
     return this;
   };
 
-  function goForward(value) {
+  function goForward(value = 1) {
     if (value > 0) {
       robot.coords.y += value;
     }
 
-    if (isNaN(value)) {
-      robot.coords.y++;
-    }
-
     return this;
   };
 
-  function goLeft(value) {
+  function goLeft(value = 1) {
     if (value > 0) {
       robot.coords.x -= value;
     }
 
-    if (isNaN(value)) {
-      robot.coords.x--;
-    }
-
     return this;
   };
 
-  function goRight(value) {
+  function goRight(value = 1) {
     if (value > 0) {
       robot.coords.x += value;
-    }
-
-    if (isNaN(value)) {
-      robot.coords.x++;
     }
 
     return this;
