@@ -23,7 +23,7 @@
  *    the keys x and y inside the robot.
  *  - The robot must be able to request the evacuation of robot.evacuate(),
  *    which will call rescuers and transfer it to the service center
- *    at the coordinates x: 1400, y: 500.
+ *    at the coordinates x: 1400, y: 500
  *
  * @typedef {object} Robot
  * @property {string} name
@@ -34,11 +34,67 @@
  * @param {string} name
  * @param {number} wheels
  * @param {number} version
- *
- * @return {Robot}
- */
+*
+* @return {Robot}
+*/
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name,
+    wheels,
+    version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    goForward(value = 1) {
+      if (value >= 0) {
+        this.coords.y += value;
+      }
+
+      return this;
+    },
+
+    goBack(value = 1) {
+      if (value >= 0) {
+        this.coords.y -= value;
+      }
+
+      return this;
+    },
+
+    goLeft(value = 1) {
+      if (value >= 0) {
+        this.coords.x -= value;
+      }
+
+      return this;
+    },
+
+    goRight(value = 1) {
+      if (value >= 0) {
+        this.coords.x += value;
+      }
+
+      return this;
+    },
+
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    get info() {
+      return `name: ${this.name}, chip version: ${this.version}, `
+       + `wheels: ${this.wheels}`;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
