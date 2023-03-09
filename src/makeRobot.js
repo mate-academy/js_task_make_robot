@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 'use strict';
 
 /**
@@ -37,8 +38,58 @@
  *
  * @return {Robot}
  */
-function makeRobot(name, wheels, version) {
-  // write code here
+
+function makeRobot(name, wheels, chipVersion) {
+  const Robot = {
+    name: name,
+    chipVersion: chipVersion,
+    wheels: wheels,
+    coords: { x: 0, y: 0 },
+    get info() {
+      // eslint-disable-next-line max-len
+      return `name: ${this.name}, chip version: ${this.chipVersion}, wheels: ${this.wheels}`;
+    },
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+    goForward(steps = 1) {
+      if (steps > 0) {
+        this.coords.y += steps;
+      }
+
+      return this;
+    },
+    goBack(steps = 1) {
+      if (steps > 0) {
+        this.coords.y -= steps;
+      }
+
+      return this;
+    },
+    goLeft(steps = 1) {
+      if (steps > 0) {
+        this.coords.x -= steps;
+      }
+
+      return this;
+    },
+    goRight(steps = 1) {
+      if (steps > 0) {
+        this.coords.x += steps;
+      }
+
+      return this;
+    },
+
+    evacuate(x = 1400, y = 500) {
+      this.coords.x = x;
+      this.coords.y = y;
+
+      return this;
+    },
+  };
+
+  return Robot;
 }
 
 module.exports = makeRobot;
