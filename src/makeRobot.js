@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable object-curly-newline */
 'use strict';
 
@@ -40,18 +41,23 @@
  */
 
 function makeRobot(name, wheels, chipVersion) {
-  const Robot = {
+  const robot = {
     name: name,
     chipVersion: chipVersion,
     wheels: wheels,
-    coords: { x: 0, y: 0 },
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
     get info() {
-      // eslint-disable-next-line max-len
       return `name: ${this.name}, chip version: ${this.chipVersion}, wheels: ${this.wheels}`;
     },
+
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
+
     goForward(steps = 1) {
       if (steps > 0) {
         this.coords.y += steps;
@@ -59,6 +65,7 @@ function makeRobot(name, wheels, chipVersion) {
 
       return this;
     },
+
     goBack(steps = 1) {
       if (steps > 0) {
         this.coords.y -= steps;
@@ -66,6 +73,7 @@ function makeRobot(name, wheels, chipVersion) {
 
       return this;
     },
+
     goLeft(steps = 1) {
       if (steps > 0) {
         this.coords.x -= steps;
@@ -73,6 +81,7 @@ function makeRobot(name, wheels, chipVersion) {
 
       return this;
     },
+
     goRight(steps = 1) {
       if (steps > 0) {
         this.coords.x += steps;
@@ -89,7 +98,7 @@ function makeRobot(name, wheels, chipVersion) {
     },
   };
 
-  return Robot;
+  return robot;
 }
 
 module.exports = makeRobot;
