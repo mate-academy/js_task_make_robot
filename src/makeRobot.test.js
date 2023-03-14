@@ -48,7 +48,7 @@ describe('sum', () => {
     expect(robot.goForward()).toBe(robot);
   });
 
-  it('When the robot moves back, his coordinates must change.', function() {
+  it('When the robot moves back, his coordss must change.', function() {
     const robot = makeRobot('Joy', 5, 31);
 
     robot.goBack();
@@ -59,7 +59,7 @@ describe('sum', () => {
     expect(actual).toBe(expected);
   });
 
-  it('When the robot moves forward, his coordinates must change.', function() {
+  it('When the robot moves forward, his coordss must change.', function() {
     const robot = makeRobot('Joy', 5, 31);
 
     robot.goForward();
@@ -70,7 +70,7 @@ describe('sum', () => {
     expect(actual).toBe(expected);
   });
 
-  it('When the robot moves left, his coordinates must change.', function() {
+  it('When the robot moves left, his coordss must change.', function() {
     const robot = makeRobot('Joy', 5, 31);
 
     robot.goLeft();
@@ -81,7 +81,7 @@ describe('sum', () => {
     expect(actual).toBe(expected);
   });
 
-  it('When the robot moves right, his coordinates must change.', function() {
+  it('When the robot moves right, his coordss must change.', function() {
     const robot = makeRobot('Joy', 5, 31);
 
     robot.goRight();
@@ -202,7 +202,7 @@ describe('sum', () => {
     expect(actual).toBe(expected);
   });
 
-  it('Robot\'s coordinates must be '
+  it('Robot\'s coordss must be '
     + 'saved in the robot in coords property with x and y keys', function() {
     const robot = makeRobot('Joy', 5, 31);
 
