@@ -22,7 +22,6 @@ function makeRobot(name, wheels, version) {
       const actualDistance = distance < 0 ? 0 : distance;
 
       this.coords.y += actualDistance;
-      this.coords.y = Math.max(this.coords.y, 0);
 
       return this;
     },
