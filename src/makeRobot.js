@@ -1,7 +1,5 @@
 'use strict';
 
-makeRobot('Joy', 5, 31);
-
 function makeRobot(name, wheels, version) {
   const newRobot = {
     name,
@@ -65,8 +63,6 @@ function makeRobot(name, wheels, version) {
     },
 
   };
-
-  // newRobot.goBack(-2).goForward(-1).goLeft(-3).goRight(-2);
 
   return newRobot;
 }
