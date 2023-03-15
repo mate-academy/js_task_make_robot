@@ -46,44 +46,51 @@ function makeRobot(name, wheels, version) {
       x: 0,
       y: 0,
     },
-    goForward: function(distance = 1) {
+
+    goForward(distance = 1) {
       if (distance > 0) {
         this.coords.y += distance;
       }
 
       return this;
     },
-    goBack: function(distance = 1) {
+
+    goBack(distance = 1) {
       if (distance > 0) {
         this.coords.y -= distance;
       }
 
       return this;
     },
-    goRight: function(distance = 1) {
+
+    goRight(distance = 1) {
       if (distance > 0) {
         this.coords.x += distance;
       }
 
       return this;
     },
-    goLeft: function(distance = 1) {
+
+    goLeft(distance = 1) {
       if (distance > 0) {
         this.coords.x -= distance;
       }
 
       return this;
     },
-    evacuate: function() {
+
+    evacuate() {
       this.coords.x = 1400;
       this.coords.y = 500;
 
       return `Robot ${this.name} has requested evacuation`;
     },
+
     get info() {
       // eslint-disable-next-line max-len
       return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
     },
+
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
