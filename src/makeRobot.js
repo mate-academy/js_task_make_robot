@@ -38,7 +38,6 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
 }
 
 module.exports = makeRobot;
