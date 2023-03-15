@@ -57,7 +57,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(distance = 1) {
-      if (distance >= 0) {
+      if (distance > 0) {
         this.coords.y += distance;
       }
 
@@ -65,7 +65,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goBack(distance = 1) {
-      if (distance >= 0) {
+      if (distance > 0) {
         this.coords.y -= distance;
       }
 
@@ -73,7 +73,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goRight(distance = 1) {
-      if (distance >= 0) {
+      if (distance > 0) {
         this.coords.x += distance;
       }
 
@@ -81,7 +81,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goLeft(distance = 1) {
-      if (distance >= 0) {
+      if (distance > 0) {
         this.coords.x -= distance;
       }
 
