@@ -47,8 +47,11 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
     get info() {
-      // eslint-disable-next-line max-len
-      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+      const robotName = `name: ${this.name}, `;
+      const robotVersion = `chip version: ${this.version}, `;
+      const robotWheels = `wheels: ${this.wheels}`;
+
+      return robotName + robotVersion + robotWheels;
     },
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
