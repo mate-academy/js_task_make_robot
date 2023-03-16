@@ -44,7 +44,8 @@ function makeRobot(name, wheels, version) {
     wheels,
     version,
     coords: {
-      x: 0, y: 0,
+      x: 0,
+      y: 0,
     },
 
     get info() {
