@@ -52,6 +52,7 @@ function makeRobot(name, wheels, version) {
     goBack: goBack,
     goRight: goRight,
     goLeft: goLeft,
+    evacuate: evacuate,
 
     get info() {
       const robotName = `name: ${this.name}`;
@@ -63,11 +64,6 @@ function makeRobot(name, wheels, version) {
 
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
-    },
-
-    evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
     },
   };
 
@@ -99,6 +95,13 @@ function makeRobot(name, wheels, version) {
     if (step > 0) {
       this.coords.x -= step;
     }
+
+    return this;
+  }
+
+  function evacuate() {
+    this.coords.x = 1400;
+    this.coords.y = 500;
 
     return this;
   }
