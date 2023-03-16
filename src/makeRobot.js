@@ -40,7 +40,7 @@
 function makeRobot(name, wheels, version) {
   // write code here
 
-  const Robot = {
+  const robot = {
     name,
     wheels,
     version,
@@ -99,7 +99,7 @@ function makeRobot(name, wheels, version) {
     },
   };
 
-  return Robot;
+  return robot;
 }
 
 module.exports = makeRobot;
