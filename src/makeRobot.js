@@ -63,48 +63,45 @@ function makeRobot(name, wheels, version) {
       };
     },
 
-    move(steps, direction) {
+    isPositiveNumber(steps) {
       if (typeof steps === 'number' && steps > 0) {
-        switch (direction) {
-          case 'right':
-            this.coords.x += steps;
-            break;
-
-          case 'left':
-            this.coords.x -= steps;
-            break;
-
-          case 'forward':
-            this.coords.y += steps;
-            break;
-
-          case 'back':
-            this.coords.y -= steps;
-            break;
-        }
+        return true;
       }
+
+      // eslint-disable-next-line no-undef
+      alert('Input should be a positive number');
+
+      return false;
     },
 
     goRight(steps = 1) {
-      this.move(steps, 'right');
+      if (this.isPositiveNumber(steps)) {
+        this.coords.x += steps;
+      }
 
       return this;
     },
 
     goLeft(steps = 1) {
-      this.move(steps, 'left');
+      if (this.isPositiveNumber(steps)) {
+        this.coords.x -= steps;
+      }
 
       return this;
     },
 
     goBack(steps = 1) {
-      this.move(steps, 'back');
+      if (this.isPositiveNumber(steps)) {
+        this.coords.y -= steps;
+      }
 
       return this;
     },
 
     goForward(steps = 1) {
-      this.move(steps, 'forward');
+      if (this.isPositiveNumber(steps)) {
+        this.coords.y += steps;
+      }
 
       return this;
     },
