@@ -42,10 +42,12 @@ function makeRobot(name, wheels, version) {
     name,
     wheels,
     version,
+
     coords: {
       x: 0,
       y: 0,
     },
+
     get info() {
       return 'name: '
         + this.name
