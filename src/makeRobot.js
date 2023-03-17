@@ -40,35 +40,6 @@
  */
 function makeRobot(name, wheels, version) {
   const result = {
-    set name(value) {
-      if (typeof value === 'string') {
-        this._name = value;
-      }
-    },
-
-    get name() {
-      return this._name;
-    },
-
-    set wheels(value) {
-      if (typeof value === 'number') {
-        this._wheels = value;
-      }
-    },
-
-    get wheels() {
-      return this._wheels;
-    },
-
-    set version(value = version) {
-      if (typeof value === 'number') {
-        this._version = value;
-      }
-    },
-
-    get version() {
-      return this._version;
-    },
 
     get info() {
       return `name: ${this.name},`
@@ -76,29 +47,13 @@ function makeRobot(name, wheels, version) {
         + ` wheels: ${this.wheels}`;
     },
 
-    set x(value) {
-      this._x = value;
-    },
-
-    get x() {
-      return this._x;
-    },
-
-    set y(value) {
-      this._y = value;
-    },
-
-    get y() {
-      return this._y;
-    },
-
     get location() {
-      return `${this.name}: x=${this._x}, y=${this._y}`;
+      return `${this.name}: x=${this.x}, y=${this.y}`;
     },
 
     goBack(value = 1) {
       if (value >= 0) {
-        this._y -= value;
+        this.y -= value;
       }
 
       return this;
@@ -106,7 +61,7 @@ function makeRobot(name, wheels, version) {
 
     goForward(value = 1) {
       if (value >= 0) {
-        this._y += value;
+        this.y += value;
       }
 
       return this;
@@ -114,7 +69,7 @@ function makeRobot(name, wheels, version) {
 
     goLeft(value = 1) {
       if (value >= 0) {
-        this._x -= value;
+        this.x -= value;
       }
 
       return this;
@@ -122,7 +77,7 @@ function makeRobot(name, wheels, version) {
 
     goRight(value = 1) {
       if (value >= 0) {
-        this._x += value;
+        this.x += value;
       }
 
       return this;
