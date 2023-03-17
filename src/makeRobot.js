@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 /**
@@ -38,7 +39,120 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const result = {
+    set name(value) {
+      if (typeof value === 'string') {
+        this._name = value;
+      }
+    },
+
+    get name() {
+      return this._name;
+    },
+
+    set wheels(value) {
+      if (typeof value === 'number') {
+        this._wheels = value;
+      }
+    },
+
+    get wheels() {
+      return this._wheels;
+    },
+
+    set version(value = version) {
+      if (typeof value === 'number') {
+        this._version = value;
+      }
+    },
+
+    get version() {
+      return this._version;
+    },
+
+    get info() {
+      return `name: ${this.name},`
+        + ` chip version: ${this.version},`
+        + ` wheels: ${this.wheels}`;
+    },
+
+    set x(value) {
+      this._x = value;
+    },
+
+    get x() {
+      return this._x;
+    },
+
+    set y(value) {
+      this._y = value;
+    },
+
+    get y() {
+      return this._y;
+    },
+
+    get location() {
+      return `${this.name}: x=${this._x}, y=${this._y}`;
+    },
+
+    goBack(value = 1) {
+      if (value >= 0) {
+        this._y -= value;
+      }
+
+      return this;
+    },
+
+    goForward(value = 1) {
+      if (value >= 0) {
+        this._y += value;
+      }
+
+      return this;
+    },
+
+    goLeft(value = 1) {
+      if (value >= 0) {
+        this._x -= value;
+      }
+
+      return this;
+    },
+
+    goRight(value = 1) {
+      if (value >= 0) {
+        this._x += value;
+      }
+
+      return this;
+    },
+
+    get coords() {
+      return {
+        x: this.x,
+        y: this.y,
+      };
+    },
+
+    evacuate() {
+      this.x = 1400;
+      this.y = 500;
+
+      return {
+        x: this.x,
+        y: this.y,
+      };
+    },
+  };
+
+  result.name = name;
+  result.version = version;
+  result.wheels = wheels;
+  result.x = 0;
+  result.y = 0;
+
+  return result;
 }
 
 module.exports = makeRobot;
