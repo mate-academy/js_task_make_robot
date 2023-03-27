@@ -126,7 +126,7 @@ describe('sum', () => {
   });
 
   it('Robot\'s moves right could be increased.', function() {
-    const robot = makeRobot('Joy', 5, 31);
+    const robot = makeRobot('Joy', 4, 31);
 
     robot.goRight(2);
 
