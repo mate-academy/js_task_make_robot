@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Mate Robot Factory impressed by your success, they are ready to accept
@@ -41,16 +41,20 @@ function makeRobot(name, wheels, version) {
   // write code here
 
   const robot = {
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
     },
 
     get info() {
-      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+      return `name: ${this.name}, chip version: ${
+        this.version}, wheels: ${this.wheels}`;
     },
     get location() {
-      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goForward(move = 1) {
