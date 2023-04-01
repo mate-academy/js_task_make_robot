@@ -38,7 +38,87 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name,
+    wheels,
+    version,
+    coords: {
+      x: 0, y: 0,
+    },
+    get info() {
+      return `name: ${this.name},` + ` `
+        + `chip version: ${this.version}, wheels: ${this.wheels}`;
+    },
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+    goForward(move = 1) {
+      if (move < 0) {
+        return this;
+      }
+      this.coords.y += move;
+
+      return this;
+    },
+    goBack(move = 1) {
+      if (move < 0) {
+        return this;
+      }
+      this.coords.y -= move;
+
+      return this;
+    },
+    goRight(move = 1) {
+      if (move < 0) {
+        return this;
+      }
+      this.coords.x += move;
+
+      return this;
+    },
+    goLeft(move = 1) {
+      if (move < 0) {
+        return this;
+      }
+      this.coords.x -= move;
+
+      return this;
+    },
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+
+      return this;
+    },
+  };
+
+  return robot;
 }
+// в завданні булоrobot.location === '%name%: x=14, y=21'
+// пробував підставляти 14 і 21  в ручну замість 0 тоді все не працює
+// я так поняв тест сам підставляє ці значення ?
 
 module.exports = makeRobot;
+/* * Mate Robot Factory вражений вашим успіхом, вони готові прийняти
+  * Ви в команду Tech, ви разом навчитеся програмувати роботів
+  * з командою! Are you in business В якості тестового завдання вам знадобиться
+  * програмувати наше обладнання, яке робить роботів.
+  *
+  * Створіть функцію makeRobot, яка приймає назву рядка та номер
+  * колеса, версія та повертає об'єкт робота.
+  * Робот, що сходить з конвеєра, повинен уміти:
+  * - Надайте інформацію про себе через getter info.
+  * robot.info === 'name:%name%, версія мікросхеми: %version%, колеса: %wheels%'
+  * - Надайте координати свого місцезнаходження через getter location.
+  * robot.location === '%name%: x=14, y=21'
+  * - Є методи для переміщення goForward, goBack, goRight, goLeft.
+  * - Методи пересування повинні бути використані з ланцюгом.
+  * robot.goForward().goForward().goForward().goLeft()
+  * - Методи за замовчуванням, які переміщують роботу на 1 у прав напрямку.
+  * Це значення можна збільшити, передавши потрібне число методу.
+  * Від’ємні числа не повинні впливати на розташування робота. йти вліво (3)
+  * - Координати робота повинні бути збережені в координатах об'єкта,
+  * клавіші x і y всередині робота.
+  * - Робот повинен мати можливість запитувати евакуацію robot.evacuate(),
+  * який викличе рятувальників і передасть його в сервісний центр
+  * в координатах x: 1400, y: 500. */
