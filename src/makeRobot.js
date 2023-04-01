@@ -43,7 +43,8 @@ function makeRobot(name, wheels, version) {
     wheels,
     version,
     coords: {
-      x: 0, y: 0,
+      x: 0,
+      y: 0,
     },
     get info() {
       return `name: ${this.name},` + ` `
@@ -53,34 +54,30 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
     goForward(move = 1) {
-      if (move < 0) {
-        return this;
+      if (move > 0) {
+        this.coords.y += move;
       }
-      this.coords.y += move;
 
       return this;
     },
     goBack(move = 1) {
-      if (move < 0) {
-        return this;
+      if (move > 0) {
+        this.coords.y -= move;
       }
-      this.coords.y -= move;
 
       return this;
     },
     goRight(move = 1) {
-      if (move < 0) {
-        return this;
+      if (move > 0) {
+        this.coords.x += move;
       }
-      this.coords.x += move;
 
       return this;
     },
     goLeft(move = 1) {
-      if (move < 0) {
-        return this;
+      if (move > 0) {
+        this.coords.x -= move;
       }
-      this.coords.x -= move;
 
       return this;
     },
@@ -94,9 +91,6 @@ function makeRobot(name, wheels, version) {
 
   return robot;
 }
-// в завданні булоrobot.location === '%name%: x=14, y=21'
-// пробував підставляти 14 і 21  в ручну замість 0 тоді все не працює
-// я так поняв тест сам підставляє ці значення ?
 
 module.exports = makeRobot;
 /* * Mate Robot Factory вражений вашим успіхом, вони готові прийняти
@@ -105,7 +99,7 @@ module.exports = makeRobot;
   * програмувати наше обладнання, яке робить роботів.
   *
   * Створіть функцію makeRobot, яка приймає назву рядка та номер
-  * колеса, версія та повертає об'єкт робота.
+  * , версія та повертає об'єкт робота.
   * Робот, що сходить з конвеєра, повинен уміти:
   * - Надайте інформацію про себе через getter info.
   * robot.info === 'name:%name%, версія мікросхеми: %version%, колеса: %wheels%'
