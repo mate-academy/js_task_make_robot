@@ -39,10 +39,7 @@
  */
 function makeRobot(name, wheels, version) {
   // write code here
-  const Robot = {
-    name,
-    wheels,
-    version,
+  const robot = {
     coords: {
       x: 0,
       y: 0,
@@ -52,7 +49,7 @@ function makeRobot(name, wheels, version) {
     },
 
     get location() {
-      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goForward(value = 1) {
@@ -102,7 +99,7 @@ function makeRobot(name, wheels, version) {
     },
   };
 
-  return Robot;
+  return robot;
 }
 
 module.exports = makeRobot;
