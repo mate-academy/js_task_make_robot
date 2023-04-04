@@ -23,7 +23,7 @@
  *    the keys x and y inside the robot.
  *  - The robot must be able to request the evacuation of robot.evacuate(),
  *    which will call rescuers and transfer it to the service center
- *    at the coords x: 1400, y: 500.
+ *    at the coordinates x: 1400, y: 500.
  *
  * @typedef {object} Robot
  * @property {string} name
@@ -40,9 +40,9 @@
 function makeRobot(name, wheels, version) {
   // write code here
   const robot = {
-    name: name,
-    wheels: wheels,
-    version: version,
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
