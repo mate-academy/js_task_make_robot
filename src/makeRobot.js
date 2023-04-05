@@ -47,9 +47,8 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
     get info() {
-      const t = this;
 
-      return `name: ${t.name}, chip version: ${t.version}, wheels: ${t.wheels}`;
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
     },
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
@@ -89,7 +88,6 @@ function makeRobot(name, wheels, version) {
   };
 
   return robot;
-
 }
 
 module.exports = makeRobot;
