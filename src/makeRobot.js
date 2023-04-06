@@ -40,11 +40,11 @@
 function makeRobot(name, wheels, version) {
   const robot = {
 
-    data: {
-      name,
-      wheels,
-      version,
-    },
+    name,
+
+    wheels,
+
+    version,
 
     coords: {
       x: 0,
