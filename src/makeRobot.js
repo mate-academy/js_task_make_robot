@@ -66,14 +66,12 @@ wheels: ${this.wheels}`;
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(value) {
-      if (value < 0) {
-        return this;
+    goForward(value = 0) {
+      if (value > 1) {
+        this.coords.y += value;
       }
 
-      if (typeof value === 'number' && value > 1) {
-        this.coords.y += value;
-      } else {
+      if (value === 0) {
         this.coords.y++;
       }
 
@@ -92,28 +90,24 @@ wheels: ${this.wheels}`;
       return this;
     },
 
-    goRight(value) {
-      if (value < 0) {
-        return this;
+    goRight(value = 0) {
+      if (value > 1) {
+        this.coords.x += value;
       }
 
-      if (typeof value === 'number' && value > 1) {
-        this.coords.x += value;
-      } else {
+      if (value === 0) {
         this.coords.x++;
       }
 
       return this;
     },
 
-    goLeft(value) {
-      if (value < 0) {
-        return this;
+    goLeft(value = 0) {
+      if (value > 1) {
+        this.coords.x -= value;
       }
 
-      if (typeof value === 'number' && value > 1) {
-        this.coords.x -= value;
-      } else {
+      if (value === 0) {
         this.coords.x--;
       }
 
