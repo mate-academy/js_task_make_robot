@@ -56,56 +56,40 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(number) {
-      switch (true) {
-        case number === undefined:
-          this.coords.y += 1;
-          break;
-        case number >= 0:
-          this.coords.y += number;
-          break;
-        default:
+      if (number === undefined) {
+        this.coords.y += 1;
+      } else if (number >= 0) {
+        this.coords.y += number;
       }
 
       return this;
     },
 
     goBack(number) {
-      switch (true) {
-        case number === undefined:
-          this.coords.y -= 1;
-          break;
-        case number >= 0:
-          this.coords.y -= number;
-          break;
-        default:
+      if (number === undefined) {
+        this.coords.y -= 1;
+      } else if (number >= 0) {
+        this.coords.y -= number;
       }
 
       return this;
     },
 
     goRight(number) {
-      switch (true) {
-        case number === undefined:
-          this.coords.x += 1;
-          break;
-        case number >= 0:
-          this.coords.x += number;
-          break;
-        default:
+      if (number === undefined) {
+        this.coords.x += 1;
+      } else if (number >= 0) {
+        this.coords.x += number;
       }
 
       return this;
     },
 
     goLeft(number) {
-      switch (true) {
-        case number === undefined:
-          this.coords.x -= 1;
-          break;
-        case number >= 0:
-          this.coords.x -= number;
-          break;
-        default:
+      if (number === undefined) {
+        this.coords.x -= 1;
+      } else if (number >= 0) {
+        this.coords.x -= number;
       }
 
       return this;
