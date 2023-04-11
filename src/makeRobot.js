@@ -66,49 +66,33 @@ wheels: ${this.wheels}`;
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(value = 0) {
-      if (value > 1) {
+    goForward(value = 1) {
+      if (value >= 1) {
         this.coords.y += value;
       }
 
-      if (value === 0) {
-        this.coords.y++;
-      }
-
       return this;
     },
 
-    goBack(value = 0) {
-      if (value > 1) {
+    goBack(value = 1) {
+      if (value >= 1) {
         this.coords.y -= value;
       }
 
-      if (value === 1 || value === 0) {
-        this.coords.y--;
-      }
-
       return this;
     },
 
-    goRight(value = 0) {
-      if (value > 1) {
+    goRight(value = 1) {
+      if (value >= 1) {
         this.coords.x += value;
       }
 
-      if (value === 0) {
-        this.coords.x++;
-      }
-
       return this;
     },
 
-    goLeft(value = 0) {
-      if (value > 1) {
+    goLeft(value = 1) {
+      if (value >= 1) {
         this.coords.x -= value;
-      }
-
-      if (value === 0) {
-        this.coords.x--;
       }
 
       return this;
