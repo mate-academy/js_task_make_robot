@@ -44,10 +44,8 @@ function makeRobot(name, wheels, version) {
     version,
 
     get info() {
-      return `name: ${
-        this.name}, chip version: ${
-        this.version}, wheels: ${
-        this.wheels}`;
+      return 'name: ' + this.name + ', chip version: '
+      + this.version + ', wheels: ' + this.wheels;
     },
 
     coords: {
@@ -59,40 +57,32 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(step) {
-      if (!step) {
-        this.coords.y++;
-      } else if (step >= 0) {
+    goForward(step = 1) {
+      if (step > 0) {
         this.coords.y += step;
       }
 
       return this;
     },
 
-    goBack(step) {
-      if (!step) {
-        this.coords.y--;
-      } else if (step >= 0) {
+    goBack(step = 1) {
+      if (step > 0) {
         this.coords.y -= step;
       }
 
       return this;
     },
 
-    goRight(step) {
-      if (!step) {
-        this.coords.x++;
-      } else if (step >= 0) {
+    goRight(step = 1) {
+      if (step > 0) {
         this.coords.x += step;
       }
 
       return this;
     },
 
-    goLeft(step) {
-      if (!step) {
-        this.coords.x--;
-      } else if (step >= 0) {
+    goLeft(step = 1) {
+      if (step > 0) {
         this.coords.x -= step;
       }
 
@@ -110,3 +100,11 @@ function makeRobot(name, wheels, version) {
 }
 
 module.exports = makeRobot;
+
+// goBack(step) {
+//   if (!step) {
+//     this.coords.y--;
+//   } else if (step >= 0) {
+//     this.coords.y -= step;
+//   }
+// }
