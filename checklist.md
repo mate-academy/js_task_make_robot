@@ -1,51 +1,50 @@
-1. [CODE KNOWLEDGE] - If in object `variableName === keyName` you can use short syntax:.
+1. [Код знання] - Якщо в об'єкті `variablename === keyName` Ви можете використовувати короткий синтаксис :.
 
-BAD EXAMPLE: 
-```
+Поганий приклад:
+`` `
 {
-  name: name,
-  wheels: wheels,
-  version: version,
+  Ім'я: Ім'я,
+  Колеса: колеса,
+  Версія: Версія,
 }
-```
+`` `
 
-GOOD EXAMPLE:
-```
+Хороший приклад:
+`` `
 {
-  name,
-  wheels,
-  version,
+  ім'я,
+  колеса,
+  версія,
 }
-```
+`` `
 
-2. [CODE KNOWLEDGE] - if you creating a method in the object, you don't need to use function keyword, use shortcut instead.
+2. [Код знання] - Якщо ви створюєте метод у об'єкті, вам не потрібно використовувати ключове слово функціонування, замість цього використовуйте ярлик.
 
 
-BAD EXAMPLE: 
-```
- methodName: function() {
- // your code
+Поганий приклад:
+`` `
+ Методна: функція () {
+ // Ваш код
 },
-```
+`` `
 
-GOOD EXAMPLE:
-```
- methodName() {
- // your code
+Хороший приклад:
+`` `
+ methodname () {
+ // Ваш код
 },
-```
+`` `
 
-3. [CODE STYLE] - you can join arithmetic operators with assignment operators.
+3. [Стиль коду] - Ви можете приєднатися до арифметичних операторів з операторами призначення.
 
-BAD EXAMPLE: 
-```
+Поганий приклад:
+`` `
 robot.coords.x = robot.coords.x + 5;
-```
+`` `
 
-GOOD EXAMPLE:
-```
+Хороший приклад:
+`` `
 robot.coords.x += 5;
-```
+`` `
 
-4. [BASIC RULE] - Don't disable linter unless you have to.
-
+4. [Основне правило] - Не відключайте підняття, якщо вам не доведеться.
