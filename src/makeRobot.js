@@ -38,7 +38,92 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  // Создаем объект робота с помощью метода Object.create()
+  const robot = Object.create(Object.prototype, {
+    name: { value: name },
+    wheels: { value: wheels },
+    version: { value: version },
+    coords: { value: {
+      x: 0, y: 0,
+    } },
+  });
+
+  // Добавляем геттер для информации о роботе
+  Object.defineProperty(robot, 'info', {
+    get() {
+      const nameS = `name: ${this.name}`;
+
+      return `${nameS}, chip version: ${this.version}, wheels: ${this.wheels}`;
+    },
+  });
+
+  // Добавляем геттер для координат робота
+  Object.defineProperty(robot, 'location', {
+    get() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+  });
+
+  // Добавляем методы для перемещения робота
+  robot.goForward = function(steps = 1) {
+    if (steps > 0) {
+      this.coords.y += steps;
+    }
+
+    return this; // для цепочки вызовов
+  };
+
+  robot.goBack = function(steps = 1) {
+    if (steps > 0) {
+      this.coords.y -= steps;
+    }
+
+    return this;
+  };
+
+  robot.goRight = function(steps = 1) {
+    if (steps > 0) {
+      this.coords.x += steps;
+    }
+
+    return this;
+  };
+
+  robot.goLeft = function(steps = 1) {
+    if (steps > 0) {
+      this.coords.x -= steps;
+    }
+
+    return this;
+  };
+
+  // Добавляем метод для запроса эвакуации робота
+  robot.evacuate = function() {
+    this.coords.x = 1400;
+    this.coords.y = 500;
+  };
+
+  // Возвращаем объект робота из функции
+  return robot;
 }
+
+// // Создаем нового робота с помощью функции makeRobot()
+// const r2d2 = makeRobot('R2D2', 4, 3);
+
+// // Проверяем информацию и координаты робота
+// console.log(r2d2.info); // name:R2D2, chip version:3 , wheels:4
+// console.log(r2d2.location); // R2D2:x=0 , y=0
+
+// // Перемещаем робота по координатам
+// r2d2.goForward(5).goRight(3).goBack(4).goLeft(6);
+
+// // Проверяем координаты робота после перемещения
+// console.log(r2d2.location); // R2D2:x=-3 , y=1
+
+// // Запрашиваем эвакуацию робота
+// r2d2.evacuate();
+
+// // Проверяем координаты робота после эвакуации
+// console.log(r2d2.location); // R2D2:x=1400 , y=500
 
 module.exports = makeRobot;
