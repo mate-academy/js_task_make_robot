@@ -38,9 +38,6 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  let xCoordinate = 0;
-  let yCoordinate = 0;
-
   const robot = {
     name,
     wheels,
@@ -53,51 +50,55 @@ function makeRobot(name, wheels, version) {
     },
 
     get location() {
-      return `${this.name}: x=${xCoordinate}, y=${yCoordinate}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goRight(stepValue = 1, oneStep = 1) {
-      if (!(stepValue > 0)) {
+    goRight(stepValue = 1) {
+      if (stepValue > 0) {
+        this.coords.x += stepValue;
+
         return this;
       }
 
-      xCoordinate += oneStep * stepValue;
-      this.coords.x += xCoordinate;
-
-      return this;
+      if (stepValue <= 0) {
+        return this;
+      }
     },
 
-    goLeft(stepValue = 1, oneStep = 1) {
-      if (!(stepValue > 0)) {
+    goLeft(stepValue = 1) {
+      if (stepValue > 0) {
+        this.coords.x -= stepValue;
+
         return this;
       }
 
-      xCoordinate -= oneStep * stepValue;
-      this.coords.x -= xCoordinate;
-
-      return this;
+      if (stepValue <= 0) {
+        return this;
+      }
     },
 
-    goBack(stepValue = 1, oneStep = 1) {
-      if (!(stepValue > 0)) {
+    goBack(stepValue = 1) {
+      if (stepValue > 0) {
+        this.coords.y -= stepValue;
+
         return this;
       }
 
-      yCoordinate -= oneStep * stepValue;
-      this.coords.y -= yCoordinate;
-
-      return this;
+      if (stepValue <= 0) {
+        return this;
+      }
     },
 
-    goForward(stepValue = 1, oneStep = 1) {
-      if (!(stepValue > 0)) {
+    goForward(stepValue = 1) {
+      if (stepValue > 0) {
+        this.coords.y += stepValue;
+
         return this;
       }
 
-      yCoordinate += oneStep * stepValue;
-      this.coords.y += yCoordinate;
-
-      return this;
+      if (stepValue <= 0) {
+        return this;
+      }
     },
 
     coords: {
