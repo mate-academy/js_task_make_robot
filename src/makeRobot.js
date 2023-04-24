@@ -56,14 +56,6 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    // set steps(move) {
-    //   const moves = move.split(', ');
-
-    //   for (const key in moves) {
-    //     return move[key];
-    //   }
-    // },
-
     goRight(x = 1) {
       if (x < 0) { } else {
         this.coords.x += x;
