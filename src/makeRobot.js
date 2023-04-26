@@ -5,7 +5,7 @@
  * you into the Tech team, you will learn to program robots together
  * with the team! Are you in business As a test task, you will need to
  * program our equipment that makes robots.
- *
+ * 
  Create a makeRobot function that takes the string name and the number
  wheels, version and returns the robot object.
  The robot coming off the assembly line must be able to:
