@@ -38,17 +38,16 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  const robotArr = {
+  const robot = {
     name,
     wheels,
     version,
     coords: {
-      x: 0, y: 0,
+      x: 0,
+      y: 0,
     },
     get info() {
-      return `name: ${
-        this.name
-      }, chip version: ${
+      return `name: ${this.name}, chip version: ${
         this.version}, wheels: ${this.wheels}`;
     },
     get location() {
@@ -94,7 +93,7 @@ function makeRobot(name, wheels, version) {
 
   };
 
-  return robotArr;
+  return robot;
 }
 
 module.exports = makeRobot;
