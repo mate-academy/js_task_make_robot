@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 'use strict';
 
 /**
@@ -84,7 +83,8 @@ function makeRobot(name, wheels, version) {
       this.coords.y = 500;
     },
     get info() {
-      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+      return `name: ${this.name}, chip version: ${this.version},`
+      + ` wheels: ${this.wheels}`;
     },
   };
 
