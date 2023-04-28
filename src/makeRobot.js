@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 'use strict';
 
 /**
@@ -50,37 +51,29 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(step = 1) {
-      const actualStep = step;
-
       if (step >= 0) {
-        this.coords.y += actualStep;
+        this.coords.y += step;
       }
 
       return this;
     },
     goBack(step = 1) {
-      const actualStep = step;
-
       if (step >= 0) {
-        this.coords.y -= actualStep;
+        this.coords.y -= step;
       }
 
       return this;
     },
     goRight(step = 1) {
-      const actualStep = step;
-
       if (step >= 0) {
-        this.coords.x += actualStep;
+        this.coords.x += step;
       }
 
       return this;
     },
     goLeft(step = 1) {
-      const actualStep = step;
-
       if (step >= 0) {
-        this.coords.x -= actualStep;
+        this.coords.x -= step;
       }
 
       return this;
@@ -91,8 +84,7 @@ function makeRobot(name, wheels, version) {
       this.coords.y = 500;
     },
     get info() {
-      return 'name: ' + this.name + ', chip version: ' + this.version
-      + ', wheels: ' + this.wheels;
+      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
     },
   };
 
