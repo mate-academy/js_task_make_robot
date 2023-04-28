@@ -39,9 +39,9 @@
  */
 function makeRobot(name, wheels, version) {
   const object = {
-    name: name,
-    wheels: wheels,
-    version: version,
+    name,
+    wheels,
+    version,
     coords: {
       x: 0, y: 0,
     },
@@ -50,42 +50,38 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(step = 1) {
-      let actualStep = step;
+      const actualStep = step;
 
-      if (step < 0) {
-        actualStep = 0;
+      if (step >= 0) {
+        this.coords.y += actualStep;
       }
-      this.coords.y += actualStep;
 
       return this;
     },
     goBack(step = 1) {
-      let actualStep = step;
+      const actualStep = step;
 
-      if (step < 0) {
-        actualStep = 0;
+      if (step >= 0) {
+        this.coords.y -= actualStep;
       }
-      this.coords.y -= actualStep;
 
       return this;
     },
     goRight(step = 1) {
-      let actualStep = step;
+      const actualStep = step;
 
-      if (step < 0) {
-        actualStep = 0;
+      if (step >= 0) {
+        this.coords.x += actualStep;
       }
-      this.coords.x += actualStep;
 
       return this;
     },
     goLeft(step = 1) {
-      let actualStep = step;
+      const actualStep = step;
 
-      if (step < 0) {
-        actualStep = 0;
+      if (step >= 0) {
+        this.coords.x -= actualStep;
       }
-      this.coords.x -= actualStep;
 
       return this;
     },
