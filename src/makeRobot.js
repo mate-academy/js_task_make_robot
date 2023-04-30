@@ -25,6 +25,31 @@
  *    which will call rescuers and transfer it to the service center
  *    at the coordinates x: 1400, y: 500.
  *
+ * * Mate Robot Factory вражені вашим успіхом, вони готові прийняти
+ * Ви в технічній команді, ви навчитеся програмувати роботів разом
+ * з командою! Ви займаєтесь бізнесом Як тестове завдання вам знадобиться
+ * програмуйте наше обладнання, яке робить роботів.
+ *
+ * Створіть функцію makeRobot, яка приймає назву рядка та число
+ * колеса, версія і повертає об'єкт робота.
+ * Робот, який сходить з конвеєра, повинен вміти:
+ * - Надайте інформацію про себе за допомогою отримання інформації.
+ * robot.info === 'name:%name%, версія мікросхеми: %version%, колеса: %wheels%'
+ * - Надайте координати свого місцезнаходження через місцезнаходження.
+ * robot.location === '%name%: x=14, y=21'
+ * — Є методи для переміщення goForward, goBack, goRight, goLeft.
+ * - Методи пересування повинні мати можливість використовуватися з ланцюгом.
+ * robot.goForward().goForward().goForward().goLeft()
+ * - Методи за замовчуванням, які переміщують роботу на 1 в правильному
+ * напрямку.
+ * Це значення можна збільшити, передавши потрібне число в метод.
+ * Від'ємні числа не повинні впливати на розташування робота. goLeft(3)
+ * - Координати робота повинні зберігатися в координатах об'єкта,
+ * клавіші x і y всередині робота.
+ * - Робот повинен мати можливість запросити евакуацію robot.evacuate(),
+ * який викличе рятувальників і передасть до сервісного центру
+ * за координатами x: 1400, y: 500.
+ *
  * @typedef {object} Robot
  * @property {string} name
  * @property {number} wheels
@@ -38,7 +63,52 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    get info() {
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+    },
+    coords: {
+      x: 0,
+      y: 0,
+    },
+    get location() {
+      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
+      }
+
+      return this;
+    },
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
+      }
+
+      return this;
+    },
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
+      }
+
+      return this;
+    },
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
+      }
+
+      return this;
+    },
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
