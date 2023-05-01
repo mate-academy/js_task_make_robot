@@ -48,54 +48,54 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward: function(value) {
-      if ((value !== 0) && (value !== undefined) && (value > 0)) {
-        this.coords.y += 1 * value;
+      if ((value === 1) || (value === undefined)) {
+        this.coords.y++;
       };
 
-      if (value === undefined) {
-        this.coords.y += 1;
+      if ((value > 1) && (value !== undefined)) {
+        this.coords.y += value;
       }
 
-      return this.coords.y;
+      return this;
     },
 
     goBack: function(value) {
-      if ((value !== 0) && (value !== undefined) && (value > 0)) {
-        this.coords.y -= 1 * value;
+      if ((value === 1) || (value === undefined)) {
+        this.coords.y--;
       };
 
-      if (value === undefined) {
-        this.coords.y -= 1;
+      if ((value > 1) && (value !== undefined)) {
+        this.coords.y -= value;
       }
 
-      return this.coords.y;
+      return this;
     },
 
     goLeft: function(value) {
-      if ((value !== 0) && (value !== undefined) && (value > 0)) {
-        this.coords.x -= 1 * value;
+      if ((value === 1) || (value === undefined)) {
+        this.coords.x--;
       };
 
-      if (value === undefined) {
-        this.coords.x -= 1;
+      if ((value > 1) && (value !== undefined)) {
+        this.coords.x -= value;
       }
 
-      return this.coords.x;
+      return this;
     },
 
     goRight: function(value) {
-      if ((value !== 0) && (value !== undefined) && (value > 0)) {
-        this.coords.x += 1 * value;
+      if ((value === 1) || (value === undefined)) {
+        this.coords.x++;
       };
 
-      if (value === undefined) {
-        this.coords.x += 1;
+      if ((value > 1) && (value !== undefined)) {
+        this.coords.x += value;
       }
 
-      return this.coords.x;
+      return this;
     },
 
-    evacuated: function() {
+    evacuate: function() {
       this.coords.x = 1400;
       this.coords.y = 500;
 
