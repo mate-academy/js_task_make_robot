@@ -24,6 +24,7 @@
  *  - The robot must be able to request the evacuation of robot.evacuate(),
  *    which will call rescuers and transfer it to the service center
  *    at the coords x: 1400, y: 500.
+
  *
  * @typedef {object} Robot
  * @property {string} name
@@ -47,15 +48,7 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
 
-    goForward(step) {
-      if (step === undefined) {
-        this.coords.y += 1;
-      }
-
-      if (step < 0) {
-        return this;
-      }
-
+    goForward(step = 1) {
       if (step > 0) {
         this.coords.y += step;
       }
@@ -63,15 +56,7 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goBack(step) {
-      if (step === undefined) {
-        this.coords.y -= 1;
-      }
-
-      if (step < 0) {
-        return this;
-      }
-
+    goBack(step = 1) {
       if (step > 0) {
         this.coords.y -= step;
       }
@@ -79,15 +64,7 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goRight(step) {
-      if (step === undefined) {
-        this.coords.x += 1;
-      }
-
-      if (step < 0) {
-        return this;
-      }
-
+    goRight(step = 1) {
       if (step > 0) {
         this.coords.x += step;
       }
@@ -95,15 +72,7 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goLeft(step) {
-      if (step === undefined) {
-        this.coords.x -= 1;
-      }
-
-      if (step < 0) {
-        return this;
-      }
-
+    goLeft(step = 1) {
       if (step > 0) {
         this.coords.x -= step;
       }
@@ -117,8 +86,9 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      return `name: ${this.name}, chip version:`
-      + ` ${this.version}, wheels: ${this.wheels}`;
+      return `name: ${this.name}, `
+        + `chip version: ${this.version}, `
+        + `wheels: ${this.wheels}`;
     },
 
     get location() {
