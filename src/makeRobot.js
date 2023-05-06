@@ -68,7 +68,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goBack(i = 1) {
-      if (i >= 0) {
+      if (i > 0) {
         this.coords.y -= i;
       }
 
@@ -76,7 +76,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goRight(i = 1) {
-      if (i >= 0) {
+      if (i > 0) {
         this.coords.x += i;
       }
 
@@ -84,7 +84,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goLeft(i = 1) {
-      if (i >= 0) {
+      if (i > 0) {
         this.coords.x -= i;
       }
 
