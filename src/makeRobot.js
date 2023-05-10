@@ -39,20 +39,20 @@
  */
 function makeRobot(name, wheels, version) {
   return {
-    _name: name,
-    _wheels: wheels,
-    _version: version,
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
     },
 
     get info() {
-      return `name: ${this._name},`
-        + ` chip version: ${this._version}, wheels: ${this._wheels}`;
+      return `name: ${this.name},`
+        + ` chip version: ${this.version}, wheels: ${this.wheels}`;
     },
     get location() {
-      return `${this._name}: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
     _changeCoorditates: function(step, axis, isPositive) {
       if (step > 0) {
@@ -61,19 +61,19 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
-    goForward: function(step = 1) {
+    goForward(step = 1) {
       return this._changeCoorditates(step, 'y', true);
     },
-    goBack: function(step = 1) {
+    goBack(step = 1) {
       return this._changeCoorditates(step, 'y', false);
     },
-    goRight: function(step = 1) {
+    goRight(step = 1) {
       return this._changeCoorditates(step, 'x', true);
     },
-    goLeft: function(step = 1) {
+    goLeft(step = 1) {
       return this._changeCoorditates(step, 'x', false);
     },
-    evacuate: function() {
+    evacuate() {
       this.coords.x = 1400;
       this.coords.y = 500;
 
