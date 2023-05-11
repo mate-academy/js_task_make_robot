@@ -38,60 +38,61 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
+  const initialValue = 0;
+  const evacuateValueX = 1400;
+  const evacuateValueY = 500;
   const newRobot = {
-    name: name,
-    wheels: wheels,
-    version: version,
+    name,
+    wheels,
+    version,
     coords: {
-      x: 0,
-      y: 0,
+      x: initialValue,
+      y: initialValue,
     },
     get info() {
       return 'name: ' + this.name + ', chip version: ' + this.version
       + ', wheels: ' + this.wheels;
     },
+
     get location() {
       return this.name + ': x=' + this.coords.x + ', y=' + this.coords.y;
     },
+
     goRight(value = 1) {
-      if (value < 0) {
-        return this;
+      if (value >= 0) {
+        this.coords.x += value;
       }
-
-      this.coords.x += value;
 
       return this;
     },
+
     goLeft(value = 1) {
-      if (value < 0) {
-        return this;
+      if (value >= 0) {
+        this.coords.x -= value;
       }
-
-      this.coords.x -= value;
 
       return this;
     },
+
     goBack(value = 1) {
-      if (value < 0) {
-        return this;
+      if (value >= 0) {
+        this.coords.y -= value;
       }
-
-      this.coords.y -= value;
 
       return this;
     },
+
     goForward(value = 1) {
-      if (value < 0) {
-        return this;
+      if (value >= 0) {
+        this.coords.y += value;
       }
-
-      this.coords.y += value;
 
       return this;
     },
+
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = evacuateValueX;
+      this.coords.y = evacuateValueY;
 
       return this;
     },
