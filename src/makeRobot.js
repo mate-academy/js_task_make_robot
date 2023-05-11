@@ -47,51 +47,39 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
     get info() {
-      return `name: ${robot.name}, chip version: ${robot.version}, wheels: ${
-        robot.wheels}`;
+      return `name: ${this.name}, chip version: ${this.version}, wheels: ${
+        this.wheels}`;
     },
     get location() {
-      return `${robot.name}: x=${robot.coords.x}, y=${robot.coords.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
     goForward(step = 1) {
-      let numbersOfSteps = step;
-
-      if (numbersOfSteps < 0) {
-        numbersOfSteps = 0;
+      if (step > 0) {
+        this.coords.y += step;
       }
-      robot.coords.y += numbersOfSteps;
 
-      return robot;
+      return this;
     },
     goBack(step = 1) {
-      let numbersOfSteps = step;
-
-      if (numbersOfSteps < 0) {
-        numbersOfSteps = 0;
+      if (step > 0) {
+        this.coords.y -= step;
       }
-      robot.coords.y -= numbersOfSteps;
 
-      return robot;
+      return this;
     },
     goRight(step = 1) {
-      let numbersOfSteps = step;
-
-      if (numbersOfSteps < 0) {
-        numbersOfSteps = 0;
+      if (step > 0) {
+        this.coords.x += step;
       }
-      robot.coords.x += numbersOfSteps;
 
-      return robot;
+      return this;
     },
     goLeft(step = 1) {
-      let numbersOfSteps = step;
-
-      if (numbersOfSteps < 0) {
-        numbersOfSteps = 0;
+      if (step > 0) {
+        this.coords.x -= step;
       }
-      robot.coords.x -= numbersOfSteps;
 
-      return robot;
+      return this;
     },
     evacuate() {
       robot.coords.x = 1400;
