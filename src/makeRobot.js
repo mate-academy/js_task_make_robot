@@ -38,9 +38,13 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
+  const intialCoordinate = 0;
+  const evecuateCoordX = 1400;
+  const evecuateCoordY = 500;
+
   const coords = {
-    x: 0,
-    y: 0,
+    x: intialCoordinate,
+    y: intialCoordinate,
   };
 
   const robot = {
@@ -55,7 +59,8 @@ function makeRobot(name, wheels, version) {
     },
 
     get location() {
-      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+      return this.name + ': x='
+      + this.coords.x + ', y=' + this.coords.y;
     },
 
     goForward(distance = 1) {
@@ -91,11 +96,8 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      const centerX = 1400;
-      const centerY = 500;
-
-      this.coords.x = centerX;
-      this.coords.y = centerY;
+      this.coords.x = evecuateCoordX;
+      this.coords.y = evecuateCoordY;
 
       return this;
     },
