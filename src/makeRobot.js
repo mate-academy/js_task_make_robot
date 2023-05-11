@@ -15,13 +15,18 @@
  */
 
 function makeRobot(name, wheels, version) {
+  const initialCoordinates = 0;
+  const evacuateCoordinateX = 1400;
+  const evacuateCoordinateY = 500;
+  const initialStep = 1;
+
   return {
-    name: name,
-    wheels: wheels,
-    version: version,
+    name,
+    wheels,
+    version,
     coords: {
-      x: 0,
-      y: 0,
+      x: initialCoordinates,
+      y: initialCoordinates,
     },
 
     get info() {
@@ -35,11 +40,11 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = evacuateCoordinateX;
+      this.coords.y = evacuateCoordinateY;
     },
 
-    goRight(x = 1) {
+    goRight(x = initialStep) {
       if (x >= 0) {
         this.coords.x += x;
       }
@@ -47,7 +52,7 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goLeft(x = 1) {
+    goLeft(x = initialStep) {
       if (x >= 0) {
         this.coords.x -= x;
       }
@@ -55,7 +60,7 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goForward(y = 1) {
+    goForward(y = initialStep) {
       if (y >= 0) {
         this.coords.y += y;
       }
@@ -63,7 +68,7 @@ function makeRobot(name, wheels, version) {
       return this;
     },
 
-    goBack(y = 1) {
+    goBack(y = initialStep) {
       if (y >= 0) {
         this.coords.y -= y;
       }
