@@ -40,6 +40,8 @@
 function makeRobot(name, wheels, version) {
   const initialPosX = 0;
   const initialPosY = 0;
+  const evacuatePosX = 1400;
+  const evacuatePosY = 500;
 
   const robot = {
     name,
@@ -59,42 +61,39 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(value = 1) {
-      if (value > 0) {
-        this.coords.y += value;
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
       }
 
-      return robot;
+      return this;
     },
 
-    goBack(value = 1) {
-      if (value > 0) {
-        this.coords.y -= value;
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
       }
 
-      return robot;
+      return this;
     },
 
-    goRight(value = 1) {
-      if (value > 0) {
-        this.coords.x += value;
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
       }
 
-      return robot;
+      return this;
     },
 
-    goLeft(value = 1) {
-      if (value > 0) {
-        this.coords.x -= value;
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
       }
 
-      return robot;
+      return this;
     },
 
     evacuate() {
-      const evacuatePosX = 1400;
-      const evacuatePosY = 500;
-
       this.coords.x = evacuatePosX;
       this.coords.y = evacuatePosY;
     },
