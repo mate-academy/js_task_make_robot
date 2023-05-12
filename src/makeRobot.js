@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Mate Robot Factory impressed by your success, they are ready to accept
+ * Mate Robot Factory impressed by your success, they are ready to acceptnp
  * you into the Tech team, you will learn to program robots together
  * with the team! Are you in business As a test task, you will need to
  * program our equipment that makes robots.
@@ -17,7 +17,7 @@
  *  - Movement methods must be able to be used with a chain.
  *    robot.goForward().goForward().goForward().goLeft()
  *  - Default methods that move the work by 1 in the right direction.
- *    This value can be increased by passing the desired number to the method.
+ *    This step can be increased by passing the desired number to the method.
  *    Negative numbers should not affect the location of the robot. goLeft(3)
  *  - The coordinates of the robot must be stored in the object coords,
  *    the keys x and y inside the robot.
@@ -61,46 +61,41 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      const evacuateCoordsX = 1400;
+      const evacuateCoordsY = 500;
+
+      this.coords.x = evacuateCoordsX;
+      this.coords.y = evacuateCoordsY;
     },
 
-    goForward(value = 1) {
-      if (value < 0) {
-        return this;
-      };
-
-      this.coords.y += value;
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
+      }
 
       return this;
     },
 
-    goBack(value = 1) {
-      if (value < 0) {
-        return this;
-      };
-
-      this.coords.y -= value;
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
+      }
 
       return this;
     },
 
-    goRight(value = 1) {
-      if (value < 0) {
-        return this;
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
       };
-
-      this.coords.x += value;
 
       return this;
     },
 
-    goLeft(value = 1) {
-      if (value < 0) {
-        return this;
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
       };
-
-      this.coords.x -= value;
 
       return this;
     },
