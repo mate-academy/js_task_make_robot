@@ -89,31 +89,31 @@ function makeRobot(name, wheels, version) {
     goForward(distance) {
       this.changeCoordinates('forward', distance);
 
-      return robot;
+      return this;
     },
 
     goBack(distance) {
       this.changeCoordinates('back', distance);
 
-      return robot;
+      return this;
     },
 
     goLeft(distance) {
       this.changeCoordinates('left', distance);
 
-      return robot;
+      return this;
     },
 
     goRight(distance) {
       this.changeCoordinates('right', distance);
 
-      return robot;
+      return this;
     },
 
     evacuate() {
       this.changeCoordinates('evacuate');
 
-      return 'Help me!';
+      return this;
     },
   };
 
