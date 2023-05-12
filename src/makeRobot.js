@@ -38,13 +38,14 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  const intialCoordinate = 0;
+  const intialCoordinateX = 0;
+  const intialCoordinateY = 0;
   const evecuateCoordX = 1400;
   const evecuateCoordY = 500;
 
   const coords = {
-    x: intialCoordinate,
-    y: intialCoordinate,
+    x: intialCoordinateX,
+    y: intialCoordinateY,
   };
 
   const robot = {
