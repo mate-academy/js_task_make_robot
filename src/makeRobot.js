@@ -47,47 +47,39 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
 
-    goBack: function(stepsRobot = 1) {
+    goBack(stepsRobot = 1) {
       if (stepsRobot > 0) {
         this.coords.y -= stepsRobot;
-
-        return this;
       }
 
       return this;
     },
 
-    goForward: function(stepsRobot = 1) {
+    goForward(stepsRobot = 1) {
       if (stepsRobot > 0) {
         this.coords.y += stepsRobot;
-
-        return this;
       }
 
       return this;
     },
 
-    goLeft: function(stepsRobot = 1) {
+    goLeft(stepsRobot = 1) {
       if (stepsRobot > 0) {
         this.coords.x -= stepsRobot;
-
-        return this;
       }
 
       return this;
     },
 
-    goRight: function(stepsRobot = 1) {
+    goRight(stepsRobot = 1) {
       if (stepsRobot > 0) {
         this.coords.x += stepsRobot;
-
-        return this;
       }
 
       return this;
     },
 
-    evacuate: function() {
+    evacuate() {
       this.coords.x = 1400;
       this.coords.y = 500;
 
@@ -96,8 +88,8 @@ function makeRobot(name, wheels, version) {
 
     get info() {
       return 'name: '
-      + this.name + ', chip version: '
-      + this.version + ', wheels: ' + this.wheels;
+        + this.name + ', chip version: '
+        + this.version + ', wheels: ' + this.wheels;
     },
 
     get location() {
