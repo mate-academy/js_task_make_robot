@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * Mate Robot Factory impressed by your success, they are ready to accept
@@ -93,13 +93,5 @@ function makeRobot(name, wheels, version) {
 
   return robot;
 }
-
-// const robot1 = makeRobot('Joy', 5, 31);
-
-// robot1.goBack(1).goForward(17).goForward(-1).goLeft(3).goLeft(7).goRight();
-
-// const actual = robot1.location;
-
-// actual = robot1.location;
 
 module.exports = makeRobot;
