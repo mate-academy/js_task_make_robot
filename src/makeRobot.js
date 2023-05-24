@@ -38,14 +38,17 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  const robotName = name;
-  const robotWheels = wheels;
-  const robotVersion = version;
+  return {
+    name,
+    wheels,
+    version,
 
-  const robot = {
-    name: robotName,
-    wheels: robotWheels,
-    version: robotVersion,
+    evacuate() {
+      this.coords = {
+        x: 1400,
+        y: 500,
+      };
+    },
 
     get info() {
       return 'name: ' + this.name + ', chip version: '
@@ -61,18 +64,11 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
 
-    goForward(step) {
+    goForward(step = 1) {
       if (step < 0) {
         return this;
       }
-
-      if (step >= 0) {
-        this.coords.y += step;
-
-        return this;
-      }
-
-      this.coords.y++;
+      this.coords.y += step;
 
       return this;
     },
@@ -124,16 +120,7 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
-
-    evacuate() {
-      this.coords = {
-        x: 1400,
-        y: 500,
-      };
-    },
   };
-
-  return robot;
 }
 
 module.exports = makeRobot;
