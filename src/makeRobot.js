@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * Mate Robot Factory impressed by your success, they are ready to accept
@@ -38,7 +38,60 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    x: 0,
+    y: 0,
+    get coords() {
+      return {
+        x: this.x,
+        y: this.y,
+      };
+    },
+    get info() {
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+    },
+    get location() {
+      return `${name}: x=${robot.x}, y=${robot.y}`;
+    },
+    goForward(value = 1) {
+      if (value < 0) {
+        return this;
+      }
+      this.y += value;
+
+      return this;
+    },
+    goBack(value = 1) {
+      if (value < 0) {
+        return this;
+      }
+      this.y -= value;
+
+      return this;
+    },
+    goRight(value = 1) {
+      if (value < 0) {
+        return this;
+      }
+      this.x += value;
+
+      return this;
+    },
+    goLeft(value = 1) {
+      if (value < 0) {
+        return this;
+      }
+      this.x -= value;
+
+      return this;
+    },
+    evacuate() {
+      this.x = 1400;
+      this.y = 500;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
