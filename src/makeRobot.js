@@ -38,7 +38,74 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  return {
+    name,
+    wheels,
+    version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      // eslint-disable-next-line max-len
+      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    evacuate() {
+      this.coords = {
+        x: 1400,
+        y: 500,
+      };
+    },
+
+    isPositiveNumber(steps) {
+      if (typeof steps === 'number' && steps > 0) {
+        return true;
+      }
+
+      // eslint-disable-next-line no-undef
+      alert('Input should be a positive number');
+
+      return false;
+    },
+
+    goRight(steps = 1) {
+      if (this.isPositiveNumber(steps)) {
+        this.coords.x += steps;
+      }
+
+      return this;
+    },
+
+    goLeft(steps = 1) {
+      if (this.isPositiveNumber(steps)) {
+        this.coords.x -= steps;
+      }
+
+      return this;
+    },
+
+    goBack(steps = 1) {
+      if (this.isPositiveNumber(steps)) {
+        this.coords.y -= steps;
+      }
+
+      return this;
+    },
+
+    goForward(steps = 1) {
+      if (this.isPositiveNumber(steps)) {
+        this.coords.y += steps;
+      }
+
+      return this;
+    },
+  };
 }
 
 module.exports = makeRobot;
