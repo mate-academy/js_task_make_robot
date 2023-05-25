@@ -39,14 +39,13 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-    x: 0,
-    y: 0,
+    name: name,
+    wheels: wheels,
+    version: version,
 
-    get coords() {
-      return {
-        x: this.x,
-        y: this.y,
-      };
+    coords: {
+      x: 0,
+      y: 0,
     },
 
     get info() {
@@ -54,12 +53,12 @@ function makeRobot(name, wheels, version) {
     },
 
     get location() {
-      return `${name}: x=${this.x}, y=${this.y}`;
+      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goForward(step = 1) {
       if (step > 0) {
-        this.y += step;
+        this.coords.y += step;
       }
 
       return this;
@@ -67,7 +66,7 @@ function makeRobot(name, wheels, version) {
 
     goBack(step = 1) {
       if (step > 0) {
-        this.y -= step;
+        this.coords.y -= step;
       }
 
       return this;
@@ -75,7 +74,7 @@ function makeRobot(name, wheels, version) {
 
     goRight(step = 1) {
       if (step > 0) {
-        this.x += step;
+        this.coords.x += step;
       }
 
       return this;
@@ -83,15 +82,15 @@ function makeRobot(name, wheels, version) {
 
     goLeft(step = 1) {
       if (step > 0) {
-        this.x -= step;
+        this.coords.x -= step;
       }
 
       return this;
     },
 
     evacuate() {
-      this.x = 1400;
-      this.y = 500;
+      this.coords.x = 1400;
+      this.coords.y = 500;
     },
   };
 
