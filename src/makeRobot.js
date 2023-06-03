@@ -64,7 +64,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(step = 1) {
-      if (step > 0) {
+      if (this.isPositiveNumber(step)) {
         this.coords.y += step;
       }
 
@@ -72,7 +72,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goBack(step = 1) {
-      if (step > 0) {
+      if (this.isPositiveNumber(step)) {
         this.coords.y -= step;
       }
 
@@ -80,7 +80,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goRight(step = 1) {
-      if (step > 0) {
+      if (this.isPositiveNumber(step)) {
         this.coords.x += step;
       }
 
@@ -88,7 +88,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goLeft(step = 1) {
-      if (step > 0) {
+      if (this.isPositiveNumber(step)) {
         this.coords.x -= step;
       }
 
@@ -98,6 +98,10 @@ function makeRobot(name, wheels, version) {
     evacuate() {
       this.coords.x = evacuateX;
       this.coords.y = evacuateY;
+    },
+
+    isPositiveNumber(number) {
+      return typeof number === 'number' && number > 0;
     },
   };
 
