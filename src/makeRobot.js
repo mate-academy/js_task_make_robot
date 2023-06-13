@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Mate Robot Factory impressed by your success, they are ready to accept
