@@ -49,6 +49,7 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
+      // split for tests
       let information = `name: ${this.name}, `;
 
       information += `chip version: ${this.version}, wheels: ${this.wheels}`;
