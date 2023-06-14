@@ -65,7 +65,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(move = 1) {
-      if (move > 0) {
+      if (move >= 0) {
         this.y += move;
       }
 
@@ -81,21 +81,17 @@ function makeRobot(name, wheels, version) {
     },
 
     goLeft(move = 1) {
-      if (move < 0) {
-        return this;
+      if (move >= 0) {
+        this.x -= move;
       }
-
-      this.x -= move;
 
       return this;
     },
 
     goRight(move = 1) {
-      if (move < 0) {
-        return this;
+      if (move >= 0) {
+        this.x += move;
       }
-
-      this.x += move;
 
       return this;
     },
