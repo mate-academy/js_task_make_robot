@@ -48,14 +48,11 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      return (
-        'name: '
-        + this.name
-        + ', chip version: '
-        + this.version
-        + ', wheels: '
-        + this.wheels
-      );
+      const robotName = `name: ${this.name},`;
+      const robotVersion = ` chip version: ${this.version},`;
+      const robotWheels = ` wheels: ${this.wheels}`;
+
+      return robotName + robotVersion + robotWheels;
     },
 
     get location() {
