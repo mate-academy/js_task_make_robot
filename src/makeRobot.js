@@ -25,20 +25,93 @@
  *    which will call rescuers and transfer it to the service center
  *    at the coordinates x: 1400, y: 500.
  *
- * @typedef {object} Robot
- * @property {string} name
- * @property {number} wheels
- * @property {number} version
- * @property {function} info
- *
- * @param {string} name
- * @param {number} wheels
- * @param {number} version
- *
- * @return {Robot}
+*
+* @typedef {object} Robot
+* @property {string} name
+* @property {number} wheels
+* @property {number} version
+* @property {function} info
+*
+* @param {string} name
+* @param {number} wheels
+* @param {number} version
+*
+* @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name,
+    wheels,
+    version,
+    x: 0,
+    y: 0,
+
+    // #region GETs
+
+    get info() {
+      return (
+        `name: ${this.name}, `
+        + `chip version: ${this.version}, `
+        + `wheels: ${this.wheels}`
+      );
+    },
+
+    get location() {
+      return `${this.name}: x=${this.x}, y=${this.y}`;
+    },
+
+    get coords() {
+      return {
+        x: this.x,
+        y: this.y,
+      };
+    },
+
+    // #endregion
+
+    // #region functions
+
+    evacuate() {
+      this.x = 1400;
+      this.y = 500;
+    },
+
+    goForward(moves = 1) {
+      if (moves > 0) {
+        this.y = this.y + moves;
+      }
+
+      return this;
+    },
+
+    goBack(moves = 1) {
+      if (moves > 0) {
+        this.y = this.y - moves;
+      }
+
+      return this;
+    },
+
+    goRight(moves = 1) {
+      if (moves > 0) {
+        this.x = this.x + moves;
+      }
+
+      return this;
+    },
+
+    goLeft(moves = 1) {
+      if (moves > 0) {
+        this.x = this.x - moves;
+      }
+
+      return this;
+    },
+
+    // #endregion
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
