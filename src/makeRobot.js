@@ -25,11 +25,6 @@
  *    which will call rescuers and transfer it to the service center
  *    at the coordinates x: 1400, y: 500.
  *
- * Функція makeRobot створює об'єкт робота
- * на основі переданих параметрів: рядка name,
- * числа wheels і version. Робот, що з'являється
- * з лінії збірки, повинен мати такі можливості:
-
 *
 * @typedef {object} Robot
 * @property {string} name
@@ -42,21 +37,6 @@
 * @param {number} version
 *
 * @return {Robot}
-Надавати інформацію про себе за допомогою геттера info.
-robot.info === 'name:%name%, chip version: %version%, wheels: %wheels%'
-Надавати координати свого розташування за допомогою геттера location.
-robot.location === '%name%: x=14, y=21'
-Мати методи для руху goForward, goBack, goRight та goLeft.
-Методи руху повинні бути використані як ланцюжок.
-robot.goForward().goForward().goForward().goLeft()
-За замовчуванням рухатися на 1 одиницю в правильному напрямку.
-Значення можна збільшити, передаючи потрібне число у метод.
-Від'ємні числа не повинні впливати на розташування робота. goLeft(3)
-Координати робота повинні зберігатись у об'єкті coords з ключами x та y.
-Робот повинен мати можливість запросити
-евакуацію за допомогою robot.evacuate(),
-що викличе службу порятунку і переведе його до сервісного центру
-за координатами x: 1400, y: 500.
  */
 function makeRobot(name, wheels, version) {
   const robot = {
@@ -97,25 +77,33 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(moves = 1) {
-      this.y += moves > 0 ? moves : 0;
+      if (moves > 0) {
+        this.y = this.y + moves;
+      }
 
       return this;
     },
 
     goBack(moves = 1) {
-      this.y -= moves > 0 ? moves : 0;
+      if (moves > 0) {
+        this.y = this.y - moves;
+      }
 
       return this;
     },
 
     goRight(moves = 1) {
-      this.x += moves > 0 ? moves : 0;
+      if (moves > 0) {
+        this.x = this.x + moves;
+      }
 
       return this;
     },
 
     goLeft(moves = 1) {
-      this.x -= moves > 0 ? moves : 0;
+      if (moves > 0) {
+        this.x = this.x - moves;
+      }
 
       return this;
     },
