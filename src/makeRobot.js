@@ -15,17 +15,17 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-    name: name,
-    wheel: wheels,
-    vers: version,
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
     },
     get info() {
       const nameInfo = `name: ${this.name}`;
-      const versionInfo = `chip version: ${this.vers}`;
-      const wheelInfo = `wheels: ${this.wheel}`;
+      const versionInfo = `chip version: ${this.version}`;
+      const wheelInfo = `wheels: ${this.wheels}`;
 
       return `${nameInfo}, ${versionInfo}, ${wheelInfo}`;
     },
