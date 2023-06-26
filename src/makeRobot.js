@@ -37,8 +37,108 @@
  *
  * @return {Robot}
  */
+// function makeRobot(name, wheels, version) {
+//   const robot = {
+//     name,
+//     wheels,
+//     version,
+//     coords: {
+//       x: 0, y: 0,
+//     },
+
+//     get info() {
+//       return `
+//         name: ${this.name},
+//         chip version: ${this.version},
+//         wheels: ${this.wheels}`;
+//     },
+
+//     get location() {
+//       return `
+//         ${this.name}:
+//         x=${this.coords.x},
+//         y=${this.coords.y}`;
+//     },
+
+//     goForward(distance = 1) {
+//       this.coords.y += distance;
+
+//       return this;
+//     },
+
+//     goBack(distance = 1) {
+//       this.coords.y -= distance;
+
+//       return this;
+//     },
+
+//     goRight(distance = 1) {
+//       this.coords.x += distance;
+
+//       return this;
+//     },
+
+//     goLeft(distance = 1) {
+//       this.coords.x -= distance;
+
+//       return this;
+//     },
+
+//     evacuate() {
+//       this.coords.x = 1400;
+//       this.coords.y = 500;
+
+//       return this;
+//     },
+//   };
+
+//   return robot;
+// }
+
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name,
+    wheels,
+    version,
+    coords: {
+      x: 0, y: 0,
+    },
+    get info() {
+      // eslint-disable-next-line max-len
+      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+    },
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+    goForward(steps = 1) {
+      this.coords.y += Math.max(steps, 0);
+
+      return this;
+    },
+    goBack(steps = 1) {
+      this.coords.y -= Math.max(steps, 0);
+
+      return this;
+    },
+    goRight(steps = 1) {
+      this.coords.x += Math.max(steps, 0);
+
+      return this;
+    },
+    goLeft(steps = 1) {
+      this.coords.x -= Math.max(steps, 0);
+
+      return this;
+    },
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+
+      return this;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
