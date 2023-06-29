@@ -57,7 +57,7 @@ function makeRobot(name, wheels, version) {
         return this;
       }
 
-      this.coords.y = this.coords.y + y;
+      this.coords.y += y;
 
       return this;
     },
@@ -66,7 +66,7 @@ function makeRobot(name, wheels, version) {
         return this;
       }
 
-      this.coords.y = this.coords.y - y;
+      this.coords.y -= y;
 
       return this;
     },
@@ -75,7 +75,7 @@ function makeRobot(name, wheels, version) {
         return this;
       }
 
-      this.coords.x = this.coords.x + x;
+      this.coords.x += x;
 
       return this;
     },
@@ -84,7 +84,7 @@ function makeRobot(name, wheels, version) {
         return this;
       }
 
-      this.coords.x = this.coords.x - x;
+      this.coords.x -= x;
 
       return this;
     },
