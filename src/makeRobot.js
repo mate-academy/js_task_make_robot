@@ -51,8 +51,10 @@ function makeRobot(name, wheels, version) {
       return (
         'name: '
         + this.name
-        + ', chip version: ' + this.version
-        + ', wheels: ' + this.wheels
+        + ', chip version: '
+        + this.version
+        + ', wheels: '
+        + this.wheels
       );
     },
 
@@ -61,25 +63,33 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(steps = 1) {
-      this.coords.y += Math.max(steps, 0);
+      if (steps > 0) {
+        this.coords.y += steps;
+      }
 
       return this;
     },
 
     goBack(steps = 1) {
-      this.coords.y -= Math.max(steps, 0);
+      if (steps > 0) {
+        this.coords.y -= steps;
+      }
 
       return this;
     },
 
     goRight(steps = 1) {
-      this.coords.x += Math.max(steps, 0);
+      if (steps > 0) {
+        this.coords.x += steps;
+      }
 
       return this;
     },
 
     goLeft(steps = 1) {
-      this.coords.x -= Math.max(steps, 0);
+      if (steps > 0) {
+        this.coords.x -= steps;
+      }
 
       return this;
     },
