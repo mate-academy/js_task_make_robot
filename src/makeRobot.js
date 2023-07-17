@@ -39,22 +39,21 @@
  */
 function makeRobot(name, wheels, version) {
   // write code here
-  const obj = {
+  const robot = {
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
     },
 
     get info() {
-      return 'name: '
-        + this.name
-        + ', chip version: '
-        + this.version
-        + ', wheels: '
-        + this.wheels;
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
     },
+
     get location() {
-      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goBack(value = 1) {
@@ -64,6 +63,7 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
+
     goForward(value = 1) {
       if (value > 0) {
         this.coords.y += value;
@@ -71,6 +71,7 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
+
     goRight(value = 1) {
       if (value > 0) {
         this.coords.x += value;
@@ -78,6 +79,7 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
+
     goLeft(value = 1) {
       if (value > 0) {
         this.coords.x -= value;
@@ -95,11 +97,7 @@ function makeRobot(name, wheels, version) {
 
   };
 
-  obj.name = name;
-  obj.version = version;
-  obj.wheels = wheels;
-
-  return obj;
+  return robot;
 }
 
 module.exports = makeRobot;
