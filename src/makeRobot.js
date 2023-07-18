@@ -39,7 +39,6 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-
     name,
     version,
     wheels,
@@ -48,55 +47,31 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
 
-    goRight(value) {
-      if (value <= 0) {
-        return this;
-      }
-
-      if (!value) {
-        this.coords.x++;
-      } else {
+    goRight(value = 1) {
+      if (value > 0) {
         this.coords.x += value;
       }
 
       return this;
     },
-    goLeft(value) {
-      if (value < 0) {
-        return this;
-      }
-
-      if (!value) {
-        this.coords.x--;
-      } else {
+    goLeft(value = 1) {
+      if (value > 0) {
         this.coords.x -= value;
       }
 
       return this;
     },
 
-    goBack(value) {
-      if (value < 0) {
-        return this;
-      }
-
-      if (!value) {
-        this.coords.y--;
-      } else {
+    goBack(value = 1) {
+      if (value > 0) {
         this.coords.y -= value;
       }
 
       return this;
     },
 
-    goForward(value) {
-      if (value < 0) {
-        return this;
-      }
-
-      if (!value) {
-        this.coords.y++;
-      } else {
+    goForward(value = 1) {
+      if (value > 0) {
         this.coords.y += value;
       }
 
@@ -104,8 +79,11 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      return 'name: ' + this.name + ',' + ' chip version: '
-      + this.version + ',' + ' wheels: ' + this.wheels;
+      const infVersion = `chip version: ${this.version},`;
+      const infName = `name: ${this.name},`;
+      const infWhels = `wheels: ${this.wheels}`;
+
+      return `${infName} ${infVersion} ${infWhels}`;
     },
 
     get location() {
