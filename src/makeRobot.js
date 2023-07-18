@@ -48,7 +48,7 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
 
-    goRight(value = 1) {
+    goRight(value) {
       if (value <= 0) {
         return this;
       }
