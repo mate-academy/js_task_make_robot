@@ -38,8 +38,6 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-
-
   const robot = {
     name,
     wheels,
@@ -50,9 +48,8 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      const PART_OF_INFO = `chip version: ${version}, wheels: ${this.wheels}`;
-
-      return `name: ${this.name}, ${PART_OF_INFO}`;
+      return `name: ${this.name}, chip version: ${version},`
+      + ` wheels: ${this.wheels}`;
     },
 
     get location() {
