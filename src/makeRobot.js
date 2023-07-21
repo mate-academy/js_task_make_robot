@@ -48,48 +48,40 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
     get info() {
-      return `name: ${this.name
-      }, chip version: ${this.version
-      }, wheels: ${this.wheels
-      }`;
+      return `name: ${this.name}, chip version: ${this.version}, wheels: ${
+        this.wheels}`;
     },
     get location() {
-      return `${this.name
-      }: x=${this.coords.x
-      }, y=${this.coords.y
-      }`;
+      return `${this.name}: x=${this.coords.x
+      }, y=${this.coords.y}`;
     },
-    goBack(y = 1) {
-      if (y < 0) {
-        return robot;
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
       }
-      this.coords.y = this.coords.y - y;
 
-      return robot;
+      return this;
     },
-    goForward(y = 1) {
-      if (y < 0) {
-        return robot;
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
       }
-      this.coords.y = this.coords.y + y;
 
-      return robot;
+      return this;
     },
-    goLeft(x = 1) {
-      if (x < 0) {
-        return robot;
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
       }
-      this.coords.x = this.coords.x - x;
 
-      return robot;
+      return this;
     },
-    goRight(x = 1) {
-      if (x < 0) {
-        return robot;
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
       }
-      this.coords.x = this.coords.x + x;
 
-      return robot;
+      return this;
     },
     evacuate() {
       this.coords = {
