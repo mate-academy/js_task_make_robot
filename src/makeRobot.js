@@ -17,9 +17,16 @@ function makeRobot(name, wheels, version) {
 
     move(coord = 'y', direction = '+', steps = 1) {
       if (steps > 0) {
-        direction === '+'
-          ? (this.coords[coord] += steps)
-          : (this.coords[coord] -= steps);
+        switch (direction) {
+          case '+':
+            this.coords[coord] += steps;
+            break;
+          case '-':
+            this.coords[coord] -= steps;
+            break;
+          default:
+            throw new Error('Unknown direction');
+        }
       }
     },
 
