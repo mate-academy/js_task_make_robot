@@ -43,7 +43,14 @@ function makeRobot(name, wheels, version) {
     wheels,
     version,
     get info() {
-      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+      // eslint doesn't allow me to run test with templates string syntax,
+      // that why I've used concatination
+      let result = 'name: ' + this.name;
+
+      result += ', chip version: ' + this.version;
+      result += ', wheels: ' + this.wheels;
+
+      return result;
     },
     coords: {
       x: 0,
