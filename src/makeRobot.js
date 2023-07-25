@@ -39,9 +39,9 @@
  */
 function makeRobot(name, wheels, version) {
   const robot = {
-    name: name,
-    wheels: wheels,
-    version: version,
+    name,
+    wheels,
+    version,
     coords: {
       x: 0,
       y: 0,
@@ -57,7 +57,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goRight(x = 1) {
-      if (x < 0) { } else {
+      if (x >= 0) {
         this.coords.x += x;
       }
 
@@ -65,7 +65,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goLeft(x = 1) {
-      if (x < 0) { } else {
+      if (x >= 0) {
         this.coords.x -= x;
       }
 
@@ -73,7 +73,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goBack(y = 1) {
-      if (y < 0) { } else {
+      if (y >= 0) {
         this.coords.y -= y;
       }
 
@@ -81,7 +81,7 @@ function makeRobot(name, wheels, version) {
     },
 
     goForward(y = 1) {
-      if (y < 0) { } else {
+      if (y >= 0) {
         this.coords.y += y;
       }
 
