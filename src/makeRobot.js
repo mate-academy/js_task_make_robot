@@ -38,19 +38,20 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
+  const EVACUATE_X = 1400;
+  const EVACUATE_Y = 500;
+
   return {
     name,
     wheels,
     version,
     get info() {
-      // eslint doesn't allow me to run test with templates string syntax,
-      // that why I've used concatination
-      let result = 'name: ' + this.name;
+      // I've found this soulution, but I don't like the code format.
+      // May you give me an advice?
 
-      result += ', chip version: ' + this.version;
-      result += ', wheels: ' + this.wheels;
-
-      return result;
+      return `name: ${this.name}, \
+chip version: ${this.version}, \
+wheels: ${this.wheels}`;
     },
     coords: {
       x: 0,
@@ -59,46 +60,46 @@ function makeRobot(name, wheels, version) {
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
-    goForward(value = 1) {
-      if (value < 0) {
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
+
         return this;
       }
-
-      this.coords.y += value;
 
       return this;
     },
-    goBack(value = 1) {
-      if (value < 0) {
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
+
         return this;
       }
-
-      this.coords.y -= value;
 
       return this;
     },
-    goRight(value = 1) {
-      if (value < 0) {
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
+
         return this;
       }
-
-      this.coords.x += value;
 
       return this;
     },
-    goLeft(value = 1) {
-      if (value < 0) {
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
+
         return this;
       }
-
-      this.coords.x -= value;
 
       return this;
     },
 
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = EVACUATE_X;
+      this.coords.y = EVACUATE_Y;
     },
   };
 }
