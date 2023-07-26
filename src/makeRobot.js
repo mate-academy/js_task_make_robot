@@ -37,8 +37,74 @@
  *
  * @return {Robot}
  */
+
+function goForward(value = 1) {
+  if (value > 0 && typeof value === 'number') {
+    this.coords.y += value;
+  }
+
+  return this;
+}
+
+function goBack(value = 1) {
+  if (value > 0 && typeof value === 'number') {
+    this.coords.y -= value;
+  }
+
+  return this;
+}
+
+function goLeft(value = 1) {
+  if (value > 0 && typeof value === 'number') {
+    this.coords.x -= value;
+  }
+
+  return this;
+}
+
+function goRight(value = 1) {
+  if (value > 0 && typeof value === 'number') {
+    this.coords.x += value;
+  }
+
+  return this;
+}
+
+function evacuate() {
+  this.coords.x = 1400;
+  this.coords.y = 500;
+}
+
 function makeRobot(name, wheels, version) {
-  // write code here
+  const madeRobot = {
+    name,
+    wheels,
+    version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      const tNam = this.name;
+      const tVer = this.version;
+      const tWhe = this.wheels;
+
+      return `name: ${tNam}, chip version: ${tVer}, wheels: ${tWhe}`;
+    },
+
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+
+    goForward,
+    goBack,
+    goLeft,
+    goRight,
+    evacuate,
+  };
+
+  return madeRobot;
 }
 
 module.exports = makeRobot;
