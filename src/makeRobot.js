@@ -63,8 +63,6 @@ wheels: ${this.wheels}`;
     goForward(step = 1) {
       if (step > 0) {
         this.coords.y += step;
-
-        return this;
       }
 
       return this;
@@ -72,8 +70,6 @@ wheels: ${this.wheels}`;
     goBack(step = 1) {
       if (step > 0) {
         this.coords.y -= step;
-
-        return this;
       }
 
       return this;
@@ -81,8 +77,6 @@ wheels: ${this.wheels}`;
     goRight(step = 1) {
       if (step > 0) {
         this.coords.x += step;
-
-        return this;
       }
 
       return this;
@@ -90,8 +84,6 @@ wheels: ${this.wheels}`;
     goLeft(step = 1) {
       if (step > 0) {
         this.coords.x -= step;
-
-        return this;
       }
 
       return this;
