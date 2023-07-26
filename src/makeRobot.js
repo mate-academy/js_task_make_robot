@@ -37,6 +37,9 @@
  *
  * @return {Robot}
  */
+const EVACUATE_POSITION_X = 1400;
+const EVACUATE_POSITION_Y = 500;
+
 function makeRobot(name, wheels, version) {
   const Robot = {
     name,
@@ -46,45 +49,45 @@ function makeRobot(name, wheels, version) {
       x: 0,
       y: 0,
     },
+
     get info() {
       return `name: ${this.name}, chip version: ${this.version},`
       + ` wheels: ${this.wheels}`;
     },
+
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
-    goForward(n) {
-      this.coords.y += n === undefined
-        ? 1 : n > 0
-          ? n : 0;
+
+    goForward(steps = 1) {
+      this.coords.y += Number(steps) > 0 ? steps : 0;
 
       return this;
     },
-    goBack(n) {
-      this.coords.y -= n === undefined
-        ? 1 : n > 0
-          ? n : 0;
+
+    goBack(steps = 1) {
+      this.coords.y -= Number(steps) > 0 ? steps : 0;
 
       return this;
     },
-    goLeft(n) {
-      this.coords.x -= n === undefined
-        ? 1 : n > 0
-          ? n : 0;
+
+    goLeft(steps = 1) {
+      this.coords.x -= Number(steps) > 0 ? steps : 0;
 
       return this;
     },
-    goRight(n) {
-      this.coords.x += n === undefined
-        ? 1 : n > 0
-          ? n : 0;
+
+    goRight(steps = 1) {
+      this.coords.x += Number(steps) > 0 ? steps : 0;
 
       return this;
     },
+
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = EVACUATE_POSITION_X;
+      this.coords.y = EVACUATE_POSITION_Y;
     },
+
   };
 
   return Robot;
