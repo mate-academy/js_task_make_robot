@@ -47,9 +47,11 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
     get info() {
-      return 'name: ' + this.name
-      + ', chip version: ' + this.version
-      + ', wheels: ' + this.wheels;
+      return (
+        `name: ${this.name}, `
+        + `chip version: ${this.version}, `
+        + `wheels: ${this.wheels}`
+      );
     },
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
@@ -85,10 +87,6 @@ function makeRobot(name, wheels, version) {
     evacuate() {
       this.coords.x = 1400;
       this.coords.y = 500;
-      // eslint-disable-next-line no-console
-      console.warn('Danger! Danger! Evacuating to service center...');
-
-      return this;
     },
   };
 
