@@ -46,12 +46,8 @@ function makeRobot(name, wheels, version) {
     wheels,
     version,
     get info() {
-      // I've found this soulution, but I don't like the code format.
-      // May you give me an advice?
-
-      return `name: ${this.name}, \
-chip version: ${this.version}, \
-wheels: ${this.wheels}`;
+      return `name: ${this.name}, chip version: ${this.version}, `
+      + `wheels: ${this.wheels}`;
     },
     coords: {
       x: 0,
