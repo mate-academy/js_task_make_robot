@@ -84,7 +84,7 @@ function makeRobot(name, wheels, version) {
       const cv = this.version;
       const w = this.wheels;
 
-      return `name: ${n}, chip version:${cv}, wheels: ${w}`;
+      return `name: ${n}, chip version: ${cv}, wheels: ${w}`;
     },
 
     get location() {
