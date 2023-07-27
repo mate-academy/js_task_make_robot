@@ -48,48 +48,43 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      /* eslint max-len: ["error", { "ignoreTemplateLiterals": true }] */
-
-      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+      return `name: ${this.name}, `
+      + `chip version: ${this.version}, `
+      + `wheels: ${this.wheels}`;
     },
 
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(howFar = 1) {
-      if (howFar < 0) {
-        return this;
+    goForward(distance = 1) {
+      if (distance > 0) {
+        this.coords.y += distance;
       }
-      this.coords.y += howFar;
 
       return this;
     },
 
-    goBack(howFar = 1) {
-      if (howFar < 0) {
-        return this;
+    goBack(distance = 1) {
+      if (distance > 0) {
+        this.coords.y -= distance;
       }
-
-      this.coords.y -= howFar;
 
       return this;
     },
 
-    goRight(howFar = 1) {
-      if (howFar < 0) {
-        return this;
+    goRight(distance = 1) {
+      if (distance > 0) {
+        this.coords.x += distance;
       }
-      this.coords.x += howFar;
 
       return this;
     },
 
-    goLeft(howFar = 1) {
-      if (howFar < 0) {
-        return this;
+    goLeft(distance = 1) {
+      if (distance > 0) {
+        this.coords.x -= distance;
       }
-      this.coords.x -= howFar;
 
       return this;
     },
