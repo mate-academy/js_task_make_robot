@@ -58,8 +58,6 @@ function makeRobot(name, wheels, version) {
     goLeft(num = 1) {
       if (num > 0) {
         this.coords.x -= num;
-
-        return this;
       }
 
       return this;
@@ -68,8 +66,6 @@ function makeRobot(name, wheels, version) {
     goRight(num = 1) {
       if (num > 0) {
         this.coords.x += num;
-
-        return this;
       }
 
       return this;
@@ -78,8 +74,6 @@ function makeRobot(name, wheels, version) {
     goForward(num = 1) {
       if (num > 0) {
         this.coords.y += num;
-
-        return this;
       }
 
       return this;
@@ -88,8 +82,6 @@ function makeRobot(name, wheels, version) {
     goBack(num = 1) {
       if (num > 0) {
         this.coords.y -= num;
-
-        return this;
       }
 
       return this;
