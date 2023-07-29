@@ -38,49 +38,55 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  const robot = {
-    name: name,
-    wheels: wheels,
-    version: version,
+  return {
+    name,
+    wheels,
+    version,
     coords: {
-      x: 0, y: 0,
-    }, // Początkowe współrzędne (0, 0)
-    goForward: function(steps = 1) {
-      this.coords.y += steps;
+      x: 0,
+      y: 0,
+    },
+    goForward(steps = 1) {
+      if (steps > 0) {
+        this.coords.y += steps;
+      }
 
       return this;
     },
-    goBack: function(steps = 1) {
-      this.coords.y -= steps;
+    goBack(steps = 1) {
+      if (steps > 0) {
+        this.coords.y -= steps;
+      }
 
       return this;
     },
-    goRight: function(steps = 1) {
-      this.coords.x += steps;
+    goRight(steps = 1) {
+      if (steps > 0) {
+        this.coords.x += steps;
+      }
 
       return this;
     },
-    goLeft: function(steps = 1) {
-      this.coords.x -= steps;
+    goLeft(steps = 1) {
+      if (steps > 0) {
+        this.coords.x -= steps;
+      }
 
       return this;
     },
-    evacuate: function() {
+    evacuate() {
       this.coords.x = 1400;
       this.coords.y = 500;
-
-      return this;
     },
     get info() {
-      return `name: ${this.name}, chip version:`
-        + ` ${this.version}, wheels: ${this.wheels}`;
+      return `name: ${this.name}, `
+      + `chip version: ${this.version}, wheels: ${this.wheels}`;
     },
     get location() {
-      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${this.name}: x=${this.coords.x},`
+      + ` y=${this.coords.y}`;
     },
   };
-
-  return robot;
 }
 
 module.exports = makeRobot;
