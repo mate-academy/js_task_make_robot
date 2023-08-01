@@ -39,6 +39,9 @@
  */
 function makeRobot(name, wheels, version) {
   // write code here
+  const SERVICE_CENTER_COORDINATE_X = 1400;
+  const SERVICE_CENTER_COORDINATE_Y = 500;
+
   const robot = {
     name,
     wheels,
@@ -49,68 +52,37 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      // eslint-disable-next-line
-      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+      return `name: ${this.name}, `
+      + `chip version: ${this.version},`
+      + ` wheels: ${this.wheels}`;
     },
 
-    goForward(value) {
-      if (value <= 0) {
-        return this;
-      }
-
-      if (!value) {
-        this.coords.y += 1;
-      }
-
-      if (value) {
+    goForward(value = 1) {
+      if (value > 0) {
         this.coords.y += value;
       }
 
       return this;
     },
 
-    goBack(value) {
-      if (value <= 0) {
-        return this;
-      }
-
-      if (!value) {
-        this.coords.y -= 1;
-      }
-
-      if (value) {
+    goBack(value = 1) {
+      if (value > 0) {
         this.coords.y -= value;
       }
 
       return this;
     },
 
-    goLeft(value) {
-      if (value <= 0) {
-        return this;
-      }
-
-      if (!value) {
-        this.coords.x -= 1;
-      }
-
-      if (value) {
+    goLeft(value = 1) {
+      if (value > 0) {
         this.coords.x -= value;
       }
 
       return this;
     },
 
-    goRight(value) {
-      if (value <= 0) {
-        return this;
-      }
-
-      if (!value) {
-        this.coords.x += 1;
-      }
-
-      if (value) {
+    goRight(value = 1) {
+      if (value > 0) {
         this.coords.x += value;
       }
 
@@ -118,8 +90,8 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = SERVICE_CENTER_COORDINATE_X;
+      this.coords.y = SERVICE_CENTER_COORDINATE_Y;
     },
 
     get location() {
