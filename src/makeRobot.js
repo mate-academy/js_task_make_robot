@@ -30,15 +30,80 @@
  * @property {number} wheels
  * @property {number} version
  * @property {function} info
- *
- * @param {string} name
- * @param {number} wheels
- * @param {number} version
- *
- * @return {Robot}
- */
+*
+* @param {string} name
+* @param {number} wheels
+* @param {number} version
+*
+* @return {Robot}
+*/
 function makeRobot(name, wheels, version) {
-  // write code here
+  const SERVIVE_CENTER_COORD_X = 1400;
+  const SERVIVE_CENTER_COORD_Y = 500;
+
+  const robot = {
+    name,
+    wheels,
+    version,
+
+    coords: {
+      x: 0,
+      y: 0,
+    },
+
+    get info() {
+      return `name: ${this.name}, `
+      + `chip version: ${this.version}, `
+      + `wheels: ${this.wheels}`;
+    },
+
+    get location() {
+      const robotLocation = `${this.name}: `
+      + `x=${this.coords.x}, `
+      + `y=${this.coords.y}`;
+
+      return robotLocation;
+    },
+
+    goRight(step = 1) {
+      if (step >= 0) {
+        this.coords.x += step;
+      };
+
+      return this;
+    },
+
+    goLeft(step = 1) {
+      if (step >= 0) {
+        this.coords.x -= step;
+      };
+
+      return this;
+    },
+
+    goForward(step = 1) {
+      if (step >= 0) {
+        this.coords.y += step;
+      };
+
+      return this;
+    },
+
+    goBack(step = 1) {
+      if (step >= 0) {
+        this.coords.y -= step;
+      };
+
+      return this;
+    },
+
+    evacuate() {
+      this.coords.x = SERVIVE_CENTER_COORD_X;
+      this.coords.y = SERVIVE_CENTER_COORD_Y;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
