@@ -40,13 +40,14 @@
 function makeRobot(name, wheels, version) {
   const evacuateCoordX = 1400;
   const evacuateCoordY = 500;
+  const startCoord = 0;
   const robot = {
     name,
     wheels,
     version,
     coords: {
-      x: 0,
-      y: 0,
+      x: startCoord,
+      y: startCoord,
     },
 
     get info() {
