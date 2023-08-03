@@ -38,6 +38,9 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
+  const EVACUATED_HORISONTAL_COORD = 1400;
+  const EVACUATED_VERTICAL_COORD = 500;
+
   const robot = {
     name,
     wheels,
@@ -56,41 +59,41 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goRight(x = 1) {
-      if (x > 0) {
-        this.coords.x += x;
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
       }
 
       return this;
     },
 
-    goLeft(x = 1) {
-      if (x > 0) {
-        this.coords.x -= x;
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
       }
 
       return this;
     },
 
-    goBack(y = 1) {
-      if (y > 0) {
-        this.coords.y -= y;
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
       }
 
       return this;
     },
 
-    goForward(y = 1) {
-      if (y > 0) {
-        this.coords.y += y;
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
       }
 
       return this;
     },
 
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = EVACUATED_HORISONTAL_COORD;
+      this.coords.y = EVACUATED_VERTICAL_COORD;
     },
   };
 
