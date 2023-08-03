@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 'use strict';
 
 /**
@@ -39,6 +38,9 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
+  const EVACUATION_COORDS_X = 1400;
+  const EVACUATION_COORDS_Y = 500;
+
   const robot = {
     name,
     wheels,
@@ -47,12 +49,18 @@ function makeRobot(name, wheels, version) {
       x: 0,
       y: 0,
     },
+
     get info() {
-      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+      return (
+        `name: ${this.name},`
+        + ` chip version: ${this.version},`
+        + ` wheels: ${this.wheels}`);
     },
+
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
+
     goForward(step = 1) {
       if (step > 0) {
         this.coords.y += step;
@@ -60,6 +68,7 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
+
     goBack(step = 1) {
       if (step > 0) {
         this.coords.y -= step;
@@ -67,6 +76,7 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
+
     goRight(step = 1) {
       if (step > 0) {
         this.coords.x += step;
@@ -74,6 +84,7 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
+
     goLeft(step = 1) {
       if (step > 0) {
         this.coords.x -= step;
@@ -81,9 +92,10 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
+
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = EVACUATION_COORDS_X;
+      this.coords.y = EVACUATION_COORDS_Y;
     },
   };
 
