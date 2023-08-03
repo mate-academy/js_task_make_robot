@@ -39,9 +39,9 @@
  */
 function makeRobot(name, wheels, version) {
   const robotObj = {
-    name: name,
-    wheels: wheels,
-    version: version,
+    name,
+    wheels,
+    version,
     get info() {
       return `name: ${this.name}, chip version: ${version}, wheels: ${wheels}`;
     },
