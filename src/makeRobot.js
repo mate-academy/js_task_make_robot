@@ -17,7 +17,7 @@
  *  - Movement methods must be able to be used with a chain.
  *    robot.goForward().goForward().goForward().goLeft()
  *  - Default methods that move the work by 1 in the right direction.
- *    This value can be increased by passing the desired number to the method.
+ *    This step can be increased by passing the desired number to the method.
  *    Negative numbers should not affect the location of the robot. goLeft(3)
  *  - The coordinates of the robot must be stored in the object coords,
  *    the keys x and y inside the robot.
@@ -37,8 +37,14 @@
  *
  * @return {Robot}
  */
+
+const SERVICE_CENTER_COORDS = {
+  x: 1400,
+  y: 500,
+};
+
 function makeRobot(name, wheels, version) {
-  const Robot = {
+  const robot = {
     name,
     wheels,
     version,
@@ -56,45 +62,45 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(value = 1) {
-      if (value > 0) {
-        this.coords.y += value;
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
       }
 
       return this;
     },
 
-    goBack(value = 1) {
-      if (value > 0) {
-        this.coords.y -= value;
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
       }
 
       return this;
     },
 
-    goLeft(value = 1) {
-      if (value > 0) {
-        this.coords.x -= value;
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
       }
 
       return this;
     },
 
-    goRight(value = 1) {
-      if (value > 0) {
-        this.coords.x += value;
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
       }
 
       return this;
     },
 
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = SERVICE_CENTER_COORDS.x;
+      this.coords.y = SERVICE_CENTER_COORDS.y;
     },
   };
 
-  return Robot;
+  return robot;
 }
 
 module.exports = makeRobot;
