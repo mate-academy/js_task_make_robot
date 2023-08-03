@@ -13,10 +13,10 @@
  *    robot.info === 'name:%name%, chip version: %version%, wheels: %wheels%'
  *  - Provide the coordinates of your location via getter location.
  *    robot.location === '%name%: x=14, y=21'
- *  - Have methods to move goForward, goBack, goRight, goLeft.
- *  - Movement methods must be able to be used with a chain.
+ *  - Have methods to step goForward, goBack, goRight, goLeft.
+ *  - stepment methods must be able to be used with a chain.
  *    robot.goForward().goForward().goForward().goLeft()
- *  - Default methods that move the work by 1 in the right direction.
+ *  - Default methods that step the work by 1 in the right direction.
  *    This value can be increased by passing the desired number to the method.
  *    Negative numbers should not affect the location of the robot. goLeft(3)
  *  - The coordinates of the robot must be stored in the object coords,
@@ -60,33 +60,33 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(move = 1) {
-      if (move > 0) {
-        this.coords.y += move;
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
       }
 
       return this;
     },
 
-    goBack(move = 1) {
-      if (move > 0) {
-        this.coords.y -= move;
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
       }
 
       return this;
     },
 
-    goRight(move = 1) {
-      if (move > 0) {
-        this.coords.x += move;
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
       }
 
       return this;
     },
 
-    goLeft(move = 1) {
-      if (move > 0) {
-        this.coords.x -= move;
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
       }
 
       return this;
