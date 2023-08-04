@@ -37,6 +37,11 @@ function makeRobot(name, wheels, version) {
       y: 0,
     },
 
+    serviceCenter: {
+      x: 1400,
+      y: 500,
+    },
+
     goForward(y = 1) {
       if (y > 0) {
         this.coords.y += y;
@@ -70,8 +75,8 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = this.serviceCenter.x;
+      this.coords.y = this.serviceCenter.y;
     },
   };
 
