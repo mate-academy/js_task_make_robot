@@ -37,11 +37,10 @@
  *
  * @return {Robot}
  */
-
-const SERVICE_CENTER_CHOORDS_X = 1400;
-const SERVICE_CENTER_CHOORDS_Y = 500;
-
 function makeRobot(name, wheels, version) {
+  const SERVICE_CENTER_CHOORDS_X = 1400;
+  const SERVICE_CENTER_CHOORDS_Y = 500;
+
   const robot = {
     wheels,
     version,
