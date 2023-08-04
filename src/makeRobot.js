@@ -97,7 +97,7 @@ function makeRobot(name, wheels, version) {
     },
   };
 
-  return robot;
+  return robot; // test
 }
 
 module.exports = makeRobot;
