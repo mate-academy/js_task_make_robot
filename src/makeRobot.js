@@ -39,6 +39,9 @@
  */
 
 function makeRobot(name, wheels, version) {
+  const SERVICE_CENTER_X = 1400;
+  const SERVICE_CENTER_Y = 500;
+
   const robot = {
     name,
     wheels,
@@ -60,41 +63,41 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(y = 1) {
-      if (this.isPositive(y)) {
-        this.coords.y += y;
+    goForward(step = 1) {
+      if (this.isPositive(step)) {
+        this.coords.y += step;
       }
 
       return this;
     },
 
-    goBack(y = 1) {
-      if (this.isPositive(y)) {
-        this.coords.y -= y;
+    goBack(step = 1) {
+      if (this.isPositive(step)) {
+        this.coords.y -= step;
       }
 
       return this;
     },
 
-    goRight(x = 1) {
-      if (this.isPositive(x)) {
-        this.coords.x += x;
+    goRight(step = 1) {
+      if (this.isPositive(step)) {
+        this.coords.x += step;
       }
 
       return this;
     },
 
-    goLeft(x = 1) {
-      if (this.isPositive(x)) {
-        this.coords.x -= x;
+    goLeft(step = 1) {
+      if (this.isPositive(step)) {
+        this.coords.x -= step;
       }
 
       return this;
     },
 
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = SERVICE_CENTER_X;
+      this.coords.y = SERVICE_CENTER_Y;
     },
   };
 
