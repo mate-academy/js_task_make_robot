@@ -38,16 +38,16 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  const evacuateCoordX = 1400;
-  const evacuateCoordY = 500;
-  const startCoord = 0;
+  const EVACUATE_COORD_X = 1400;
+  const EVACUATE_COORD_Y = 500;
+  const START_COORD = 0;
   const robot = {
     name,
     wheels,
     version,
     coords: {
-      x: startCoord,
-      y: startCoord,
+      x: START_COORD,
+      y: START_COORD,
     },
 
     get info() {
@@ -93,8 +93,8 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      this.coords.x = evacuateCoordX;
-      this.coords.y = evacuateCoordY;
+      this.coords.x = EVACUATE_COORD_X;
+      this.coords.y = EVACUATE_COORD_Y;
     },
   };
 
