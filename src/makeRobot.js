@@ -38,7 +38,10 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  const robot = {
+  const SERVICE_COORD_X = 1400;
+  const SERVICE_COORD_Y = 500;
+
+  return {
     name,
     wheels,
     version,
@@ -90,15 +93,12 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = SERVICE_COORD_X;
+      this.coords.y = SERVICE_COORD_Y;
 
       return this;
     },
-
   };
-
-  return robot;
 }
 
 module.exports = makeRobot;
