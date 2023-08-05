@@ -39,13 +39,15 @@
  */
 function makeRobot(name, wheels, version) {
   // write code here
+  const SERVICE_CENTER_COORDINATE_X = 1400;
+  const SERVICE_CENTER_COORDINATE_Y = 500;
   const robot = {
     name,
     wheels,
     version,
-
     coords: {
-      x: 0, y: 0,
+      x: 0,
+      y: 0,
     },
 
     get info() {
@@ -90,8 +92,8 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = SERVICE_CENTER_COORDINATE_X;
+      this.coords.y = SERVICE_CENTER_COORDINATE_Y;
 
       return this;
     },
