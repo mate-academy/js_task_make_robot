@@ -21,7 +21,7 @@
  *    robot.goForward().goForward().goForward().goLeft()
 
  *  - Default methods that move the work by 1 in the right direction.
- *    This value can be increased by passing the desired number to the method.
+*    This distance can be increased by passing the desired number to the method.
  *    Negative numbers should not affect the location of the robot. goLeft(3)
  *  - The coordinates of the robot must be stored in the object coords,
  *    the keys x and y inside the robot.
@@ -57,40 +57,42 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+      return `name: ${this.name}, `
+        + `chip version: ${this.version}, `
+        + `wheels: ${this.wheels}`;
     },
 
     get location() {
-      return `${name}: x=${this.coords.x}, y=${this.coords.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(value = 1) {
-      if (value >= 0) {
-        this.coords.y += value;
+    goForward(distance = 1) {
+      if (distance >= 0) {
+        this.coords.y += distance;
       }
 
       return this;
     },
 
-    goBack(value = 1) {
-      if (value >= 0) {
-        this.coords.y -= value;
+    goBack(distance = 1) {
+      if (distance >= 0) {
+        this.coords.y -= distance;
       }
 
       return this;
     },
 
-    goRight(value = 1) {
-      if (value >= 0) {
-        this.coords.x += value;
+    goRight(distance = 1) {
+      if (distance >= 0) {
+        this.coords.x += distance;
       }
 
       return this;
     },
 
-    goLeft(value = 1) {
-      if (value >= 0) {
-        this.coords.x -= value;
+    goLeft(distance = 1) {
+      if (distance >= 0) {
+        this.coords.x -= distance;
       }
 
       return this;
