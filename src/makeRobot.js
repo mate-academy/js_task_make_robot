@@ -38,7 +38,6 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
   const robot = {
     name,
     wheels,
@@ -49,74 +48,51 @@ function makeRobot(name, wheels, version) {
     },
 
     get info() {
-      // eslint-disable-next-line max-len
-      return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+      return `name: ${this.name}, `
+      + `chip version: ${this.version}, `
+      + `wheels: ${this.wheels}`;
     },
 
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(step) {
+    goForward(step = 1) {
       if (step < 0) {
         return this;
       }
 
-      if (step) {
-        this.coords.y += step;
-
-        return this;
-      }
-
-      this.coords.y++;
+      this.coords.y += step;
 
       return this;
     },
 
-    goBack(step) {
+    goBack(step = 1) {
       if (step < 0) {
         return this;
       }
 
-      if (step) {
-        this.coords.y -= step;
-
-        return this;
-      }
-
-      this.coords.y--;
+      this.coords.y -= step;
 
       return this;
     },
 
-    goRight(step) {
+    goRight(step = 1) {
       if (step < 0) {
         return this;
       }
 
-      if (step) {
-        this.coords.x += step;
-
-        return this;
-      }
-
-      this.coords.x++;
+      this.coords.x += step;
 
       return this;
     },
 
-    goLeft(step) {
+    goLeft(step = 1) {
       if (step < 0) {
         return this;
       }
 
-      if (step) {
-        this.coords.x -= step;
-
-        return this;
-      }
-
-      this.coords.x--;
+      this.coords.x -= step;
 
       return this;
     },
