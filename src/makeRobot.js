@@ -81,13 +81,9 @@ function makeRobot(name, wheels, version) {
 
       return this;
     },
-    evacuate() {
-      const serviceCenterCoords = {
-        x: 1400, y: 500,
-      };
-
-      this.coords.x = serviceCenterCoords.x;
-      this.coords.y = serviceCenterCoords.y;
+    evacuate(serviceCenterX = 1400, serviceCenterY = 500) {
+      this.coords.x = serviceCenterX;
+      this.coords.y = serviceCenterY;
     },
   };
 }
