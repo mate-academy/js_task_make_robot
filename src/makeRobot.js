@@ -37,6 +37,10 @@
  *
  * @return {Robot}
  */
+
+const EVACUATION_COORDS_X = 1400;
+const EVACUATION_COORDS_Y = 500;
+
 function makeRobot(name, wheels, version) {
   const robot = {
     name,
@@ -49,13 +53,13 @@ function makeRobot(name, wheels, version) {
 
     get info() {
       return (
-        `name: ${name}, chip version: ${version}, wheels: ${wheels}`
+        `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`
       );
     },
 
     get location() {
       return (
-        `${name}: x=${this.coords.x}, y=${this.coords.y}`
+        `${this.name}: x=${this.coords.x}, y=${this.coords.y}`
       );
     },
 
@@ -92,8 +96,8 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      this.coords.x = 1400;
-      this.coords.y = 500;
+      this.coords.x = EVACUATION_COORDS_X;
+      this.coords.y = EVACUATION_COORDS_Y;
 
       return this;
     },
