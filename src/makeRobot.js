@@ -38,7 +38,7 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  const ROBOT_STEP = 1;
+  const DEFAULT_ROBOT_STEP = 1;
   const ROBOT_EVACUATE_COORDINATS_X = 1400;
   const ROBOT_EVACUATE_COORDINATS_Y = 500;
 
@@ -58,28 +58,28 @@ function makeRobot(name, wheels, version) {
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
-    goForward(step = ROBOT_STEP) {
+    goForward(step = DEFAULT_ROBOT_STEP) {
       if (step > 0) {
         this.coords.y += step;
       }
 
       return this;
     },
-    goBack(step = ROBOT_STEP) {
+    goBack(step = DEFAULT_ROBOT_STEP) {
       if (step > 0) {
         this.coords.y -= step;
       }
 
       return this;
     },
-    goRight(step = ROBOT_STEP) {
+    goRight(step = DEFAULT_ROBOT_STEP) {
       if (step > 0) {
         this.coords.x += step;
       }
 
       return this;
     },
-    goLeft(step = ROBOT_STEP) {
+    goLeft(step = DEFAULT_ROBOT_STEP) {
       if (step > 0) {
         this.coords.x -= step;
       }
