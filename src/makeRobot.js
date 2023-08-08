@@ -46,20 +46,22 @@ function makeRobot(name, wheels, version) {
     version,
     wheels,
     coords: {
-      x: 0, y: 0,
+      x: 0,
+      y: 0,
     },
 
     get info() {
-      return `name: ${name}, chip version: ${version
-      }, wheels: ${wheels}`;
+      return `name: ${name}, `
+      + `chip version: ${version}, `
+      + `wheels: ${wheels}`;
     },
 
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
-    goForward(value) {
-      this.coords.y += this.calcStep(value);
+    goForward(step) {
+      this.coords.y += this.calcStep(step);
 
       return this;
     },
@@ -87,8 +89,8 @@ function makeRobot(name, wheels, version) {
       this.coords.y = EVACUATE_Y;
     },
 
-    calcStep(value = 1) {
-      return value > 0 ? value : 0;
+    calcStep(step = 1) {
+      return step > 0 ? step : 0;
     },
   };
 
