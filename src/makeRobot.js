@@ -38,11 +38,14 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
+  const serviceCenter = {
+    x: 1400, y: 500,
+  };
+
   return {
     name,
     wheels,
     version,
-
     coords: {
       x: 0,
       y: 0,
@@ -90,10 +93,6 @@ function makeRobot(name, wheels, version) {
     },
 
     evacuate() {
-      const serviceCenter = {
-        x: 1400, y: 500,
-      };
-
       this.coords.x = serviceCenter.x;
       this.coords.y = serviceCenter.y;
     },
