@@ -51,7 +51,7 @@ function makeRobot(name, wheels, version) {
       if (times < 0) {
         return this;
       }
-      this.coords.x = this.coords.x + 1 * times;
+      this.coords.x += times;
 
       return this;
     },
@@ -59,7 +59,7 @@ function makeRobot(name, wheels, version) {
       if (times < 0) {
         return this;
       }
-      this.coords.x = this.coords.x - 1 * times;
+      this.coords.x -= times;
 
       return this;
     },
@@ -67,7 +67,7 @@ function makeRobot(name, wheels, version) {
       if (times < 0) {
         return this;
       }
-      this.coords.y = this.coords.y - 1 * times;
+      this.coords.y -= times;
 
       return this;
     },
@@ -75,12 +75,12 @@ function makeRobot(name, wheels, version) {
       if (times < 0) {
         return this;
       }
-      this.coords.y = this.coords.y + 1 * times;
+      this.coords.y += times;
 
       return this;
     },
 
-    'coords': {
+    coords: {
       x: 0,
       y: 0,
     },
