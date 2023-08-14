@@ -38,6 +38,8 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
+  const COORDINATES_X = 1400;
+  const COORDINATES_Y = 500;
   const robot = {
     name,
     wheels,
@@ -54,44 +56,43 @@ function makeRobot(name, wheels, version) {
     get location() {
       return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
-  };
 
-  const move = (axis, step) => {
-    robot.coords[axis] += step;
-  };
+    goForward(step = 1) {
+      if (step > 0) {
+        this.coords.y += step;
+      }
 
-  // check if step is not negative
-  const checkStep = (step) => {
-    return step < 0 ? 0 : step;
-  };
+      return this;
+    },
 
-  robot.evacuate = () => {
-    robot.coords.x = 1400;
-    robot.coords.y = 500;
-  };
+    goBack(step = 1) {
+      if (step > 0) {
+        this.coords.y -= step;
+      }
 
-  robot.goForward = (step = 1) => {
-    move('y', checkStep(step));
+      return this;
+    },
 
-    return robot;
-  };
+    goRight(step = 1) {
+      if (step > 0) {
+        this.coords.x += step;
+      }
 
-  robot.goBack = (step = 1) => {
-    move('y', -checkStep(step));
+      return this;
+    },
 
-    return robot;
-  };
+    goLeft(step = 1) {
+      if (step > 0) {
+        this.coords.x -= step;
+      }
 
-  robot.goRight = (step = 1) => {
-    move('x', checkStep(step));
+      return this;
+    },
 
-    return robot;
-  };
-
-  robot.goLeft = (step = 1) => {
-    move('x', -checkStep(step));
-
-    return robot;
+    evacuate() {
+      this.coords.x = COORDINATES_X;
+      this.coords.y = COORDINATES_Y;
+    },
   };
 
   return robot;
