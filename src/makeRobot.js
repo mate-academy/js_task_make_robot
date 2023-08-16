@@ -57,7 +57,7 @@ function makeRobot(name, wheels, version) {
     },
 
     isPositiveNumber(move) {
-      return !isNaN(move) && move > 0;
+      return typeof move === 'number' && move > 0;
     },
 
     goForward(move = 1) {
