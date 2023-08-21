@@ -45,6 +45,10 @@ function makeRobot(name, wheels, version) {
     goBack: goBack,
     evacuate: evacuate,
 
+    name,
+    wheels,
+    version,
+
     coords: {
       'x': 0,
       'y': 0,
@@ -59,10 +63,6 @@ function makeRobot(name, wheels, version) {
       return `${this.name}: x=${robot.coords['x']}, y=${robot.coords['y']}`;
     },
   };
-
-  robot.name = name;
-  robot.wheels = wheels;
-  robot.version = version;
 
   function goRight(step = 1) {
     if (step < 0) {
