@@ -11,7 +11,7 @@
  * The robot coming off the assembly line must be able to:
  *  - Provide information about yourself through getter info.
  *    robot.info === 'name:%name%, chip version: %version%, wheels: %wheels%'
- *  - Provide the coordinates of your location via getter location.
+ *  - Provide the coords of your location via getter location.
  *    robot.location === '%name%: x=14, y=21'
  *  - Have methods to move goForward, goBack, goRight, goLeft.
  *  - Movement methods must be able to be used with a chain.
@@ -19,11 +19,11 @@
  *  - Default methods that move the work by 1 in the right direction.
  *    This value can be increased by passing the desired number to the method.
  *    Negative numbers should not affect the location of the robot. goLeft(3)
- *  - The coordinates of the robot must be stored in the object coords,
+ *  - The coords of the robot must be stored in the object coords,
  *    the keys x and y inside the robot.
  *  - The robot must be able to request the evacuation of robot.evacuate(),
  *    which will call rescuers and transfer it to the service center
- *    at the coordinates x: 1400, y: 500.
+ *    at the coords x: 1400, y: 500.
  *
  * @typedef {object} Robot
  * @property {string} name
@@ -45,7 +45,7 @@ function makeRobot(name, wheels, version) {
     name,
     version,
     wheels,
-    coordinates: {
+    coords: {
       x: 0,
       y: 0,
     },
@@ -59,20 +59,20 @@ function makeRobot(name, wheels, version) {
     },
 
     get location() {
-      return `${this.name}: x=${this.coordinates.x}, y=${this.coordinates.y}`;
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
     },
 
     goForward(value = 1) {
       if (value > 0) {
-        this.coordinates.y += value;
+        this.coords.y += value;
       };
 
       return this;
     },
 
-    goBackward(value = 1) {
+    goBack(value = 1) {
       if (value > 0) {
-        this.coordinates.y -= value;
+        this.coords.y -= value;
       };
 
       return this;
@@ -80,7 +80,7 @@ function makeRobot(name, wheels, version) {
 
     goRight(value = 1) {
       if (value > 0) {
-        this.coordinates.x += value;
+        this.coords.x += value;
       };
 
       return this;
@@ -88,7 +88,7 @@ function makeRobot(name, wheels, version) {
 
     goLeft(value = 1) {
       if (value > 0) {
-        this.coordinates.x -= value;
+        this.coords.x -= value;
       }
 
       return this;
