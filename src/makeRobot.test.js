@@ -180,7 +180,7 @@ describe('sum', () => {
     expect(actual).toBe(expected);
   });
 
-  it('Robot\'s moves must be able to pass step value', function() {
+  it('Robot\'s moves must be able to pass value value', function() {
     const robot = makeRobot('Joy', 5, 31);
 
     robot.goBack(1).goForward(17).goForward(-1).goLeft(3).goLeft(7).goRight();
