@@ -4,7 +4,7 @@
  * Mate Robot Factory impressed by your success, they are ready to accept
  * you into the Tech team, you will learn to program robots together
  * with the team! Are you in business As a test task, you will need to
- * program our equipment that makes robots.
+ * program our equipment that mafkes robots.
  *
  * Create a makeRobot function that takes the string name and the number
  * wheels, version and returns the robot object.
