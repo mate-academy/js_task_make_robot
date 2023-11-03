@@ -67,6 +67,7 @@ function makeRobot(name, wheels, version) {
       }
 
       return this;
+      
     },
     goRight(steps = 1) {
       if (steps > 0) {
@@ -86,7 +87,6 @@ function makeRobot(name, wheels, version) {
       this.coords.x = 1400;
       this.coords.y = 500;
 
-      return this;
     },
 
   };
