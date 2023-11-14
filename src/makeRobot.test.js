@@ -7,7 +7,8 @@ describe('sum', () => {
   it('You should return created robot in your function', function() {
     const robot = makeRobot('Joy', 5, 31);
 
-    expect(robot).toBeInstanceOf(Object);
+    expect(robot).toBeInstanceOf
+      (Object);
   });
 
   it('Robot must be able to give info', function() {
