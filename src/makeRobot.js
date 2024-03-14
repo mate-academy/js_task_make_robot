@@ -13,7 +13,7 @@
  *    robot.info === 'name:%name%, chip version: %version%, wheels: %wheels%'
  *  - Provide the coordinates of your location via getter location.
  *    robot.location === '%name%: x=14, y=21'
- *  - Have methods to move goForward, goBack, goRight, goLeft.
+ *  - Have methods to move goForward, goBack, goRight,  goLeft.
  *  - Movement methods must be able to be used with a chain.
  *    robot.goForward().goForward().goForward().goLeft()
  *  - Default methods that move the work by 1 in the right direction.
@@ -38,7 +38,59 @@
  * @return {Robot}
  */
 function makeRobot(name, wheels, version) {
-  // write code here
+  const robot = {
+    name: name,
+    wheels: wheels,
+    version: version,
+    coords: {
+      x: 0,
+      y: 0,
+    },
+    get info() {
+      return `name: ${name}, chip version: ${version}, wheels: ${wheels}`;
+    },
+    get location() {
+      return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+    },
+    goRight(value = 1) {
+      if (value < 0) {
+        return this;
+      }
+      this.coords.x += value;
+
+      return this;
+    },
+    goLeft(value = 1) {
+      if (value < 0) {
+        return this;
+      }
+      this.coords.x -= value;
+
+      return this;
+    },
+    goBack(value = 1) {
+      if (value < 0) {
+        return this;
+      }
+      robot.coords.y -= value;
+
+      return this;
+    },
+    goForward(value = 1) {
+      if (value < 0) {
+        return this;
+      }
+      this.coords.y += value;
+
+      return this;
+    },
+    evacuate() {
+      this.coords.x = 1400;
+      this.coords.y = 500;
+    },
+  };
+
+  return robot;
 }
 
 module.exports = makeRobot;
